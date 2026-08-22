@@ -119,10 +119,10 @@
      BACKGROUNDS
      ---------------------------------------------------------- */
 
-  --bg-body: #FFFFFF;
+  --bg-body: #F9FBFD;
   --bg-surface: #FFFFFF;
-  --bg-surface-soft: #F8FAFC;
-  --bg-surface-muted: #F1F5F9;
+  --bg-surface-soft: #F5F8FC;
+  --bg-surface-muted: #EEF3F8;
   --bg-primary: var(--brand-navy-700);
   --bg-primary-dark: var(--brand-navy-900);
   --bg-accent: var(--brand-accent-50);
@@ -226,18 +226,18 @@
 
   /* Font sizes */
 
-  --fs-xs: 0.75rem;
-  --fs-sm: 0.875rem;
-  --fs-base: 1rem;
-  --fs-md: 1.0625rem;
-  --fs-lg: 1.125rem;
-  --fs-xl: 1.25rem;
-  --fs-2xl: 1.5rem;
-  --fs-3xl: 1.875rem;
-  --fs-4xl: 2.25rem;
-  --fs-5xl: 3rem;
-  --fs-6xl: 3.75rem;
-  --fs-7xl: 4.5rem;
+  --fs-xs: 0.8125rem;   /* 13px */
+  --fs-sm: 0.9375rem;   /* 15px */
+  --fs-base: 1.0625rem; /* 17px */
+  --fs-md: 1.125rem;    /* 18px */
+  --fs-lg: 1.1875rem;   /* 19px */
+  --fs-xl: 1.3125rem;   /* 21px */
+  --fs-2xl: 1.5rem;     /* 24px */
+  --fs-3xl: 1.875rem;   /* 30px */
+  --fs-4xl: 2.25rem;    /* 36px */
+  --fs-5xl: 3rem;       /* 48px */
+  --fs-6xl: 3.75rem;    /* 60px */
+  --fs-7xl: 4.5rem;     /* 72px */
 
   /* Fluid typography */
 
@@ -245,10 +245,10 @@
     clamp(2.5rem, 5vw, 4.75rem);
 
   --text-h1:
-    clamp(2.25rem, 4vw, 4rem);
+    clamp(2.375rem, 4.2vw, 4rem);
 
   --text-h2:
-    clamp(1.875rem, 3vw, 3rem);
+    clamp(2rem, 3vw, 3rem);
 
   --text-h3:
     clamp(1.5rem, 2vw, 2.125rem);
@@ -301,10 +301,10 @@
   /* Fluid section spacing */
 
   --section-space:
-    clamp(4rem, 6vw, 7rem);
+    clamp(4rem, 5vw, 6rem);
 
   --section-space-sm:
-    clamp(3rem, 6vw, 5rem);
+    clamp(3rem, 4vw, 4.5rem);
 
   /* ----------------------------------------------------------
      LAYOUT
@@ -319,7 +319,7 @@
   --container-wide: 1440px;
 
   --container-padding:
-    clamp(1rem, 3vw, 2rem);
+    clamp(1.25rem, 3vw, 2rem);
 
   --content-max-width: 760px;
 
@@ -695,7 +695,7 @@ h6,
 }
 
 .text-accent {
-  color: var(--brand-yellow-600);
+  color: var(--brand-accent-600);
 }
 
 .font-normal {
@@ -1025,7 +1025,7 @@ a:focus-visible {
 .btn-sm {
   min-height: var(--button-height-sm);
   padding-inline: 1rem;
-  font-size: var(--fs-xs);
+  font-size: 0.875rem;
 }
 
 .btn-lg {
@@ -1299,7 +1299,7 @@ a:focus-visible {
 .card:hover {
   transform: translateY(-3px);
   border-color: var(--brand-navy-200);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-md);
 }
 
 .card-body {
@@ -1718,7 +1718,7 @@ a:focus-visible {
 .navbar-brand img {
   display: block;
   width: auto;
-  height: 58px;
+  height: 54px;
   object-fit: contain;
 }
 
@@ -1738,7 +1738,7 @@ a:focus-visible {
 
   color: var(--text-primary);
 
-  font-size: var(--fs-sm);
+  font-size: 1rem;
   font-weight: 600;
 
   transition:
@@ -1839,8 +1839,9 @@ a:focus-visible {
 }
 
 .footer-description {
-  color: rgba(255, 255, 255, 0.68);
+  color: rgba(255, 255, 255, 0.74);
   line-height: var(--lh-relaxed);
+  font-size: 1rem;
 }
 
 .footer-title {
@@ -1848,7 +1849,7 @@ a:focus-visible {
 
   color: #FFFFFF;
 
-  font-size: var(--fs-sm);
+  font-size: 1rem;
   font-weight: 700;
 
   text-transform: uppercase;
@@ -1862,7 +1863,8 @@ a:focus-visible {
 }
 
 .footer-links a {
-  color: rgba(255, 255, 255, 0.68);
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 0.9375rem;
 }
 
 .footer-links a:hover {
@@ -1877,7 +1879,7 @@ a:focus-visible {
 
   color: rgba(255, 255, 255, 0.55);
 
-  font-size: var(--fs-xs);
+  font-size: 0.8125rem;
 }
 
 .footer-bottom-inner {
@@ -1897,8 +1899,7 @@ a:focus-visible {
   position: relative;
   isolation: isolate;
 
-  min-height: min(760px, 90vh);
-  min-height: min(760px, 90svh);
+  min-height: min(680px, 82svh);
 
   display: flex;
   align-items: center;
