@@ -103,115 +103,167 @@ document.addEventListener("DOMContentLoaded", () => {
      Controls the custom play button and video overlay.
      ========================================================== */
 
-  const video = document.querySelector(
-    "#physician-video"
-  );
-
-  const videoOverlay = document.querySelector(
-    "#video-overlay"
-  );
-
-  const videoPlay = document.querySelector(
-    "#video-play"
-  );
+const video = document.querySelector("#physician-video");
+const videoOverlay = document.querySelector("#video-overlay");
+const videoPlay = document.querySelector("#video-play");
 
 
-  if (video && videoOverlay && videoPlay) {
+if (video && videoOverlay && videoPlay) {
 
-    /* Hide the custom overlay */
+  /* --------------------------------------------------------
+     Hide custom overlay
+     -------------------------------------------------------- */
 
-    const hideOverlay = () => {
+  const hideOverlay = () => {
 
-      videoOverlay.classList.add(
-        "is-hidden"
-      );
+    videoOverlay.classList.add("is-hidden");
 
-    };
-
-
-    /* Show the custom overlay */
-
-    const showOverlay = () => {
-
-      videoOverlay.classList.remove(
-        "is-hidden"
-      );
-
-    };
+  };
 
 
-    /* Custom play button */
+  /* --------------------------------------------------------
+     Show custom overlay
+     -------------------------------------------------------- */
 
-    videoPlay.addEventListener(
-      "click",
-      async () => {
+  const showOverlay = () => {
 
-        try {
+    videoOverlay.classList.remove("is-hidden");
 
-          if (video.paused) {
-
-            await video.play();
-
-          } else {
-
-            video.pause();
-
-          }
-
-        } catch (error) {
-
-          console.warn(
-            "The physician video could not be started.",
-            error
-          );
-
-        }
-
-      }
-    );
+  };
 
 
-    /* When video starts playing */
+  /* --------------------------------------------------------
+     Custom Play Button
+     -------------------------------------------------------- */
 
-    video.addEventListener(
-      "play",
-      hideOverlay
-    );
+  videoPlay.addEventListener("click", (event) => {
+
+    event.preventDefault();
+
+    event.stopPropagation();
 
 
-    /* When video is paused */
+    if (video.paused) {
 
-    video.addEventListener(
-      "pause",
-      () => {
+      const playPromise = video.play();
 
-        /*
-         * Don't immediately show the overlay if the video
-         * has not actually started yet.
-         */
 
-        if (
-          video.currentTime > 0 &&
-          !video.ended
-        ) {
+      if (playPromise !== undefined) {
 
-          showOverlay();
+        playPromise
+          .then(() => {
 
-        }
+            hideOverlay();
+
+          })
+          .catch((error) => {
+
+            console.error(
+              "Video playback failed:",
+              error
+            );
+
+            console.error(
+              "Video source:",
+              video.currentSrc
+            );
+
+          });
 
       }
-    );
+
+    } else {
+
+      video.pause();
+
+    }
+
+  });
 
 
-    /* When video finishes */
+  /* --------------------------------------------------------
+     Video started playing
+     -------------------------------------------------------- */
 
-    video.addEventListener(
-      "ended",
-      showOverlay
-    );
+  video.addEventListener(
+    "playing",
+    hideOverlay
+  );
 
-  }
 
+  /* --------------------------------------------------------
+     Video paused
+     -------------------------------------------------------- */
+
+  video.addEventListener(
+    "pause",
+    () => {
+
+      if (
+        video.currentTime > 0 &&
+        !video.ended
+      ) {
+
+        showOverlay();
+
+      }
+
+    }
+  );
+
+
+  /* --------------------------------------------------------
+     Video ended
+     -------------------------------------------------------- */
+
+  video.addEventListener(
+    "ended",
+    showOverlay
+  );
+
+
+  /* --------------------------------------------------------
+     Video loading error
+     
+     This is extremely useful for diagnosing incorrect
+     file paths or unsupported media.
+     -------------------------------------------------------- */
+
+  video.addEventListener(
+    "error",
+    () => {
+
+      console.error(
+        "VIDEO ERROR:",
+        video.error
+      );
+
+      console.error(
+        "VIDEO SOURCE:",
+        video.currentSrc
+      );
+
+    }
+  );
+
+
+  /* --------------------------------------------------------
+     Source loaded successfully
+     -------------------------------------------------------- */
+
+  video.addEventListener(
+    "loadedmetadata",
+    () => {
+
+      console.log(
+        "Physician video loaded successfully:",
+        video.currentSrc
+      );
+
+    }
+  );
+
+}
 
   /* ==========================================================
      04. SCROLL REVEAL ANIMATIONS
