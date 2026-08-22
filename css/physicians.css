@@ -58,28 +58,22 @@
 .physician-credentials strong { display:block; margin-bottom:.2rem; color:#fff; font-size:1rem; }
 .physician-credentials span { display:block; color:rgba(255,255,255,.55); font-size:.75rem; line-height:1.45; }
 
-/* Portrait slot: intentionally uses a real-photo placeholder until the approved portrait is added. */
+/* Real physician portrait */
 .physician-portrait-shell { min-width:0; }
-.physician-portrait-placeholder {
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  min-height:560px;
-  padding:3rem;
-  text-align:center;
-  background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.035));
+.physician-portrait {
+  display:block;
+  width:100%;
+  max-width:620px;
+  aspect-ratio:1 / 1;
+  margin-inline:auto;
+  object-fit:cover;
+  object-position:center;
   border:1px solid rgba(255,255,255,.16);
   border-radius:var(--radius-2xl);
   box-shadow:0 30px 70px rgba(0,0,0,.28);
 }
-.physician-portrait-placeholder-mark { display:grid; place-items:center; width:96px; height:96px; margin-bottom:1.5rem; color:var(--brand-accent-300); background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.14); border-radius:50%; }
-.physician-portrait-placeholder-kicker { margin-bottom:.5rem; color:var(--brand-accent-300); font-size:var(--fs-xs); font-weight:800; letter-spacing:var(--tracking-caps); text-transform:uppercase; }
-.physician-portrait-placeholder strong { color:#fff; font-size:1.2rem; }
-.physician-portrait-placeholder p { max-width:340px; margin:.75rem 0 0; color:rgba(255,255,255,.58); font-size:.85rem; line-height:1.6; }
-.physician-portrait-placeholder code { color:rgba(255,255,255,.78); }
 
-/* Dedicated video section gives the video its own visual hierarchy and breathing room. */
+/* Dedicated video section */
 .physician-video-section { background:var(--bg-surface-soft); }
 .physician-video-heading { max-width:780px; margin:0 auto 2.75rem; text-align:center; }
 .physician-video-heading h2 { margin-bottom:.85rem; font-size:var(--text-h2); line-height:1.08; }
@@ -131,7 +125,6 @@
 @media (max-width: 900px) {
   .physician-hero-inner { grid-template-columns:1fr; }
   .physician-portrait-shell { max-width:620px; width:100%; margin-inline:auto; }
-  .physician-portrait-placeholder { min-height:420px; }
   .physician-introduction-grid,.physician-training-grid { grid-template-columns:1fr; gap:3rem; }
   .physician-training-intro { position:static; }
 }
@@ -142,7 +135,6 @@
   .physician-credentials { grid-template-columns:1fr; }
   .physician-credentials > div,.physician-credentials > div + div { padding:1rem 0; border-right:0; border-bottom:1px solid rgba(255,255,255,.12); }
   .physician-credentials > div:last-child { border-bottom:0; }
-  .physician-portrait-placeholder { min-height:360px; padding:2rem 1.25rem; }
   .physician-video-overlay { padding:1.25rem; }
   .physician-video-play { width:64px; height:64px; border-width:5px; }
   .physician-philosophy-card { grid-template-columns:1fr; }
