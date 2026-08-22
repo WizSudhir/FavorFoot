@@ -39,41 +39,41 @@
      BRAND COLORS
      ---------------------------------------------------------- */
 
-  --brand-navy-950: #020A2B;
-  --brand-navy-900: #061044;
-  --brand-navy-800: #07165C;
-  --brand-navy-700: #0A1F78;
-  --brand-navy-600: #102C96;
-  --brand-navy-500: #183DB5;
-  --brand-navy-400: #3B5FD0;
-  --brand-navy-300: #6C88E0;
-  --brand-navy-200: #A8B8EF;
-  --brand-navy-100: #DDE4FA;
-  --brand-navy-50:  #F2F5FF;
+  --brand-navy-950: #080B2E;
+  --brand-navy-900: #0D1248;
+  --brand-navy-800: #141A63;
+  --brand-navy-700: #1B2178;
+  --brand-navy-600: #222487;
+  --brand-navy-500: #30359A;
+  --brand-navy-400: #4B51B2;
+  --brand-navy-300: #7378C9;
+  --brand-navy-200: #A8ABE0;
+  --brand-navy-100: #D9DBF4;
+  --brand-navy-50:  #F1F2FC;
 
-  /* Logo-inspired yellow */
-  --brand-yellow-900: #6E6500;
-  --brand-yellow-800: #9B9000;
-  --brand-yellow-700: #C4B800;
-  --brand-yellow-600: #D8CC00;
-  --brand-yellow-500: #E9DE00;
-  --brand-yellow-400: #F3E700;
-  --brand-yellow-300: #F7ED4B;
-  --brand-yellow-200: #FAF49A;
-  --brand-yellow-100: #FCF9CF;
-  --brand-yellow-50:  #FFFEEF;
+  /* Brand accent */
+  --brand-accent-900: #20246F;
+  --brand-accent-800: #2A2F86;
+  --brand-accent-700: #353A9C;
+  --brand-accent-600: #4147AE;
+  --brand-accent-500: #4D53BE;
+  --brand-accent-400: #6268C8;
+  --brand-accent-300: #858AD8;
+  --brand-accent-200: #B0B3E5;
+  --brand-accent-100: #D9DAF3;
+  --brand-accent-50:  #F1F2FC;
 
   /* ----------------------------------------------------------
      PRIMARY BRAND ALIASES
      ---------------------------------------------------------- */
 
-  --color-primary: var(--brand-navy-700);
-  --color-primary-hover: var(--brand-navy-800);
-  --color-primary-active: var(--brand-navy-900);
+  --color-primary: var(--brand-navy-600);
+  --color-primary-hover: var(--brand-navy-700);
+  --color-primary-active: var(--brand-navy-800);
 
-  --color-accent: var(--brand-yellow-500);
-  --color-accent-hover: var(--brand-yellow-400);
-  --color-accent-active: var(--brand-yellow-600);
+  --color-accent: var(--brand-accent-500);
+  --color-accent-hover: var(--brand-accent-600);
+  --color-accent-active: var(--brand-accent-700);
 
   --color-secondary: var(--brand-navy-500);
 
@@ -125,7 +125,7 @@
   --bg-surface-muted: #F1F5F9;
   --bg-primary: var(--brand-navy-700);
   --bg-primary-dark: var(--brand-navy-900);
-  --bg-accent: var(--brand-yellow-500);
+  --bg-accent: var(--brand-accent-50);
 
   /* ----------------------------------------------------------
      TEXT
@@ -138,7 +138,7 @@
 
   --text-on-primary: #FFFFFF;
   --text-on-dark: #FFFFFF;
-  --text-on-accent: #111827;
+  --text-on-accent: #FFFFFF;
 
   /* ----------------------------------------------------------
      BORDERS
@@ -149,7 +149,7 @@
   --border-color-strong: #CBD5E1;
 
   --border-primary: rgba(10, 31, 120, 0.18);
-  --border-accent: rgba(233, 222, 0, 0.45);
+  --border-accent: rgba(77, 83, 190, 0.28);
   --border-white: rgba(255, 255, 255, 0.22);
 
   /* ----------------------------------------------------------
@@ -174,8 +174,8 @@
   --gradient-accent:
     linear-gradient(
       135deg,
-      var(--brand-yellow-600),
-      var(--brand-yellow-400)
+      var(--brand-accent-600),
+      var(--brand-accent-400)
     );
 
   --gradient-medical:
@@ -191,7 +191,7 @@
       var(--brand-navy-950),
       var(--brand-navy-800)
     );
-
+ color-scheme: light;
   /* ----------------------------------------------------------
      TYPOGRAPHY
      ---------------------------------------------------------- */
@@ -301,7 +301,7 @@
   /* Fluid section spacing */
 
   --section-space:
-    clamp(4rem, 8vw, 8rem);
+    clamp(4rem, 6vw, 7rem);
 
   --section-space-sm:
     clamp(3rem, 6vw, 5rem);
@@ -314,7 +314,7 @@
   --container-sm: 640px;
   --container-md: 768px;
   --container-lg: 1024px;
-  --container-xl: 1200px;
+  --container-xl: 1240px;
   --container-2xl: 1320px;
   --container-wide: 1440px;
 
@@ -369,7 +369,7 @@
     0 12px 30px rgba(10, 31, 120, 0.20);
 
   --shadow-accent:
-    0 12px 30px rgba(233, 222, 0, 0.22);
+    0 12px 30px rgba(77, 83, 190, 0.22);
 
   /* ----------------------------------------------------------
      GLASS
@@ -460,8 +460,8 @@
      ---------------------------------------------------------- */
 
   --focus-ring:
-    0 0 0 3px rgba(233, 222, 0, 0.65),
-    0 0 0 6px rgba(10, 31, 120, 0.30);
+    0 0 0 3px rgba(77, 83, 190, 0.55),
+    0 0 0 6px rgba(34, 36, 135, 0.24);
 
   /* ----------------------------------------------------------
      MOTION
@@ -506,7 +506,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body,
@@ -585,7 +585,7 @@ h5,
 h6 {
   color: var(--text-primary);
   font-family: var(--font-heading);
-  font-weight: 750;
+  font-weight: 700;
   line-height: var(--lh-tight);
   letter-spacing: var(--tracking-tight);
   text-wrap: balance;
@@ -838,7 +838,7 @@ h6,
 }
 
 .section-accent {
-  background: var(--brand-yellow-50);
+  background: var(--brand-accent-50);
 }
 
 .section-divider {
@@ -886,15 +886,15 @@ a:focus-visible {
 }
 
 .link-light:hover {
-  color: var(--brand-yellow-300);
+  color: var(--brand-accent-300);
 }
 
 .link-accent {
-  color: var(--brand-yellow-600);
+  color: var(--brand-accent-600);
 }
 
 .link-accent:hover {
-  color: var(--brand-yellow-700);
+  color: var(--brand-accent-700);
 }
 
 
@@ -970,15 +970,16 @@ a:focus-visible {
 /* Accent */
 
 .btn-accent {
-  color: var(--text-on-accent);
-  background: var(--brand-yellow-500);
-  border-color: var(--brand-yellow-500);
+  color: #FFFFFF;
+  background: var(--brand-accent-500);
+  border-color: var(--brand-accent-500);
   box-shadow: var(--shadow-accent);
 }
 
 .btn-accent:hover {
-  color: var(--text-on-accent);
-  background: var(--brand-yellow-400);
+  color: #FFFFFF;
+  background: var(--brand-accent-600);
+  border-color: var(--brand-accent-600);
 }
 
 /* Outline */
@@ -1121,7 +1122,7 @@ a:focus-visible {
 .form-label {
   color: var(--text-primary);
   font-size: var(--fs-sm);
-  font-weight: 650;
+  font-weight: 600;
 }
 
 .form-help {
@@ -1150,6 +1151,8 @@ a:focus-visible {
     border-color var(--transition-fast),
     box-shadow var(--transition-fast),
     background-color var(--transition-fast);
+    appearance: none;
+    -webkit-appearance: none;
 }
 
 .form-control,
@@ -1294,7 +1297,7 @@ a:focus-visible {
 }
 
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   border-color: var(--brand-navy-200);
   box-shadow: var(--shadow-lg);
 }
@@ -1314,8 +1317,8 @@ a:focus-visible {
 }
 
 .card-accent {
-  background: var(--brand-yellow-50);
-  border-color: var(--brand-yellow-200);
+  background: var(--brand-accent-50);
+  border-color: var(--brand-accent-200);
 }
 
 
@@ -1736,7 +1739,7 @@ a:focus-visible {
   color: var(--text-primary);
 
   font-size: var(--fs-sm);
-  font-weight: 650;
+  font-weight: 600;
 
   transition:
     color var(--transition-fast);
@@ -1752,7 +1755,7 @@ a:focus-visible {
   width: 0;
   height: 2px;
 
-  background: var(--brand-yellow-500);
+  background: var(--brand-accent-500);
 
   transition: width var(--transition-base);
 }
@@ -1846,7 +1849,7 @@ a:focus-visible {
   color: #FFFFFF;
 
   font-size: var(--fs-sm);
-  font-weight: 750;
+  font-weight: 700;
 
   text-transform: uppercase;
   letter-spacing: var(--tracking-wider);
@@ -1863,7 +1866,7 @@ a:focus-visible {
 }
 
 .footer-links a:hover {
-  color: var(--brand-yellow-300);
+  color: var(--brand-accent-300);
 }
 
 .footer-bottom {
@@ -1957,7 +1960,7 @@ a:focus-visible {
 
   margin-bottom: var(--space-5);
 
-  color: var(--brand-yellow-300);
+  color: var(--brand-accent-300);
 
   font-size: var(--fs-sm);
   font-weight: 750;
@@ -2000,8 +2003,8 @@ a:focus-visible {
 }
 
 .badge-accent {
-  color: var(--text-on-accent);
-  background: var(--brand-yellow-300);
+  color: var(--brand-accent-800);
+  background: var(--brand-accent-100);
 }
 
 .badge-success {
@@ -2280,7 +2283,7 @@ button,
 }
 
 .bg-accent {
-  background: var(--brand-yellow-500);
+  background: var(--brand-accent-500);
 }
 
 .bg-gradient-primary {
@@ -2574,7 +2577,7 @@ button,
 
   .btn-primary,
   .btn-accent {
-    forced-color-adjust: none;
+    forced-color-adjust: auto;
   }
 }
 
@@ -2619,7 +2622,7 @@ button,
     text-decoration: underline;
   }
 
-  a[href]::after {
+  a[href^="http"]::after {
     content: " (" attr(href) ")";
     font-size: 0.8em;
   }
