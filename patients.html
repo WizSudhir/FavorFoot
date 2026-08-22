@@ -1,198 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- =====================================================
+         CORE META
+         ===================================================== -->
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#07165C">
+    <meta name="color-scheme" content="light">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <!-- =====================================================
+         SEO
+         ===================================================== -->
+    <title>Patient Resources | Favor Foot & Ankle Leg & Wound Center</title>
+    <meta name="description" content="Patient resources for Favor Foot & Ankle Leg & Wound Center, including appointments, patient forms, insurance and billing information, visit preparation, patient portal access, FAQs and foot care resources.">
+    <meta name="keywords" content="patient resources, patient forms, podiatry appointment, podiatry insurance, foot care, diabetic foot care, Favor Foot & Ankle Leg & Wound Center">
+    <meta name="author" content="Favor Foot & Ankle Leg & Wound Center">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://wizsudhir.github.io/FavorFoot/patients.html">
 
-    <title>Patient Resources | Dr. Wells Podiatry</title>
+    <!-- =====================================================
+         OPEN GRAPH
+         ===================================================== -->
+    <meta property="og:title" content="Patient Resources | Favor Foot & Ankle Leg & Wound Center">
+    <meta property="og:description" content="Access appointments, patient forms, insurance information, visit preparation, patient portal access and helpful foot care resources.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wizsudhir.github.io/FavorFoot/patients.html">
+    <meta property="og:image" content="https://wizsudhir.github.io/FavorFoot/images/og-image.jpg">
+    <meta property="og:image:alt" content="Favor Foot & Ankle Leg & Wound Center Patient Resources">
+    <meta property="og:site_name" content="Favor Foot & Ankle Leg & Wound Center">
 
-    <meta name="description"
-          content="Access patient forms, appointment information, insurance and billing resources, patient portal access, and helpful foot care information from Dr. Wells.">
+    <!-- =====================================================
+         TWITTER / SOCIAL
+         ===================================================== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Patient Resources | Favor Foot & Ankle Leg & Wound Center">
+    <meta name="twitter:description" content="Helpful patient resources for appointments, forms, insurance, foot care and more.">
+    <meta name="twitter:image" content="https://wizsudhir.github.io/FavorFoot/images/og-image.jpg">
 
-    <meta name="robots" content="index, follow">
+    <!-- =====================================================
+         FAVICON
+         ===================================================== -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
-    <link rel="canonical" href="/patients.html">
-
-    <!-- Google Fonts -->
+    <!-- =====================================================
+         RESOURCE HINTS
+         ===================================================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap"
-          rel="stylesheet">
+    <!-- =====================================================
+         GOOGLE FONT
+         ===================================================== -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Main patient page stylesheet -->
+    <!-- =====================================================
+         GLOBAL + PAGE STYLES
+         root.css MUST LOAD FIRST
+         ===================================================== -->
+    <link rel="stylesheet" href="css/root.css">
     <link rel="stylesheet" href="css/patients.css">
+
+    <!-- =====================================================
+         GLOBAL LIBRARIES / JS
+         ===================================================== -->
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="js/root.js" defer></script>
+    <script src="js/patients.js" defer></script>
 </head>
 
 <body>
 
 <!-- =========================================================
-     HEADER
-========================================================= -->
+     ACCESSIBILITY
+     ========================================================= -->
+<a href="#main-content" class="skip-link">
+    Skip to main content
+</a>
 
-<header class="site-header" id="siteHeader">
 
-    <div class="container nav-container">
+<!-- =========================================================
+     HEADER / NAVBAR
+     IDENTICAL STRUCTURE TO INDEX.HTML
+     ========================================================= -->
+<header class="site-header" id="site-header">
 
-        <a href="index.html" class="brand" aria-label="Dr. Wells Podiatry Home">
+    <nav class="navbar" id="main-navbar" aria-label="Primary navigation">
 
-            <span class="brand-mark">
-                DW
-            </span>
+        <div class="container">
 
-            <span class="brand-text">
-                <strong>Dr. Wells</strong>
-                <small>Podiatry</small>
-            </span>
+            <div class="navbar-inner">
 
-        </a>
+                <!-- LOGO -->
+                <a href="index.html"
+                   class="navbar-brand"
+                   aria-label="Favor Foot & Ankle Leg & Wound Center Home">
 
-        <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+                    <img
+                        src="images/logo.webp"
+                        alt="Favor Foot & Ankle Leg & Wound Center"
+                        width="350"
+                        height="350"
+                    >
 
-            <a href="index.html">Home</a>
-            <a href="services.html">Services</a>
-            <a href="conditions.html">Conditions</a>
-            <a href="patients.html" class="active">Patients</a>
-            <a href="contact.html">Contact</a>
+                </a>
 
-        </nav>
 
-        <div class="nav-actions">
+                <!-- DESKTOP NAVIGATION -->
+                <div class="navbar-nav" id="primary-navigation">
 
-            <a href="tel:+10000000000"
-               class="nav-phone">
-                Call Office
-            </a>
+                    <a href="index.html"
+                       class="navbar-link">
+                        Home
+                    </a>
 
-            <a href="appointment.html"
-               class="btn btn-primary btn-small">
-                Schedule
-            </a>
+                    <a href="physicians.html"
+                       class="navbar-link">
+                        Physicians
+                    </a>
 
-            <button class="mobile-menu-btn"
-                    id="mobileMenuBtn"
-                    aria-label="Open navigation"
-                    aria-expanded="false">
+                    <a href="services.html"
+                       class="navbar-link">
+                        Services
+                    </a>
 
-                <span></span>
-                <span></span>
-                <span></span>
+                    <a href="patients.html"
+                       class="navbar-link active"
+                       aria-current="page">
+                        Patients
+                    </a>
 
-            </button>
+                    <a href="blog.html"
+                       class="navbar-link">
+                        Blog
+                    </a>
+
+                    <a href="contact.html"
+                       class="navbar-link">
+                        Contact Us
+                    </a>
+
+                </div>
+
+
+                <!-- NAV ACTIONS -->
+                <div class="navbar-actions">
+
+                    <a href="tel:+19292074669"
+                       class="navbar-phone">
+
+                        <i data-lucide="phone"
+                           aria-hidden="true"></i>
+
+                        <span>
+                            Call Us
+                        </span>
+
+                    </a>
+
+                    <a href="contact.html"
+                       class="btn btn-accent navbar-cta">
+
+                        Schedule Appointment
+
+                    </a>
+
+
+                    <!-- MOBILE MENU -->
+                    <button
+                        class="navbar-toggle"
+                        id="navbar-toggle"
+                        type="button"
+                        aria-label="Open navigation menu"
+                        aria-controls="primary-navigation"
+                        aria-expanded="false">
+
+                        <i data-lucide="menu"
+                           class="navbar-toggle-open"
+                           aria-hidden="true"></i>
+
+                        <i data-lucide="x"
+                           class="navbar-toggle-close"
+                           aria-hidden="true"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
 
         </div>
 
-    </div>
+    </nav>
 
 </header>
 
 
-<main>
+<!-- =========================================================
+     MAIN
+     ========================================================= -->
+<main id="main-content">
+
 
 <!-- =========================================================
      1. HERO
-========================================================= -->
+     ========================================================= -->
+<section class="patients-hero"
+         id="patients-hero"
+         aria-labelledby="patients-hero-title">
 
-<section class="patient-hero">
+    <div class="patients-hero__orb patients-hero__orb--one"
+         aria-hidden="true"></div>
 
-    <div class="hero-glow hero-glow-one"></div>
-    <div class="hero-glow hero-glow-two"></div>
+    <div class="patients-hero__orb patients-hero__orb--two"
+         aria-hidden="true"></div>
 
-    <div class="container hero-container">
 
-        <div class="hero-content reveal">
+    <div class="container">
 
-            <div class="eyebrow">
-                <span class="eyebrow-dot"></span>
-                PATIENT RESOURCES
-            </div>
+        <div class="patients-hero__grid">
 
-            <h1>
-                Your Care
-                <span>Starts Here.</span>
-            </h1>
+            <div class="patients-hero__content"
+                 data-reveal>
 
-            <p class="hero-description">
-                Everything you need before, during, and after
-                your visit with Dr. Wells — all in one place.
-            </p>
-
-            <div class="hero-actions">
-
-                <a href="appointment.html"
-                   class="btn btn-primary btn-large">
-
-                    Schedule an Appointment
-
-                    <span class="btn-arrow">→</span>
-
-                </a>
-
-                <a href="#quick-access"
-                   class="btn btn-secondary btn-large">
-
+                <span class="section-eyebrow">
                     Patient Resources
+                </span>
 
-                </a>
+                <h1 id="patients-hero-title">
+                    Your Care
+                    <span class="text-brand">
+                        Starts Here.
+                    </span>
+                </h1>
+
+                <p class="patients-hero__description">
+                    Everything you need before, during, and after
+                    your visit with Favor Foot & Ankle Leg & Wound Center —
+                    all in one place.
+                </p>
+
+
+                <div class="patients-hero__actions">
+
+                    <a href="contact.html"
+                       class="btn btn-accent btn-lg">
+
+                        <i data-lucide="calendar-check"
+                           aria-hidden="true"></i>
+
+                        Schedule an Appointment
+
+                    </a>
+
+                    <a href="#quick-access"
+                       class="btn btn-outline btn-lg">
+
+                        <i data-lucide="layout-grid"
+                           aria-hidden="true"></i>
+
+                        Patient Resources
+
+                    </a>
+
+                </div>
+
+
+                <div class="patients-hero__trust">
+
+                    <div class="patients-trust-item">
+
+                        <i data-lucide="check-circle-2"
+                           aria-hidden="true"></i>
+
+                        <span>
+                            Easy Access
+                        </span>
+
+                    </div>
+
+                    <span class="patients-trust-divider"
+                          aria-hidden="true"></span>
+
+                    <div class="patients-trust-item">
+
+                        <i data-lucide="clipboard-check"
+                           aria-hidden="true"></i>
+
+                        <span>
+                            Patient Resources
+                        </span>
+
+                    </div>
+
+                    <span class="patients-trust-divider"
+                          aria-hidden="true"></span>
+
+                    <div class="patients-trust-item">
+
+                        <i data-lucide="circle-help"
+                           aria-hidden="true"></i>
+
+                        <span>
+                            Helpful Information
+                        </span>
+
+                    </div>
+
+                </div>
 
             </div>
 
-            <div class="hero-trust">
 
-                <div class="trust-item">
-                    <span class="trust-icon">✓</span>
-                    Easy Access
-                </div>
+            <!-- PATIENT CENTER DASHBOARD -->
+            <div class="patients-dashboard"
+                 data-reveal>
 
-                <div class="trust-item">
-                    <span class="trust-icon">✓</span>
-                    Patient Resources
-                </div>
-
-                <div class="trust-item">
-                    <span class="trust-icon">✓</span>
-                    Helpful Information
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="hero-visual reveal reveal-delay">
-
-            <div class="patient-dashboard">
-
-                <div class="dashboard-header">
+                <div class="patients-dashboard__header">
 
                     <div>
-                        <span class="dashboard-label">
+
+                        <span class="patients-dashboard__label">
                             PATIENT CENTER
                         </span>
 
-                        <h3>
+                        <h2>
                             How can we help?
-                        </h3>
+                        </h2>
+
                     </div>
 
-                    <div class="dashboard-status">
-                        <span></span>
-                        Online
-                    </div>
+                    <span class="patients-dashboard__status">
+
+                        <span aria-hidden="true"></span>
+
+                        Patient Resources
+
+                    </span>
 
                 </div>
 
 
-                <div class="dashboard-grid">
+                <div class="patients-dashboard__grid">
 
-                    <a href="appointment.html"
-                       class="dashboard-card">
+                    <a href="contact.html"
+                       class="patients-dashboard__card">
 
-                        <span class="dashboard-icon">📅</span>
+                        <span class="patients-dashboard__icon">
+                            <i data-lucide="calendar-days"
+                               aria-hidden="true"></i>
+                        </span>
 
-                        <strong>Appointments</strong>
+                        <strong>
+                            Appointments
+                        </strong>
 
                         <small>
                             Schedule your visit
@@ -202,11 +365,16 @@
 
 
                     <a href="#forms"
-                       class="dashboard-card">
+                       class="patients-dashboard__card">
 
-                        <span class="dashboard-icon">📝</span>
+                        <span class="patients-dashboard__icon">
+                            <i data-lucide="file-pen-line"
+                               aria-hidden="true"></i>
+                        </span>
 
-                        <strong>Patient Forms</strong>
+                        <strong>
+                            Patient Forms
+                        </strong>
 
                         <small>
                             Complete your paperwork
@@ -216,11 +384,16 @@
 
 
                     <a href="#insurance"
-                       class="dashboard-card">
+                       class="patients-dashboard__card">
 
-                        <span class="dashboard-icon">💳</span>
+                        <span class="patients-dashboard__icon">
+                            <i data-lucide="credit-card"
+                               aria-hidden="true"></i>
+                        </span>
 
-                        <strong>Insurance</strong>
+                        <strong>
+                            Insurance
+                        </strong>
 
                         <small>
                             Coverage & billing
@@ -230,11 +403,16 @@
 
 
                     <a href="#resources"
-                       class="dashboard-card">
+                       class="patients-dashboard__card">
 
-                        <span class="dashboard-icon">👣</span>
+                        <span class="patients-dashboard__icon">
+                            <i data-lucide="footprints"
+                               aria-hidden="true"></i>
+                        </span>
 
-                        <strong>Foot Care</strong>
+                        <strong>
+                            Foot Care
+                        </strong>
 
                         <small>
                             Helpful resources
@@ -244,14 +422,17 @@
 
                 </div>
 
-                <div class="dashboard-footer">
+
+                <div class="patients-dashboard__footer">
 
                     <span>
                         Need assistance?
                     </span>
 
-                    <a href="tel:+10000000000">
-                        Contact our office →
+                    <a href="tel:+19292074669">
+                        Contact our office
+                        <i data-lucide="arrow-right"
+                           aria-hidden="true"></i>
                     </a>
 
                 </div>
@@ -267,23 +448,25 @@
 
 <!-- =========================================================
      2. QUICK ACCESS
-========================================================= -->
-
-<section class="section quick-access"
-         id="quick-access">
+     ========================================================= -->
+<section class="section patients-quick"
+         id="quick-access"
+         aria-labelledby="quick-access-title">
 
     <div class="container">
 
-        <div class="section-heading centered reveal">
+        <div class="section-heading text-center patients-section-heading"
+             data-reveal>
 
-            <div class="eyebrow">
-                <span class="eyebrow-dot"></span>
-                PATIENT CENTER
-            </div>
+            <span class="section-eyebrow">
+                Patient Center
+            </span>
 
-            <h2>
+            <h2 id="quick-access-title">
                 Everything You Need,
-                <span>Right at Your Fingertips.</span>
+                <span class="text-brand">
+                    Right at Your Fingertips.
+                </span>
             </h2>
 
             <p>
@@ -294,20 +477,23 @@
         </div>
 
 
-        <div class="quick-grid">
+        <div class="patients-quick__grid">
 
-            <!-- Appointment -->
+            <!-- APPOINTMENT -->
+            <a href="contact.html"
+               class="patient-action-card patient-action-card--featured"
+               data-reveal>
 
-            <a href="appointment.html"
-               class="quick-card quick-card-primary reveal">
+                <div class="patient-action-card__top">
 
-                <div class="quick-card-top">
+                    <span class="patient-action-card__icon">
+                        <i data-lucide="calendar-check"
+                           aria-hidden="true"></i>
+                    </span>
 
-                    <div class="quick-icon">
-                        📅
-                    </div>
-
-                    <span class="card-arrow">↗</span>
+                    <i data-lucide="arrow-up-right"
+                       class="patient-action-card__arrow"
+                       aria-hidden="true"></i>
 
                 </div>
 
@@ -320,25 +506,30 @@
                     podiatry visit.
                 </p>
 
-                <span class="card-link">
-                    Schedule Now →
+                <span class="patient-action-card__link">
+                    Schedule Now
+                    <i data-lucide="arrow-right"
+                       aria-hidden="true"></i>
                 </span>
 
             </a>
 
 
-            <!-- Forms -->
-
+            <!-- FORMS -->
             <a href="#forms"
-               class="quick-card reveal">
+               class="patient-action-card"
+               data-reveal>
 
-                <div class="quick-card-top">
+                <div class="patient-action-card__top">
 
-                    <div class="quick-icon">
-                        📝
-                    </div>
+                    <span class="patient-action-card__icon">
+                        <i data-lucide="file-text"
+                           aria-hidden="true"></i>
+                    </span>
 
-                    <span class="card-arrow">↗</span>
+                    <i data-lucide="arrow-up-right"
+                       class="patient-action-card__arrow"
+                       aria-hidden="true"></i>
 
                 </div>
 
@@ -351,25 +542,30 @@
                     your appointment.
                 </p>
 
-                <span class="card-link">
-                    View Forms →
+                <span class="patient-action-card__link">
+                    View Forms
+                    <i data-lucide="arrow-right"
+                       aria-hidden="true"></i>
                 </span>
 
             </a>
 
 
-            <!-- Portal -->
-
+            <!-- PORTAL -->
             <a href="#portal"
-               class="quick-card reveal">
+               class="patient-action-card"
+               data-reveal>
 
-                <div class="quick-card-top">
+                <div class="patient-action-card__top">
 
-                    <div class="quick-icon">
-                        🔐
-                    </div>
+                    <span class="patient-action-card__icon">
+                        <i data-lucide="shield-check"
+                           aria-hidden="true"></i>
+                    </span>
 
-                    <span class="card-arrow">↗</span>
+                    <i data-lucide="arrow-up-right"
+                       class="patient-action-card__arrow"
+                       aria-hidden="true"></i>
 
                 </div>
 
@@ -382,25 +578,30 @@
                     and manage your care.
                 </p>
 
-                <span class="card-link">
-                    Access Portal →
+                <span class="patient-action-card__link">
+                    Access Portal
+                    <i data-lucide="arrow-right"
+                       aria-hidden="true"></i>
                 </span>
 
             </a>
 
 
-            <!-- Insurance -->
-
+            <!-- INSURANCE -->
             <a href="#insurance"
-               class="quick-card reveal">
+               class="patient-action-card"
+               data-reveal>
 
-                <div class="quick-card-top">
+                <div class="patient-action-card__top">
 
-                    <div class="quick-icon">
-                        💳
-                    </div>
+                    <span class="patient-action-card__icon">
+                        <i data-lucide="credit-card"
+                           aria-hidden="true"></i>
+                    </span>
 
-                    <span class="card-arrow">↗</span>
+                    <i data-lucide="arrow-up-right"
+                       class="patient-action-card__arrow"
+                       aria-hidden="true"></i>
 
                 </div>
 
@@ -413,25 +614,30 @@
                     payments, and billing.
                 </p>
 
-                <span class="card-link">
-                    Learn More →
+                <span class="patient-action-card__link">
+                    Learn More
+                    <i data-lucide="arrow-right"
+                       aria-hidden="true"></i>
                 </span>
 
             </a>
 
 
-            <!-- Prepare -->
-
+            <!-- PREPARE -->
             <a href="#prepare"
-               class="quick-card reveal">
+               class="patient-action-card"
+               data-reveal>
 
-                <div class="quick-card-top">
+                <div class="patient-action-card__top">
 
-                    <div class="quick-icon">
-                        👣
-                    </div>
+                    <span class="patient-action-card__icon">
+                        <i data-lucide="clipboard-check"
+                           aria-hidden="true"></i>
+                    </span>
 
-                    <span class="card-arrow">↗</span>
+                    <i data-lucide="arrow-up-right"
+                       class="patient-action-card__arrow"
+                       aria-hidden="true"></i>
 
                 </div>
 
@@ -444,25 +650,30 @@
                     to expect at your appointment.
                 </p>
 
-                <span class="card-link">
-                    Prepare →
+                <span class="patient-action-card__link">
+                    Prepare
+                    <i data-lucide="arrow-right"
+                       aria-hidden="true"></i>
                 </span>
 
             </a>
 
 
             <!-- FAQ -->
-
             <a href="#faq"
-               class="quick-card reveal">
+               class="patient-action-card"
+               data-reveal>
 
-                <div class="quick-card-top">
+                <div class="patient-action-card__top">
 
-                    <div class="quick-icon">
-                        ❓
-                    </div>
+                    <span class="patient-action-card__icon">
+                        <i data-lucide="circle-help"
+                           aria-hidden="true"></i>
+                    </span>
 
-                    <span class="card-arrow">↗</span>
+                    <i data-lucide="arrow-up-right"
+                       class="patient-action-card__arrow"
+                       aria-hidden="true"></i>
 
                 </div>
 
@@ -475,8 +686,10 @@
                     from our patients.
                 </p>
 
-                <span class="card-link">
-                    View FAQs →
+                <span class="patient-action-card__link">
+                    View FAQs
+                    <i data-lucide="arrow-right"
+                       aria-hidden="true"></i>
                 </span>
 
             </a>
@@ -489,43 +702,46 @@
 
 
 <!-- =========================================================
-     3. NEW PATIENTS
-========================================================= -->
-
-<section class="section new-patients"
-         id="forms">
+     3. NEW PATIENTS / VISIT PREPARATION
+     ========================================================= -->
+<section class="section patients-new"
+         id="forms"
+         aria-labelledby="new-patients-title">
 
     <div class="container">
 
-        <div class="new-patient-layout">
+        <div class="patients-new__grid">
 
-            <div class="new-patient-content reveal">
+            <div class="patients-new__content"
+                 data-reveal>
 
-                <div class="eyebrow">
-                    <span class="eyebrow-dot"></span>
-                    NEW PATIENTS
-                </div>
+                <span class="section-eyebrow">
+                    New Patients
+                </span>
 
-                <h2>
+                <h2 id="new-patients-title">
                     New to Our
-                    <span>Practice?</span>
+                    <span class="text-brand">
+                        Practice?
+                    </span>
                 </h2>
 
-                <p>
+                <p class="patients-new__lead">
                     We're here to make your first visit
                     as simple and comfortable as possible.
                 </p>
 
 
-                <div class="visit-steps">
+                <div class="patients-steps">
 
-                    <div class="visit-step">
+                    <div class="patients-step">
 
-                        <div class="step-number">
+                        <span class="patients-step__number">
                             01
-                        </div>
+                        </span>
 
                         <div>
+
                             <h3>
                                 Complete Your Forms
                             </h3>
@@ -534,18 +750,20 @@
                                 Submit your patient paperwork
                                 before your appointment.
                             </p>
+
                         </div>
 
                     </div>
 
 
-                    <div class="visit-step">
+                    <div class="patients-step">
 
-                        <div class="step-number">
+                        <span class="patients-step__number">
                             02
-                        </div>
+                        </span>
 
                         <div>
+
                             <h3>
                                 Bring Your Information
                             </h3>
@@ -554,26 +772,29 @@
                                 Bring your photo ID, insurance
                                 card, medications, and relevant records.
                             </p>
+
                         </div>
 
                     </div>
 
 
-                    <div class="visit-step">
+                    <div class="patients-step">
 
-                        <div class="step-number">
+                        <span class="patients-step__number">
                             03
-                        </div>
+                        </span>
 
                         <div>
+
                             <h3>
-                                Meet With Dr. Wells
+                                Meet With Your Care Team
                             </h3>
 
                             <p>
                                 We'll evaluate your concerns
-                                and discuss appropriate treatment options.
+                                and discuss appropriate care options.
                             </p>
+
                         </div>
 
                     </div>
@@ -584,76 +805,117 @@
                 <a href="#"
                    class="btn btn-primary">
 
+                    <i data-lucide="file-pen-line"
+                       aria-hidden="true"></i>
+
                     Complete Patient Forms
 
-                    <span class="btn-arrow">→</span>
+                    <i data-lucide="arrow-right"
+                       aria-hidden="true"></i>
 
                 </a>
 
             </div>
 
 
-            <div class="visit-card reveal reveal-delay">
+            <!-- WHAT TO BRING -->
+            <div class="visit-prep-card"
+                 id="prepare"
+                 data-reveal>
 
-                <div class="visit-card-header">
+                <div class="visit-prep-card__header">
 
-                    <span class="visit-card-label">
-                        YOUR FIRST VISIT
-                    </span>
+                    <div>
 
-                    <span class="visit-card-icon">
-                        👣
+                        <span class="visit-prep-card__eyebrow">
+                            YOUR FIRST VISIT
+                        </span>
+
+                        <h3>
+                            What should I bring?
+                        </h3>
+
+                    </div>
+
+                    <span class="visit-prep-card__icon">
+                        <i data-lucide="briefcase-medical"
+                           aria-hidden="true"></i>
                     </span>
 
                 </div>
 
-                <h3>
-                    What should I bring?
-                </h3>
 
-                <ul class="check-list">
+                <ul class="visit-prep-list">
 
                     <li>
-                        <span>✓</span>
+                        <span>
+                            <i data-lucide="check"
+                               aria-hidden="true"></i>
+                        </span>
                         Photo identification
                     </li>
 
                     <li>
-                        <span>✓</span>
+                        <span>
+                            <i data-lucide="check"
+                               aria-hidden="true"></i>
+                        </span>
                         Insurance card
                     </li>
 
                     <li>
-                        <span>✓</span>
+                        <span>
+                            <i data-lucide="check"
+                               aria-hidden="true"></i>
+                        </span>
                         Current medication list
                     </li>
 
                     <li>
-                        <span>✓</span>
+                        <span>
+                            <i data-lucide="check"
+                               aria-hidden="true"></i>
+                        </span>
                         Relevant medical records
                     </li>
 
                     <li>
-                        <span>✓</span>
+                        <span>
+                            <i data-lucide="check"
+                               aria-hidden="true"></i>
+                        </span>
                         Recent imaging or reports
                     </li>
 
                     <li>
-                        <span>✓</span>
+                        <span>
+                            <i data-lucide="check"
+                               aria-hidden="true"></i>
+                        </span>
                         Comfortable footwear
                     </li>
 
                 </ul>
 
-                <div class="visit-note">
 
-                    <strong>Helpful tip</strong>
+                <div class="visit-prep-card__tip">
 
-                    <p>
-                        If you're being seen for foot or
-                        ankle pain, consider bringing the
-                        shoes you wear most often.
-                    </p>
+                    <i data-lucide="lightbulb"
+                       aria-hidden="true"></i>
+
+                    <div>
+
+                        <strong>
+                            Helpful tip
+                        </strong>
+
+                        <p>
+                            If you're being seen for foot or ankle
+                            pain, consider bringing the shoes you
+                            wear most often.
+                        </p>
+
+                    </div>
 
                 </div>
 
@@ -668,23 +930,25 @@
 
 <!-- =========================================================
      4. INSURANCE & BILLING
-========================================================= -->
-
-<section class="section insurance-section"
-         id="insurance">
+     ========================================================= -->
+<section class="section patients-insurance"
+         id="insurance"
+         aria-labelledby="insurance-title">
 
     <div class="container">
 
-        <div class="section-heading reveal">
+        <div class="section-heading patients-section-heading"
+             data-reveal>
 
-            <div class="eyebrow">
-                <span class="eyebrow-dot"></span>
-                INSURANCE & BILLING
-            </div>
+            <span class="section-eyebrow">
+                Insurance & Billing
+            </span>
 
-            <h2>
+            <h2 id="insurance-title">
                 Understanding Your
-                <span>Coverage.</span>
+                <span class="text-brand">
+                    Coverage.
+                </span>
             </h2>
 
             <p>
@@ -695,13 +959,15 @@
         </div>
 
 
-        <div class="insurance-grid">
+        <div class="patients-insurance__grid">
 
-            <div class="insurance-main reveal">
+            <div class="insurance-info-card"
+                 data-reveal>
 
-                <div class="insurance-icon">
-                    💳
-                </div>
+                <span class="insurance-info-card__icon">
+                    <i data-lucide="wallet-cards"
+                       aria-hidden="true"></i>
+                </span>
 
                 <h3>
                     Insurance Coverage
@@ -721,75 +987,95 @@
                 </p>
 
                 <a href="contact.html"
-                   class="text-link">
-                    Contact Our Office →
+                   class="link link-underline">
+
+                    Contact Our Office
+
+                    <i data-lucide="arrow-right"
+                       aria-hidden="true"></i>
+
                 </a>
 
             </div>
 
 
-            <div class="billing-options reveal reveal-delay">
+            <div class="insurance-links"
+                 data-reveal>
 
-                <a href="#" class="billing-card">
+                <a href="#"
+                   class="insurance-link-card">
 
-                    <span class="billing-icon">
-                        🏥
+                    <span class="insurance-link-card__icon">
+                        <i data-lucide="building-2"
+                           aria-hidden="true"></i>
                     </span>
 
-                    <div>
-                        <h3>
+                    <span class="insurance-link-card__content">
+
+                        <strong>
                             Accepted Insurance
-                        </h3>
+                        </strong>
 
-                        <p>
+                        <small>
                             Review available insurance information.
-                        </p>
-                    </div>
+                        </small>
 
-                    <span>→</span>
+                    </span>
+
+                    <i data-lucide="arrow-up-right"
+                       aria-hidden="true"></i>
 
                 </a>
 
 
-                <a href="#" class="billing-card">
+                <a href="#"
+                   class="insurance-link-card">
 
-                    <span class="billing-icon">
-                        💰
+                    <span class="insurance-link-card__icon">
+                        <i data-lucide="badge-dollar-sign"
+                           aria-hidden="true"></i>
                     </span>
 
-                    <div>
-                        <h3>
+                    <span class="insurance-link-card__content">
+
+                        <strong>
                             Payment Information
-                        </h3>
+                        </strong>
 
-                        <p>
+                        <small>
                             Learn about patient payments and balances.
-                        </p>
-                    </div>
+                        </small>
 
-                    <span>→</span>
+                    </span>
+
+                    <i data-lucide="arrow-up-right"
+                       aria-hidden="true"></i>
 
                 </a>
 
 
                 <a href="contact.html"
-                   class="billing-card">
+                   class="insurance-link-card">
 
-                    <span class="billing-icon">
-                        💬
+                    <span class="insurance-link-card__icon">
+                        <i data-lucide="message-circle-question"
+                           aria-hidden="true"></i>
                     </span>
 
-                    <div>
-                        <h3>
+                    <span class="insurance-link-card__content">
+
+                        <strong>
                             Billing Questions
-                        </h3>
+                        </strong>
 
-                        <p>
+                        <small>
                             Need help understanding your statement?
-                        </p>
-                    </div>
+                        </small>
 
-                    <span>→</span>
+                    </span>
+
+                    <i data-lucide="arrow-up-right"
+                       aria-hidden="true"></i>
 
                 </a>
 
@@ -804,23 +1090,25 @@
 
 <!-- =========================================================
      5. PATIENT RESOURCES
-========================================================= -->
-
-<section class="section resources-section"
-         id="resources">
+     ========================================================= -->
+<section class="section patients-resources"
+         id="resources"
+         aria-labelledby="resources-title">
 
     <div class="container">
 
-        <div class="section-heading centered reveal">
+        <div class="section-heading text-center patients-section-heading"
+             data-reveal>
 
-            <div class="eyebrow">
-                <span class="eyebrow-dot"></span>
-                PATIENT RESOURCES
-            </div>
+            <span class="section-eyebrow">
+                Patient Resources
+            </span>
 
-            <h2>
+            <h2 id="resources-title">
                 Helpful Information for
-                <span>Healthy Feet.</span>
+                <span class="text-brand">
+                    Healthy Feet.
+                </span>
             </h2>
 
             <p>
@@ -831,18 +1119,20 @@
         </div>
 
 
-        <div class="resources-grid">
+        <div class="patients-resources__grid">
 
-            <a href="foot-care.html"
-               class="resource-card reveal">
+            <a href="services.html"
+               class="patient-resource-card"
+               data-reveal>
 
-                <div class="resource-number">
+                <span class="patient-resource-card__number">
                     01
-                </div>
+                </span>
 
-                <div class="resource-icon">
-                    👣
-                </div>
+                <span class="patient-resource-card__icon">
+                    <i data-lucide="footprints"
+                       aria-hidden="true"></i>
+                </span>
 
                 <h3>
                     Foot Care
@@ -853,23 +1143,27 @@
                     maintain healthy feet.
                 </p>
 
-                <span>
-                    Explore →
+                <span class="patient-resource-card__link">
+                    Explore
+                    <i data-lucide="arrow-right"
+                       aria-hidden="true"></i>
                 </span>
 
             </a>
 
 
-            <a href="diabetic-foot-care.html"
-               class="resource-card reveal">
+            <a href="services.html"
+               class="patient-resource-card"
+               data-reveal>
 
-                <div class="resource-number">
+                <span class="patient-resource-card__number">
                     02
-                </div>
+                </span>
 
-                <div class="resource-icon">
-                    🩺
-                </div>
+                <span class="patient-resource-card__icon">
+                    <i data-lucide="heart-pulse"
+                       aria-hidden="true"></i>
+                </span>
 
                 <h3>
                     Diabetic Foot Care
@@ -880,23 +1174,27 @@
                     and recognizing potential concerns.
                 </p>
 
-                <span>
-                    Explore →
+                <span class="patient-resource-card__link">
+                    Explore
+                    <i data-lucide="arrow-right"
+                       aria-hidden="true"></i>
                 </span>
 
             </a>
 
 
-            <a href="after-visit.html"
-               class="resource-card reveal">
+            <a href="#"
+               class="patient-resource-card"
+               data-reveal>
 
-                <div class="resource-number">
+                <span class="patient-resource-card__number">
                     03
-                </div>
+                </span>
 
-                <div class="resource-icon">
-                    📋
-                </div>
+                <span class="patient-resource-card__icon">
+                    <i data-lucide="clipboard-list"
+                       aria-hidden="true"></i>
+                </span>
 
                 <h3>
                     After Your Visit
@@ -907,23 +1205,27 @@
                     post-visit resources.
                 </p>
 
-                <span>
-                    Explore →
+                <span class="patient-resource-card__link">
+                    Explore
+                    <i data-lucide="arrow-right"
+                       aria-hidden="true"></i>
                 </span>
 
             </a>
 
 
             <a href="#faq"
-               class="resource-card reveal">
+               class="patient-resource-card"
+               data-reveal>
 
-                <div class="resource-number">
+                <span class="patient-resource-card__number">
                     04
-                </div>
+                </span>
 
-                <div class="resource-icon">
-                    ❓
-                </div>
+                <span class="patient-resource-card__icon">
+                    <i data-lucide="circle-help"
+                       aria-hidden="true"></i>
+                </span>
 
                 <h3>
                     Patient FAQs
@@ -934,8 +1236,10 @@
                     patient questions.
                 </p>
 
-                <span>
-                    View FAQs →
+                <span class="patient-resource-card__link">
+                    View FAQs
+                    <i data-lucide="arrow-right"
+                       aria-hidden="true"></i>
                 </span>
 
             </a>
@@ -943,20 +1247,21 @@
         </div>
 
 
-        <!-- Patient Portal -->
+        <!-- PATIENT PORTAL -->
+        <div class="patient-portal"
+             id="portal"
+             data-reveal>
 
-        <div class="portal-banner reveal"
-             id="portal">
+            <div class="patient-portal__content">
 
-            <div class="portal-content">
-
-                <div class="portal-icon">
-                    🔐
-                </div>
+                <span class="patient-portal__icon">
+                    <i data-lucide="lock-keyhole"
+                       aria-hidden="true"></i>
+                </span>
 
                 <div>
 
-                    <span class="portal-label">
+                    <span class="patient-portal__label">
                         PATIENT PORTAL
                     </span>
 
@@ -965,9 +1270,8 @@
                     </h3>
 
                     <p>
-                        Access your patient account,
-                        appointments, messages, and
-                        other available resources.
+                        Access your patient account, appointments,
+                        messages, and other available resources.
                     </p>
 
                 </div>
@@ -975,10 +1279,12 @@
             </div>
 
             <a href="#"
-               class="btn btn-light">
+               class="btn btn-white">
 
                 Access Patient Portal
-                <span>→</span>
+
+                <i data-lucide="arrow-right"
+                   aria-hidden="true"></i>
 
             </a>
 
@@ -991,173 +1297,187 @@
 
 <!-- =========================================================
      6. FAQ + CONTACT
-========================================================= -->
-
-<section class="section faq-section"
-         id="faq">
+     ========================================================= -->
+<section class="section patients-faq"
+         id="faq"
+         aria-labelledby="faq-title">
 
     <div class="container">
 
-        <div class="faq-contact-layout">
+        <div class="patients-faq__grid">
 
             <!-- FAQ -->
+            <div class="patients-faq__content"
+                 data-reveal>
 
-            <div class="faq-area reveal">
+                <span class="section-eyebrow">
+                    Patient FAQ
+                </span>
 
-                <div class="eyebrow">
-                    <span class="eyebrow-dot"></span>
-                    PATIENT FAQ
-                </div>
-
-                <h2>
+                <h2 id="faq-title">
                     Common Questions.
                 </h2>
 
-                <p class="faq-intro">
+                <p class="patients-faq__intro">
                     Can't find what you're looking for?
                     Contact our office and we'll be happy
                     to help.
                 </p>
 
 
-                <div class="accordion">
+                <div class="patient-accordion">
 
-                    <div class="accordion-item">
+                    <div class="patient-accordion__item">
 
-                        <button class="accordion-button"
-                                aria-expanded="false">
+                        <button
+                            class="patient-accordion__button"
+                            type="button"
+                            aria-expanded="false">
 
                             <span>
                                 What should I bring to my appointment?
                             </span>
 
-                            <span class="accordion-icon">
-                                +
-                            </span>
+                            <i data-lucide="plus"
+                               aria-hidden="true"></i>
 
                         </button>
 
-                        <div class="accordion-content">
+                        <div class="patient-accordion__content">
 
-                            <p>
-                                Please bring your photo ID, insurance
-                                card, current medication list, and any
-                                relevant medical records or imaging.
-                            </p>
+                            <div>
+                                <p>
+                                    Please bring your photo ID, insurance
+                                    card, current medication list, and any
+                                    relevant medical records or imaging.
+                                </p>
+                            </div>
 
                         </div>
 
                     </div>
 
 
-                    <div class="accordion-item">
+                    <div class="patient-accordion__item">
 
-                        <button class="accordion-button"
-                                aria-expanded="false">
+                        <button
+                            class="patient-accordion__button"
+                            type="button"
+                            aria-expanded="false">
 
                             <span>
                                 Do I need a referral?
                             </span>
 
-                            <span class="accordion-icon">
-                                +
-                            </span>
+                            <i data-lucide="plus"
+                               aria-hidden="true"></i>
 
                         </button>
 
-                        <div class="accordion-content">
+                        <div class="patient-accordion__content">
 
-                            <p>
-                                Referral requirements depend on your
-                                insurance plan. Please contact our office
-                                or your insurance company to determine
-                                whether a referral is required.
-                            </p>
+                            <div>
+                                <p>
+                                    Referral requirements depend on your
+                                    insurance plan. Please contact our office
+                                    or your insurance company to determine
+                                    whether a referral is required.
+                                </p>
+                            </div>
 
                         </div>
 
                     </div>
 
 
-                    <div class="accordion-item">
+                    <div class="patient-accordion__item">
 
-                        <button class="accordion-button"
-                                aria-expanded="false">
+                        <button
+                            class="patient-accordion__button"
+                            type="button"
+                            aria-expanded="false">
 
                             <span>
                                 How early should I arrive?
                             </span>
 
-                            <span class="accordion-icon">
-                                +
-                            </span>
+                            <i data-lucide="plus"
+                               aria-hidden="true"></i>
 
                         </button>
 
-                        <div class="accordion-content">
+                        <div class="patient-accordion__content">
 
-                            <p>
-                                New patients should allow additional time
-                                for registration and paperwork. Please
-                                follow the arrival instructions provided
-                                when scheduling your appointment.
-                            </p>
+                            <div>
+                                <p>
+                                    New patients should allow additional time
+                                    for registration and paperwork. Please
+                                    follow the arrival instructions provided
+                                    when scheduling your appointment.
+                                </p>
+                            </div>
 
                         </div>
 
                     </div>
 
 
-                    <div class="accordion-item">
+                    <div class="patient-accordion__item">
 
-                        <button class="accordion-button"
-                                aria-expanded="false">
+                        <button
+                            class="patient-accordion__button"
+                            type="button"
+                            aria-expanded="false">
 
                             <span>
                                 How can I reschedule my appointment?
                             </span>
 
-                            <span class="accordion-icon">
-                                +
-                            </span>
+                            <i data-lucide="plus"
+                               aria-hidden="true"></i>
 
                         </button>
 
-                        <div class="accordion-content">
+                        <div class="patient-accordion__content">
 
-                            <p>
-                                Please contact our office as soon as
-                                possible if you need to reschedule or
-                                cancel your appointment.
-                            </p>
+                            <div>
+                                <p>
+                                    Please contact our office as soon as
+                                    possible if you need to reschedule or
+                                    cancel your appointment.
+                                </p>
+                            </div>
 
                         </div>
 
                     </div>
 
 
-                    <div class="accordion-item">
+                    <div class="patient-accordion__item">
 
-                        <button class="accordion-button"
-                                aria-expanded="false">
+                        <button
+                            class="patient-accordion__button"
+                            type="button"
+                            aria-expanded="false">
 
                             <span>
                                 How can I contact the office about billing?
                             </span>
 
-                            <span class="accordion-icon">
-                                +
-                            </span>
+                            <i data-lucide="plus"
+                               aria-hidden="true"></i>
 
                         </button>
 
-                        <div class="accordion-content">
+                        <div class="patient-accordion__content">
 
-                            <p>
-                                For questions regarding statements,
-                                payments, insurance, or account balances,
-                                please contact our office directly.
-                            </p>
+                            <div>
+                                <p>
+                                    For questions regarding statements,
+                                    payments, insurance, or account balances,
+                                    please contact our office directly.
+                                </p>
+                            </div>
 
                         </div>
 
@@ -1168,25 +1488,29 @@
             </div>
 
 
-            <!-- Contact Card -->
+            <!-- CONTACT CARD -->
+            <aside class="patient-contact-card"
+                   data-reveal>
 
-            <aside class="contact-card reveal reveal-delay">
+                <div class="patient-contact-card__glow"
+                     aria-hidden="true"></div>
 
-                <div class="contact-card-glow"></div>
+                <div class="patient-contact-card__content">
 
-                <div class="contact-card-content">
+                    <span class="patient-contact-card__icon">
+                        <i data-lucide="headset"
+                           aria-hidden="true"></i>
+                    </span>
 
-                    <div class="contact-icon">
-                        ✦
-                    </div>
-
-                    <span class="contact-label">
+                    <span class="patient-contact-card__label">
                         NEED HELP?
                     </span>
 
                     <h2>
                         We're Here
-                        <span>to Help.</span>
+                        <span>
+                            to Help.
+                        </span>
                     </h2>
 
                     <p>
@@ -1196,68 +1520,89 @@
                     </p>
 
 
-                    <div class="contact-details">
+                    <div class="patient-contact-details">
 
-                        <a href="tel:+10000000000"
-                           class="contact-detail">
+                        <a href="tel:+19292074669"
+                           class="patient-contact-detail">
 
-                            <span>📞</span>
+                            <span>
+                                <i data-lucide="phone"
+                                   aria-hidden="true"></i>
+                            </span>
 
                             <div>
+
                                 <small>
                                     CALL OUR OFFICE
                                 </small>
 
                                 <strong>
-                                    (000) 000-0000
+                                    (929) 207-4669
                                 </strong>
+
                             </div>
 
                         </a>
 
 
-                        <div class="contact-detail">
+                        <div class="patient-contact-detail">
 
-                            <span>📍</span>
+                            <span>
+                                <i data-lucide="map-pin"
+                                   aria-hidden="true"></i>
+                            </span>
 
                             <div>
+
                                 <small>
                                     OUR LOCATION
                                 </small>
 
                                 <strong>
-                                    Practice Address
+                                    2045 State Route 35 STE 200
                                 </strong>
+
+                                <strong>
+                                    South Amboy, NJ 08879-2069
+                                </strong>
+
                             </div>
 
                         </div>
 
 
-                        <div class="contact-detail">
+                        <a href="mailto:frontdesk@favorfootandwound.com"
+                           class="patient-contact-detail">
 
-                            <span>🕐</span>
+                            <span>
+                                <i data-lucide="mail"
+                                   aria-hidden="true"></i>
+                            </span>
 
                             <div>
+
                                 <small>
-                                    OFFICE HOURS
+                                    EMAIL
                                 </small>
 
                                 <strong>
-                                    View Office Hours
+                                    frontdesk@favorfootandwound.com
                                 </strong>
+
                             </div>
 
-                        </div>
+                        </a>
 
                     </div>
 
 
-                    <a href="appointment.html"
-                       class="btn btn-light btn-full">
+                    <a href="contact.html"
+                       class="btn btn-white btn-block">
 
                         Schedule an Appointment
 
-                        <span>→</span>
+                        <i data-lucide="arrow-right"
+                           aria-hidden="true"></i>
 
                     </a>
 
@@ -1274,33 +1619,37 @@
 
 <!-- =========================================================
      FINAL CTA
-========================================================= -->
-
-<section class="final-cta">
+     ========================================================= -->
+<section class="patients-final-cta"
+         aria-labelledby="patients-final-cta-title">
 
     <div class="container">
 
-        <div class="final-cta-inner reveal">
+        <div class="patients-final-cta__inner"
+             data-reveal>
 
             <div>
 
-                <span class="eyebrow eyebrow-light">
-                    READY WHEN YOU ARE
+                <span class="section-eyebrow">
+                    Your Next Step
                 </span>
 
-                <h2>
+                <h2 id="patients-final-cta-title">
                     Take the Next Step
-                    <span>Toward Better Foot Health.</span>
+                    <span class="text-brand">
+                        Toward Better Foot & Ankle Health.
+                    </span>
                 </h2>
 
             </div>
 
-            <a href="appointment.html"
-               class="btn btn-light btn-large">
+            <a href="contact.html"
+               class="btn btn-accent btn-lg">
+
+                <i data-lucide="calendar-check"
+                   aria-hidden="true"></i>
 
                 Schedule Your Appointment
-
-                <span>→</span>
 
             </a>
 
@@ -1310,88 +1659,181 @@
 
 </section>
 
+
 </main>
 
 
 <!-- =========================================================
      FOOTER
-========================================================= -->
-
+     IDENTICAL STRUCTURE / CONTENT TO INDEX.HTML
+     ========================================================= -->
 <footer class="site-footer">
 
-    <div class="container footer-container">
+    <div class="footer-main">
 
-        <div class="footer-brand">
+        <div class="container">
 
-            <div class="brand">
+            <div class="footer-grid">
 
-                <span class="brand-mark">
-                    DW
-                </span>
+                <!-- BRAND -->
+                <div class="footer-brand">
 
-                <span class="brand-text">
-                    <strong>Dr. Wells</strong>
-                    <small>Podiatry</small>
-                </span>
+                    <a href="index.html"
+                       class="footer-logo">
 
-            </div>
+                        <img
+                            src="images/logo.webp"
+                            alt="Favor Foot & Ankle Leg & Wound Center"
+                            width="350"
+                            height="350"
+                            loading="lazy"
+                        >
 
-            <p>
-                Dedicated podiatric care focused on
-                helping you stay active, comfortable,
-                and healthy.
-            </p>
+                    </a>
 
-        </div>
+                    <p class="footer-description">
+                        Personalized foot, ankle, leg and
+                        wound care focused on helping you
+                        move comfortably and live confidently.
+                    </p>
 
+                    <div class="footer-social">
 
-        <div class="footer-links">
+                        <a href="#"
+                           aria-label="Facebook">
 
-            <div>
+                            <i data-lucide="facebook"
+                               aria-hidden="true"></i>
 
-                <h4>
-                    Practice
-                </h4>
+                        </a>
 
-                <a href="index.html">Home</a>
-                <a href="services.html">Services</a>
-                <a href="conditions.html">Conditions</a>
-                <a href="patients.html">Patients</a>
+                        <a href="#"
+                           aria-label="Instagram">
 
-            </div>
+                            <i data-lucide="instagram"
+                               aria-hidden="true"></i>
 
+                        </a>
 
-            <div>
+                    </div>
 
-                <h4>
-                    Patients
-                </h4>
-
-                <a href="#forms">Patient Forms</a>
-                <a href="#insurance">Insurance</a>
-                <a href="#faq">FAQs</a>
-                <a href="#portal">Patient Portal</a>
-
-            </div>
+                </div>
 
 
-            <div>
+                <!-- QUICK LINKS -->
+                <div>
 
-                <h4>
-                    Contact
-                </h4>
+                    <h3 class="footer-title">
+                        Quick Links
+                    </h3>
 
-                <a href="tel:+10000000000">
-                    (000) 000-0000
-                </a>
+                    <nav class="footer-links">
 
-                <a href="contact.html">
-                    Contact Us
-                </a>
+                        <a href="index.html">
+                            Home
+                        </a>
 
-                <a href="appointment.html">
-                    Schedule Appointment
-                </a>
+                        <a href="physicians.html">
+                            Physicians
+                        </a>
+
+                        <a href="services.html">
+                            Services
+                        </a>
+
+                        <a href="patients.html">
+                            Patients
+                        </a>
+
+                        <a href="blog.html">
+                            Blog
+                        </a>
+
+                        <a href="contact.html">
+                            Contact Us
+                        </a>
+
+                    </nav>
+
+                </div>
+
+
+                <!-- SERVICES -->
+                <div>
+
+                    <h3 class="footer-title">
+                        Services
+                    </h3>
+
+                    <nav class="footer-links">
+
+                        <a href="services.html">
+                            Foot & Ankle Care
+                        </a>
+
+                        <a href="services.html">
+                            Wound Care
+                        </a>
+
+                        <a href="services.html">
+                            Diabetic Foot Care
+                        </a>
+
+                        <a href="services.html">
+                            Limb Preservation
+                        </a>
+
+                    </nav>
+
+                </div>
+
+
+                <!-- CONTACT -->
+                <div>
+
+                    <h3 class="footer-title">
+                        Contact Us
+                    </h3>
+
+                    <div class="footer-contact">
+
+                        <a href="tel:+19292074669">
+
+                            <i data-lucide="phone"
+                               aria-hidden="true"></i>
+
+                            <span>
+                                (929) 207-4669
+                            </span>
+
+                        </a>
+
+                        <a href="mailto:frontdesk@favorfootandwound.com">
+
+                            <i data-lucide="mail"
+                               aria-hidden="true"></i>
+
+                            <span>
+                                frontdesk@favorfootandwound.com
+                            </span>
+
+                        </a>
+
+                        <span>
+
+                            <i data-lucide="map-pin"
+                               aria-hidden="true"></i>
+
+                            <span>
+                                2045 State Route 35 STE 200
+                                South Amboy, NJ 08879-2069
+                            </span>
+
+                        </span>
+
+                    </div>
+
+                </div>
 
             </div>
 
@@ -1400,23 +1842,33 @@
     </div>
 
 
+    <!-- FOOTER BOTTOM -->
     <div class="footer-bottom">
 
         <div class="container">
 
-            <span>
-                © 2026 Dr. Wells Podiatry. All rights reserved.
-            </span>
+            <div class="footer-bottom-inner">
 
-            <div>
+                <span>
+                    © 2020 Favor Foot & Ankle Leg & Wound Center.
+                    All rights reserved.
+                </span>
 
-                <a href="privacy.html">
-                    Privacy Policy
-                </a>
+                <div class="footer-legal">
 
-                <a href="terms.html">
-                    Terms
-                </a>
+                    <a href="privacy-policy.html">
+                        Privacy Policy
+                    </a>
+
+                    <a href="notice-of-privacy-practices.html">
+                        Notice of Privacy Practices
+                    </a>
+
+                    <a href="accessibility.html">
+                        Accessibility
+                    </a>
+
+                </div>
 
             </div>
 
@@ -1426,39 +1878,6 @@
 
 </footer>
 
-
-<!-- =========================================================
-     MOBILE STICKY ACTION BAR
-========================================================= -->
-
-<div class="mobile-action-bar">
-
-    <a href="tel:+10000000000">
-
-        <span>📞</span>
-        Call
-
-    </a>
-
-    <a href="appointment.html"
-       class="mobile-action-primary">
-
-        <span>📅</span>
-        Schedule
-
-    </a>
-
-    <a href="#portal">
-
-        <span>🔐</span>
-        Portal
-
-    </a>
-
-</div>
-
-
-<script src="js/patients.js"></script>
 
 </body>
 </html>
