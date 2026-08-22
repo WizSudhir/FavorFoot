@@ -1,0 +1,2310 @@
+/* ============================================================
+   FAVOR FOOT & ANKLE LEG & WOUND CENTER
+   SERVICES PAGE
+   ------------------------------------------------------------
+   Uses the global design system defined in root.css.
+
+   IMPORTANT:
+   - Do NOT duplicate root.css variables here.
+   - Do NOT redefine global navbar/footer/button styles here.
+   - Page-specific styles only.
+   ============================================================ */
+
+
+/* ============================================================
+   01. SERVICES PAGE BASE
+   ============================================================ */
+
+.services-hero,
+.services-specialties,
+.services-detail,
+.services-conditions,
+.services-pathway,
+.services-advanced,
+.services-final-cta {
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* ============================================================
+   02. HERO
+   ============================================================ */
+
+.services-hero {
+    position: relative;
+
+    min-height: min(
+        780px,
+        calc(100vh - var(--navbar-height))
+    );
+
+    display: flex;
+    align-items: center;
+
+    padding:
+        clamp(5rem, 9vw, 8rem)
+        0
+        clamp(4rem, 7vw, 6rem);
+
+    background:
+        var(--gradient-medical);
+
+    isolation: isolate;
+}
+
+
+/* ============================================================
+   HERO BACKGROUND
+   ============================================================ */
+
+.services-hero__grid-pattern {
+    position: absolute;
+    inset: 0;
+
+    z-index: -3;
+
+    opacity: 0.55;
+
+    background-image:
+        linear-gradient(
+            rgba(10, 31, 120, 0.045) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(10, 31, 120, 0.045) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        44px 44px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 85%
+        );
+}
+
+
+.services-hero__orb {
+    position: absolute;
+
+    border-radius: var(--radius-full);
+
+    filter: blur(2px);
+
+    pointer-events: none;
+
+    z-index: -2;
+}
+
+
+.services-hero__orb--one {
+    width: 420px;
+    height: 420px;
+
+    top: -180px;
+    right: -100px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(77, 83, 190, 0.16),
+            transparent 70%
+        );
+}
+
+
+.services-hero__orb--two {
+    width: 360px;
+    height: 360px;
+
+    bottom: -180px;
+    left: -140px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(10, 31, 120, 0.11),
+            transparent 70%
+        );
+}
+
+
+/* ============================================================
+   HERO LAYOUT
+   ============================================================ */
+
+.services-hero__layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.08fr)
+        minmax(360px, 0.92fr);
+
+    gap: clamp(
+        var(--grid-gap-xl),
+        6vw,
+        6rem
+    );
+
+    align-items: center;
+}
+
+
+/* ============================================================
+   HERO CONTENT
+   ============================================================ */
+
+.services-hero__content {
+    max-width: 760px;
+}
+
+
+.services-eyebrow {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: var(--space-3);
+
+    margin-bottom: var(--space-5);
+
+    color: var(--brand-accent-600);
+
+    font-size: 0.78rem;
+
+    font-weight: 800;
+
+    letter-spacing: var(--tracking-caps);
+
+    text-transform: uppercase;
+}
+
+
+.services-eyebrow__line {
+    width: 34px;
+    height: 2px;
+
+    flex: 0 0 auto;
+
+    border-radius: var(--radius-full);
+
+    background:
+        var(--gradient-accent);
+}
+
+
+.services-hero h1 {
+    max-width: 780px;
+
+    margin: 0;
+
+    color: var(--text-primary);
+
+    font-family: var(--font-heading);
+
+    font-size: var(--text-display);
+
+    font-weight: 800;
+
+    line-height: var(--lh-tight);
+
+    letter-spacing: var(--tracking-tight);
+}
+
+
+.services-hero h1 span {
+    display: block;
+
+    margin-top: var(--space-2);
+
+    color: var(--brand-navy-700);
+}
+
+
+.services-hero__description {
+    max-width: 690px;
+
+    margin:
+        var(--space-6)
+        0
+        0;
+
+    color: var(--text-secondary);
+
+    font-size: var(--text-body);
+
+    line-height: var(--lh-relaxed);
+}
+
+
+/* ============================================================
+   HERO ACTIONS
+   ============================================================ */
+
+.services-hero__actions {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    gap: var(--space-4);
+
+    margin-top: var(--space-8);
+}
+
+
+.services-hero__actions .btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: var(--space-2);
+}
+
+
+.services-hero__actions svg {
+    width: 18px;
+    height: 18px;
+}
+
+
+/* ============================================================
+   HERO TRUST STRIP
+   ============================================================ */
+
+.services-hero__trust {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap:
+        var(--space-4)
+        var(--space-6);
+
+    margin-top: var(--space-8);
+
+    padding-top: var(--space-6);
+
+    border-top:
+        1px solid
+        var(--border-color-soft);
+}
+
+
+.services-hero__trust > div {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: var(--space-2);
+
+    color: var(--text-secondary);
+
+    font-size: 0.82rem;
+
+    font-weight: 600;
+}
+
+
+.services-hero__trust svg {
+    width: 17px;
+    height: 17px;
+
+    color: var(--brand-accent-600);
+}
+
+
+/* ============================================================
+   03. CLINICAL HERO PANEL
+   ============================================================ */
+
+.services-hero__panel {
+    position: relative;
+}
+
+
+.services-clinical-panel {
+    position: relative;
+
+    padding: clamp(
+        var(--space-6),
+        3vw,
+        var(--space-8)
+    );
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.7);
+
+    border-radius: var(--radius-3xl);
+
+    background:
+        rgba(255, 255, 255, 0.78);
+
+    box-shadow:
+        var(--shadow-xl);
+
+    backdrop-filter:
+        blur(var(--glass-blur));
+
+    -webkit-backdrop-filter:
+        blur(var(--glass-blur));
+}
+
+
+.services-clinical-panel::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: inherit;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.8),
+            transparent 60%
+        );
+
+    opacity: 0.8;
+}
+
+
+/* ============================================================
+   CLINICAL PANEL TOP
+   ============================================================ */
+
+.services-clinical-panel__top {
+    position: relative;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: var(--space-4);
+
+    padding-bottom: var(--space-6);
+
+    border-bottom:
+        1px solid
+        var(--border-color-soft);
+}
+
+
+.services-clinical-panel__top > div:first-child {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: var(--space-1);
+}
+
+
+.services-clinical-panel__top span {
+    color: var(--text-muted);
+
+    font-size: 0.68rem;
+
+    font-weight: 800;
+
+    letter-spacing: var(--tracking-caps);
+}
+
+
+.services-clinical-panel__top strong {
+    color: var(--text-primary);
+
+    font-size: 1rem;
+
+    font-weight: 750;
+}
+
+
+.services-clinical-status {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: var(--space-2);
+
+    padding:
+        0.45rem
+        0.7rem;
+
+    border:
+        1px solid
+        rgba(77, 83, 190, 0.18);
+
+    border-radius: var(--radius-full);
+
+    color: var(--brand-accent-600);
+
+    background:
+        rgba(77, 83, 190, 0.07);
+
+    font-size: 0.68rem;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+
+.services-clinical-status span {
+    width: 7px;
+    height: 7px;
+
+    padding: 0;
+
+    border-radius: var(--radius-full);
+
+    background:
+        var(--brand-accent-500);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(77, 83, 190, 0.10);
+}
+
+
+/* ============================================================
+   CARE MAP
+   ============================================================ */
+
+.services-care-map {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding:
+        var(--space-6)
+        0;
+}
+
+
+.services-care-node {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: 48px 1fr;
+
+    align-items: center;
+
+    gap: var(--space-4);
+}
+
+
+.services-care-node > span {
+    display: grid;
+
+    width: 42px;
+    height: 42px;
+
+    place-items: center;
+
+    border-radius: var(--radius-full);
+
+    color: var(--text-on-primary);
+
+    background:
+        var(--gradient-primary);
+
+    font-size: 0.72rem;
+
+    font-weight: 800;
+
+    box-shadow:
+        var(--shadow-primary);
+
+    z-index: 2;
+}
+
+
+.services-care-node > div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+
+.services-care-node strong {
+    color: var(--text-primary);
+
+    font-size: 0.98rem;
+
+    font-weight: 750;
+}
+
+
+.services-care-node small {
+    color: var(--text-muted);
+
+    font-size: 0.76rem;
+}
+
+
+.services-care-connector {
+    width: 1px;
+    height: 26px;
+
+    margin-left: 21px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(10,31,120,0.28),
+            rgba(77,83,190,0.08)
+        );
+}
+
+
+/* ============================================================
+   CLINICAL PANEL BOTTOM
+   ============================================================ */
+
+.services-clinical-panel__bottom {
+    display: flex;
+
+    align-items: center;
+
+    gap: var(--space-3);
+
+    padding-top: var(--space-5);
+
+    border-top:
+        1px solid
+        var(--border-color-soft);
+
+    color: var(--text-secondary);
+
+    font-size: 0.78rem;
+
+    line-height: var(--lh-normal);
+}
+
+
+.services-clinical-panel__bottom svg {
+    width: 18px;
+    height: 18px;
+
+    flex: 0 0 auto;
+
+    color: var(--brand-accent-600);
+}
+
+
+/* ============================================================
+   04. SECTION HEADING
+   ============================================================ */
+
+.services-section-heading {
+    max-width: 850px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: center;
+}
+
+
+.services-section-heading h2 {
+    margin-bottom: var(--space-4);
+}
+
+
+.services-section-heading p {
+    max-width: 700px;
+
+    margin:
+        0
+        auto;
+
+    color: var(--text-secondary);
+
+    font-size: var(--text-body);
+
+    line-height: var(--lh-relaxed);
+}
+
+
+/* ============================================================
+   05. SPECIALTY SERVICES
+   ============================================================ */
+
+.services-specialties {
+    background:
+        var(--bg-body);
+}
+
+
+.services-specialty-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: var(--grid-gap-lg);
+
+    margin-top: var(--space-12);
+}
+
+
+/* ============================================================
+   SPECIALTY CARD
+   ============================================================ */
+
+.service-specialty-card {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-height: 390px;
+
+    padding:
+        clamp(
+            var(--space-6),
+            3vw,
+            var(--space-8)
+        );
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        var(--border-color);
+
+    border-radius: var(--radius-2xl);
+
+    background:
+        var(--bg-surface);
+
+    box-shadow:
+        var(--shadow-sm);
+
+    transition:
+        transform var(--transition-base),
+        box-shadow var(--transition-base),
+        border-color var(--transition-base);
+
+    isolation: isolate;
+}
+
+
+.service-specialty-card::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -2;
+
+    background:
+        var(--gradient-primary-soft);
+
+    opacity: 0;
+
+    transition:
+        opacity var(--transition-base);
+}
+
+
+.service-specialty-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 190px;
+    height: 190px;
+
+    top: -100px;
+    right: -90px;
+
+    z-index: -1;
+
+    border-radius: var(--radius-full);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(77,83,190,0.13),
+            transparent 70%
+        );
+
+    transition:
+        transform var(--transition-slow);
+}
+
+
+.service-specialty-card:hover {
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(77,83,190,0.28);
+
+    box-shadow:
+        var(--shadow-lg);
+}
+
+
+.service-specialty-card:hover::before {
+    opacity: 1;
+}
+
+
+.service-specialty-card:hover::after {
+    transform:
+        scale(1.35);
+}
+
+
+/* FEATURED */
+
+.service-specialty-card--featured {
+    border-color:
+        rgba(10,31,120,0.18);
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #f7f9ff 100%
+        );
+}
+
+
+.service-specialty-card--featured
+.service-specialty-card__number {
+    color:
+        var(--brand-accent-600);
+}
+
+
+/* ============================================================
+   CARD NUMBER
+   ============================================================ */
+
+.service-specialty-card__number {
+    position: absolute;
+
+    top: var(--space-6);
+    right: var(--space-6);
+
+    color:
+        var(--text-subtle);
+
+    font-size: 0.75rem;
+
+    font-weight: 800;
+
+    letter-spacing: var(--tracking-wide);
+}
+
+
+/* ============================================================
+   CARD ICON
+   ============================================================ */
+
+.service-specialty-card__icon {
+    display: grid;
+
+    width: 58px;
+    height: 58px;
+
+    margin-bottom: var(--space-6);
+
+    place-items: center;
+
+    border-radius: var(--radius-xl);
+
+    color:
+        var(--brand-accent-600);
+
+    background:
+        rgba(77,83,190,0.08);
+
+    transition:
+        transform var(--transition-base),
+        background var(--transition-base),
+        color var(--transition-base);
+}
+
+
+.service-specialty-card__icon svg {
+    width: 26px;
+    height: 26px;
+}
+
+
+.service-specialty-card:hover
+.service-specialty-card__icon {
+    transform:
+        translateY(-2px)
+        scale(1.04);
+
+    color:
+        var(--text-on-accent);
+
+    background:
+        var(--gradient-accent);
+}
+
+
+/* ============================================================
+   CARD CONTENT
+   ============================================================ */
+
+.service-specialty-card__content {
+    flex: 1;
+}
+
+
+.service-specialty-card__content > span {
+    display: block;
+
+    margin-bottom: var(--space-2);
+
+    color:
+        var(--brand-accent-600);
+
+    font-size: 0.68rem;
+
+    font-weight: 800;
+
+    letter-spacing: var(--tracking-caps);
+}
+
+
+.service-specialty-card h3 {
+    max-width: 480px;
+
+    margin: 0;
+
+    color: var(--text-primary);
+
+    font-size: var(--text-h3);
+
+    line-height: var(--lh-tight);
+
+    letter-spacing: var(--tracking-tight);
+}
+
+
+.service-specialty-card p {
+    max-width: 550px;
+
+    margin:
+        var(--space-4)
+        0
+        0;
+
+    color: var(--text-secondary);
+
+    font-size: 0.96rem;
+
+    line-height: var(--lh-relaxed);
+}
+
+
+/* ============================================================
+   CARD TRIGGER
+   ============================================================ */
+
+.service-specialty-card__trigger {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: var(--space-3);
+
+    width: 100%;
+
+    margin-top: var(--space-8);
+
+    padding:
+        var(--space-4)
+        0
+        0;
+
+    border: 0;
+
+    border-top:
+        1px solid
+        var(--border-color-soft);
+
+    color:
+        var(--text-primary);
+
+    background: transparent;
+
+    font-family: inherit;
+
+    font-size: 0.84rem;
+
+    font-weight: 750;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        color var(--transition-fast);
+}
+
+
+.service-specialty-card__trigger svg {
+    width: 18px;
+    height: 18px;
+
+    transition:
+        transform var(--transition-base);
+}
+
+
+.service-specialty-card:hover
+.service-specialty-card__trigger {
+    color:
+        var(--brand-accent-600);
+}
+
+
+.service-specialty-card:hover
+.service-specialty-card__trigger svg {
+    transform:
+        translate(3px, -3px);
+}
+
+
+/* ============================================================
+   06. SERVICE DETAIL
+   ============================================================ */
+
+.services-detail {
+    padding:
+        0
+        0
+        var(--section-space);
+
+    background:
+        var(--bg-body);
+}
+
+
+.services-detail__shell {
+    display: grid;
+
+    grid-template-columns:
+        minmax(320px, 0.8fr)
+        minmax(0, 1.2fr);
+
+    overflow: hidden;
+
+    border-radius: var(--radius-3xl);
+
+    background:
+        var(--gradient-primary);
+
+    box-shadow:
+        var(--shadow-xl);
+}
+
+
+/* ============================================================
+   DETAIL VISUAL
+   ============================================================ */
+
+.services-detail__visual {
+    position: relative;
+
+    min-height: 520px;
+
+    padding:
+        clamp(
+            var(--space-8),
+            4vw,
+            var(--space-12)
+        );
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    overflow: hidden;
+
+    color: var(--text-on-dark);
+
+    isolation: isolate;
+}
+
+
+.services-detail__visual::before {
+    content: "";
+
+    position: absolute;
+
+    width: 360px;
+    height: 360px;
+
+    top: -130px;
+    right: -130px;
+
+    border-radius: var(--radius-full);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(77,83,190,0.5),
+            transparent 70%
+        );
+
+    z-index: -1;
+}
+
+
+.services-detail__visual-grid {
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0.12;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.3) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.3) 1px,
+            transparent 1px
+        );
+
+    background-size: 34px 34px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            transparent,
+            black
+        );
+}
+
+
+.services-detail__visual-icon {
+    position: absolute;
+
+    top: clamp(
+        var(--space-8),
+        4vw,
+        var(--space-12)
+    );
+
+    left: clamp(
+        var(--space-8),
+        4vw,
+        var(--space-12)
+    );
+
+    display: grid;
+
+    width: 74px;
+    height: 74px;
+
+    place-items: center;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.2);
+
+    border-radius: var(--radius-2xl);
+
+    color: var(--text-on-dark);
+
+    background:
+        rgba(255,255,255,0.08);
+
+    backdrop-filter:
+        blur(10px);
+}
+
+
+.services-detail__visual-icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+
+.services-detail__visual-label {
+    margin-bottom: var(--space-3);
+
+    color:
+        rgba(255,255,255,0.62);
+
+    font-size: 0.68rem;
+
+    font-weight: 800;
+
+    letter-spacing: var(--tracking-caps);
+}
+
+
+.services-detail__visual strong {
+    max-width: 460px;
+
+    font-size:
+        clamp(
+            2rem,
+            4vw,
+            3.4rem
+        );
+
+    line-height: var(--lh-tight);
+
+    letter-spacing: var(--tracking-tight);
+}
+
+
+.services-detail__metric {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: var(--space-4);
+
+    margin-top: var(--space-8);
+
+    padding-top: var(--space-5);
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.15);
+}
+
+
+.services-detail__metric span {
+    color:
+        rgba(255,255,255,0.55);
+
+    font-size: 0.64rem;
+
+    font-weight: 800;
+
+    letter-spacing: var(--tracking-caps);
+}
+
+
+.services-detail__metric strong {
+    font-size: 0.9rem;
+
+    letter-spacing: 0;
+}
+
+
+/* ============================================================
+   DETAIL CONTENT
+   ============================================================ */
+
+.services-detail__content {
+    padding:
+        clamp(
+            var(--space-8),
+            5vw,
+            var(--space-12)
+        );
+
+    background:
+        var(--bg-surface);
+}
+
+
+.services-detail__content h2 {
+    max-width: 680px;
+
+    margin:
+        var(--space-3)
+        0
+        0;
+
+    font-size: var(--text-h2);
+
+    line-height: var(--lh-tight);
+
+    letter-spacing: var(--tracking-tight);
+}
+
+
+.services-detail__lead {
+    max-width: 700px;
+
+    margin:
+        var(--space-5)
+        0
+        0;
+
+    color: var(--text-secondary);
+
+    font-size: var(--text-body);
+
+    line-height: var(--lh-relaxed);
+}
+
+
+.services-detail__features {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        var(--space-4)
+        var(--space-6);
+
+    margin:
+        var(--space-8)
+        0;
+}
+
+
+.services-detail__features > div {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: var(--space-3);
+
+    color: var(--text-secondary);
+
+    font-size: 0.9rem;
+
+    line-height: var(--lh-normal);
+}
+
+
+.services-detail__features svg {
+    width: 18px;
+    height: 18px;
+
+    flex: 0 0 auto;
+
+    margin-top: 2px;
+
+    color:
+        var(--brand-accent-600);
+}
+
+
+.services-detail__content > .btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: var(--space-2);
+}
+
+
+.services-detail__content > .btn svg {
+    width: 17px;
+    height: 17px;
+}
+
+
+/* ============================================================
+   07. CONDITIONS
+   ============================================================ */
+
+.services-conditions {
+    background:
+        var(--bg-surface-soft);
+}
+
+
+.services-conditions__header {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.1fr)
+        minmax(280px, 0.9fr);
+
+    gap: var(--grid-gap-xl);
+
+    align-items: end;
+
+    margin-bottom: var(--space-10);
+}
+
+
+.services-conditions__header h2 {
+    margin-top: var(--space-3);
+}
+
+
+.services-conditions__header > p {
+    margin: 0;
+
+    color: var(--text-secondary);
+
+    font-size: var(--text-body);
+
+    line-height: var(--lh-relaxed);
+}
+
+
+.services-condition-list {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: var(--grid-gap-md);
+}
+
+
+.services-condition {
+    display: flex;
+
+    align-items: center;
+
+    gap: var(--space-3);
+
+    min-height: 84px;
+
+    padding:
+        var(--space-5);
+
+    border:
+        1px solid
+        var(--border-color);
+
+    border-radius: var(--radius-xl);
+
+    background:
+        var(--bg-surface);
+
+    box-shadow:
+        var(--shadow-xs);
+
+    transition:
+        transform var(--transition-base),
+        border-color var(--transition-base),
+        box-shadow var(--transition-base);
+}
+
+
+.services-condition:hover {
+    transform:
+        translateY(-4px);
+
+    border-color:
+        var(--border-accent);
+
+    box-shadow:
+        var(--shadow-md);
+}
+
+
+.services-condition svg {
+    width: 22px;
+    height: 22px;
+
+    flex: 0 0 auto;
+
+    color:
+        var(--brand-accent-600);
+}
+
+
+.services-condition span {
+    color: var(--text-primary);
+
+    font-size: 0.87rem;
+
+    font-weight: 700;
+
+    line-height: var(--lh-snug);
+}
+
+
+/* ============================================================
+   08. CARE PATHWAY
+   ============================================================ */
+
+.services-pathway {
+    background:
+        var(--bg-body);
+}
+
+
+.services-pathway .section-heading {
+    max-width: 820px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.services-pathway .section-heading p {
+    max-width: 680px;
+
+    margin:
+        var(--space-4)
+        auto
+        0;
+
+    color: var(--text-secondary);
+
+    line-height: var(--lh-relaxed);
+}
+
+
+.services-pathway__timeline {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: var(--grid-gap-lg);
+
+    margin-top: var(--space-12);
+}
+
+
+.services-pathway__line {
+    position: absolute;
+
+    top: 32px;
+
+    left: 12%;
+
+    right: 12%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(10,31,120,0.08),
+            rgba(77,83,190,0.4),
+            rgba(10,31,120,0.08)
+        );
+
+    z-index: 0;
+}
+
+
+.services-pathway-step {
+    position: relative;
+
+    z-index: 1;
+
+    text-align: center;
+}
+
+
+.services-pathway-step > span {
+    display: grid;
+
+    width: 64px;
+    height: 64px;
+
+    margin:
+        0
+        auto
+        var(--space-5);
+
+    place-items: center;
+
+    border:
+        1px solid
+        rgba(77,83,190,0.2);
+
+    border-radius: var(--radius-full);
+
+    color:
+        var(--brand-accent-600);
+
+    background:
+        var(--bg-surface);
+
+    box-shadow:
+        var(--shadow-md);
+
+    font-size: 0.72rem;
+
+    font-weight: 800;
+}
+
+
+.services-pathway-step > div {
+    padding:
+        var(--space-6);
+
+    border:
+        1px solid
+        var(--border-color);
+
+    border-radius: var(--radius-xl);
+
+    background:
+        var(--bg-surface);
+
+    box-shadow:
+        var(--shadow-xs);
+
+    transition:
+        transform var(--transition-base),
+        box-shadow var(--transition-base),
+        border-color var(--transition-base);
+}
+
+
+.services-pathway-step:hover > div {
+    transform:
+        translateY(-5px);
+
+    border-color:
+        var(--border-accent);
+
+    box-shadow:
+        var(--shadow-md);
+}
+
+
+.services-pathway-step svg {
+    width: 24px;
+    height: 24px;
+
+    margin-bottom: var(--space-4);
+
+    color:
+        var(--brand-accent-600);
+}
+
+
+.services-pathway-step h3 {
+    margin: 0;
+
+    color: var(--text-primary);
+
+    font-size: var(--text-h4);
+
+    line-height: var(--lh-snug);
+}
+
+
+.services-pathway-step p {
+    margin:
+        var(--space-3)
+        0
+        0;
+
+    color: var(--text-secondary);
+
+    font-size: 0.84rem;
+
+    line-height: var(--lh-relaxed);
+}
+
+
+/* ============================================================
+   09. ADVANCED CARE CTA
+   ============================================================ */
+
+.services-advanced {
+    padding:
+        var(--section-space-sm)
+        0;
+
+    background:
+        var(--gradient-dark);
+
+    color: var(--text-on-dark);
+
+    isolation: isolate;
+}
+
+
+.services-advanced__glow {
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    top: -280px;
+    right: -120px;
+
+    border-radius: var(--radius-full);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(77,83,190,0.35),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+.services-advanced__inner {
+    display: grid;
+
+    grid-template-columns:
+        auto
+        minmax(0, 1fr)
+        auto;
+
+    align-items: center;
+
+    gap: var(--grid-gap-xl);
+
+    padding:
+        clamp(
+            var(--space-6),
+            4vw,
+            var(--space-10)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.11);
+
+    border-radius: var(--radius-2xl);
+
+    background:
+        rgba(255,255,255,0.045);
+
+    box-shadow:
+        0 24px 70px
+        rgba(0,0,0,0.18);
+
+    backdrop-filter:
+        blur(12px);
+}
+
+
+.services-advanced__icon {
+    display: grid;
+
+    width: 68px;
+    height: 68px;
+
+    place-items: center;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.14);
+
+    border-radius: var(--radius-xl);
+
+    color:
+        var(--text-on-dark);
+
+    background:
+        rgba(255,255,255,0.07);
+}
+
+
+.services-advanced__icon svg {
+    width: 30px;
+    height: 30px;
+}
+
+
+.services-advanced__content > span {
+    display: block;
+
+    margin-bottom: var(--space-2);
+
+    color:
+        rgba(255,255,255,0.55);
+
+    font-size: 0.68rem;
+
+    font-weight: 800;
+
+    letter-spacing: var(--tracking-caps);
+}
+
+
+.services-advanced__content h2 {
+    max-width: 720px;
+
+    margin: 0;
+
+    color:
+        var(--text-on-dark);
+
+    font-size: var(--text-h3);
+
+    line-height: var(--lh-tight);
+
+    letter-spacing: var(--tracking-tight);
+}
+
+
+.services-advanced__content p {
+    max-width: 720px;
+
+    margin:
+        var(--space-3)
+        0
+        0;
+
+    color:
+        rgba(255,255,255,0.68);
+
+    font-size: 0.92rem;
+
+    line-height: var(--lh-relaxed);
+}
+
+
+.services-advanced__inner > .btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: var(--space-2);
+
+    white-space: nowrap;
+}
+
+
+.services-advanced__inner > .btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+
+/* ============================================================
+   10. FINAL CTA
+   ============================================================ */
+
+.services-final-cta {
+    padding:
+        var(--section-space-sm)
+        0;
+
+    background:
+        var(--bg-body);
+}
+
+
+.services-final-cta__inner {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: var(--grid-gap-xl);
+
+    padding:
+        clamp(
+            var(--space-6),
+            4vw,
+            var(--space-10)
+        );
+
+    border:
+        1px solid
+        var(--border-color);
+
+    border-radius: var(--radius-2xl);
+
+    background:
+        var(--gradient-primary-soft);
+
+    box-shadow:
+        var(--shadow-sm);
+}
+
+
+.services-final-cta h2 {
+    max-width: 720px;
+
+    margin:
+        var(--space-3)
+        0
+        0;
+
+    font-size: var(--text-h2);
+
+    line-height: var(--lh-tight);
+
+    letter-spacing: var(--tracking-tight);
+}
+
+
+.services-final-cta__inner > .btn {
+    flex: 0 0 auto;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: var(--space-2);
+}
+
+
+.services-final-cta__inner > .btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+
+/* ============================================================
+   11. REVEAL ANIMATION
+   ============================================================ */
+
+[data-reveal] {
+    opacity: 0;
+
+    transform:
+        translateY(var(--motion-distance));
+
+    transition:
+        opacity 650ms cubic-bezier(0.2, 0.8, 0.2, 1),
+        transform 650ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+
+[data-reveal].is-visible {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* ============================================================
+   12. SERVICE CARD ACTIVE STATE
+   ============================================================ */
+
+.service-specialty-card.is-active {
+    border-color:
+        rgba(77,83,190,0.38);
+
+    box-shadow:
+        var(--shadow-lg);
+}
+
+
+.service-specialty-card.is-active::before {
+    opacity: 1;
+}
+
+
+.service-specialty-card.is-active
+.service-specialty-card__icon {
+    color:
+        var(--text-on-accent);
+
+    background:
+        var(--gradient-accent);
+}
+
+
+.service-specialty-card.is-active
+.service-specialty-card__trigger {
+    color:
+        var(--brand-accent-600);
+}
+
+
+/* ============================================================
+   13. FOCUS STATES
+   ============================================================ */
+
+.service-specialty-card__trigger:focus-visible {
+    outline: none;
+
+    box-shadow:
+        var(--focus-ring);
+
+    border-radius: var(--radius-sm);
+}
+
+
+.services-hero a:focus-visible,
+.services-detail a:focus-visible,
+.services-final-cta a:focus-visible {
+    outline: none;
+
+    box-shadow:
+        var(--focus-ring);
+}
+
+
+/* ============================================================
+   14. RESPONSIVE — LARGE TABLET
+   ============================================================ */
+
+@media (max-width: 1100px) {
+
+    .services-hero__layout {
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(320px, 0.82fr);
+
+        gap: var(--grid-gap-xl);
+    }
+
+
+    .services-condition-list {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    .services-advanced__inner {
+        grid-template-columns:
+            auto
+            minmax(0, 1fr);
+    }
+
+
+    .services-advanced__inner > .btn {
+        grid-column: 2;
+
+        justify-self: start;
+    }
+
+}
+
+
+/* ============================================================
+   15. RESPONSIVE — TABLET
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+    .services-hero {
+        min-height: auto;
+
+        padding:
+            5rem
+            0;
+    }
+
+
+    .services-hero__layout {
+        grid-template-columns: 1fr;
+    }
+
+
+    .services-hero__content {
+        max-width: 850px;
+    }
+
+
+    .services-hero__panel {
+        max-width: 680px;
+
+        width: 100%;
+
+        margin: 0 auto;
+    }
+
+
+    .services-specialty-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .service-specialty-card {
+        min-height: 350px;
+    }
+
+
+    .services-detail__shell {
+        grid-template-columns: 1fr;
+    }
+
+
+    .services-detail__visual {
+        min-height: 430px;
+    }
+
+
+    .services-conditions__header {
+        grid-template-columns: 1fr;
+
+        gap: var(--space-4);
+    }
+
+
+    .services-pathway__timeline {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        row-gap: var(--grid-gap-xl);
+    }
+
+
+    .services-pathway__line {
+        display: none;
+    }
+
+
+    .services-advanced__inner {
+        grid-template-columns:
+            auto
+            minmax(0, 1fr);
+    }
+
+
+    .services-final-cta__inner {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+}
+
+
+/* ============================================================
+   16. RESPONSIVE — MOBILE
+   ============================================================ */
+
+@media (max-width: 640px) {
+
+    .services-hero {
+        padding:
+            4.5rem
+            0
+            4rem;
+    }
+
+
+    .services-hero h1 {
+        font-size:
+            clamp(
+                2.35rem,
+                11vw,
+                3.2rem
+            );
+    }
+
+
+    .services-hero__description {
+        font-size: 1rem;
+    }
+
+
+    .services-hero__actions {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .services-hero__actions .btn {
+        width: 100%;
+    }
+
+
+    .services-hero__trust {
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: var(--space-3);
+    }
+
+
+    .services-clinical-panel {
+        padding: var(--space-5);
+
+        border-radius: var(--radius-2xl);
+    }
+
+
+    .services-clinical-panel__top {
+        flex-direction: column;
+    }
+
+
+    .services-clinical-status {
+        align-self: flex-start;
+    }
+
+
+    .services-specialty-grid {
+        margin-top: var(--space-8);
+    }
+
+
+    .service-specialty-card {
+        min-height: auto;
+
+        padding: var(--space-6);
+    }
+
+
+    .service-specialty-card h3 {
+        font-size: 1.55rem;
+    }
+
+
+    .services-detail__visual {
+        min-height: 390px;
+
+        padding: var(--space-6);
+    }
+
+
+    .services-detail__visual-icon {
+        top: var(--space-6);
+        left: var(--space-6);
+    }
+
+
+    .services-detail__visual strong {
+        font-size: 2.2rem;
+    }
+
+
+    .services-detail__content {
+        padding: var(--space-6);
+    }
+
+
+    .services-detail__features {
+        grid-template-columns: 1fr;
+
+        gap: var(--space-4);
+    }
+
+
+    .services-condition-list {
+        grid-template-columns: 1fr;
+    }
+
+
+    .services-pathway__timeline {
+        grid-template-columns: 1fr;
+
+        gap: var(--grid-gap-md);
+    }
+
+
+    .services-pathway-step {
+        display: grid;
+
+        grid-template-columns:
+            56px
+            1fr;
+
+        gap: var(--space-4);
+
+        text-align: left;
+    }
+
+
+    .services-pathway-step > span {
+        width: 56px;
+        height: 56px;
+
+        margin: 0;
+    }
+
+
+    .services-pathway-step > div {
+        padding: var(--space-5);
+    }
+
+
+    .services-pathway-step svg {
+        margin-bottom: var(--space-3);
+    }
+
+
+    .services-advanced__inner {
+        grid-template-columns: 1fr;
+    }
+
+
+    .services-advanced__inner > .btn {
+        grid-column: auto;
+
+        width: 100%;
+    }
+
+
+    .services-final-cta__inner {
+        padding: var(--space-6);
+    }
+
+
+    .services-final-cta__inner > .btn {
+        width: 100%;
+    }
+
+}
+
+
+/* ============================================================
+   17. REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .service-specialty-card,
+    .service-specialty-card::before,
+    .service-specialty-card::after,
+    .service-specialty-card__icon,
+    .service-specialty-card__trigger,
+    .service-condition,
+    .services-pathway-step > div,
+    [data-reveal] {
+        transition: none !important;
+    }
+
+
+    [data-reveal] {
+        opacity: 1;
+
+        transform: none;
+    }
+
+
+    .service-specialty-card:hover,
+    .service-condition:hover,
+    .services-pathway-step:hover > div {
+        transform: none;
+    }
+
+}
