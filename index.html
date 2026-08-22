@@ -58,6 +58,19 @@
     <script src="https://unpkg.com/lucide@latest" defer></script>
     <script src="js/root.js" defer></script>
     <script src="js/index.js" defer></script>
+    <!-- =========================================================
+     LUCIDE INITIALIZATION
+     ========================================================= -->
+    <script>
+    document.addEventListener(
+        "DOMContentLoaded",
+        function () {
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        }
+    );
+    </script>
 </head>
 
 <body>
@@ -1410,21 +1423,6 @@
         </div>
     </div>
 </footer>
-
-
-<!-- =========================================================
-     LUCIDE INITIALIZATION
-     ========================================================= -->
-<script>
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-        if (window.lucide) {
-            lucide.createIcons();
-        }
-    }
-);
-</script>
 
 
 </body>
