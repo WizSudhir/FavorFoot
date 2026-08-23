@@ -556,26 +556,29 @@
 
 .patient-action-card--with-image::before {
     content: "";
-
     position: absolute;
     inset: 0;
     z-index: 1;
-
     background:
-        linear-gradient(
-            180deg,
-            rgba(4, 8, 28, 0.20) 0%,
-            rgba(4, 8, 28, 0.78) 100%
-        ),
-        linear-gradient(
-            90deg,
-            rgba(4, 8, 28, 0.68) 0%,
-            rgba(4, 8, 28, 0.34) 100%
-        );
-
+    linear-gradient(
+        to top,
+        rgba(4, 8, 28, 0.66) 0%,
+        rgba(4, 8, 28, 0.34) 42%,
+        rgba(4, 8, 28, 0) 78%
+    ),
+    linear-gradient(
+        to right,
+        rgba(4, 8, 28, 0.38) 0%,
+        rgba(4, 8, 28, 0.08) 68%,
+        rgba(4, 8, 28, 0) 100%
+    );
     pointer-events: none;
 }
-
+.patient-action-card.patient-action-card--with-image h3,
+.patient-action-card.patient-action-card--with-image p,
+.patient-action-card.patient-action-card--with-image .patient-action-card__link {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.70);
+}
 /* Remove the old decorative white circle over the photographs. */
 .patient-action-card--with-image::after {
     display: none;
