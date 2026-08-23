@@ -431,7 +431,10 @@
 .patients-section-heading {
     max-width: 760px;
 }
-
+.patients-section-heading.text-center {
+    margin-inline: auto;
+    text-align: center;
+}
 .patients-section-heading p {
     max-width: 680px;
     margin-inline: auto;
@@ -540,54 +543,118 @@
     background:
         rgba(255,255,255,.08);
 }
+.patient-action-card__link svg {
+    width: 15px;
+    height: 15px;
+}
 .patient-action-card--with-image {
+    isolation: isolate;
+
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 .patient-action-card--with-image::before {
     content: "";
+
     position: absolute;
     inset: 0;
     z-index: 1;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(4, 8, 28, 0.20) 0%,
+            rgba(4, 8, 28, 0.78) 100%
+        ),
+        linear-gradient(
+            90deg,
+            rgba(4, 8, 28, 0.68) 0%,
+            rgba(4, 8, 28, 0.34) 100%
+        );
+
     pointer-events: none;
 }
-.patient-action-card--with-image h3 {
+
+/* Remove the old decorative white circle over the photographs. */
+.patient-action-card--with-image::after {
+    display: none;
+}
+
+/* These selectors have enough specificity to override the normal dark-card text. */
+.patient-action-card.patient-action-card--with-image h3 {
     color: #FFFFFF;
 }
-.patient-action-card--with-image p {
-    color: rgba(255, 255, 255, 0.82);
+
+.patient-action-card.patient-action-card--with-image p {
+    color: rgba(255, 255, 255, 0.88);
 }
-.patient-action-card--with-image .patient-action-card__arrow {
-    color: rgba(255, 255, 255, 0.82);
+
+.patient-action-card.patient-action-card--with-image .patient-action-card__link {
+    color: #D9DDFF;
 }
-.patient-action-card--with-image .patient-action-card__link {
-    color: var(--brand-accent-300);
-}
-.patient-action-card--with-image .patient-action-card__icon {
+
+.patient-action-card.patient-action-card--with-image .patient-action-card__icon {
     color: #FFFFFF;
-    background: rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.18);
+
+    transition:
+        transform var(--transition-base),
+        background-color var(--transition-base);
 }
+
+.patient-action-card.patient-action-card--with-image .patient-action-card__arrow {
+    color: #FFFFFF;
+
+    transition:
+        transform var(--transition-base),
+        color var(--transition-base);
+}
+
+/* Icon and arrow activity on hover or keyboard focus. */
+.patient-action-card--with-image:hover .patient-action-card__icon,
+.patient-action-card--with-image:focus-visible .patient-action-card__icon {
+    background: var(--brand-accent-500);
+    transform: scale(1.10) rotate(-4deg);
+}
+
+.patient-action-card--with-image:hover .patient-action-card__arrow,
+.patient-action-card--with-image:focus-visible .patient-action-card__arrow {
+    color: #FFFFFF;
+    transform: translate(4px, -4px);
+}
+
+.patient-action-card--with-image:focus-visible {
+    outline: 3px solid var(--brand-accent-400);
+    outline-offset: 4px;
+}
+
 /* Individual card images */
 .patient-action-card--appointment {
     background-image: url("../images/patient-resources/appointment.webp");
     background-position: 72% center;
 }
+
 .patient-action-card--forms {
     background-image: url("../images/patient-resources/forms.webp");
     background-position: 72% center;
 }
+
 .patient-action-card--portal {
     background-image: url("../images/patient-resources/portal.webp");
     background-position: 72% center;
 }
+
 .patient-action-card--insurance {
     background-image: url("../images/patient-resources/insurance.webp");
     background-position: 72% center;
 }
+
 .patient-action-card--preparation {
     background-image: url("../images/patient-resources/visit-preparation.webp");
     background-position: 72% center;
 }
+
 .patient-action-card--faqs {
     background-image: url("../images/patient-resources/faqs.webp");
     background-position: 72% center;
