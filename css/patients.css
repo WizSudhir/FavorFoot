@@ -462,35 +462,22 @@
 
 .patient-action-card {
     position: relative;
-
     min-height: 245px;
-
     display: flex;
     flex-direction: column;
-
     padding: var(--space-6);
-
     overflow: hidden;
-
-    border:
-        1px solid
-        var(--border-color);
-
-    border-radius:
-        var(--radius-xl);
-
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
     color: var(--text-primary);
-
-    background:
-        var(--bg-surface);
-
-    box-shadow:
-        var(--shadow-sm);
-
+    background: var(--bg-surface);
+    box-shadow: var(--shadow-sm);
     transition:
         transform var(--transition-base),
         box-shadow var(--transition-base),
         border-color var(--transition-base);
+    position: relative;
+    isolation: isolate;
 }
 
 .patient-action-card::after {
@@ -553,7 +540,67 @@
     background:
         rgba(255,255,255,.08);
 }
-
+.patient-action-card--with-image {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.patient-action-card--with-image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+        135deg,
+        rgba(7, 12, 52, 0.90) 0%,
+        rgba(12, 20, 78, 0.78) 58%,
+        rgba(22, 31, 104, 0.50) 100%
+    );
+    pointer-events: none;
+}
+.patient-action-card--with-image::after {
+    background: rgba(112, 122, 255, 0.16);
+}
+.patient-action-card--with-image h3 {
+    color: #FFFFFF;
+}
+.patient-action-card--with-image p {
+    color: rgba(255, 255, 255, 0.82);
+}
+.patient-action-card--with-image .patient-action-card__arrow {
+    color: rgba(255, 255, 255, 0.82);
+}
+.patient-action-card--with-image .patient-action-card__link {
+    color: var(--brand-accent-300);
+}
+.patient-action-card--with-image .patient-action-card__icon {
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.16);
+}
+/* Individual card images */
+.patient-action-card--appointment {
+    background-image: url("../images/patient-resources/appointment.webp");
+    background-position: 72% center;
+}
+.patient-action-card--forms {
+    background-image: url("../images/patient-resources/forms.webp");
+    background-position: 72% center;
+}
+.patient-action-card--portal {
+    background-image: url("../images/patient-resources/portal.webp");
+    background-position: 72% center;
+}
+.patient-action-card--insurance {
+    background-image: url("../images/patient-resources/insurance.webp");
+    background-position: 72% center;
+}
+.patient-action-card--preparation {
+    background-image: url("../images/patient-resources/visit-preparation.webp");
+    background-position: 72% center;
+}
+.patient-action-card--faqs {
+    background-image: url("../images/patient-resources/faqs.webp");
+    background-position: 72% center;
+}
 .patient-action-card__top {
     position: relative;
     z-index: 2;
