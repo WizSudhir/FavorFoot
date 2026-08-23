@@ -161,7 +161,7 @@
 }
 
 .patients-hero h1 .text-brand {
-    color: var(--brand-accent-300);
+    display: block;
 }
 
 .patients-hero__description {
