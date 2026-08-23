@@ -550,15 +550,15 @@
     inset: 0;
     z-index: 1;
     background: linear-gradient(
-        135deg,
-        rgba(7, 12, 52, 0.90) 0%,
-        rgba(12, 20, 78, 0.78) 58%,
-        rgba(22, 31, 104, 0.50) 100%
+       135deg,
+       rgba(0, 0, 0, 0.74) 0%,
+       rgba(0, 0, 0, 0.52) 58%,
+       rgba(0, 0, 0, 0.28) 100%
     );
     pointer-events: none;
 }
 .patient-action-card--with-image::after {
-    background: rgba(112, 122, 255, 0.16);
+    background: rgba(255, 255, 255, 0.08);
 }
 .patient-action-card--with-image h3 {
     color: #FFFFFF;
