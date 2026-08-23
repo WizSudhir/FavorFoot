@@ -434,6 +434,9 @@
      ============================================================ */
 
   const init = () => {
+     if (window.lucide) {
+       window.lucide.createIcons();
+     }
     initNavigation();
     initNavbarScroll();
     initActiveNavigation();
