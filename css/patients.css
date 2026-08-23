@@ -824,41 +824,65 @@
 }
 
 .patients-steps {
-    margin-block:
-        var(--space-8);
+    position: relative;
+    margin-block: var(--space-8);
 }
-
+.patients-steps::before {
+    content: "";
+    position: absolute;
+    top: 24px;
+    bottom: 24px;
+    left: 24px;
+    width: 1px;
+    background: linear-gradient(
+        to bottom,
+        var(--brand-accent-300),
+        var(--brand-navy-200)
+    );
+}
 .patients-step {
+    position: relative;
     display: grid;
-
-    grid-template-columns:
-        48px 1fr;
-
+    grid-template-columns: 52px minmax(0, 1fr);
     gap: var(--space-4);
-
-    padding-block:
-        var(--space-5);
-
-    border-bottom:
-        1px solid
-        var(--border-color);
+    padding-block: var(--space-5);
+    border-bottom: 1px solid var(--border-color);
 }
-
 .patients-step:first-child {
     padding-top: 0;
 }
-
-.patients-step__number {
-    color:
-        var(--brand-navy-500);
-
-    font-size:
-        var(--fs-xs);
-
+.patients-step__marker {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    color: var(--brand-navy-700);
+    background: #FFFFFF;
+    border: 1px solid var(--brand-navy-200);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 0 0 6px var(--bg-surface-soft);
+}
+.patients-step__marker svg {
+    width: 20px;
+    height: 20px;
+}
+.patients-step__marker > span {
+    position: absolute;
+    right: -7px;
+    bottom: -7px;
+    display: grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    color: #FFFFFF;
+    background: var(--brand-accent-600);
+    border: 2px solid var(--bg-surface-soft);
+    border-radius: 50%;
+    font-size: 0.625rem;
     font-weight: 800;
-
-    letter-spacing:
-        var(--tracking-wide);
+    line-height: 1;
 }
 
 .patients-step h3 {
@@ -2031,8 +2055,7 @@
     }
 
     .patients-step {
-        grid-template-columns:
-            40px 1fr;
+       grid-template-columns: 52px minmax(0, 1fr);
     }
 
     .visit-prep-card {
