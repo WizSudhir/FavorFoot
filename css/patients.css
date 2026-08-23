@@ -1078,11 +1078,14 @@
     display: grid;
 
     grid-template-columns:
-        minmax(0,.8fr)
-        minmax(0,1.2fr);
+        minmax(0, 1.2fr)
+        minmax(360px, .8fr);
 
     gap:
         var(--grid-gap-lg);
+
+    align-items:
+        stretch;
 }
 
 .insurance-info-card {
@@ -1098,6 +1101,228 @@
 
     background:
         var(--gradient-medical);
+}
+.insurance-info-card__header {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 1rem;
+
+    margin-bottom:
+        var(--space-5);
+}
+
+
+.insurance-info-card__eyebrow {
+    display: block;
+
+    margin-bottom: .45rem;
+
+    color:
+        var(--brand-accent-600);
+
+    font-size:
+        var(--fs-xs);
+
+    font-weight: 800;
+
+    letter-spacing:
+        var(--tracking-caps);
+
+    text-transform: uppercase;
+}
+
+
+.insurance-info-card__header h3 {
+    margin: 0;
+
+    font-size:
+        var(--fs-2xl);
+}
+
+
+.insurance-info-card__icon {
+    width: 52px;
+    height: 52px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex:
+        0 0 auto;
+
+    border-radius:
+        var(--radius-lg);
+
+    color:
+        var(--brand-navy-700);
+
+    background:
+        #FFFFFF;
+
+    box-shadow:
+        var(--shadow-sm);
+}
+
+
+.insurance-info-card__icon svg {
+    width: 23px;
+    height: 23px;
+}
+
+
+.insurance-info-card__intro {
+    margin-top:
+        var(--space-4);
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        var(--fs-sm);
+
+    line-height:
+        1.7;
+}
+.accepted-insurance-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap:
+        .75rem;
+
+    margin-top:
+        var(--space-6);
+}
+
+
+.accepted-insurance-logo {
+    min-height: 82px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        .75rem;
+
+    border:
+        1px solid
+        rgba(7, 22, 92, .10);
+
+    border-radius:
+        var(--radius-lg);
+
+    background:
+        rgba(255,255,255,.88);
+
+    box-shadow:
+        0 4px 12px rgba(7,22,92,.05);
+
+    transition:
+        transform var(--transition-base),
+        box-shadow var(--transition-base),
+        border-color var(--transition-base);
+}
+
+
+.accepted-insurance-logo:hover {
+    transform:
+        translateY(-3px);
+
+    border-color:
+        var(--brand-navy-200);
+
+    box-shadow:
+        var(--shadow-md);
+
+    background:
+        #FFFFFF;
+}
+
+
+.accepted-insurance-logo img {
+    display: block;
+
+    width:
+        100%;
+
+    max-width:
+        125px;
+
+    height:
+        52px;
+
+    object-fit:
+        contain;
+}
+.insurance-info-card__footer {
+    margin-top:
+        var(--space-6);
+
+    padding-top:
+        var(--space-5);
+
+    border-top:
+        1px solid
+        rgba(7,22,92,.10);
+}
+
+
+.insurance-info-card__note {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: .65rem;
+}
+
+
+.insurance-info-card__note > svg {
+    width: 18px;
+    height: 18px;
+
+    flex:
+        0 0 auto;
+
+    margin-top: 2px;
+
+    color:
+        var(--brand-accent-600);
+}
+
+
+.insurance-info-card__note p {
+    margin: 0;
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        var(--fs-xs);
+
+    line-height:
+        1.6;
+}
+
+
+.insurance-info-card__footer .link {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: .35rem;
+
+    margin-top:
+        var(--space-5);
 }
 
 .insurance-info-card__icon {
@@ -1213,6 +1438,61 @@
     color: var(--brand-accent-600);
     font-weight: 800;
 }
+.insurance-verify-card__notice {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: .65rem;
+
+    margin-top:
+        var(--space-5);
+
+    margin-bottom:
+        var(--space-6);
+
+    padding:
+        var(--space-4);
+
+    border:
+        1px solid
+        var(--border-color);
+
+    border-radius:
+        var(--radius-lg);
+
+    background:
+        var(--bg-surface-soft);
+}
+
+
+.insurance-verify-card__notice > svg {
+    width: 18px;
+    height: 18px;
+
+    flex:
+        0 0 auto;
+
+    margin-top: 2px;
+
+    color:
+        var(--brand-accent-600);
+}
+
+
+.insurance-verify-card__notice p {
+    margin: 0;
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        var(--fs-xs);
+
+    line-height:
+        1.6;
+}
+
 .insurance-link-card {
     display: grid;
 
@@ -2158,7 +2438,46 @@
     .patients-final-cta__inner .btn {
         width: 100%;
     }
+.accepted-insurance-grid {
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
 
+    gap:
+        .65rem;
+}
+
+
+.accepted-insurance-logo {
+    min-height:
+        72px;
+
+    padding:
+        .6rem;
+}
+
+
+.accepted-insurance-logo img {
+    max-width:
+        105px;
+
+    height:
+        44px;
+}
+
+
+.insurance-info-card__header {
+    align-items:
+        flex-start;
+}
+
+
+.insurance-info-card__icon {
+    width:
+        46px;
+
+    height:
+        46px;
+}
 }
 
 
