@@ -276,8 +276,8 @@
 
 .patients-dashboard__header h2 {
     color: #FFFFFF;
-
-    font-size: var(--fs-2xl);
+    font-size: clamp(1.625rem, 2vw, 1.875rem);
+    line-height: 1.15;
     letter-spacing: var(--tracking-tight);
 }
 
@@ -330,72 +330,73 @@
 }
 
 .patients-dashboard__card {
-    min-height: 150px;
+    min-height: 170px;
     display: flex;
     flex-direction: column;
-    padding: var(--space-5);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius:
-        var(--radius-lg);
-    background: rgba(255, 255, 255, 0.11);
+    padding: 1.5rem;
+    border: 1px solid #646dab;
+    border-radius: var(--radius-lg);
+    background: #3b438a;
     color: #FFFFFF;
+    box-shadow: 0 8px 20px rgba(5, 8, 44, 0.16);
     transition:
         transform var(--transition-base),
-        background var(--transition-base),
-        border-color var(--transition-base);
+        background-color var(--transition-base),
+        border-color var(--transition-base),
+        box-shadow var(--transition-base);
 }
 
-.patients-dashboard__card:hover {
+.patients-dashboard__card:hover,
+.patients-dashboard__card:focus-visible {
     color: #FFFFFF;
-
-    transform:
-        translateY(-3px);
-
-    background:
-        rgba(255,255,255,.12);
-
-    border-color:
-        rgba(255,255,255,.24);
+    transform: translateY(-5px);
+    border-color: #929be0;
+    background: #4a54a5;
+    box-shadow: 0 16px 30px rgba(5, 8, 44, 0.30);
 }
 
 .patients-dashboard__icon {
-    width: 42px;
-    height: 42px;
-
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
+    width: 54px;
+    height: 54px;
     margin-bottom: auto;
-
-    border-radius:
-        var(--radius-md);
-
-    color:
-        var(--brand-accent-300);
-
-    background:
-        rgba(255,255,255,.09);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: var(--radius-md);
+    color: #D9DDFF;
+    background: #5059a8;
+    transition:
+        transform var(--transition-base),
+        color var(--transition-base),
+        background-color var(--transition-base);
 }
 
 .patients-dashboard__icon svg {
-    width: 20px;
-    height: 20px;
+    width: 26px;
+    height: 26px;
+    stroke-width: 2.2;
 }
-
+.patients-dashboard__card:hover .patients-dashboard__icon,
+.patients-dashboard__card:focus-visible .patients-dashboard__icon {
+    color: #FFFFFF;
+    background: var(--brand-accent-500);
+    transform: scale(1.08);
+}
 .patients-dashboard__card strong {
     display: block;
-
     color: #FFFFFF;
-
-    font-size: var(--fs-sm);
+    font-size: 1.0625rem; /* 17px */
+    font-weight: 750;
+    line-height: 1.25;
 }
 
 .patients-dashboard__card small {
     display: block;
-    margin-top: .3rem;
-    color: rgba(255, 255, 255, 0.76);
-    font-size: var(--fs-xs);
+    margin-top: 0.45rem;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 0.9375rem; /* 15px */
+    line-height: 1.45;
 }
 
 .patients-dashboard__footer {
@@ -1912,7 +1913,8 @@
     }
 
     .patients-dashboard__card {
-        min-height: 125px;
+        min-height: 150px;
+        padding: 1.25rem;
     }
 
     .patients-dashboard__footer {
