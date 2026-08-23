@@ -364,7 +364,6 @@
     border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: var(--radius-md);
     color: #D9DDFF;
-    background: #5059a8;
     transition:
         transform var(--transition-base),
         color var(--transition-base),
