@@ -24,14 +24,10 @@
     position: relative;
     isolation: isolate;
     overflow: hidden;
-
     min-height: 650px;
-
     display: flex;
     align-items: center;
-
     color: #FFFFFF;
-
     background:
         radial-gradient(
             circle at 78% 22%,
@@ -235,7 +231,12 @@
     background: rgba(255,255,255,.2);
 }
 
-
+.patients-hero .btn:focus-visible,
+.patients-dashboard__card:focus-visible,
+.patients-dashboard__footer a:focus-visible {
+    outline: 3px solid var(--brand-accent-300);
+    outline-offset: 4px;
+}
 /* ============================================================
    02. PATIENT DASHBOARD
    ============================================================ */
@@ -1932,6 +1933,8 @@
 
         border-radius:
             var(--radius-xl);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
     }
 
     .patients-dashboard__header {
