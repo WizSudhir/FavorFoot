@@ -24,18 +24,22 @@
   padding-block: clamp(5rem, 9vw, 8rem);
 
   color: #FFFFFF;
-  background:
-    radial-gradient(
-      circle at 82% 20%,
-      rgba(77, 83, 190, 0.30),
-      transparent 32%
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(8, 14, 35, 0.88) 0%,
+      rgba(8, 14, 35, 0.72) 32%,
+      rgba(8, 14, 35, 0.42) 58%,
+      rgba(8, 14, 35, 0.20) 100%
     ),
-    radial-gradient(
-      circle at 12% 90%,
-      rgba(115, 120, 201, 0.16),
-      transparent 30%
-    ),
-    var(--gradient-dark);
+    url("../assets/images/contact-hero-reception.webp");
+
+  background-size: cover;
+
+  background-position: center center;
+
+  background-repeat: no-repeat;
 }
 
 .contact-hero::before {
@@ -43,22 +47,25 @@
 
   position: absolute;
   inset: 0;
+
   z-index: -1;
 
-  opacity: 0.45;
+  opacity: 0.08;
 
   background-image:
     linear-gradient(
-      rgba(255, 255, 255, 0.045) 1px,
+      rgba(255, 255, 255, 0.06) 1px,
       transparent 1px
     ),
     linear-gradient(
       90deg,
-      rgba(255, 255, 255, 0.045) 1px,
+      rgba(255, 255, 255, 0.06) 1px,
       transparent 1px
     );
 
   background-size: 42px 42px;
+
+  pointer-events: none;
 
   mask-image: linear-gradient(
     to bottom,
@@ -970,7 +977,9 @@
    ============================================================ */
 
 @media (max-width: 900px) {
-
+   .contact-hero {
+     background-position: 58% center;
+   }
   .contact-hero-inner,
   .contact-main-grid,
   .contact-location-grid {
@@ -1007,8 +1016,9 @@
 @media (max-width: 640px) {
 
   .contact-hero {
-    padding-block: 4.5rem 6rem;
-  }
+     padding-block: 4.5rem 6rem;
+     background-position: 62% center;
+   }
 
   .contact-hero h1 {
     font-size: clamp(2.3rem, 11vw, 3.25rem);
