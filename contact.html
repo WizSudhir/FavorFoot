@@ -16,19 +16,13 @@
 
   <!-- Replace with your approved favicon -->
   <link rel="icon" href="assets/images/favicon.png">
-      <!-- =========================================================
-     LUCIDE INITIALIZATION
-     ========================================================= -->
-    <script>
-    document.addEventListener(
-        "DOMContentLoaded",
-        function () {
-            if (window.lucide) {
-                lucide.createIcons();
-            }
-        }
-    );
-    </script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+  <script src="js/root.js" defer></script>
+  <script src="js/contact.js" defer></script>
+
 </head>
 
 <body>
@@ -665,36 +659,6 @@
     </div>
 </footer>
 
-  <script>
-    (() => {
-      const toggle = document.querySelector(".navbar-toggle");
-      const nav = document.querySelector("#primary-navigation");
-
-      if (toggle && nav) {
-        toggle.addEventListener("click", () => {
-          const isOpen = nav.classList.toggle("is-open");
-
-          toggle.setAttribute("aria-expanded", String(isOpen));
-
-          toggle.setAttribute(
-            "aria-label",
-            isOpen ? "Close navigation menu" : "Open navigation menu"
-          );
-        });
-
-        nav.querySelectorAll("a").forEach(link => {
-          link.addEventListener("click", () => {
-            nav.classList.remove("is-open");
-            toggle.setAttribute("aria-expanded", "false");
-            toggle.setAttribute("aria-label", "Open navigation menu");
-          });
-        });
-      }
-    })();
-
-    document.getElementById("current-year").textContent =
-      new Date().getFullYear();
-  </script>
 
 </body>
 </html>
