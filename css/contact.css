@@ -345,6 +345,65 @@
   min-width: 0;
   margin-top: 0.15rem;
 }
+/* ============================================================
+   CONTACT FORM — STATUS MESSAGE
+   ============================================================ */
+
+.contact-form-status {
+  width: 100%;
+  padding: 0.9rem 1rem;
+
+  border-radius: var(--radius-md);
+
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+}
+
+.contact-form-status[hidden] {
+  display: none;
+}
+
+.contact-form-status.is-success {
+  color: #166534;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+}
+
+.contact-form-status.is-error {
+  color: #991b1b;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+}
+/* ============================================================
+   CONTACT FORM — SUBMIT LOADING STATE
+   ============================================================ */
+
+.contact-submit-loading {
+  display: none;
+}
+
+.contact-submit.is-loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.contact-submit.is-loading .contact-submit-text,
+.contact-submit.is-loading .contact-submit-icon {
+  display: none;
+}
+
+.contact-submit.is-loading .contact-submit-loading {
+  display: inline;
+}
+.contact-captcha .cf-turnstile {
+  width: 100%;
+  min-width: 0;
+}
+.contact-captcha {
+  width: 100%;
+  min-width: 0;
+  margin-top: 0.15rem;
+}
 .contact-captcha .cf-turnstile {
   width: 100%;
   min-height: 65px;
