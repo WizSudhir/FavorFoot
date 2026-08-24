@@ -303,22 +303,14 @@
 
 .contact-form-consent {
   display: flex;
-
   gap: 0.7rem;
-
   align-items: flex-start;
-
   margin-top: 0.15rem;
   padding: 0.9rem 1rem;
-
   color: var(--text-muted);
-
   background: var(--bg-surface-soft);
-
   border: 1px solid var(--border-color-soft);
-
   border-radius: var(--radius-md);
-
   font-size: var(--fs-xs);
   line-height: 1.6;
 }
@@ -326,11 +318,8 @@
 .contact-form-consent input {
   width: 18px;
   height: 18px;
-
   flex: 0 0 18px;
-
   margin-top: 2px;
-
   accent-color: var(--brand-navy-700);
 }
 
@@ -408,7 +397,517 @@
   width: 100%;
   min-height: 65px;
 }
+/* ============================================================
+   GOOGLE REVIEWS
+   ============================================================ */
 
+.contact-google-reviews-section {
+  position: relative;
+
+  padding-block: var(--section-space);
+
+  background:
+    linear-gradient(
+      180deg,
+      #F8FAFC 0%,
+      #FFFFFF 100%
+    );
+}
+
+
+/* ============================================================
+   SECTION HEADING
+   ============================================================ */
+
+.contact-google-reviews-heading {
+  max-width: 760px;
+
+  margin-inline: auto;
+  margin-bottom: 2.75rem;
+
+  text-align: center;
+}
+
+.contact-google-reviews-heading .contact-section-eyebrow {
+  margin-bottom: 0.85rem;
+}
+
+.contact-google-reviews-heading h2 {
+  margin-bottom: 0.9rem;
+}
+
+.contact-google-reviews-heading p {
+  max-width: 680px;
+
+  margin-inline: auto;
+
+  color: var(--text-secondary);
+
+  line-height: 1.75;
+}
+
+
+/* ============================================================
+   GOOGLE RATING SUMMARY
+   ============================================================ */
+
+.contact-google-reviews-summary {
+  display: grid;
+
+  grid-template-columns:
+    minmax(240px, 0.7fr)
+    minmax(0, 1.3fr);
+
+  gap: 2rem;
+
+  align-items: center;
+
+  margin-bottom: 2rem;
+
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+
+  background: #FFFFFF;
+
+  border: 1px solid var(--border-color);
+
+  border-radius: var(--radius-xl);
+
+  box-shadow: var(--shadow-sm);
+}
+
+
+/* ============================================================
+   RATING SCORE
+   ============================================================ */
+
+.contact-google-rating {
+  text-align: center;
+
+  padding: 0.5rem 1rem;
+}
+
+.contact-google-rating-score {
+  display: flex;
+
+  align-items: baseline;
+  justify-content: center;
+
+  gap: 0.25rem;
+
+  color: var(--text-primary);
+
+  font-size: clamp(2.75rem, 5vw, 4rem);
+
+  font-weight: 800;
+
+  line-height: 1;
+}
+
+.contact-google-rating-max {
+  color: var(--text-muted);
+
+  font-size: 1rem;
+
+  font-weight: 600;
+}
+
+.contact-google-stars {
+  margin-top: 0.7rem;
+
+  color: #F4B400;
+
+  font-size: 1.4rem;
+
+  letter-spacing: 0.12em;
+
+  line-height: 1;
+}
+
+.contact-google-review-count {
+  margin-top: 0.65rem;
+
+  color: var(--text-muted);
+
+  font-size: var(--fs-sm);
+}
+
+
+/* ============================================================
+   GOOGLE BRAND / COPY
+   ============================================================ */
+
+.contact-google-rating-copy {
+  min-width: 0;
+}
+
+.contact-google-brand {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.55rem;
+
+  margin-bottom: 0.75rem;
+
+  color: var(--text-primary);
+
+  font-size: 0.9rem;
+
+  font-weight: 700;
+}
+
+.contact-google-g-mark {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  color: #4285F4;
+
+  background: #FFFFFF;
+
+  border: 1px solid var(--border-color);
+
+  border-radius: 50%;
+
+  font-size: 1rem;
+
+  font-weight: 800;
+
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-google-rating-copy p {
+  max-width: 620px;
+
+  margin: 0 0 1.15rem;
+
+  color: var(--text-secondary);
+
+  line-height: 1.7;
+}
+
+.contact-google-view-all {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.5rem;
+}
+
+
+/* ============================================================
+   REVIEW CARDS
+   ============================================================ */
+
+.contact-google-reviews-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 1.25rem;
+}
+
+.contact-google-review-card {
+  display: flex;
+
+  flex-direction: column;
+
+  min-width: 0;
+
+  padding: 1.5rem;
+
+  background: #FFFFFF;
+
+  border: 1px solid var(--border-color);
+
+  border-radius: var(--radius-xl);
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.contact-google-review-card:hover {
+  transform: translateY(-3px);
+
+  border-color: var(--border-color-soft);
+
+  box-shadow: var(--shadow-md);
+}
+
+
+/* ============================================================
+   REVIEW AUTHOR
+   ============================================================ */
+
+.contact-google-review-author {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.8rem;
+
+  min-width: 0;
+
+  margin-bottom: 1rem;
+}
+
+.contact-google-review-avatar {
+  width: 44px;
+  height: 44px;
+
+  flex: 0 0 44px;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+}
+
+.contact-google-review-author-info {
+  min-width: 0;
+}
+
+.contact-google-review-author-name {
+  display: block;
+
+  overflow: hidden;
+
+  color: var(--text-primary);
+
+  font-size: 0.95rem;
+
+  font-weight: 700;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+.contact-google-review-date {
+  display: block;
+
+  margin-top: 0.15rem;
+
+  color: var(--text-muted);
+
+  font-size: var(--fs-xs);
+}
+
+
+/* ============================================================
+   REVIEW RATING
+   ============================================================ */
+
+.contact-google-review-rating {
+  margin-bottom: 0.75rem;
+
+  color: #F4B400;
+
+  font-size: 1rem;
+
+  letter-spacing: 0.08em;
+}
+
+
+/* ============================================================
+   REVIEW TEXT
+   ============================================================ */
+
+.contact-google-review-text {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: 0.95rem;
+
+  line-height: 1.7;
+
+  overflow-wrap: anywhere;
+}
+
+.contact-google-review-text a {
+  color: var(--brand-navy-600);
+
+  font-weight: 600;
+}
+
+
+/* ============================================================
+   REVIEW FOOTER
+   ============================================================ */
+
+.contact-google-review-footer {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  margin-top: auto;
+  padding-top: 1.25rem;
+}
+
+.contact-google-review-source {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.4rem;
+
+  color: var(--text-muted);
+
+  font-size: var(--fs-xs);
+
+  font-weight: 600;
+}
+
+.contact-google-review-source-g {
+  color: #4285F4;
+
+  font-weight: 800;
+}
+
+.contact-google-review-link {
+  color: var(--brand-navy-600);
+
+  font-size: var(--fs-xs);
+
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.contact-google-review-link:hover {
+  color: var(--brand-accent-600);
+
+  text-decoration: underline;
+
+  text-underline-offset: 3px;
+}
+
+
+/* ============================================================
+   LOADING / ERROR
+   ============================================================ */
+
+.contact-google-review-loading,
+.contact-google-review-error {
+  grid-column: 1 / -1;
+
+  padding: 2rem;
+
+  color: var(--text-muted);
+
+  text-align: center;
+
+  background: #FFFFFF;
+
+  border: 1px solid var(--border-color);
+
+  border-radius: var(--radius-xl);
+}
+
+.contact-google-review-error {
+  color: var(--color-error);
+}
+
+
+/* ============================================================
+   GOOGLE ATTRIBUTION
+   ============================================================ */
+
+.contact-google-reviews-footer {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.5rem;
+
+  margin-top: 1.5rem;
+
+  color: var(--text-muted);
+
+  font-size: 0.72rem;
+
+  text-align: center;
+}
+
+.contact-google-attribution {
+  color: #4285F4;
+
+  font-weight: 700;
+}
+
+
+/* ============================================================
+   RESPONSIVE — GOOGLE REVIEWS
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+  .contact-google-reviews-summary {
+    grid-template-columns: 1fr;
+
+    text-align: center;
+  }
+
+  .contact-google-rating-copy {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+  }
+
+  .contact-google-rating-copy p {
+    margin-inline: auto;
+  }
+
+  .contact-google-reviews-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (max-width: 640px) {
+
+  .contact-google-reviews-section {
+    padding-block: 4rem;
+  }
+
+  .contact-google-reviews-summary {
+    padding: 1.35rem;
+  }
+
+  .contact-google-reviews-grid {
+    grid-template-columns: 1fr;
+
+    gap: 1rem;
+  }
+
+  .contact-google-review-card {
+    padding: 1.25rem;
+  }
+
+  .contact-google-reviews-footer {
+    flex-direction: column;
+  }
+
+}
 /* ============================================================
    03. CONTACT INFORMATION
    ============================================================ */
