@@ -492,7 +492,242 @@
   color: var(--text-primary);
 }
 
+/* ============================================================
+   04. PATIENT STORIES / TESTIMONIAL VIDEOS
+   ============================================================ */
 
+.contact-testimonials-section {
+  position: relative;
+
+  padding-block: var(--section-space);
+
+  background: #FFFFFF;
+}
+
+.contact-testimonials-heading {
+  max-width: 760px;
+
+  margin-inline: auto;
+  margin-bottom: 3rem;
+
+  text-align: center;
+}
+
+.contact-testimonials-heading .contact-section-eyebrow {
+  margin-bottom: 0.85rem;
+}
+
+.contact-testimonials-heading h2 {
+  margin-bottom: 0.9rem;
+}
+
+.contact-testimonials-heading p {
+  max-width: 680px;
+
+  margin-inline: auto;
+
+  color: var(--text-secondary);
+
+  line-height: 1.75;
+}
+
+.contact-testimonials-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 1.5rem;
+}
+
+.contact-testimonial-card {
+  overflow: hidden;
+
+  background: #FFFFFF;
+
+  border: 1px solid var(--border-color);
+
+  border-radius: var(--radius-xl);
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.contact-testimonial-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow: var(--shadow-md);
+
+  border-color: var(--border-color-soft);
+}
+
+.contact-testimonial-video {
+  position: relative;
+
+  aspect-ratio: 16 / 9;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  background: #111827;
+}
+
+.contact-testimonial-video img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform 400ms ease,
+    filter 400ms ease;
+}
+
+.contact-testimonial-card:hover
+.contact-testimonial-video img {
+  transform: scale(1.035);
+
+  filter: brightness(0.82);
+}
+
+.contact-testimonial-play {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  display: grid;
+
+  place-items: center;
+
+  width: 64px;
+  height: 64px;
+
+  color: #FFFFFF;
+
+  background: var(--brand-navy-600);
+
+  border: 4px solid rgba(255, 255, 255, 0.9);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.22);
+
+  transform:
+    translate(-50%, -50%);
+
+  transition:
+    transform var(--transition-fast),
+    background var(--transition-fast);
+}
+
+.contact-testimonial-card:hover
+.contact-testimonial-play {
+  background: var(--brand-accent-600);
+
+  transform:
+    translate(-50%, -50%)
+    scale(1.08);
+}
+
+.contact-testimonial-play svg {
+  margin-left: 3px;
+}
+
+.contact-testimonial-content {
+  padding: 1.25rem 1.35rem 1.4rem;
+}
+
+.contact-testimonial-label {
+  display: block;
+
+  margin-bottom: 0.45rem;
+
+  color: var(--brand-accent-600);
+
+  font-size: var(--fs-xs);
+  font-weight: 700;
+
+  letter-spacing: var(--tracking-caps);
+
+  text-transform: uppercase;
+}
+
+.contact-testimonial-content h3 {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-size: 1.05rem;
+
+  line-height: 1.45;
+}
+
+
+/* ============================================================
+   TESTIMONIAL VIDEO — ACTIVE IFRAME
+   ============================================================ */
+
+.contact-testimonial-video iframe {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+}
+
+
+/* ============================================================
+   TESTIMONIAL VIDEO — KEYBOARD ACCESSIBILITY
+   ============================================================ */
+
+.contact-testimonial-video:focus-visible {
+  outline: 3px solid var(--brand-accent-500);
+
+  outline-offset: 3px;
+}
+
+
+/* ============================================================
+   RESPONSIVE — TESTIMONIALS
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+  .contact-testimonials-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+@media (max-width: 640px) {
+
+  .contact-testimonials-section {
+    padding-block: 4rem;
+  }
+
+  .contact-testimonials-grid {
+    grid-template-columns: 1fr;
+
+    gap: 1.25rem;
+  }
+
+  .contact-testimonial-play {
+    width: 58px;
+    height: 58px;
+  }
+
+}
 /* ============================================================
    04. LOCATION
    ============================================================ */
@@ -727,96 +962,6 @@
   font-size: var(--fs-sm);
 
   line-height: 1.6;
-}
-
-
-/* ============================================================
-   05. FINAL CTA
-   ============================================================ */
-
-.contact-cta {
-  position: relative;
-
-  overflow: hidden;
-
-  color: #FFFFFF;
-
-  background: var(--gradient-primary);
-}
-
-.contact-cta::after {
-  content: "";
-
-  position: absolute;
-
-  width: 420px;
-  height: 420px;
-
-  right: -180px;
-  top: -210px;
-
-  border: 1px solid rgba(255, 255, 255, 0.12);
-
-  border-radius: 50%;
-
-  box-shadow:
-    0 0 0 60px rgba(255, 255, 255, 0.025),
-    0 0 0 120px rgba(255, 255, 255, 0.018);
-
-  pointer-events: none;
-}
-
-.contact-cta-inner {
-  position: relative;
-  z-index: 1;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-
-  gap: 2rem;
-}
-
-.contact-cta h2 {
-  margin-bottom: 0.55rem;
-
-  color: #FFFFFF;
-}
-
-.contact-cta p {
-  max-width: 650px;
-
-  margin: 0;
-
-  color: rgba(255, 255, 255, 0.72);
-}
-
-.contact-cta-actions {
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 0.75rem;
-
-  flex: 0 0 auto;
-}
-
-.contact-btn-outline-white {
-  color: #FFFFFF !important;
-
-  background: transparent;
-
-  border-color: rgba(255, 255, 255, 0.45);
-}
-
-.contact-btn-outline-white:hover {
-  color: var(--brand-navy-900) !important;
-
-  background: #FFFFFF;
-
-  border-color: #FFFFFF;
 }
 
 
