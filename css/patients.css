@@ -1368,6 +1368,9 @@
 .insurance-verify-card {
     display: flex;
     flex-direction: column;
+
+    min-height: 540px;
+
     gap: var(--space-6);
 
     padding: clamp(1.5rem, 3vw, 2rem);
@@ -1439,15 +1442,78 @@
     display: grid;
 
     grid-template-columns:
-        minmax(220px, 0.75fr)
-        minmax(260px, 1fr)
-        minmax(0, 2fr);
+        minmax(220px, 0.8fr)
+        minmax(300px, 1fr);
 
     align-items: center;
 
+    gap: clamp(2rem, 5vw, 5rem);
+}
+.insurance-verify-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
     gap: var(--space-6);
+
+    margin-top: auto;
 }
 
+
+/* Bottom-left information notice */
+
+.insurance-verify-card__footer .insurance-verify-card__notice {
+    display: flex;
+    align-items: center;
+
+    flex: 1 1 auto;
+    min-width: 0;
+
+    gap: 0.65rem;
+
+    margin: 0;
+
+    padding: var(--space-4);
+
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+
+    background: var(--bg-surface-soft);
+}
+
+
+.insurance-verify-card__footer
+.insurance-verify-card__notice > svg {
+    width: 18px;
+    height: 18px;
+
+    flex: 0 0 auto;
+
+    color: var(--brand-accent-600);
+}
+
+
+.insurance-verify-card__footer
+.insurance-verify-card__notice p {
+    flex: 1 1 auto;
+    min-width: 0;
+
+    margin: 0;
+
+    color: var(--text-secondary);
+
+    font-size: var(--fs-xs);
+    line-height: 1.6;
+}
+
+
+/* Bottom-right CTA */
+
+.insurance-verify-card__footer > .btn {
+    flex: 0 0 auto;
+
+    align-self: flex-end;
+}
 
 /* INTRO */
 
@@ -1497,53 +1563,7 @@
 
     font-weight: 800;
 }
-
-
-/* NOTICE */
-
-.insurance-verify-card__notice {
-    display: flex;
-    align-items: center;
-
-    gap: 0.65rem;
-
-    margin: 0;
-
-    padding: var(--space-4);
-
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
-
-    background: var(--bg-surface-soft);
-}
-
-.insurance-verify-card__notice > svg {
-    width: 18px;
-    height: 18px;
-
-    flex: 0 0 auto;
-
-    color: var(--brand-accent-600);
-}
-
-.insurance-verify-card__notice p {
-    flex: 1 1 auto;
-    min-width: 0;
-
-    margin: 0;
-
-    color: var(--text-secondary);
-
-    font-size: var(--fs-xs);
-    line-height: 1.6;
-}
-
-
 /* BUTTON */
-
-.insurance-verify-card > .btn {
-    align-self: flex-start;
-}
 
 .insurance-verify-card__icon {
     width: 52px;
