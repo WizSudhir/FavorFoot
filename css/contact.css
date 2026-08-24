@@ -194,7 +194,20 @@
 /* ============================================================
    02. CONTACT MAIN / FORM
    ============================================================ */
-
+.contact-submit-loading {
+  display: none;
+}
+.contact-submit.is-loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+.contact-submit.is-loading .contact-submit-text,
+.contact-submit.is-loading .contact-submit-icon {
+  display: none;
+}
+.contact-submit.is-loading .contact-submit-loading {
+  display: inline;
+}
 .contact-main {
   position: relative;
   z-index: 3;
@@ -208,8 +221,8 @@
   display: grid;
 
   grid-template-columns:
-    minmax(0, 1.1fr)
-    minmax(320px, 0.9fr);
+    minmax(0, 1.15fr)
+    minmax(320px, 0.85fr);
 
   gap: 1.5rem;
 
