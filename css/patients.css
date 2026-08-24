@@ -1682,60 +1682,125 @@
 
 .patient-resource-card {
     position: relative;
-
+    isolation: isolate;
     min-height: 275px;
 
     display: flex;
     flex-direction: column;
 
-    padding:
-        var(--space-6);
+    padding: var(--space-6);
 
     overflow: hidden;
 
-    border:
-        1px solid
-        var(--border-color);
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: var(--radius-xl);
 
-    border-radius:
-        var(--radius-xl);
+    color: #FFFFFF;
 
-    color:
-        var(--text-primary);
+    background-color: var(--brand-navy-900);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 
-    background:
-        var(--bg-surface);
+    box-shadow: var(--shadow-sm);
 
     transition:
         transform var(--transition-base),
-        box-shadow var(--transition-base);
+        box-shadow var(--transition-base),
+        border-color var(--transition-base);
+}
+.patient-resource-card--foot-care {
+    background-image:
+        linear-gradient(
+            to top,
+            rgba(5, 10, 35, 0.88) 0%,
+            rgba(5, 10, 35, 0.48) 48%,
+            rgba(5, 10, 35, 0.12) 100%
+        ),
+        url("../images/patient-resources/foot-care.webp");
+
+    background-position: center;
 }
 
-.patient-resource-card:hover {
-    color:
-        var(--text-primary);
 
-    transform:
-        translateY(-5px);
+.patient-resource-card--diabetic {
+    background-image:
+        linear-gradient(
+            to top,
+            rgba(5, 10, 35, 0.88) 0%,
+            rgba(5, 10, 35, 0.48) 48%,
+            rgba(5, 10, 35, 0.12) 100%
+        ),
+        url("../images/patient-resources/diabetic-foot-care.webp");
 
+    background-position: center;
+}
+
+
+.patient-resource-card--after-visit {
+    background-image:
+        linear-gradient(
+            to top,
+            rgba(5, 10, 35, 0.88) 0%,
+            rgba(5, 10, 35, 0.48) 48%,
+            rgba(5, 10, 35, 0.12) 100%
+        ),
+        url("../images/patient-resources/after-visit.webp");
+
+    background-position: center;
+}
+
+
+.patient-resource-card--faqs {
+    background-image:
+        linear-gradient(
+            to top,
+            rgba(5, 10, 35, 0.88) 0%,
+            rgba(5, 10, 35, 0.48) 48%,
+            rgba(5, 10, 35, 0.12) 100%
+        ),
+        url("../images/patient-resources/faqs.webp");
+
+    background-position: center;
+}
+.patient-resource-card__number,
+.patient-resource-card__icon,
+.patient-resource-card h3,
+.patient-resource-card p,
+.patient-resource-card__link {
+    position: relative;
+    z-index: 2;
+}
+
+.patient-resource-card:hover,
+.patient-resource-card:focus-visible {
+    color: #FFFFFF;
+    transform: translateY(-6px);
+    border-color: rgba(255,255,255,.28);
     box-shadow:
-        var(--shadow-lg);
+        0 24px 50px rgba(5, 10, 35, .28);
+}
+
+.patient-resource-card:hover .patient-resource-card__icon,
+.patient-resource-card:focus-visible .patient-resource-card__icon {
+    background: var(--brand-accent-500);
+    transform: scale(1.08);
+}
+
+.patient-resource-card:hover .patient-resource-card__link,
+.patient-resource-card:focus-visible .patient-resource-card__link {
+    color: #FFFFFF;
+    transform: translateX(4px);
 }
 
 .patient-resource-card__number {
     position: absolute;
-
     top: 1rem;
     right: 1.25rem;
-
-    color:
-        rgba(15,23,42,.08);
-
-    font-size:
-        var(--fs-3xl);
-
-    font-weight:
-        800;
+    z-index: 2;
+    color: rgba(255,255,255,.28);
+    font-size: var(--fs-3xl);
+    font-weight: 800;
 }
 
 .patient-resource-card__icon {
@@ -1746,17 +1811,21 @@
     align-items: center;
     justify-content: center;
 
-    margin-bottom:
-        var(--space-8);
+    margin-bottom: var(--space-8);
 
-    border-radius:
-        var(--radius-lg);
+    border: 1px solid rgba(255,255,255,.22);
+    border-radius: var(--radius-lg);
 
-    color:
-        var(--brand-navy-700);
+    color: #FFFFFF;
 
-    background:
-        var(--brand-navy-50);
+    background: rgba(255,255,255,.14);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    transition:
+        transform var(--transition-base),
+        background-color var(--transition-base);
 }
 
 .patient-resource-card__icon svg {
@@ -1765,15 +1834,19 @@
 }
 
 .patient-resource-card h3 {
-    font-size:
-        var(--fs-lg);
+    color: #FFFFFF;
+    font-size: var(--fs-lg);
+    text-shadow:
+        0 2px 10px rgba(0,0,0,.35);
 }
 
 .patient-resource-card p {
     margin-top: .6rem;
-
-    font-size:
-        var(--fs-sm);
+    color: rgba(255,255,255,.84);
+    font-size: var(--fs-sm);
+    line-height: 1.55;
+    text-shadow:
+        0 2px 8px rgba(0,0,0,.35);
 }
 
 .patient-resource-card__link {
@@ -1784,14 +1857,17 @@
     margin-top: auto;
     padding-top: var(--space-5);
 
-    color:
-        var(--color-primary);
+    color: var(--brand-accent-300);
 
-    font-size:
-        var(--fs-xs);
+    font-size: var(--fs-xs);
+    font-weight: 800;
 
-    font-weight:
-        800;
+    text-shadow:
+        0 2px 8px rgba(0,0,0,.4);
+
+    transition:
+        color var(--transition-base),
+        transform var(--transition-base);
 }
 
 .patient-resource-card__link svg {
