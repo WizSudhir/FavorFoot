@@ -16,6 +16,7 @@
 
   <!-- Replace with your approved favicon -->
   <link rel="icon" href="assets/images/favicon.png">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <script src="https://unpkg.com/lucide@latest" defer></script>
   <script src="js/root.js" defer></script>
   <script src="js/contact.js" defer></script>
@@ -133,7 +134,7 @@
             Connect action="#" to your secure form/backend.
             Do not collect or transmit PHI through an unsecured form.
           -->
-          <form class="contact-form" action="#" method="post">
+          <form class="contact-form" id="contact-form" action="/api/contact" method="post">
 
             <div class="contact-form-row">
 
@@ -229,7 +230,20 @@
               </p>
 
             </div>
+            
+<!-- CAPTCHA -->
 
+<div class="contact-captcha" aria-label="Security verification">
+
+  <div
+    class="cf-turnstile"
+    data-sitekey="YOUR_TURNSTILE_SITE_KEY"
+    data-theme="auto"
+    data-size="flexible"
+    data-action="contact"
+  ></div>
+
+</div>
             <label class="contact-form-consent">
               <input type="checkbox" name="contact_consent" required>
               <span>
