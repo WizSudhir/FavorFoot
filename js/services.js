@@ -12,6 +12,8 @@
    - Scroll reveal
    - Specialty service interaction
    - Dynamic service detail panel
+   - Condition finder
+   - Related conditions
    - URL hash state
    - Smooth navigation
    - Accessibility
@@ -57,6 +59,18 @@
 
                 "Individualized treatment planning"
 
+            ],
+
+            relatedConditions: [
+
+                "Diabetic Foot Problems",
+
+                "Chronic Wounds",
+
+                "Non-Healing Wounds",
+
+                "Foot Ulcers"
+
             ]
 
         },
@@ -90,6 +104,18 @@
                 "Support for tissue recovery",
 
                 "Integrated conservative care"
+
+            ],
+
+            relatedConditions: [
+
+                "Chronic Foot Pain",
+
+                "Selected Tendon Problems",
+
+                "Selected Joint Problems",
+
+                "Musculoskeletal Conditions"
 
             ]
 
@@ -125,6 +151,18 @@
 
                 "Treatment planning based on findings"
 
+            ],
+
+            relatedConditions: [
+
+                "Unexplained Foot Pain",
+
+                "Ankle Problems",
+
+                "Neuropathy",
+
+                "Structural Problems"
+
             ]
 
         },
@@ -158,6 +196,18 @@
                 "Technology-assisted care",
 
                 "Integrated treatment approach"
+
+            ],
+
+            relatedConditions: [
+
+                "Selected Skin Conditions",
+
+                "Selected Nail Problems",
+
+                "Selected Foot Conditions",
+
+                "Specialized Treatment Needs"
 
             ]
 
@@ -193,6 +243,18 @@
 
                 "Recovery and rehabilitation planning"
 
+            ],
+
+            relatedConditions: [
+
+                "Bunions",
+
+                "Hammertoes",
+
+                "Foot Deformities",
+
+                "Structural Problems"
+
             ]
 
         },
@@ -227,6 +289,18 @@
 
                 "Support for mobility and function"
 
+            ],
+
+            relatedConditions: [
+
+                "Biomechanical Problems",
+
+                "Gait Problems",
+
+                "Flat Feet",
+
+                "Pressure-Related Foot Problems"
+
             ]
 
         }
@@ -235,7 +309,177 @@
 
 
     /* ============================================================
-       02. DOM ELEMENTS
+       02. CONDITION FINDER DATA
+       ============================================================ */
+
+    const conditionData = {
+
+        pain: {
+
+            title:
+                "Pain & Injuries",
+
+            icon:
+                "activity",
+
+            conditions: [
+
+                "Heel Pain",
+
+                "Foot Pain",
+
+                "Ankle Pain",
+
+                "Chronic Foot Pain",
+
+                "Sports Injuries",
+
+                "Tendon Problems"
+
+            ]
+
+        },
+
+
+        skin: {
+
+            title:
+                "Skin & Nails",
+
+            icon:
+                "sparkles",
+
+            conditions: [
+
+                "Plantar Warts",
+
+                "Ingrown Toenails",
+
+                "Corns & Calluses",
+
+                "Fungal Nail Problems",
+
+                "Thickened Toenails",
+
+                "Skin Lesions"
+
+            ]
+
+        },
+
+
+        diabetes: {
+
+            title:
+                "Diabetes & Nerve",
+
+            icon:
+                "heart-pulse",
+
+            conditions: [
+
+                "Diabetic Foot Problems",
+
+                "Neuropathy",
+
+                "Diabetic Foot Ulcers",
+
+                "Loss of Sensation",
+
+                "Foot Risk Assessment",
+
+                "Circulation Concerns"
+
+            ]
+
+        },
+
+
+        joints: {
+
+            title:
+                "Joints & Arthritis",
+
+            icon:
+                "bone",
+
+            conditions: [
+
+                "Gout",
+
+                "Arthritis",
+
+                "Joint Pain",
+
+                "Toe Joint Problems",
+
+                "Inflammation",
+
+                "Stiffness"
+
+            ]
+
+        },
+
+
+        wounds: {
+
+            title:
+                "Wounds & Ulcers",
+
+            icon:
+                "droplets",
+
+            conditions: [
+
+                "Chronic Wounds",
+
+                "Non-Healing Wounds",
+
+                "Diabetic Wounds",
+
+                "Foot Ulcers",
+
+                "Pressure-Related Wounds",
+
+                "Complex Lower-Extremity Wounds"
+
+            ]
+
+        },
+
+
+        structure: {
+
+            title:
+                "Structure & Function",
+
+            icon:
+                "footprints",
+
+            conditions: [
+
+                "Bunions",
+
+                "Hammertoes",
+
+                "Flat Feet",
+
+                "Deformities",
+
+                "Gait Problems",
+
+                "Biomechanical Issues"
+
+            ]
+
+        }
+
+    };
+
+
+    /* ============================================================
+       03. DOM ELEMENTS
        ============================================================ */
 
     const cards =
@@ -286,14 +530,38 @@
         );
 
 
+    const detailRelatedConditions =
+        document.querySelector(
+            ".services-detail__related"
+        );
+
+
     const serviceTriggers =
         document.querySelectorAll(
             ".service-specialty-card__trigger"
         );
 
 
+    const conditionCategoryButtons =
+        document.querySelectorAll(
+            ".condition-category"
+        );
+
+
+    const conditionResults =
+        document.querySelector(
+            "#condition-results"
+        );
+
+
+    const conditionCategoryTitle =
+        document.querySelector(
+            "#condition-category-title"
+        );
+
+
     /* ============================================================
-       03. LUCIDE ICON REFRESH
+       04. LUCIDE ICON REFRESH
        ============================================================ */
 
     function refreshIcons() {
@@ -311,7 +579,7 @@
 
 
     /* ============================================================
-       04. BUILD FEATURE LIST
+       05. BUILD FEATURE LIST
        ============================================================ */
 
     function buildFeatureList(features) {
@@ -355,7 +623,52 @@
 
 
     /* ============================================================
-       05. UPDATE DETAIL PANEL ICON
+       06. BUILD RELATED CONDITIONS
+       ============================================================ */
+
+    function buildRelatedConditions(conditions) {
+
+        if (!detailRelatedConditions) {
+            return;
+        }
+
+
+        detailRelatedConditions.innerHTML = "";
+
+
+        if (
+            !conditions ||
+            !conditions.length
+        ) {
+
+            return;
+
+        }
+
+
+        conditions.forEach(function (condition) {
+
+            const item =
+                document.createElement("span");
+
+
+            item.className =
+                "services-detail__related-pill";
+
+
+            item.textContent =
+                condition;
+
+
+            detailRelatedConditions.appendChild(item);
+
+        });
+
+    }
+
+
+    /* ============================================================
+       07. UPDATE DETAIL PANEL ICON
        ============================================================ */
 
     function updateDetailIcon(iconName) {
@@ -381,7 +694,7 @@
 
 
     /* ============================================================
-       06. UPDATE SERVICE DETAIL
+       08. UPDATE SERVICE DETAIL
        ============================================================ */
 
     function updateService(
@@ -479,6 +792,15 @@
 
         buildFeatureList(
             service.features
+        );
+
+
+        /*
+         * Update related conditions.
+         */
+
+        buildRelatedConditions(
+            service.relatedConditions
         );
 
 
@@ -588,7 +910,405 @@
 
 
     /* ============================================================
-       07. SERVICE CARD EVENTS
+       09. CONDITION FINDER
+       ============================================================ */
+
+    function renderConditions(categoryKey) {
+
+        if (!conditionResults) {
+            return;
+        }
+
+
+        const category =
+            conditionData[categoryKey];
+
+
+        if (!category) {
+            return;
+        }
+
+
+        /*
+         * Update selected category title.
+         */
+
+        if (conditionCategoryTitle) {
+
+            conditionCategoryTitle.textContent =
+                category.title;
+
+        }
+
+
+        /*
+         * Update active category button.
+         */
+
+        conditionCategoryButtons.forEach(
+            function (button) {
+
+                const isActive =
+                    button.dataset.conditionCategory === categoryKey;
+
+
+                button.classList.toggle(
+                    "is-active",
+                    isActive
+                );
+
+
+                button.setAttribute(
+                    "aria-selected",
+                    isActive
+                        ? "true"
+                        : "false"
+                );
+
+            }
+        );
+
+
+        /*
+         * Clear current condition results.
+         */
+
+        conditionResults.innerHTML = "";
+
+
+        /*
+         * Build condition buttons.
+         */
+
+        category.conditions.forEach(
+            function (condition) {
+
+                const button =
+                    document.createElement("button");
+
+
+                button.type =
+                    "button";
+
+
+                button.className =
+                    "condition-result";
+
+
+                button.dataset.condition =
+                    condition;
+
+
+                button.innerHTML = `
+
+                    <span>
+                        ${condition}
+                    </span>
+
+                    <i
+                        data-lucide="arrow-up-right"
+                        aria-hidden="true"
+                    ></i>
+
+                `;
+
+
+                conditionResults.appendChild(
+                    button
+                );
+
+            }
+        );
+
+
+        bindConditionResults();
+
+        refreshIcons();
+
+    }
+
+
+    /* ============================================================
+       10. CONDITION RESULT EVENTS
+       ============================================================ */
+
+    function bindConditionResults() {
+
+        if (!conditionResults) {
+            return;
+        }
+
+
+        const results =
+            conditionResults.querySelectorAll(
+                ".condition-result"
+            );
+
+
+        results.forEach(
+            function (result) {
+
+                result.addEventListener(
+                    "click",
+                    function () {
+
+                        const condition =
+                            result.dataset.condition;
+
+
+                        if (!condition) {
+                            return;
+                        }
+
+
+                        /*
+                         * Keep the condition visible in
+                         * the URL for a useful page state.
+                         */
+
+                        try {
+
+                            window.history.replaceState(
+                                null,
+                                "",
+                                "#condition-" +
+                                encodeURIComponent(
+                                    condition
+                                        .toLowerCase()
+                                        .replace(
+                                            /[^a-z0-9]+/g,
+                                            "-"
+                                        )
+                                        .replace(
+                                            /^-+|-+$/g,
+                                            ""
+                                        )
+                                )
+                            );
+
+                        } catch (error) {}
+
+
+                        /*
+                         * Move the user to the specialty
+                         * service section.
+                         */
+
+                        const specialties =
+                            document.querySelector(
+                                "#specialties"
+                            );
+
+
+                        if (!specialties) {
+                            return;
+                        }
+
+
+                        const navbar =
+                            document.querySelector(
+                                ".navbar"
+                            );
+
+
+                        const navbarHeight =
+                            navbar
+                                ? navbar.offsetHeight
+                                : 0;
+
+
+                        const targetPosition =
+                            specialties.getBoundingClientRect().top +
+                            window.scrollY -
+                            navbarHeight -
+                            16;
+
+
+                        window.scrollTo({
+
+                            top:
+                                targetPosition,
+
+                            behavior:
+                                window.matchMedia(
+                                    "(prefers-reduced-motion: reduce)"
+                                ).matches
+                                    ? "auto"
+                                    : "smooth"
+
+                        });
+
+                    }
+                );
+
+            }
+        );
+
+    }
+
+
+    /* ============================================================
+       11. CONDITION CATEGORY EVENTS
+       ============================================================ */
+
+    function initConditionFinder() {
+
+        if (
+            !conditionCategoryButtons.length ||
+            !conditionResults
+        ) {
+
+            return;
+
+        }
+
+
+        conditionCategoryButtons.forEach(
+            function (button) {
+
+                button.addEventListener(
+                    "click",
+                    function () {
+
+                        const categoryKey =
+                            button.dataset.conditionCategory;
+
+
+                        if (
+                            !categoryKey ||
+                            !conditionData[categoryKey]
+                        ) {
+
+                            return;
+
+                        }
+
+
+                        renderConditions(
+                            categoryKey
+                        );
+
+                    }
+                );
+
+
+                /*
+                 * Keyboard accessibility for tab-style
+                 * category navigation.
+                 */
+
+                button.addEventListener(
+                    "keydown",
+                    function (event) {
+
+                        if (
+                            event.key !== "ArrowRight" &&
+                            event.key !== "ArrowDown" &&
+                            event.key !== "ArrowLeft" &&
+                            event.key !== "ArrowUp"
+                        ) {
+
+                            return;
+
+                        }
+
+
+                        event.preventDefault();
+
+
+                        const buttons =
+                            Array.from(
+                                conditionCategoryButtons
+                            );
+
+
+                        const currentIndex =
+                            buttons.indexOf(
+                                button
+                            );
+
+
+                        if (
+                            currentIndex === -1
+                        ) {
+
+                            return;
+
+                        }
+
+
+                        let nextIndex;
+
+
+                        if (
+                            event.key === "ArrowRight" ||
+                            event.key === "ArrowDown"
+                        ) {
+
+                            nextIndex =
+                                (currentIndex + 1) %
+                                buttons.length;
+
+                        } else {
+
+                            nextIndex =
+                                (
+                                    currentIndex -
+                                    1 +
+                                    buttons.length
+                                ) %
+                                buttons.length;
+
+                        }
+
+
+                        const nextButton =
+                            buttons[nextIndex];
+
+
+                        if (nextButton) {
+
+                            nextButton.focus();
+
+
+                            const nextCategory =
+                                nextButton.dataset.conditionCategory;
+
+
+                            if (
+                                nextCategory &&
+                                conditionData[nextCategory]
+                            ) {
+
+                                renderConditions(
+                                    nextCategory
+                                );
+
+                            }
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+
+        /*
+         * Render the first category exactly as it appears
+         * in the HTML when the page loads.
+         */
+
+        renderConditions(
+            "pain"
+        );
+
+    }
+
+
+    /* ============================================================
+       12. SERVICE CARD EVENTS
        ============================================================ */
 
     function initServiceCards() {
@@ -651,7 +1371,9 @@
                         if (
                             document.activeElement === trigger
                         ) {
+
                             return;
+
                         }
 
 
@@ -674,7 +1396,7 @@
 
 
     /* ============================================================
-       08. HASH INITIALIZATION
+       13. HASH INITIALIZATION
        ============================================================ */
 
     function initHashState() {
@@ -688,41 +1410,65 @@
         }
 
 
+        /*
+         * Service hash.
+         */
+
         if (
-            hash.indexOf("#service-") !== 0
+            hash.indexOf("#service-") === 0
         ) {
-            return;
-        }
+
+            const serviceKey =
+                hash.replace(
+                    "#service-",
+                    ""
+                );
 
 
-        const serviceKey =
-            hash.replace(
-                "#service-",
-                ""
+            if (!serviceData[serviceKey]) {
+                return;
+            }
+
+
+            /*
+             * Do not automatically scroll on initial
+             * page load. We only update the selected
+             * service state.
+             */
+
+            updateService(
+                serviceKey,
+                false
             );
 
 
-        if (!serviceData[serviceKey]) {
             return;
+
         }
 
 
         /*
-         * Do not automatically scroll on initial
-         * page load. We only update the selected
-         * service state.
+         * Condition hash.
+         *
+         * Condition hashes are informational page
+         * state only. They do not automatically select
+         * a service because a condition can potentially
+         * relate to more than one service.
          */
 
-        updateService(
-            serviceKey,
-            false
-        );
+        if (
+            hash.indexOf("#condition-") === 0
+        ) {
+
+            return;
+
+        }
 
     }
 
 
     /* ============================================================
-       09. HASH CHANGE
+       14. HASH CHANGE
        ============================================================ */
 
     function initHashChange() {
@@ -738,7 +1484,9 @@
                 if (
                     hash.indexOf("#service-") !== 0
                 ) {
+
                     return;
+
                 }
 
 
@@ -766,7 +1514,7 @@
 
 
     /* ============================================================
-       10. SCROLL REVEAL
+       15. SCROLL REVEAL
        ============================================================ */
 
     function initReveal() {
@@ -801,6 +1549,7 @@
 
             });
 
+
             return;
 
         }
@@ -817,6 +1566,7 @@
                 );
 
             });
+
 
             return;
 
@@ -836,7 +1586,9 @@
                             if (
                                 !entry.isIntersecting
                             ) {
+
                                 return;
+
                             }
 
 
@@ -858,7 +1610,6 @@
 
                     rootMargin:
                         "0px 0px -50px 0px"
-
                 }
             );
 
@@ -877,7 +1628,7 @@
 
 
     /* ============================================================
-       11. SMOOTH ANCHOR NAVIGATION
+       16. SMOOTH ANCHOR NAVIGATION
        ============================================================ */
 
     function initAnchors() {
@@ -905,7 +1656,9 @@
                             !href ||
                             href === "#"
                         ) {
+
                             return;
+
                         }
 
 
@@ -919,7 +1672,25 @@
                                 "#service-"
                             ) === 0
                         ) {
+
                             return;
+
+                        }
+
+
+                        /*
+                         * Condition hashes are generated
+                         * by the condition finder.
+                         */
+
+                        if (
+                            href.indexOf(
+                                "#condition-"
+                            ) === 0
+                        ) {
+
+                            return;
+
                         }
 
 
@@ -996,7 +1767,7 @@
 
 
     /* ============================================================
-       12. ESCAPE KEY
+       17. ESCAPE KEY
        ============================================================ */
 
     function initEscapeBehavior() {
@@ -1008,7 +1779,9 @@
                 if (
                     event.key !== "Escape"
                 ) {
+
                     return;
+
                 }
 
 
@@ -1047,74 +1820,95 @@
 
 
     /* ============================================================
-       13. INITIAL SERVICE
+       18. INITIAL SERVICE
        ============================================================ */
 
     function initDefaultService() {
 
         /*
-         * If no service was supplied in the URL,
-         * show the first service by default.
+         * IMPORTANT:
+         *
+         * Do not automatically select the first service.
+         *
+         * The previous implementation automatically opened
+         * Diabetic Limb Salvage & Wound Care because it was the
+         * first service card. This created an unintended wound-care
+         * bias on the Services page.
+         *
+         * The service detail panel should remain neutral until
+         * the visitor actively selects a service or supplies a
+         * valid #service- hash.
          */
 
-        if (
-            window.location.hash
-        ) {
-            return;
-        }
+        cards.forEach(function (card) {
+
+            card.classList.remove(
+                "is-active"
+            );
 
 
-        if (!cards.length) {
-            return;
-        }
+            const trigger =
+                card.querySelector(
+                    ".service-specialty-card__trigger"
+                );
 
 
-        const firstCard =
-            cards[0];
+            if (trigger) {
 
+                trigger.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
 
-        const firstService =
-            firstCard.dataset.service;
+            }
 
-
-        if (!firstService) {
-            return;
-        }
-
-
-        updateService(
-            firstService,
-            false
-        );
+        });
 
     }
 
 
     /* ============================================================
-       14. INITIALIZATION
+       19. INITIALIZATION
        ============================================================ */
 
     function init() {
 
         refreshIcons();
 
+
+        /*
+         * Initialize condition finder before service
+         * interactions so the condition result buttons
+         * are available immediately.
+         */
+
+        initConditionFinder();
+
+
         initServiceCards();
+
 
         initHashState();
 
+
         initHashChange();
+
 
         initReveal();
 
+
         initAnchors();
+
 
         initEscapeBehavior();
 
+
         initDefaultService();
 
+
         /*
-         * Re-render icons after dynamic service content
-         * has been inserted.
+         * Re-render icons after dynamic condition and
+         * service content has been inserted.
          */
 
         refreshIcons();
@@ -1123,7 +1917,7 @@
 
 
     /* ============================================================
-       15. DOM READY
+       20. DOM READY
        ============================================================ */
 
     if (
