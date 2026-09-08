@@ -6,7 +6,6 @@
          CORE META
          ===================================================== -->
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#07165C">
     <meta name="color-scheme" content="light">
@@ -74,302 +73,105 @@
      ========================================================= -->
 
 <header class="site-header" id="site-header">
+  <nav class="navbar navbar--hero" id="main-navbar" aria-label="Primary navigation">
+    <div class="container">
+      <div class="navbar-inner">
+        <a href="index.html" class="navbar-brand" aria-label="Favor Foot Ankle Leg & Wound Center Home">
+          <img src="images/logo.webp" alt="Favor Foot Ankle Leg & Wound Center" width="350" height="350">
+        </a>
 
-    <nav class="navbar" id="main-navbar" aria-label="Primary navigation">
-
-        <div class="container">
-            <div class="navbar-inner">
-                <!-- LOGO -->
-                <a href="index.html" class="navbar-brand" aria-label="Favor Foot Ankle Leg & Wound Center Home">
-
-                    <img
-                        src="images/logo.webp"
-                        alt="Favor Foot Ankle Leg & Wound Center"
-                        width="350"
-                        height="350"
-                    >
-
-                </a>
-
-
-                <!-- NAVIGATION -->
-
-                <div
-                    class="navbar-nav"
-                    id="primary-navigation"
-                >
-
-                    <a
-                        href="index.html"
-                        class="navbar-link"
-                    >
-                        Home
-                    </a>
-
-                    <a
-                        href="physicians.html"
-                        class="navbar-link"
-                    >
-                        Physicians
-                    </a>
-
-                    <a
-                        href="services.html"
-                        class="navbar-link active"
-                        aria-current="page"
-                    >
-                        Services
-                    </a>
-
-                    <a
-                        href="patients.html"
-                        class="navbar-link"
-                    >
-                        Patients
-                    </a>
-
-                    <a
-                        href="blog.html"
-                        class="navbar-link"
-                    >
-                        Blog
-                    </a>
-
-                    <a
-                        href="contact.html"
-                        class="navbar-link"
-                    >
-                        Contact Us
-                    </a>
-
-                </div>
-
-
-                <!-- NAV ACTIONS -->
-
-                <div class="navbar-actions">
-
-                    <a
-                        href="tel:+19292074669"
-                        class="navbar-phone"
-                    >
-
-                        <i
-                            data-lucide="phone"
-                            aria-hidden="true"
-                        ></i>
-
-                        <span>
-                            Call Us
-                        </span>
-
-                    </a>
-
-
-                    <a
-                        href="contact.html"
-                        class="btn btn-accent navbar-cta"
-                    >
-                        Schedule Appointment
-                    </a>
-
-
-                    <button
-                        class="navbar-toggle"
-                        id="navbar-toggle"
-                        type="button"
-                        aria-label="Open navigation menu"
-                        aria-controls="primary-navigation"
-                        aria-expanded="false"
-                    >
-
-                        <i
-                            data-lucide="menu"
-                            class="navbar-toggle-open"
-                            aria-hidden="true"
-                        ></i>
-
-                        <i
-                            data-lucide="x"
-                            class="navbar-toggle-close"
-                            aria-hidden="true"
-                        ></i>
-
-                    </button>
-
-                </div>
-
-            </div>
-
+        <div class="navbar-nav" id="primary-navigation">
+          <a href="index.html" class="navbar-link">Home</a>
+          <a href="physicians.html" class="navbar-link">Physicians</a>
+          <a href="services.html" class="navbar-link" active aria-current="page">Services</a>
+          <a href="patients.html" class="navbar-link">Patients</a>
+          <a href="blog.html" class="navbar-link">Blog</a>
+          <a href="contact.html" class="navbar-link">Contact Us</a>
         </div>
 
-    </nav>
-
+        <div class="navbar-actions">
+          <a href="tel:+19292074669" class="navbar-phone">
+            <i data-lucide="phone" aria-hidden="true"></i>
+            <span>Call Us</span>
+          </a>
+          <a href="contact.html" class="btn btn-accent navbar-cta">Schedule Appointment</a>
+          <button class="navbar-toggle" id="navbar-toggle" type="button" aria-label="Open navigation menu" aria-controls="primary-navigation" aria-expanded="false">
+            <i data-lucide="menu" class="navbar-toggle-open" aria-hidden="true"></i>
+            <i data-lucide="x" class="navbar-toggle-close" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
 </header>
-
 
 <!-- =========================================================
      MAIN
      ========================================================= -->
-
 <main id="main-content">
-
 
 <!-- =========================================================
      01. HERO
      ========================================================= -->
 
-<section
-    class="services-hero"
-    aria-labelledby="services-hero-title"
->
+<section class="services-hero" aria-labelledby="services-hero-title">
 
-    <div
-        class="services-hero__grid-pattern"
-        aria-hidden="true"
-    ></div>
+    <div class="services-hero__grid-pattern" aria-hidden="true"></div>
+        <div class="services-hero__orb services-hero__orb--one" aria-hidden="true"></div>
+            <div class="services-hero__orb services-hero__orb--two" aria-hidden="true" ></div>
+                <div class="container">
+                    <div class="services-hero__layout">
 
+                        <!-- HERO COPY -->
+                            <div class="services-hero__content" data-reveal>
+                                <span class="services-eyebrow">
+                                    <span class="services-eyebrow__line" aria-hidden="true"></span>
+                                        Advanced Podiatric Care
+                                </span>
+                                <h1 id="services-hero-title">
+                                    Advanced Foot & Ankle Care.
+                                    <span>
+                                        Built Around Your Recovery.
+                                    </span>
+                                </h1>
 
-    <div
-        class="services-hero__orb services-hero__orb--one"
-        aria-hidden="true"
-    ></div>
+                                <p class="services-hero__description">
+                                    From complex wound care and limb preservation
+                                    to regenerative medicine, advanced diagnostics
+                                    and reconstructive procedures, our approach
+                                    brings specialized podiatric care together
+                                    around one goal — helping you move forward.
+                                </p>
 
+                                <div class="services-hero__actions">
+                                    <a href="contact.html" class="btn btn-accent btn-lg">
+                                        <i data-lucide="calendar-check" aria-hidden="true"></i>
+                                            Schedule an Appointment
+                                    </a>
+                                    <a href="#specialties" class="btn btn-outline btn-lg">
+                                        Explore Our Services
+                                        <i data-lucide="arrow-down" aria-hidden="true"></i>
+                                    </a>
+                                </div>
 
-    <div
-        class="services-hero__orb services-hero__orb--two"
-        aria-hidden="true"
-    ></div>
-
-
-    <div class="container">
-
-        <div class="services-hero__layout">
-
-
-            <!-- HERO COPY -->
-
-            <div
-                class="services-hero__content"
-                data-reveal
-            >
-
-                <span class="services-eyebrow">
-
-                    <span
-                        class="services-eyebrow__line"
-                        aria-hidden="true"
-                    ></span>
-
-                    Advanced Podiatric Care
-
-                </span>
-
-
-                <h1 id="services-hero-title">
-
-                    Advanced Foot & Ankle Care.
-
-                    <span>
-                        Built Around Your Recovery.
-                    </span>
-
-                </h1>
-
-
-                <p class="services-hero__description">
-
-                    From complex wound care and limb preservation
-                    to regenerative medicine, advanced diagnostics
-                    and reconstructive procedures, our approach
-                    brings specialized podiatric care together
-                    around one goal — helping you move forward.
-
-                </p>
-
-
-                <div class="services-hero__actions">
-
-                    <a
-                        href="contact.html"
-                        class="btn btn-accent btn-lg"
-                    >
-
-                        <i
-                            data-lucide="calendar-check"
-                            aria-hidden="true"
-                        ></i>
-
-                        Schedule an Appointment
-
-                    </a>
-
-
-                    <a
-                        href="#specialties"
-                        class="btn btn-outline btn-lg"
-                    >
-
-                        Explore Our Services
-
-                        <i
-                            data-lucide="arrow-down"
-                            aria-hidden="true"
-                        ></i>
-
-                    </a>
-
+                                <div class="services-hero__trust">
+                                    <div>
+                                        <i data-lucide="shield-check" aria-hidden="true"></i>
+                                        <span> Specialized Care </span>
+                                    </div>
+                                    <div>
+                                        <i data-lucide="scan-search" aria-hidden="true"></i>
+                                        <span> Advanced Diagnostics </span>
+                                    </div>
+                                    <div>
+                                        <i data-lucide="heart-pulse" aria-hidden="true"></i>
+                                        <span> Patient-Centered </span>
+                                    </div>
+                                </div>
+                                
+                        </div>
+                        
                 </div>
-
-
-                <div class="services-hero__trust">
-
-                    <div>
-
-                        <i
-                            data-lucide="shield-check"
-                            aria-hidden="true"
-                        ></i>
-
-                        <span>
-                            Specialized Care
-                        </span>
-
-                    </div>
-
-
-                    <div>
-
-                        <i
-                            data-lucide="scan-search"
-                            aria-hidden="true"
-                        ></i>
-
-                        <span>
-                            Advanced Diagnostics
-                        </span>
-
-                    </div>
-
-
-                    <div>
-
-                        <i
-                            data-lucide="heart-pulse"
-                            aria-hidden="true"
-                        ></i>
-
-                        <span>
-                            Patient-Centered
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-    </div>
 
 </section>
 
