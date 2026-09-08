@@ -110,9 +110,9 @@
      ========================================================= -->
 <main id="main-content">
 
-<!-- =========================================================
+<!-- ====================================================================================================================================
      01. HERO
-     ========================================================= -->
+     ==================================================================================================================================== -->
 
 <section class="services-hero" aria-labelledby="services-hero-title">
 
@@ -175,10 +175,117 @@
 
 </section>
 
+<!-- ====================================================================================================================================
+     02. FIND CARE BY CONDITION
+     ==================================================================================================================================== -->
 
-<!-- =========================================================
-     02. SPECIALTY SERVICES
-     ========================================================= -->
+<section class="section services-condition-finder" id="conditions" aria-labelledby="condition-finder-title">
+    <div class="container">
+        
+        <div class="services-condition-finder__heading" data-reveal>
+            <span class="section-eyebrow">
+                What Can We Help You With?
+            </span>
+            <h2 id="condition-finder-title">
+                Find Care for the
+                <span class="text-brand">
+                    Problem You're Experiencing.
+                </span>
+            </h2>
+            <p>
+                Whether you're dealing with pain, a skin or nail problem,
+                gout, a wound, neuropathy or a structural foot condition,
+                explore the problems we commonly evaluate and treat.
+            </p>
+        </div>
+
+        <div class="services-condition-finder__shell" data-reveal>
+            <!-- CATEGORY NAVIGATION -->
+            <div class="services-condition-finder__categories" role="tablist" aria-label="Condition categories">
+                <button type="button" class="condition-category is-active" data-condition-category="pain" role="tab" aria-selected="true">
+                    <i data-lucide="activity" aria-hidden="true"></i>
+                    <span> Pain & Injuries</span>
+                </button>
+                <button type="button" class="condition-category" data-condition-category="skin" role="tab" aria-selected="false">
+                    <i data-lucide="sparkles" aria-hidden="true"></i>
+                    <span> Skin & Nails</span>
+                </button>
+                <button type="button" class="condition-category" data-condition-category="diabetes" role="tab" aria-selected="false">
+                    <i data-lucide="heart-pulse" aria-hidden="true"></i>
+                    <span> Diabetes & Nerve</span>
+                </button>
+                <button type="button" class="condition-category" data-condition-category="joints" role="tab" aria-selected="false">
+                    <i data-lucide="bone" aria-hidden="true"></i>
+                    <span> Joints & Arthritis </span>
+                </button>
+                <button type="button" class="condition-category" data-condition-category="wounds" role="tab" aria-selected="false">
+                    <i data-lucide="droplets" aria-hidden="true"></i>
+                    <span> Wounds & Ulcers</span>
+                </button>
+                <button type="button" class="condition-category" data-condition-category="structure" role="tab" aria-selected="false">
+                    <i data-lucide="footprints" aria-hidden="true"></i>
+                    <span> Structure & Function </span>
+                </button>
+            </div>
+
+            <!-- CONDITION CONTENT -->
+            <div class="services-condition-finder__content">
+                <div class="services-condition-finder__content-header">
+                    <span> SELECTED CATEGORY </span>
+                    <h3 id="condition-category-title">
+                        Pain & Injuries
+                    </h3>
+                </div>
+                <div class="services-condition-finder__conditions" id="condition-results">
+                    <!-- PAIN -->
+                    <button type="button" class="condition-result" data-condition="Heel Pain">
+                        <span>Heel Pain</span>
+                        <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="condition-result" data-condition="Foot Pain" >
+                        <span>Foot Pain</span>
+                        <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="condition-result" data-condition="Ankle Pain">
+                        <span>Ankle Pain</span>
+                        <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="condition-result" data-condition="Chronic Foot Pain">
+                        <span>Chronic Foot Pain</span>
+                        <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="condition-result" data-condition="Sports Injuries">
+                        <span>Sports Injuries</span>
+                        <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="condition-result" data-condition="Tendon Problems">
+                        <span>Tendon Problems</span>
+                        <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="services-condition-finder__footer">
+                    <span>
+                        Don't see your problem?
+                    </span>
+                    <a href="contact.html">
+                        Contact our team
+                        <i
+                            data-lucide="arrow-right"
+                            aria-hidden="true"
+                        ></i>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ====================================================================================================================================
+     03. SPECIALTY SERVICES
+     ==================================================================================================================================== -->
 
 <section
     class="section services-specialties"
