@@ -17,6 +17,7 @@
 
 .services-hero,
 .services-specialties,
+.services-condition-finder,
 .services-detail,
 .services-conditions,
 .services-pathway,
@@ -320,6 +321,300 @@
 
     color: var(--brand-accent-600);
 }
+
+/* ============================================================
+   03. HERO VISUAL
+   ============================================================ */
+
+.services-hero-visual {
+    position: relative;
+    min-height: 600px;
+    isolation: isolate;
+}
+
+.services-hero-visual__media {
+    position: absolute;
+    inset: 0 0 0 7%;
+    overflow: hidden;
+    border: 1px solid rgba(10,31,120,0.12);
+    border-radius: var(--radius-3xl);
+    background: var(--bg-surface);
+    box-shadow: var(--shadow-xl);
+}
+
+.services-hero-visual__media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(7,22,92,0.03) 0%, rgba(7,22,92,0.08) 100%);
+    pointer-events: none;
+}
+
+.services-hero-visual__media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.services-hero-visual__badge {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    max-width: 285px;
+    padding: var(--space-4) var(--space-5);
+    border: 1px solid rgba(255,255,255,0.55);
+    border-radius: var(--radius-xl);
+    background: rgba(255,255,255,0.92);
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(14px);
+}
+
+.services-hero-visual__badge svg {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 auto;
+    color: var(--brand-accent-600);
+}
+
+.services-hero-visual__badge div {
+    display: grid;
+    gap: 3px;
+}
+
+.services-hero-visual__badge strong {
+    color: var(--text-primary);
+    font-size: 0.82rem;
+    font-weight: 800;
+    line-height: var(--lh-snug);
+}
+
+.services-hero-visual__badge span {
+    color: var(--text-secondary);
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.services-hero-visual__badge--top {
+    top: 9%;
+    left: 0;
+}
+
+.services-hero-visual__badge--bottom {
+    right: 0;
+    bottom: 13%;
+}
+
+.services-hero-visual__caption {
+    position: absolute;
+    z-index: 2;
+    left: 8%;
+    right: 8%;
+    bottom: 3%;
+    display: grid;
+    gap: 4px;
+    padding: var(--space-4) var(--space-5);
+    border-radius: var(--radius-xl);
+    color: var(--text-on-dark);
+    background: rgba(7,22,92,0.82);
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(12px);
+}
+
+.services-hero-visual__caption span {
+    color: rgba(255,255,255,0.68);
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: var(--tracking-caps);
+}
+
+.services-hero-visual__caption strong {
+    max-width: 480px;
+    color: #fff;
+    font-size: 0.92rem;
+    line-height: var(--lh-snug);
+}
+
+
+/* ============================================================
+   04. FIND CARE BY CONDITION
+   ============================================================ */
+
+.services-condition-finder {
+    background: var(--bg-surface-soft);
+}
+
+.services-condition-finder__heading {
+    max-width: 820px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.services-condition-finder__heading h2 {
+    margin-top: var(--space-3);
+    margin-bottom: var(--space-4);
+}
+
+.services-condition-finder__heading p {
+    max-width: 720px;
+    margin: 0 auto;
+    color: var(--text-secondary);
+    font-size: var(--text-body);
+    line-height: var(--lh-relaxed);
+}
+
+.services-condition-finder__shell {
+    display: grid;
+    grid-template-columns: minmax(210px, 0.34fr) minmax(0, 0.66fr);
+    overflow: hidden;
+    margin-top: var(--space-12);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-2xl);
+    background: var(--bg-surface);
+    box-shadow: var(--shadow-lg);
+}
+
+.services-condition-finder__categories {
+    display: grid;
+    align-content: start;
+    padding: var(--space-4);
+    border-right: 1px solid var(--border-color);
+    background: var(--bg-surface-soft);
+}
+
+.condition-category {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    width: 100%;
+    padding: var(--space-4) var(--space-5);
+    border: 1px solid transparent;
+    border-radius: var(--radius-lg);
+    color: var(--text-secondary);
+    background: transparent;
+    font: inherit;
+    font-size: 0.84rem;
+    font-weight: 750;
+    text-align: left;
+    cursor: pointer;
+    transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.condition-category svg {
+    width: 19px;
+    height: 19px;
+    flex: 0 0 auto;
+}
+
+.condition-category:hover {
+    color: var(--text-primary);
+    background: var(--bg-surface);
+    border-color: var(--border-color);
+}
+
+.condition-category.is-active {
+    color: var(--text-on-accent);
+    background: var(--gradient-accent);
+    border-color: transparent;
+    box-shadow: var(--shadow-md);
+}
+
+.services-condition-finder__content {
+    padding: clamp(var(--space-6), 4vw, var(--space-10));
+}
+
+.services-condition-finder__content-header > span {
+    display: block;
+    margin-bottom: var(--space-2);
+    color: var(--brand-accent-600);
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: var(--tracking-caps);
+}
+
+.services-condition-finder__content-header h3 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: var(--text-h3);
+    line-height: var(--lh-tight);
+}
+
+.services-condition-finder__conditions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+}
+
+.condition-result {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    min-height: 62px;
+    padding: var(--space-4) var(--space-5);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    color: var(--text-primary);
+    background: var(--bg-body);
+    font: inherit;
+    font-size: 0.84rem;
+    font-weight: 700;
+    text-align: left;
+    cursor: pointer;
+    transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast), color var(--transition-fast);
+}
+
+.condition-result svg {
+    width: 17px;
+    height: 17px;
+    flex: 0 0 auto;
+    color: var(--brand-accent-600);
+    transition: transform var(--transition-fast);
+}
+
+.condition-result:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-accent);
+    color: var(--brand-accent-600);
+    box-shadow: var(--shadow-sm);
+}
+
+.condition-result:hover svg {
+    transform: translate(2px, -2px);
+}
+
+.services-condition-finder__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--border-color-soft);
+}
+
+.services-condition-finder__footer > span {
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+}
+
+.services-condition-finder__footer a {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--brand-accent-600);
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+.services-condition-finder__footer svg {
+    width: 16px;
+    height: 16px;
+}
+
 
 /* ============================================================
    04. SECTION HEADING
@@ -1030,6 +1325,43 @@
 }
 
 
+.services-detail__related-wrap {
+    margin:
+        calc(var(--space-8) * -1)
+        0
+        var(--space-6);
+}
+
+.services-detail__related-wrap > span {
+    display: block;
+    margin-bottom: var(--space-3);
+    color: var(--text-subtle);
+    font-size: 0.64rem;
+    font-weight: 800;
+    letter-spacing: var(--tracking-caps);
+}
+
+.services-detail__related {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.services-detail__related span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    padding: 0 var(--space-3);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full);
+    color: var(--text-secondary);
+    background: var(--bg-surface-soft);
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+
+
 .services-detail__content > .btn {
     display: inline-flex;
 
@@ -1697,6 +2029,16 @@
             repeat(2, minmax(0, 1fr));
     }
 
+    .services-condition-finder__shell {
+        grid-template-columns: 1fr;
+    }
+
+    .services-condition-finder__categories {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        border-right: 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+
 
     .services-advanced__inner {
         grid-template-columns:
@@ -1739,12 +2081,15 @@
     }
 
 
-    .services-hero__panel {
-        max-width: 680px;
-
+    .services-hero-visual {
         width: 100%;
-
+        max-width: 680px;
+        min-height: 540px;
         margin: 0 auto;
+    }
+
+    .services-condition-finder__conditions {
+        grid-template-columns: 1fr;
     }
 
 
@@ -1854,22 +2199,28 @@
     }
 
 
-    .services-clinical-panel {
-        padding: var(--space-5);
-
-        border-radius: var(--radius-2xl);
+    .services-hero-visual {
+        min-height: 430px;
     }
 
+    .services-hero-visual__badge {
+        max-width: 245px;
+        padding: var(--space-3) var(--space-4);
+    }
 
-    .services-clinical-panel__top {
+    .services-hero-visual__caption {
+        left: 5%;
+        right: 5%;
+    }
+
+    .services-condition-finder__categories {
+        grid-template-columns: 1fr;
+    }
+
+    .services-condition-finder__footer {
+        align-items: flex-start;
         flex-direction: column;
     }
-
-
-    .services-clinical-status {
-        align-self: flex-start;
-    }
-
 
     .services-specialty-grid {
         margin-top: var(--space-8);
@@ -1993,10 +2344,15 @@
 
     .service-specialty-card,
     .service-specialty-card::before,
+    .condition-category,
+    .condition-result,
+    .services-hero-visual__badge,
+    .services-hero-visual__caption,
     .service-specialty-card::after,
     .service-specialty-card__icon,
     .service-specialty-card__trigger,
     .service-condition,
+    .condition-result:hover,
     .services-pathway-step > div,
     [data-reveal] {
         transition: none !important;
