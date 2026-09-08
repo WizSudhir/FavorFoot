@@ -317,24 +317,60 @@
         pain: {
 
             title:
-                "Pain & Injuries",
+                "Pain & Mobility",
 
             icon:
                 "activity",
 
             conditions: [
 
-                "Heel Pain",
-
-                "Foot Pain",
-
-                "Ankle Pain",
-
                 "Chronic Foot Pain",
 
-                "Sports Injuries",
+                "Arthritic Foot Conditions",
 
-                "Tendon Problems"
+                "Sports Injuries"
+
+            ]
+
+        },
+
+
+        complex: {
+
+            title:
+                "Gout, Diabetes & Complex Foot Conditions",
+
+            icon:
+                "heart-pulse",
+
+            conditions: [
+
+                "Gout",
+
+                "Charcot Foot",
+
+                "Diabetic Foot Problems"
+
+            ]
+
+        },
+
+
+        vascular: {
+
+            title:
+                "Wounds, Vascular & Lymphedema",
+
+            icon:
+                "droplets",
+
+            conditions: [
+
+                "Chronic Wounds",
+
+                "Vascular Issues",
+
+                "Lymphedema"
 
             ]
 
@@ -344,132 +380,37 @@
         skin: {
 
             title:
-                "Skin & Nails",
+                "Skin, Nails & Dermatology",
 
             icon:
                 "sparkles",
 
             conditions: [
 
-                "Plantar Warts",
+                "Warts",
 
-                "Ingrown Toenails",
+                "Fungal Nails",
 
-                "Corns & Calluses",
+                "Foot Tumors",
 
-                "Fungal Nail Problems",
-
-                "Thickened Toenails",
-
-                "Skin Lesions"
+                "Podiatric Dermatology"
 
             ]
 
         },
 
 
-        diabetes: {
+        pediatric: {
 
             title:
-                "Diabetes & Nerve",
+                "Pediatric Foot Care",
 
             icon:
-                "heart-pulse",
+                "baby",
 
             conditions: [
 
-                "Diabetic Foot Problems",
-
-                "Neuropathy",
-
-                "Diabetic Foot Ulcers",
-
-                "Loss of Sensation",
-
-                "Foot Risk Assessment",
-
-                "Circulation Concerns"
-
-            ]
-
-        },
-
-
-        joints: {
-
-            title:
-                "Joints & Arthritis",
-
-            icon:
-                "bone",
-
-            conditions: [
-
-                "Gout",
-
-                "Arthritis",
-
-                "Joint Pain",
-
-                "Toe Joint Problems",
-
-                "Inflammation",
-
-                "Stiffness"
-
-            ]
-
-        },
-
-
-        wounds: {
-
-            title:
-                "Wounds & Ulcers",
-
-            icon:
-                "droplets",
-
-            conditions: [
-
-                "Chronic Wounds",
-
-                "Non-Healing Wounds",
-
-                "Diabetic Wounds",
-
-                "Foot Ulcers",
-
-                "Pressure-Related Wounds",
-
-                "Complex Lower-Extremity Wounds"
-
-            ]
-
-        },
-
-
-        structure: {
-
-            title:
-                "Structure & Function",
-
-            icon:
-                "footprints",
-
-            conditions: [
-
-                "Bunions",
-
-                "Hammertoes",
-
-                "Flat Feet",
-
-                "Deformities",
-
-                "Gait Problems",
-
-                "Biomechanical Issues"
+                "Pediatric Foot Problems"
 
             ]
 
@@ -1937,5 +1878,6 @@
         init();
 
     }
+
 
 })();
