@@ -2040,6 +2040,11 @@
     }
 
 
+    .condition-category {
+        min-height: 58px;
+    }
+
+
     .services-advanced__inner {
         grid-template-columns:
             auto
@@ -2215,6 +2220,11 @@
 
     .services-condition-finder__categories {
         grid-template-columns: 1fr;
+    }
+
+
+    .condition-category {
+        align-items: flex-start;
     }
 
     .services-condition-finder__footer {
