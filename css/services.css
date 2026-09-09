@@ -614,7 +614,80 @@
     width: 16px;
     height: 16px;
 }
+/* ============================================================
+   CONDITION INDEX
+   SEO + CRAWLABLE CONDITION COVERAGE
+   ============================================================ */
 
+.services-condition-index {
+    max-width: 1100px;
+    margin: var(--space-12) auto 0;
+    padding-top: var(--space-10);
+    border-top: 1px solid var(--border-color);
+}
+
+.services-condition-index__heading {
+    max-width: 720px;
+    margin: 0 auto var(--space-8);
+    text-align: center;
+}
+
+.services-condition-index__heading > span {
+    display: block;
+    margin-bottom: var(--space-2);
+    color: var(--brand-accent-600);
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: var(--tracking-caps);
+}
+
+.services-condition-index__heading h3 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: var(--text-h3);
+    line-height: var(--lh-tight);
+}
+.services-condition-index__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-5);
+}
+.services-condition-index__group {
+    padding: var(--space-6);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    background: var(--bg-surface);
+}
+.services-condition-index__group h4 {
+    margin: 0 0 var(--space-4);
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    font-weight: 800;
+    line-height: var(--lh-snug);
+}
+.services-condition-index__group ul {
+    display: grid;
+    gap: var(--space-2);
+    margin: 0;
+    padding-left: 1.1rem;
+    color: var(--text-secondary);
+}
+.services-condition-index__group li {
+    font-size: 0.84rem;
+    line-height: var(--lh-relaxed);
+}
+@media (max-width: 640px) {
+
+    .services-condition-index {
+        margin-top: var(--space-10);
+        padding-top: var(--space-8);
+    }
+
+    .services-condition-index__grid {
+        grid-template-columns: 1fr;
+    }
+
+}
 
 /* ============================================================
    04. SECTION HEADING
