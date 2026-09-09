@@ -329,7 +329,7 @@
         0
         -8vw
         0
-        30%;
+        40%;
     min-height: 100%;
     isolation: isolate;
     pointer-events: none;
@@ -378,7 +378,7 @@
 
     object-fit: cover;
 
-    object-position: 62% center;
+    object-position: center center;
 }
 
 .services-hero-visual__badge {
