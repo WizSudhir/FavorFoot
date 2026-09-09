@@ -270,43 +270,83 @@
                 </div>
                 <div class="services-condition-finder__conditions" id="condition-results">
                     <!-- PAIN & MOBILITY -->
-                    <button type="button" class="condition-result" data-condition="Chronic Foot Pain">
-                        <span>Chronic Foot Pain</span>
-                        <i data-lucide="arrow-up-right" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" class="condition-result" data-condition="Arthritic Foot Conditions">
-                        <span>Arthritic Foot Conditions</span>
-                        <i data-lucide="arrow-up-right" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" class="condition-result" data-condition="Sports Injuries">
-                        <span>Sports Injuries</span>
-                        <i data-lucide="arrow-up-right" aria-hidden="true"></i>
-                    </button>
+                    <div class="condition-group is-active" data-condition-group="pain">
+                        <button type="button" class="condition-result" data-condition="Chronic Foot Pain">
+                            <span>Chronic Foot Pain</span>
+                            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="condition-result" data-condition="Arthritic Foot Conditions">
+                            <span>Arthritic Foot Conditions</span>
+                            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="condition-result" data-condition="Sports Injuries">
+                            <span>Sports Injuries</span>
+                            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+
                     <!-- GOUT, DIABETES & COMPLEX FOOT CONDITIONS -->
-                    <div class="condition-seo-content" aria-hidden="true">
-                        <span>Gout</span>
-                        <span>Charcot Foot</span>
-                        <span>Diabetic Foot Problems</span>
+                    <div class="condition-group" data-condition-group="complex">
+                        <button type="button" class="condition-result" data-condition="Gout">
+                            <span>Gout</span>
+                            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="condition-result" data-condition="Charcot Foot">
+                            <span>Charcot Foot</span>
+                            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="condition-result" data-condition="Diabetic Foot Problems">
+                            <span>Diabetic Foot Problems</span>
+                            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                        </button>
                     </div>
+
                     <!-- WOUNDS, VASCULAR & LYMPHEDEMA -->
-                    <div class="condition-seo-content" aria-hidden="true">
-                        <span>Chronic Wounds</span>
-                        <span>Vascular Issues</span>
-                        <span>Lymphedema</span>
+                    <div class="condition-group" data-condition-group="vascular">
+                        <button type="button" class="condition-result" data-condition="Chronic Wounds">
+                            <span>Chronic Wounds</span>
+                            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="condition-result" data-condition="Vascular Issues">
+                            <span>Vascular Issues</span>
+                            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="condition-result" data-condition="Lymphedema">
+                            <span>Lymphedema</span>
+                            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                        </button>
                     </div>
+
                     <!-- SKIN, NAILS & DERMATOLOGY -->
-                    <div class="condition-seo-content" aria-hidden="true">
-                        <span>Warts</span>
-                        <span>Fungal Nails</span>
-                        <span>Foot Tumors</span>
-                        <span>Podiatric Dermatology</span>
+                    <div class="condition-group" data-condition-group="skin">
+                        <button type="button" class="condition-result" data-condition="Warts">
+                            <span>Warts</span>
+                            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="condition-result" data-condition="Fungal Nails">
+                            <span>Fungal Nails</span>
+                            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="condition-result" data-condition="Foot Tumors">
+                            <span>Foot Tumors</span>
+                            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="condition-result" data-condition="Podiatric Dermatology">
+                            <span>Podiatric Dermatology</span>
+                            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                        </button>
                     </div>
+
                     <!-- PEDIATRIC FOOT CARE -->
-                    <div class="condition-seo-content" aria-hidden="true">
-                        <span>Pediatric Foot Problems</span>
+                    <div class="condition-group" data-condition-group="pediatric">
+                        <button type="button" class="condition-result" data-condition="Pediatric Foot Problems">
+                            <span>Pediatric Foot Problems</span>
+                            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                        </button>
                     </div>
                 </div>
-                <div class="services-condition-finder__footer">
+                
+
                     <span>
                         Don't see your problem?
                     </span>
@@ -322,57 +362,6 @@
             </div>
 
         </div>
-
-        <div class="services-condition-index" data-reveal>
-            <div class="services-condition-index__heading">
-                <span> CONDITIONS WE TREAT</span>
-                <h3>
-                    Specialized Care for a Wide Range of Foot & Ankle Conditions
-                </h3>
-            </div>
-            <div class="services-condition-index__grid">
-                <div class="services-condition-index__group">
-                    <h4> Pain & Mobility</h4>
-                    <ul>
-                        <li>Chronic Foot Pain</li>
-                        <li>Arthritic Foot Conditions</li>
-                        <li>Sports Injuries</li>
-                    </ul>
-                </div>
-                <div class="services-condition-index__group">
-                    <h4> Gout, Diabetes & Complex Foot Conditions</h4>
-                    <ul>
-                        <li>Gout</li>
-                        <li>Charcot Foot</li>
-                        <li>Diabetic Foot Problems</li>
-                    </ul>
-                </div>
-                <div class="services-condition-index__group">
-                    <h4> Wounds, Vascular & Lymphedema</h4>
-                    <ul>
-                        <li>Chronic Wounds</li>
-                        <li>Vascular Issues</li>
-                        <li>Lymphedema</li>
-                    </ul>
-                </div>
-                <div class="services-condition-index__group">
-                    <h4> Skin, Nails & Dermatology</h4>
-                    <ul>
-                        <li>Warts</li>
-                        <li>Fungal Nails</li>
-                        <li>Foot Tumors</li>
-                        <li>Podiatric Dermatology</li>
-                    </ul>
-                </div>
-                <div class="services-condition-index__group">
-                    <h4> Pediatric Foot Care</h4>
-                    <ul>
-                        <li>Pediatric Foot Problems</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        
     </div>
 
 </section>
