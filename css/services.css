@@ -36,7 +36,7 @@
     position: relative;
 
     min-height: min(
-        780px,
+        760px,
         calc(100vh - var(--navbar-height))
     );
 
@@ -44,9 +44,9 @@
     align-items: center;
 
     padding:
-        clamp(5rem, 9vw, 8rem)
+        clamp(5rem, 8vw, 7rem)
         0
-        clamp(4rem, 7vw, 6rem);
+        clamp(4rem, 6vw, 5rem);
 
     background:
         var(--gradient-medical);
@@ -140,21 +140,18 @@
    ============================================================ */
 
 .services-hero__layout {
+    position: relative;
+
     display: grid;
 
     grid-template-columns:
-        minmax(0, 1.08fr)
-        minmax(360px, 0.92fr);
+        minmax(0, 0.95fr)
+        minmax(420px, 1.05fr);
 
-    gap: clamp(
-        var(--grid-gap-xl),
-        6vw,
-        6rem
-    );
+    min-height: 620px;
 
     align-items: center;
 }
-
 
 /* ============================================================
    HERO CONTENT
@@ -327,34 +324,61 @@
    ============================================================ */
 
 .services-hero-visual {
-    position: relative;
-    min-height: 600px;
+    position: absolute;
+    inset:
+        0
+        -8vw
+        0
+        34%;
+    min-height: 100%;
     isolation: isolate;
+    pointer-events: none;
 }
 
 .services-hero-visual__media {
     position: absolute;
-    inset: 0 0 0 7%;
-    overflow: hidden;
-    border: 1px solid rgba(10,31,120,0.12);
-    border-radius: var(--radius-3xl);
-    background: var(--bg-surface);
-    box-shadow: var(--shadow-xl);
-}
 
+    inset: 0;
+
+    overflow: hidden;
+
+    border: 0;
+
+    border-radius: 0;
+
+    background: transparent;
+
+    box-shadow: none;
+}
 .services-hero-visual__media::after {
     content: "";
+
     position: absolute;
+
     inset: 0;
-    background: linear-gradient(180deg, rgba(7,22,92,0.03) 0%, rgba(7,22,92,0.08) 100%);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(248,250,255,1) 0%,
+            rgba(248,250,255,0.92) 14%,
+            rgba(248,250,255,0.45) 38%,
+            rgba(248,250,255,0.08) 65%,
+            rgba(248,250,255,0) 100%
+        );
+
     pointer-events: none;
 }
 
 .services-hero-visual__media img {
     display: block;
+
     width: 100%;
     height: 100%;
+
     object-fit: cover;
+
+    object-position: center center;
 }
 
 .services-hero-visual__badge {
@@ -436,7 +460,13 @@
     font-size: 0.92rem;
     line-height: var(--lh-snug);
 }
+.services-hero__content {
+    position: relative;
 
+    z-index: 3;
+
+    max-width: 680px;
+}
 
 /* ============================================================
    04. FIND CARE BY CONDITION
@@ -684,16 +714,15 @@
         var(--bg-body);
 }
 
-
 .services-specialty-grid {
     display: grid;
 
     grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+        repeat(3, minmax(0, 1fr));
 
     gap: var(--grid-gap-lg);
 
-    margin-top: var(--space-12);
+    margin-top: var(--space-10);
 }
 
 
@@ -708,14 +737,14 @@
 
     flex-direction: column;
 
-    min-height: 390px;
+    min-height: 285px;
 
     padding:
-        clamp(
-            var(--space-6),
-            3vw,
-            var(--space-8)
-        );
+    clamp(
+        var(--space-5),
+        2vw,
+        var(--space-6)
+    );
 
     overflow: hidden;
 
@@ -859,10 +888,10 @@
 .service-specialty-card__icon {
     display: grid;
 
-    width: 58px;
-    height: 58px;
+    width: 48px;
+    height: 48px;
 
-    margin-bottom: var(--space-6);
+    margin-bottom: var(--space-4);
 
     place-items: center;
 
@@ -882,8 +911,8 @@
 
 
 .service-specialty-card__icon svg {
-    width: 26px;
-    height: 26px;
+    width: 22px;
+    height: 22px;
 }
 
 
@@ -951,9 +980,9 @@
 
     color: var(--text-secondary);
 
-    font-size: 0.96rem;
+    font-size: 0.88rem;
 
-    line-height: var(--lh-relaxed);
+    line-height: 1.6;
 }
 
 
@@ -972,7 +1001,7 @@
 
     width: 100%;
 
-    margin-top: var(--space-8);
+    margin-top: var(--space-5);
 
     padding:
         var(--space-4)
@@ -2124,12 +2153,13 @@
 
 
     .services-specialty-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
     }
 
 
     .service-specialty-card {
-        min-height: 350px;
+        min-height: 300px;
     }
 
 
