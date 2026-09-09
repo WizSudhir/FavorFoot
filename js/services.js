@@ -911,51 +911,27 @@
 
 
         /*
-         * Clear current condition results.
+         * Show the matching condition group already present
+         * in the HTML. The condition text is never generated
+         * or removed by JavaScript.
          */
 
-        conditionResults.innerHTML = "";
+        const conditionGroups =
+            conditionResults.querySelectorAll(
+                ".condition-group"
+            );
 
 
-        /*
-         * Build condition buttons.
-         */
+        conditionGroups.forEach(
+            function (group) {
 
-        category.conditions.forEach(
-            function (condition) {
-
-                const button =
-                    document.createElement("button");
+                const isActive =
+                    group.dataset.conditionGroup === categoryKey;
 
 
-                button.type =
-                    "button";
-
-
-                button.className =
-                    "condition-result";
-
-
-                button.dataset.condition =
-                    condition;
-
-
-                button.innerHTML = `
-
-                    <span>
-                        ${condition}
-                    </span>
-
-                    <i
-                        data-lucide="arrow-up-right"
-                        aria-hidden="true"
-                    ></i>
-
-                `;
-
-
-                conditionResults.appendChild(
-                    button
+                group.classList.toggle(
+                    "is-active",
+                    isActive
                 );
 
             }
@@ -988,6 +964,12 @@
 
         results.forEach(
             function (result) {
+
+                if (result.dataset.conditionBound === "true") {
+                    return;
+                }
+
+                result.dataset.conditionBound = "true";
 
                 result.addEventListener(
                     "click",
@@ -1237,6 +1219,14 @@
 
 
         /*
+         * Bind the condition buttons that already exist
+         * in the HTML before the first category is rendered.
+         */
+
+        bindConditionResults();
+
+
+        /*
          * Render the first category exactly as it appears
          * in the HTML when the page loads.
          */
@@ -1314,7 +1304,6 @@
                         ) {
 
                             return;
-
                         }
 
 
