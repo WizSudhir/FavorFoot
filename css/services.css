@@ -1125,25 +1125,27 @@
 
 .services-detail__visual {
     position: relative;
+
     min-height: 520px;
+
     padding:
         clamp(
             var(--space-8),
             4vw,
             var(--space-12)
         );
-    padding-top:
-        calc(
-            clamp(
-                var(--space-8),
-                4vw,
-                var(--space-12)
-        );
+
     display: flex;
+
     flex-direction: column;
+
     justify-content: flex-end;
+
     overflow: hidden;
-    color: var(--text-on-dark);
+
+    color:
+        var(--text-on-dark);
+
     isolation: isolate;
 }
 
