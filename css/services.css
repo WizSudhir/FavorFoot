@@ -2505,6 +2505,8 @@
 
     .services-pathway-step > div {
         padding: var(--space-5);
+        display: block;
+        min-height: auto;
     }
 
 
