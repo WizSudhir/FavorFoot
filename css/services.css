@@ -1762,8 +1762,14 @@
 
 
 .services-pathway-step > div {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+
+    grid-template-rows:
+        24px
+        56px
+        96px;
+
+    align-content: start;
 
     flex: 1;
 
@@ -1807,7 +1813,7 @@
     width: 24px;
     height: 24px;
 
-    margin-bottom: var(--space-4);
+    margin: 0;
 
     color:
         var(--brand-accent-600);
@@ -1815,27 +1821,48 @@
 
 
 .services-pathway-step h3 {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 56px;
+
     margin: 0;
 
-    color: var(--text-primary);
+    color:
+        var(--text-primary);
 
-    font-size: var(--text-h4);
+    font-size:
+        var(--text-h4);
 
-    line-height: var(--lh-snug);
+    line-height:
+        var(--lh-snug);
+
+    letter-spacing:
+        var(--tracking-tight);
 }
 
 
 .services-pathway-step p {
     margin:
-        var(--space-3)
+        var(--space-2)
         0
         0;
 
-    color: var(--text-secondary);
+    color:
+        var(--text-secondary);
 
-    font-size: 0.84rem;
+    font-size:
+        0.84rem;
 
-    line-height: var(--lh-relaxed);
+    line-height:
+        1.65;
+
+    max-width:
+        270px;
+
+    justify-self: center;
 }
 
 
