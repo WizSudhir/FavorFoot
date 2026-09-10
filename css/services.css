@@ -360,11 +360,12 @@
     background:
         linear-gradient(
             90deg,
-            rgba(248,250,255,1) 0%,
-            rgba(248,250,255,0.92) 14%,
-            rgba(248,250,255,0.45) 38%,
-            rgba(248,250,255,0.08) 65%,
-            rgba(248,250,255,0) 100%
+            rgba(248,250,255,0.96) 0%,
+            rgba(248,250,255,0.78) 10%,
+            rgba(248,250,255,0.34) 25%,
+            rgba(248,250,255,0.10) 42%,
+            rgba(248,250,255,0.02) 56%,
+            rgba(248,250,255,0) 68%
         );
 
     pointer-events: none;
@@ -1717,6 +1718,11 @@
 
     z-index: 1;
 
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+
     text-align: center;
 }
 
@@ -1756,6 +1762,13 @@
 
 
 .services-pathway-step > div {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+
+    min-height: 230px;
+
     padding:
         var(--space-6);
 
