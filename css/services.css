@@ -550,7 +550,7 @@
 .condition-category {
     display: flex;
     align-items: center;
-    gap: var(--space-3);
+    gap: var(--space-4);
     width: 100%;
     padding: var(--space-4) var(--space-5);
     border: 1px solid transparent;
@@ -566,9 +566,9 @@
 }
 
 .condition-category svg {
-    width: 19px;
-    height: 19px;
-    flex: 0 0 auto;
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
 }
 
 .condition-category:hover {
@@ -978,8 +978,8 @@
 .service-specialty-card__icon {
     display: grid;
 
-    width: 48px;
-    height: 48px;
+    width: 60px;
+    height: 60px;
 
     margin-bottom: var(--space-4);
 
@@ -999,11 +999,11 @@
         color var(--transition-base);
 }
 
-
 .service-specialty-card__icon svg {
-    width: 22px;
-    height: 22px;
+    width: 38px;
+    height: 38px;
 }
+
 
 
 .service-specialty-card:hover
@@ -1308,8 +1308,8 @@
 
 
 .services-detail__visual-icon svg {
-    width: 28px;
-    height: 28px;
+    width: 38px;
+    height: 38px;
 }
 
 
@@ -1908,8 +1908,8 @@
 
 
 .services-pathway-step svg {
-    width: 24px;
-    height: 24px;
+    width: 34px;
+    height: 34px;
 
     margin: 0;
 
