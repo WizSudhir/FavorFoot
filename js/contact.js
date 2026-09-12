@@ -24,8 +24,25 @@
 
     if (!videos.length) return;
 
-    const loadVideo = (container) => {
-      if (container.dataset.videoLoaded === "true") return;
+   const loadVideo = (container) => {
+     pauseOtherVideos(container);
+     if (container.dataset.videoLoaded === "true") return;
+   
+    const pauseOtherVideos = (activeContainer) => {
+     videos.forEach((video) => {
+       if (video === activeContainer) return;
+       const iframe = video.querySelector("iframe");
+       if (!iframe || !iframe.contentWindow) return;
+       iframe.contentWindow.postMessage(
+         JSON.stringify({
+           event: "command",
+           func: "pauseVideo",
+           args: []
+         }),
+         "https://www.youtube-nocookie.com"
+       );
+     });
+   };   
 
       const videoId = container.dataset.youtubeId;
 
@@ -47,7 +64,7 @@
 
       iframe.src =
         `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}` +
-        "?autoplay=1&rel=0";
+        `?autoplay=1&rel=0&enablejsapi=1&playsinline=1&origin=${encodeURIComponent(window.location.origin)}`;
 
       iframe.title = "Patient wound care testimonial video";
 
