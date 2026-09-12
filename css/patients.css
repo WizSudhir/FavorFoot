@@ -365,7 +365,12 @@ This file contains ONLY patient-page-specific components.
    04. QUICK ACCESS
 ============================================================ */
 .patients-quick {
-    background: var(--bg-body);
+    background:
+        linear-gradient(
+            180deg,
+            #F7F9FE 0%,
+            #F3F6FC 100%
+        );
 }
 .patients-quick__grid {
     display: grid;
@@ -632,7 +637,11 @@ This file contains ONLY patient-page-specific components.
 ============================================================ */
 .patients-new {
     background:
-    var(--bg-surface-soft);
+        linear-gradient(
+            135deg,
+            #EEF2FF 0%,
+            #F5F7FC 100%
+        );
 }
 .patients-new__grid {
     display: grid;
@@ -845,7 +854,11 @@ This file contains ONLY patient-page-specific components.
 ============================================================ */
 .patients-insurance {
     background:
-    var(--bg-body);
+        linear-gradient(
+            180deg,
+            #F5F8FC 0%,
+            #EEF3FA 100%
+        );
 }
 .patients-insurance__grid {
     display: grid;
@@ -1250,7 +1263,11 @@ This file contains ONLY patient-page-specific components.
 ============================================================ */
 .patients-resources {
     background:
-    var(--bg-surface-soft);
+        linear-gradient(
+            135deg,
+            #EEF1FB 0%,
+            #F7F8FC 100%
+        );
 }
 .patients-resources__grid {
     display: grid;
@@ -1487,7 +1504,11 @@ This file contains ONLY patient-page-specific components.
 ============================================================ */
 .patients-faq {
     background:
-    var(--bg-body);
+        linear-gradient(
+            180deg,
+            #F7F9FD 0%,
+            #EEF2F9 100%
+        );
 }
 .patients-faq__grid {
     display: grid;
