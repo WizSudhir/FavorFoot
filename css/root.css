@@ -301,10 +301,10 @@
   /* Fluid section spacing */
 
   --section-space:
-    clamp(4rem, 5vw, 6rem);
+    clamp(3.5rem, 4vw, 5rem);
 
   --section-space-sm:
-    clamp(3rem, 4vw, 4.5rem);
+    clamp(2.75rem, 3.5vw, 4rem);
 
   /* ----------------------------------------------------------
      LAYOUT
@@ -1808,7 +1808,7 @@ a:focus-visible {
 }
 
 .footer-main {
-  padding-block: clamp(4rem, 7vw, 6rem);
+  padding-block: clamp(3.25rem, 5vw, 4.5rem);
 }
 
 .footer-grid {
@@ -1817,7 +1817,7 @@ a:focus-visible {
     minmax(240px, 1.5fr)
     repeat(3, minmax(150px, 1fr));
 
-  gap: clamp(2rem, 5vw, 4rem);
+  gap: clamp(1.75rem, 3vw, 3rem);
 }
 
 .footer-brand {
@@ -2394,7 +2394,7 @@ button,
   }
 
   .hero {
-    min-height: 700px;
+    min-height: 600px;
   }
 
   .hero-overlay {
@@ -2445,11 +2445,11 @@ button,
     display: none;
   }
 
-  .hero {
-    min-height: 680px;
-    align-items: flex-end;
-    padding-bottom: 4rem;
-  }
+.hero {
+  min-height: 560px;
+  align-items: flex-end;
+  padding-bottom: 3rem;
+}
 
   .hero-content {
     max-width: 100%;
@@ -2518,7 +2518,7 @@ button,
 @media (max-width: 420px) {
 
   .hero {
-    min-height: 640px;
+    min-height: 520px;
   }
 
   .btn-xl,
