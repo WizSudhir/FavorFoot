@@ -24,65 +24,131 @@
 
     if (!videos.length) return;
 
-   const loadVideo = (container) => {
-     pauseOtherVideos(container);
-     if (container.dataset.videoLoaded === "true") return;
-   
-    const pauseOtherVideos = (activeContainer) => {
-     videos.forEach((video) => {
-       if (video === activeContainer) return;
-       const iframe = video.querySelector("iframe");
-       if (!iframe || !iframe.contentWindow) return;
-       iframe.contentWindow.postMessage(
-         JSON.stringify({
-           event: "command",
-           func: "pauseVideo",
-           args: []
-         }),
-         "https://www.youtube-nocookie.com"
-       );
-     });
-   };   
+    /* ==========================================================
+       LOAD ONE TESTIMONIAL VIDEO AT A TIME
+       ========================================================== */
+
+    const videoPlaceholders = new Map();
+
+    videos.forEach((video) => {
+      videoPlaceholders.set(video, video.innerHTML);
+    });
+
+
+    const stopOtherVideos = (activeContainer) => {
+
+      videos.forEach((video) => {
+
+        if (video === activeContainer) return;
+
+        const iframe = video.querySelector("iframe");
+
+        if (!iframe) return;
+
+        /*
+          Remove the iframe completely.
+          This guarantees that its audio stops.
+        */
+
+        video.innerHTML = videoPlaceholders.get(video);
+
+        video.dataset.videoLoaded = "false";
+
+      });
+
+    };
+
+
+    const loadVideo = (container) => {
+
+      /*
+        Stop every other testimonial before starting this one.
+      */
+
+      stopOtherVideos(container);
+
+
+      /*
+        If this video is already loaded, do nothing.
+      */
+
+      if (container.dataset.videoLoaded === "true") return;
+
 
       const videoId = container.dataset.youtubeId;
 
-      if (!videoId || videoId === "VIDEO_ID_1" ||
-          videoId === "VIDEO_ID_2" ||
-          videoId === "VIDEO_ID_3" ||
-          videoId === "VIDEO_ID_4" ||
-          videoId === "VIDEO_ID_5" ||
-          videoId === "VIDEO_ID_6") {
+
+      /*
+        Validate the YouTube video ID.
+      */
+
+      if (
+        !videoId ||
+        videoId === "VIDEO_ID_1" ||
+        videoId === "VIDEO_ID_2" ||
+        videoId === "VIDEO_ID_3" ||
+        videoId === "VIDEO_ID_4" ||
+        videoId === "VIDEO_ID_5" ||
+        videoId === "VIDEO_ID_6"
+      ) {
+
         console.warn(
           "YouTube video ID is missing or still uses a placeholder.",
           container
         );
 
         return;
+
       }
+
+
+      /*
+        Create the YouTube iframe.
+      */
 
       const iframe = document.createElement("iframe");
 
+
       iframe.src =
         `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}` +
-        `?autoplay=1&rel=0&enablejsapi=1&playsinline=1&origin=${encodeURIComponent(window.location.origin)}`;
+        "?autoplay=1&rel=0&playsinline=1";
 
-      iframe.title = "Patient wound care testimonial video";
 
-      iframe.loading = "lazy";
+      iframe.title =
+        "Patient wound care testimonial video";
+
+
+      iframe.loading =
+        "lazy";
+
 
       iframe.allow =
         "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
 
-      iframe.referrerPolicy = "strict-origin-when-cross-origin";
 
-      iframe.allowFullscreen = true;
+      iframe.referrerPolicy =
+        "strict-origin-when-cross-origin";
+
+
+      iframe.allowFullscreen =
+        true;
+
+
+      /*
+        Replace the thumbnail with the video.
+      */
 
       container.replaceChildren(iframe);
 
-      container.dataset.videoLoaded = "true";
+
+      /*
+        Mark this video as loaded.
+      */
+
+      container.dataset.videoLoaded =
+        "true";
+
     };
-
-
     /* ==========================================================
        MOUSE / TOUCH
        ========================================================== */
