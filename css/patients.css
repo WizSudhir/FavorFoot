@@ -1258,6 +1258,124 @@ This file contains ONLY patient-page-specific components.
     color:
     var(--color-primary);
 }
+.sample-insurance-card-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .75rem;
+}
+.sample-insurance-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 205px;
+    padding: 1.35rem;
+    border-radius: 18px;
+    color: #FFFFFF;
+    background:
+        linear-gradient(
+            135deg,
+            #07165C 0%,
+            #1B2778 55%,
+            #6366F1 100%
+        );
+    box-shadow:
+        0 18px 40px rgba(7, 22, 92, .20);
+}
+.sample-insurance-card::after {
+    content: "";
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    right: -70px;
+    top: -80px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.10);
+}
+.sample-insurance-card__top {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+.sample-insurance-card__brand {
+    font-size: .95rem;
+    font-weight: 800;
+    letter-spacing: .04em;
+}
+.sample-insurance-card__label {
+    padding: .3rem .55rem;
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 999px;
+    background: rgba(255,255,255,.10);
+    font-size: .58rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+}
+.sample-insurance-card__plan {
+    position: relative;
+    z-index: 1;
+    margin-top: 1rem;
+    color: rgba(255,255,255,.72);
+    font-size: .62rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+}
+.sample-insurance-card__member {
+    position: relative;
+    z-index: 1;
+    margin-top: 1rem;
+}
+.sample-insurance-card__member span,
+.sample-insurance-card__details span {
+    display: block;
+    color: rgba(255,255,255,.55);
+    font-size: .55rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+}
+.sample-insurance-card__member strong {
+    display: block;
+    margin-top: .2rem;
+    font-size: .9rem;
+    letter-spacing: .02em;
+}
+.sample-insurance-card__details {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    gap: 2rem;
+    margin-top: .9rem;
+}
+.sample-insurance-card__details strong {
+    display: block;
+    margin-top: .15rem;
+    font-size: .72rem;
+    letter-spacing: .04em;
+}
+.sample-insurance-card__footer {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding-top: .75rem;
+    border-top: 1px solid rgba(255,255,255,.15);
+    color: rgba(255,255,255,.65);
+    font-size: .58rem;
+}
+.sample-insurance-card__footer strong {
+    color: #FFFFFF;
+    font-size: .65rem;
+}
+.sample-insurance-card__caption {
+    color: var(--text-muted);
+    font-size: .7rem;
+    line-height: 1.4;
+}
 /* ============================================================
    07. PATIENT RESOURCES
 ============================================================ */
@@ -1978,6 +2096,18 @@ This file contains ONLY patient-page-specific components.
 }
 .patient-resource-card {
     min-height: 235px;
+}
+.sample-insurance-card {
+    min-height: 190px;
+    padding: 1.15rem;
+}
+.sample-insurance-card__details {
+    gap: 1.25rem;
+}
+.sample-insurance-card__footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .2rem;
 }
 .patient-portal__content {
     align-items: flex-start;
