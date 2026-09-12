@@ -50,65 +50,164 @@
     videoPlaying: false
   };
 
+/* ============================================================
+   03. FAVOR CLINICAL MAP
+   ============================================================ */
 
-  /* ============================================================
-     03. HERO PARALLAX
-     ============================================================
+const initFavorClinicalMap = () => {
 
-     Creates a very subtle movement effect on the hero visual.
-     The effect is intentionally restrained so the page remains
-     clinical and premium rather than looking like a SaaS landing
-     page.
-     ============================================================ */
+  const map = $("[data-favor-map]");
 
-  const initHeroParallax = () => {
-    const hero = $(".home-hero");
-    const visual = $(".home-hero-visual");
+  if (!map) {
+    return;
+  }
 
-    if (!hero || !visual || prefersReducedMotion) {
-      return;
+  const hotspots = $$("[data-location]", map);
+
+  const panelKicker = $("[data-favor-panel-kicker]", map);
+  const panelTitle = $("[data-favor-panel-title]", map);
+  const panelText = $("[data-favor-panel-text]", map);
+  const panelLink = $("[data-favor-panel-link]", map);
+
+  const locations = {
+
+    leg: {
+      kicker: "LEG CONDITIONS",
+      title: "Support, movement & lower-leg concerns",
+      text: "Explore care for conditions affecting the lower leg, support, movement and complex lower-extremity concerns.",
+      url: "services.html#conditions"
+    },
+
+    ankle: {
+      kicker: "ANKLE CONDITIONS",
+      title: "Stability, injury & joint problems",
+      text: "Explore care for ankle pain, injuries, instability, arthritis and other conditions affecting ankle function.",
+      url: "services.html#conditions"
+    },
+
+    heel: {
+      kicker: "HEEL CONCERNS",
+      title: "Pain, pressure & mobility",
+      text: "Explore common causes of heel pain and conditions that can affect comfort, weight-bearing and mobility.",
+      url: "services.html#conditions"
+    },
+
+    foot: {
+      kicker: "FOOT CONDITIONS",
+      title: "Structure, function & foot pain",
+      text: "Explore care for foot pain, structural problems, diabetic foot concerns and conditions affecting function.",
+      url: "services.html#conditions"
+    },
+
+    toe: {
+      kicker: "TOE CONDITIONS",
+      title: "Gout, deformity & other concerns",
+      text: "Explore care for gout, toe deformities, nail and skin concerns and other conditions affecting the forefoot.",
+      url: "services.html#conditions"
     }
 
-    let ticking = false;
-
-    const updateParallax = () => {
-      const rect = hero.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-
-      if (rect.bottom < 0 || rect.top > viewportHeight) {
-        ticking = false;
-        return;
-      }
-
-      const progress =
-        (viewportHeight - rect.top) /
-        (viewportHeight + rect.height);
-
-      const clamped = Math.max(0, Math.min(1, progress));
-      const movement = (clamped - 0.5) * 18;
-
-      visual.style.transform = `translate3d(0, ${movement}px, 0)`;
-
-      ticking = false;
-    };
-
-    const requestUpdate = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updateParallax);
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", requestUpdate, {
-      passive: true
-    });
-
-    window.addEventListener("resize", requestUpdate);
-
-    requestUpdate();
   };
 
 
+  const activateLocation = (location) => {
+
+    const data = locations[location];
+
+    if (!data) {
+      return;
+    }
+
+    hotspots.forEach((hotspot) => {
+
+      const isActive =
+        hotspot.dataset.location === location;
+
+      hotspot.classList.toggle(
+        "is-active",
+        isActive
+      );
+
+      hotspot.setAttribute(
+        "aria-pressed",
+        isActive ? "true" : "false"
+      );
+
+    });
+
+
+    if (panelKicker) {
+      panelKicker.textContent = data.kicker;
+    }
+
+    if (panelTitle) {
+      panelTitle.textContent = data.title;
+    }
+
+    if (panelText) {
+      panelText.textContent = data.text;
+    }
+
+    if (panelLink) {
+      panelLink.href = data.url;
+    }
+
+  };
+
+
+  hotspots.forEach((hotspot) => {
+
+    const location =
+      hotspot.dataset.location;
+
+    hotspot.setAttribute(
+      "aria-pressed",
+      "false"
+    );
+
+
+    hotspot.addEventListener(
+      "mouseenter",
+      () => {
+
+        if (window.innerWidth > 768) {
+          activateLocation(location);
+        }
+
+      }
+    );
+
+
+    hotspot.addEventListener(
+      "focus",
+      () => {
+        activateLocation(location);
+      }
+    );
+
+
+    hotspot.addEventListener(
+      "click",
+      () => {
+        activateLocation(location);
+      }
+    );
+
+  });
+
+
+  /*
+   * Desktop:
+   * Show the first clinical area automatically.
+   *
+   * Mobile:
+   * Keep the hero neutral until the patient selects an area.
+   */
+
+  if (window.innerWidth > 768) {
+    activateLocation("leg");
+  }
+
+};
   /* ============================================================
      04. CONDITION FINDER
      ============================================================
@@ -717,7 +816,7 @@
       "visibilitychange",
       () => {
         const heroVisual =
-          $(".home-hero-visual");
+          $(".home-hero__visual");
 
         if (!heroVisual) {
           return;
@@ -858,7 +957,7 @@
      ============================================================ */
 
   const init = () => {
-    initHeroParallax();
+    initFavorClinicalMap();
     initConditionFinder();
     initConditionResults();
     initFaq();
