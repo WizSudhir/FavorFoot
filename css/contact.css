@@ -189,7 +189,29 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
+.contact-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+}
 
+.contact-hero-actions .btn {
+  min-height: 48px;
+}
+
+@media (max-width: 640px) {
+  .contact-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contact-hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
 
 /* ============================================================
    02. CONTACT MAIN / FORM
@@ -333,6 +355,137 @@
   width: 100%;
   min-width: 0;
   margin-top: 0.15rem;
+}
+.contact-next-steps {
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.contact-next-steps-header {
+  margin-bottom: 1rem;
+}
+
+.contact-next-steps-header h3 {
+  margin: 0.35rem 0 0;
+  font-size: 1.1rem;
+}
+
+.contact-next-steps-grid {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.contact-next-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.contact-next-step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--brand-accent-600);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.contact-info-card-help {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.contact-help-kicker {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: var(--brand-accent-600);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+}
+
+.contact-info-card-help h3 {
+  margin-bottom: 0.55rem;
+}
+
+.contact-info-card-help p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.contact-help-button {
+  align-self: flex-start;
+}
+.contact-next-step strong {
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+.contact-next-step p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+.contact-conversion-cta {
+  padding-block: clamp(3.5rem, 6vw, 5.5rem);
+}
+
+.contact-conversion-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: clamp(2rem, 4vw, 3.5rem);
+  border-radius: var(--radius-xl);
+  background: var(--surface-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.contact-conversion-cta-copy {
+  max-width: 650px;
+}
+
+.contact-conversion-cta-copy h2 {
+  margin: 0.5rem 0 0.75rem;
+}
+
+.contact-conversion-cta-copy p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.contact-conversion-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 800px) {
+  .contact-conversion-cta-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contact-conversion-cta-actions {
+    width: 100%;
+  }
+
+  .contact-conversion-cta-actions .btn {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
 }
 /* ============================================================
    CONTACT FORM — STATUS MESSAGE
