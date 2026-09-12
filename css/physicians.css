@@ -407,42 +407,33 @@
 .physician-philosophy-section {
   position: relative;
   overflow: hidden;
+  isolation: isolate;
 
   background:
-    radial-gradient(
-      circle at 88% 20%,
-      rgba(77, 83, 190, 0.065),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 12% 82%,
-      rgba(34, 36, 135, 0.035),
-      transparent 28%
-    ),
-    #F8FAFF;
+    url("../assets/images/physician-philosophy-bg.jpg")
+    center center / cover no-repeat;
 }
 .physician-philosophy-section::before {
   content: "";
 
   position: absolute;
+  inset: 0;
+  z-index: -1;
 
-  width: 520px;
-  height: 520px;
-
-  top: -280px;
-  right: -220px;
-
-  border:
-    1px solid
-    rgba(77, 83, 190, 0.045);
-
-  border-radius: 50%;
-
-  box-shadow:
-    0 0 0 70px rgba(77, 83, 190, 0.014),
-    0 0 0 140px rgba(77, 83, 190, 0.009);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7, 12, 55, 0.94) 0%,
+      rgba(10, 16, 68, 0.88) 42%,
+      rgba(14, 21, 79, 0.74) 70%,
+      rgba(14, 21, 79, 0.68) 100%
+    );
 
   pointer-events: none;
+}
+.physician-philosophy-section > .container {
+  position: relative;
+  z-index: 1;
 }
 .physician-philosophy-card { display:grid; grid-template-columns:78px minmax(0,1fr); gap:1.75rem; align-items:start; padding:clamp(1.75rem,5vw,3.5rem); background:radial-gradient(circle at 95% 15%,rgba(77,83,190,.14),transparent 30%),var(--gradient-primary); border-radius:var(--radius-2xl); box-shadow:var(--shadow-xl); margin: 0;}
 .physician-philosophy-mark { display:grid; place-items:center; width:78px; height:78px; color:var(--brand-accent-300); background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.14); border-radius:var(--radius-xl); }
@@ -474,4 +465,17 @@
   .physician-video-overlay { padding:1.25rem; }
   .physician-video-play { width:64px; height:64px; border-width:5px; }
   .physician-philosophy-card { grid-template-columns:1fr; }
+    .physician-philosophy-section {
+    background-position: 72% center;
+  }
+
+  .physician-philosophy-section::before {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(7, 12, 55, 0.88) 0%,
+        rgba(10, 16, 68, 0.78) 55%,
+        rgba(14, 21, 79, 0.68) 100%
+      );
+  }
 }
