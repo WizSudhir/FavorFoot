@@ -1710,7 +1710,6 @@ This file contains ONLY patient-page-specific components.
     position: relative;
     overflow: hidden;
 }
-}
 .patients-faq__grid {
     display: grid;
     grid-template-columns:
@@ -2055,8 +2054,7 @@ This file contains ONLY patient-page-specific components.
     width: 100%;
 }
 .patients-new__grid,
-.patients-insurance__grid,
-.patients-faq__grid {
+.patients-insurance__grid {
     grid-template-columns:
     1fr;
 }
@@ -2067,10 +2065,10 @@ This file contains ONLY patient-page-specific components.
     max-width: 760px;
 }
 .patients-faq__grid {
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(300px, 0.68fr);
     gap: var(--grid-gap-xl);
-}
-.patient-contact-card {
-    max-width: 680px;
 }
 .patient-portal {
     align-items: flex-start;
