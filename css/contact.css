@@ -1338,7 +1338,12 @@
 .contact-testimonial-content {
   padding: 1.25rem 1.35rem 1.4rem;
 }
-
+.contact-testimonial-content p {
+  margin: 0.55rem 0 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
 .contact-testimonial-label {
   display: block;
 
