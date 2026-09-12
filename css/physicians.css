@@ -411,22 +411,22 @@
 
   background:
     url("../assets/images/physician-philosophy-bg.jpg")
-    center center / cover no-repeat;
+    center 45% / cover no-repeat;
+   min-height: 560px;
 }
 .physician-philosophy-section::before {
   content: "";
-
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
 
   background:
     linear-gradient(
       90deg,
-      rgba(7, 12, 55, 0.94) 0%,
-      rgba(10, 16, 68, 0.88) 42%,
-      rgba(14, 21, 79, 0.74) 70%,
-      rgba(14, 21, 79, 0.68) 100%
+      rgba(7, 12, 55, 0.82) 0%,
+      rgba(10, 16, 68, 0.62) 38%,
+      rgba(14, 21, 79, 0.34) 68%,
+      rgba(14, 21, 79, 0.20) 100%
     );
 
   pointer-events: none;
@@ -435,11 +435,27 @@
   position: relative;
   z-index: 1;
 }
-.physician-philosophy-card { display:grid; grid-template-columns:78px minmax(0,1fr); gap:1.75rem; align-items:start; padding:clamp(1.75rem,5vw,3.5rem); background:radial-gradient(circle at 95% 15%,rgba(77,83,190,.14),transparent 30%),var(--gradient-primary); border-radius:var(--radius-2xl); box-shadow:var(--shadow-xl); margin: 0;}
+.physician-philosophy-card {
+  display: grid;
+  grid-template-columns: 78px minmax(0, 1fr);
+  gap: 1.75rem;
+  align-items: start;
+
+  padding: clamp(2rem, 5vw, 4rem) 0;
+
+  background: transparent;
+
+  border: 0;
+  border-radius: 0;
+
+  box-shadow: none;
+
+  margin: 0;
+}
 .physician-philosophy-mark { display:grid; place-items:center; width:78px; height:78px; color:var(--brand-accent-300); background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.14); border-radius:var(--radius-xl); }
 .physician-philosophy-card .section-kicker { color:var(--brand-accent-300); }
 .physician-philosophy-card h2 { max-width:900px; margin-bottom:.9rem; color:#fff; font-size:clamp(1.8rem,3.4vw,3rem); line-height:1.08; }
-.physician-philosophy-card p { max-width:900px; margin:0; color:rgba(255,255,255,.7); font-size:1rem; line-height:1.8; }
+.physician-philosophy-card p { max-width:900px; margin:0; color: rgba(255,255,255,.82); font-size:1rem; line-height:1.8; }
 .physician-philosophy-card footer {
   margin-top: 1.25rem;
   color: var(--brand-accent-300);
@@ -465,17 +481,21 @@
   .physician-video-overlay { padding:1.25rem; }
   .physician-video-play { width:64px; height:64px; border-width:5px; }
   .physician-philosophy-card { grid-template-columns:1fr; }
-    .physician-philosophy-section {
-    background-position: 72% center;
+  .physician-philosophy-section {
+    min-height: 620px;
+    background-position: 68% center;
   }
-
   .physician-philosophy-section::before {
     background:
       linear-gradient(
         180deg,
-        rgba(7, 12, 55, 0.88) 0%,
-        rgba(10, 16, 68, 0.78) 55%,
-        rgba(14, 21, 79, 0.68) 100%
+        rgba(7, 12, 55, 0.78) 0%,
+        rgba(10, 16, 68, 0.62) 55%,
+        rgba(14, 21, 79, 0.42) 100%
       );
+  }
+
+  .physician-philosophy-card {
+    padding: 3rem 0;
   }
 }
