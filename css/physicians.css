@@ -72,9 +72,57 @@
   border-radius:var(--radius-2xl);
   box-shadow:0 30px 70px rgba(0,0,0,.28);
 }
-
+.physician-video-section,
+.physician-introduction,
+.physician-training-section,
+.physician-philosophy-section {
+  position: relative;
+  overflow: hidden;
+}
 /* Dedicated video section */
-.physician-video-section { background:var(--bg-surface-soft); }
+.physician-video-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(77, 83, 190, 0.055),
+      transparent 36%
+    ),
+    linear-gradient(
+      180deg,
+      #F3F7FC 0%,
+      #EEF3FA 100%
+    );
+}
+.physician-video-section::before {
+  content: "";
+  position: absolute;
+
+  width: 620px;
+  height: 280px;
+
+  top: -150px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(255, 255, 255, 0.72) 0%,
+      rgba(255, 255, 255, 0) 70%
+    );
+
+  pointer-events: none;
+}
+
+.physician-video-section > .container {
+  position: relative;
+  z-index: 1;
+}
 .physician-video-heading { max-width:780px; margin:0 auto 2.75rem; text-align:center; }
 .physician-video-heading h2 { margin-bottom:.85rem; font-size:var(--text-h2); line-height:1.08; }
 .physician-video-heading p { margin:0; color:var(--text-secondary); line-height:1.75; }
@@ -97,12 +145,21 @@
    ============================================================ */
 
 .physician-introduction {
+  position: relative;
+  overflow: hidden;
+
   background:
-    linear-gradient(
-      180deg,
-      var(--bg-surface) 0%,
-      var(--bg-surface-soft) 100%
-    );
+    radial-gradient(
+      circle at 12% 18%,
+      rgba(77, 83, 190, 0.055),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 88% 78%,
+      rgba(34, 36, 135, 0.035),
+      transparent 30%
+    ),
+    #F8FAFF;
 }
 
 .physician-introduction-grid {
@@ -315,19 +372,78 @@
   transform: translateX(4px);
 }
 
-.physician-training-section { background:#fff; }
+.physician-training-section {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 10% 22%,
+      rgba(77, 83, 190, 0.055),
+      transparent 26%
+    ),
+    radial-gradient(
+      circle at 90% 78%,
+      rgba(34, 36, 135, 0.035),
+      transparent 28%
+    ),
+    linear-gradient(
+      180deg,
+      #F3F7FC 0%,
+      #EEF3FA 100%
+    );
+}
 .physician-training-grid { display:grid; grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr); gap:clamp(2.5rem,8vw,8rem); align-items:start; }
 .physician-training-intro { position:sticky; top:calc(var(--navbar-height) + 2rem); }
 .physician-timeline { position:relative; display:grid; gap:0; }
 .physician-timeline::before { content:""; position:absolute; top:24px; bottom:24px; left:24px; width:1px; background:linear-gradient(to bottom,var(--brand-navy-200),var(--brand-accent-200),var(--brand-navy-100)); }
 .physician-timeline-item { position:relative; display:grid; grid-template-columns:50px minmax(0,1fr); gap:1.2rem; padding-bottom:2rem; }
 .physician-timeline-item:last-child { padding-bottom:0; }
-.physician-timeline-marker { position:relative; z-index:1; display:grid; place-items:center; width:50px; height:50px; color:var(--brand-navy-700); background:#fff; border:1px solid var(--brand-navy-200); border-radius:50%; box-shadow:0 0 0 7px #fff; font-size:.75rem; font-weight:800; }
+.physician-timeline-marker { position:relative; z-index:1; display:grid; place-items:center; width:50px; height:50px; color:var(--brand-navy-700); background:#FFFFFF; border:1px solid var(--brand-navy-200); border-radius:50%; box-shadow:0 0 0 7px #F3F7FC; font-size:.75rem; font-weight:800; }
 .physician-timeline-year { display:inline-block; margin-bottom:.35rem; color:var(--brand-accent-600); font-size:var(--fs-xs); font-weight:800; letter-spacing:var(--tracking-wide); text-transform:uppercase; }
 .physician-timeline-item h3 { margin-bottom:.35rem; font-size:1.1rem; }
 .physician-timeline-item p { margin:0; color:var(--text-secondary); font-size:.92rem; line-height:1.6; }
 
-.physician-philosophy-section { background:var(--bg-surface-soft); }
+.physician-philosophy-section {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 88% 20%,
+      rgba(77, 83, 190, 0.065),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 12% 82%,
+      rgba(34, 36, 135, 0.035),
+      transparent 28%
+    ),
+    #F8FAFF;
+}
+.physician-philosophy-section::before {
+  content: "";
+
+  position: absolute;
+
+  width: 520px;
+  height: 520px;
+
+  top: -280px;
+  right: -220px;
+
+  border:
+    1px solid
+    rgba(77, 83, 190, 0.045);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 70px rgba(77, 83, 190, 0.014),
+    0 0 0 140px rgba(77, 83, 190, 0.009);
+
+  pointer-events: none;
+}
 .physician-philosophy-card { display:grid; grid-template-columns:78px minmax(0,1fr); gap:1.75rem; align-items:start; padding:clamp(1.75rem,5vw,3.5rem); background:radial-gradient(circle at 95% 15%,rgba(77,83,190,.14),transparent 30%),var(--gradient-primary); border-radius:var(--radius-2xl); box-shadow:var(--shadow-xl); margin: 0;}
 .physician-philosophy-mark { display:grid; place-items:center; width:78px; height:78px; color:var(--brand-accent-300); background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.14); border-radius:var(--radius-xl); }
 .physician-philosophy-card .section-kicker { color:var(--brand-accent-300); }
