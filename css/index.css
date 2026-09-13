@@ -810,22 +810,22 @@
 
 .favor-hotspot--ankle{
     right:5%;
-    top:48%;
+    top:76%;
 }
 
 .favor-hotspot--heel{
     left:4%;
-    top:67%;
+    top:84%;
 }
 
 .favor-hotspot--foot{
     right:2%;
-    top:69%;
+    top:89%;
 }
 
 .favor-hotspot--toe{
     right:6%;
-    bottom:4%;
+    bottom:.5%;
 }
 .favor-hotspot--leg:after,
 .favor-hotspot--heel:after{
@@ -1171,30 +1171,30 @@
         font-size:.58rem;
     }
 
-    .favor-hotspot--leg{
-        left:2%;
-        top:16%;
-    }
+.favor-hotspot--leg{
+    left:2%;
+    top:16%;
+}
 
-    .favor-hotspot--ankle{
-        right:0;
-        top:48%;
-    }
+.favor-hotspot--ankle{
+    right:0;
+    top:73%;
+}
 
-    .favor-hotspot--heel{
-        left:0;
-        top:65%;
-    }
+.favor-hotspot--heel{
+    left:0;
+    top:81%;
+}
 
-    .favor-hotspot--foot{
-        right:0;
-        top:71%;
-    }
+.favor-hotspot--foot{
+    right:0;
+    top:87%;
+}
 
-    .favor-hotspot--toe{
-        right:4%;
-        bottom:5%;
-    }
+.favor-hotspot--toe{
+    right:4%;
+    bottom:.5%;
+}
 
     .favor-map__panel{
         grid-template-columns:auto 1fr;
