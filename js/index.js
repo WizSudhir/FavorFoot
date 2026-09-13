@@ -298,7 +298,7 @@ const prepareModelMaterials = (root) => {
                 material.metalness = 0;
 
                 if (material.color) {
-                    material.color.set(0xe2e5ee);
+                    material.color.set(0xd6dae5);
                 }
 
             }
@@ -662,7 +662,7 @@ const render = () => {
                 );
 
                 material.emissiveIntensity =
-                  0.16;
+                  0.24;
 
               } else {
 
