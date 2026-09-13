@@ -236,9 +236,9 @@ const initFavorAnatomy3D = (map) => {
 
   const MODEL_ROTATION = {
     x: 0,
-    y: 0,
+    y: -0.10,
     z: 0
-  };
+};
 
 
   /* ==========================================================
@@ -357,7 +357,7 @@ const initFavorAnatomy3D = (map) => {
         size.z
       );
 
-    const targetHeight = 4.65;
+    const targetHeight = 4.25;
 
     const scale =
       targetHeight / maxDimension;
@@ -381,7 +381,7 @@ const initFavorAnatomy3D = (map) => {
      * visual breathing room.
      */
 
-    anatomyModel.position.y -= 0.05;
+    anatomyModel.position.y += 0.05;
 
 
     /*
