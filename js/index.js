@@ -20,7 +20,8 @@
 
    Global navigation and global utilities remain in root.js.
    ============================================================ */
-
+import * as THREE from "three";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 (() => {
   "use strict";
 
@@ -49,7 +50,643 @@
     activeTestimonial: 0,
     videoPlaying: false
   };
+/* ============================================================
+   FAVOR 3D ANATOMICAL ENGINE
+   ============================================================ */
 
+const initFavorAnatomy3D = (map) => {
+
+  const canvas = $("#favor-anatomy-3d", map);
+  const loading = $("#favor-anatomy-loading", map);
+  const errorMessage = $("#favor-anatomy-error", map);
+
+  if (!canvas) {
+    return null;
+  }
+
+  /*
+   * Respect browser support.
+   */
+  let renderer;
+
+  try {
+
+    renderer = new THREE.WebGLRenderer({
+      canvas,
+      alpha: true,
+      antialias: true,
+      powerPreference: "high-performance"
+    });
+
+  } catch (error) {
+
+    console.warn(
+      "Three.js WebGL renderer could not be created.",
+      error
+    );
+
+    if (loading) {
+      loading.hidden = true;
+    }
+
+    if (errorMessage) {
+      errorMessage.hidden = false;
+    }
+
+    return null;
+  }
+
+
+  /* ==========================================================
+     RENDERER
+     ========================================================== */
+
+  renderer.setPixelRatio(
+    Math.min(window.devicePixelRatio || 1, 1.75)
+  );
+
+  renderer.setClearColor(
+    0x000000,
+    0
+  );
+
+  renderer.outputColorSpace =
+    THREE.SRGBColorSpace;
+
+  renderer.toneMapping =
+    THREE.ACESFilmicToneMapping;
+
+  renderer.toneMappingExposure = 1.05;
+
+
+  /* ==========================================================
+     SCENE
+     ========================================================== */
+
+  const scene = new THREE.Scene();
+
+
+  /* ==========================================================
+     CAMERA
+     ========================================================== */
+
+  const camera =
+    new THREE.PerspectiveCamera(
+      24,
+      1,
+      0.01,
+      100
+    );
+
+  camera.position.set(
+    0,
+    0.15,
+    6
+  );
+
+
+  /* ==========================================================
+     LIGHTING
+     ========================================================== */
+
+  const hemisphereLight =
+    new THREE.HemisphereLight(
+      0xffffff,
+      0xe6e9ff,
+      2.2
+    );
+
+  scene.add(hemisphereLight);
+
+
+  const keyLight =
+    new THREE.DirectionalLight(
+      0xffffff,
+      3.0
+    );
+
+  keyLight.position.set(
+    3,
+    5,
+    5
+  );
+
+  scene.add(keyLight);
+
+
+  const fillLight =
+    new THREE.DirectionalLight(
+      0x9ca8ff,
+      1.25
+    );
+
+  fillLight.position.set(
+    -4,
+    2,
+    3
+  );
+
+  scene.add(fillLight);
+
+
+  const rimLight =
+    new THREE.DirectionalLight(
+      0xdfe4ff,
+      1.4
+    );
+
+  rimLight.position.set(
+    2,
+    -2,
+    -4
+  );
+
+  scene.add(rimLight);
+
+
+  /* ==========================================================
+     MODEL GROUP
+     ========================================================== */
+
+  const modelGroup =
+    new THREE.Group();
+
+  scene.add(modelGroup);
+
+
+  let anatomyModel = null;
+
+  let anatomyParts = [];
+
+
+  /* ==========================================================
+     MODEL CONFIGURATION
+     ========================================================== */
+
+  const MODEL_URL =
+    "models/favor-lower-extremity.glb";
+
+
+  /*
+   * The GLB should be exported Y-up.
+   *
+   * If the supplied model is rotated differently,
+   * change these values only.
+   */
+
+  const MODEL_ROTATION = {
+    x: 0,
+    y: 0,
+    z: 0
+  };
+
+
+  /* ==========================================================
+     MATERIAL NORMALIZATION
+     ========================================================== */
+
+  const prepareModelMaterials = (root) => {
+
+    root.traverse((object) => {
+
+      if (!object.isMesh) {
+        return;
+      }
+
+      object.castShadow = false;
+      object.receiveShadow = false;
+
+      const materials = Array.isArray(object.material)
+        ? object.material
+        : [object.material];
+
+      materials.forEach((material) => {
+
+        if (!material) {
+          return;
+        }
+
+        /*
+         * Preserve the anatomical model's texture/material
+         * wherever possible.
+         */
+
+        if (
+          material.isMeshStandardMaterial ||
+          material.isMeshPhysicalMaterial
+        ) {
+
+          material.roughness =
+            Math.min(
+              material.roughness || 0.72,
+              0.82
+            );
+
+          material.metalness = 0;
+
+        }
+
+      });
+
+    });
+
+  };
+
+
+  /* ==========================================================
+     COLLECT ANATOMICAL PARTS
+     ========================================================== */
+
+  const collectAnatomyParts = (root) => {
+
+    anatomyParts = [];
+
+    root.traverse((object) => {
+
+      if (!object.isMesh) {
+        return;
+      }
+
+      anatomyParts.push({
+        object,
+        name: (
+          object.name ||
+          ""
+        ).toLowerCase()
+      });
+
+    });
+
+  };
+
+
+  /* ==========================================================
+     FRAME MODEL
+     ========================================================== */
+
+  const frameModel = () => {
+
+    if (!anatomyModel) {
+      return;
+    }
+
+    const box =
+      new THREE.Box3()
+        .setFromObject(anatomyModel);
+
+    const size =
+      box.getSize(
+        new THREE.Vector3()
+      );
+
+    const center =
+      box.getCenter(
+        new THREE.Vector3()
+      );
+
+    /*
+     * Center the anatomy.
+     */
+
+    anatomyModel.position.sub(center);
+
+
+    /*
+     * Scale the model to fit the clinical viewport.
+     */
+
+    const maxDimension =
+      Math.max(
+        size.x,
+        size.y,
+        size.z
+      );
+
+    const targetHeight = 4.65;
+
+    const scale =
+      targetHeight / maxDimension;
+
+    anatomyModel.scale.setScalar(scale);
+
+
+    /*
+     * Slight vertical lift so the foot has
+     * visual breathing room.
+     */
+
+    anatomyModel.position.y = -0.05;
+
+
+    /*
+     * Camera distance.
+     */
+
+    camera.position.set(
+      0,
+      0.05,
+      6.1
+    );
+
+    camera.lookAt(
+      0,
+      0,
+      0
+    );
+
+  };
+
+
+  /* ==========================================================
+     RESIZE
+     ========================================================== */
+
+  const resize = () => {
+
+    const rect =
+      canvas.getBoundingClientRect();
+
+    const width =
+      Math.max(
+        1,
+        rect.width
+      );
+
+    const height =
+      Math.max(
+        1,
+        rect.height
+      );
+
+    renderer.setSize(
+      width,
+      height,
+      false
+    );
+
+    camera.aspect =
+      width / height;
+
+    camera.updateProjectionMatrix();
+
+  };
+
+
+  /* ==========================================================
+     LOAD GLB
+     ========================================================== */
+
+  const loader =
+    new GLTFLoader();
+
+  loader.load(
+
+    MODEL_URL,
+
+    (gltf) => {
+
+      anatomyModel =
+        gltf.scene;
+
+      anatomyModel.rotation.set(
+        MODEL_ROTATION.x,
+        MODEL_ROTATION.y,
+        MODEL_ROTATION.z
+      );
+
+      prepareModelMaterials(
+        anatomyModel
+      );
+
+      collectAnatomyParts(
+        anatomyModel
+      );
+
+      modelGroup.add(
+        anatomyModel
+      );
+
+      frameModel();
+
+      resize();
+
+      if (loading) {
+        loading.hidden = true;
+      }
+
+      console.info(
+        "Favor 3D anatomy loaded.",
+        anatomyParts.map(
+          (part) => part.name
+        )
+      );
+
+    },
+
+    undefined,
+
+    (loadError) => {
+
+      console.error(
+        "Favor 3D anatomy failed to load.",
+        loadError
+      );
+
+      if (loading) {
+        loading.hidden = true;
+      }
+
+      if (errorMessage) {
+        errorMessage.hidden = false;
+      }
+
+    }
+
+  );
+
+
+  /* ==========================================================
+     RENDER LOOP
+     ========================================================== */
+
+  let animationFrame = null;
+
+  const render = () => {
+
+    animationFrame =
+      window.requestAnimationFrame(
+        render
+      );
+
+    renderer.render(
+      scene,
+      camera
+    );
+
+  };
+
+  render();
+
+
+  /* ==========================================================
+     RESIZE OBSERVER
+     ========================================================== */
+
+  const resizeObserver =
+    new ResizeObserver(
+      resize
+    );
+
+  resizeObserver.observe(
+    canvas
+  );
+
+
+  /* ==========================================================
+     VISIBILITY OPTIMIZATION
+     ========================================================== */
+
+  const handleVisibility = () => {
+
+    if (document.hidden) {
+
+      if (animationFrame) {
+        cancelAnimationFrame(
+          animationFrame
+        );
+
+        animationFrame = null;
+      }
+
+      return;
+    }
+
+    if (!animationFrame) {
+      render();
+    }
+
+  };
+
+  document.addEventListener(
+    "visibilitychange",
+    handleVisibility
+  );
+
+
+  /*
+   * Return the controller so the Clinical Map
+   * can communicate with the 3D anatomy.
+   */
+
+  return {
+
+    setZone(location) {
+
+      if (!anatomyParts.length) {
+        return;
+      }
+
+      const keywords = {
+
+        leg: [
+          "tibia",
+          "fibula",
+          "gastro",
+          "soleus",
+          "calf"
+        ],
+
+        ankle: [
+          "ankle",
+          "talus",
+          "malleolus"
+        ],
+
+        heel: [
+          "calcaneus",
+          "heel",
+          "achilles"
+        ],
+
+        foot: [
+          "tarsal",
+          "metatarsal",
+          "midfoot"
+        ],
+
+        toe: [
+          "phalanx",
+          "phalange",
+          "toe"
+        ]
+
+      };
+
+      const activeKeywords =
+        keywords[location] || [];
+
+
+      anatomyParts.forEach(
+        ({ object, name }) => {
+
+          const matches =
+            activeKeywords.some(
+              (keyword) =>
+                name.includes(keyword)
+            );
+
+          const materials =
+            Array.isArray(object.material)
+              ? object.material
+              : [object.material];
+
+          materials.forEach(
+            (material) => {
+
+              if (!material) {
+                return;
+              }
+
+              if (
+                "emissive" in material
+              ) {
+
+                if (matches) {
+
+                  material.emissive.set(
+                    0x6366f1
+                  );
+
+                  material.emissiveIntensity =
+                    0.20;
+
+                } else {
+
+                  material.emissive.set(
+                    0x000000
+                  );
+
+                  material.emissiveIntensity =
+                    0;
+
+                }
+
+              }
+
+            }
+
+          );
+
+        }
+      );
+
+    },
+
+    resize
+
+  };
+
+};
 /* ============================================================
    03. FAVOR CLINICAL MAP
    ============================================================ */
@@ -63,6 +700,8 @@ const initFavorClinicalMap = () => {
   }
 
   const hotspots = $$("[data-location]", map);
+  const anatomy3D =
+  initFavorAnatomy3D(map);
 
   const panelKicker = $("[data-favor-panel-kicker]", map);
   const panelTitle = $("[data-favor-panel-title]", map);
@@ -116,7 +755,9 @@ const initFavorClinicalMap = () => {
     if (!data) {
       return;
     }
-
+     if (anatomy3D) {
+  anatomy3D.setZone(location);
+}
     hotspots.forEach((hotspot) => {
 
       const isActive =
