@@ -234,8 +234,9 @@
     color:var(--text-muted);
 }
 
+.favor-map__3d-loading[hidden],
 .favor-map__3d-error[hidden]{
-    display:none;
+    display:none !important;
 }
 
 @keyframes favor3dPulse{
