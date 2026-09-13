@@ -260,7 +260,7 @@
 
 .favor-map__canvas{
     position:relative;
-    height:455px;
+    height:470px;
     margin-top:.5rem;
     isolation:isolate;
     overflow:visible;
@@ -402,8 +402,6 @@
 }
 
 .favor-toe{
-    filter:
-        drop-shadow(0 6px 10px rgba(99,102,241,.08));
     transition:
         opacity .3s ease,
         filter .3s ease;
@@ -502,9 +500,6 @@
     stroke-width:1.1;
     opacity:.62;
     vector-effect:non-scaling-stroke;
-}
-.favor-toe{
-    filter:drop-shadow(0 7px 12px rgba(99,102,241,.08));
 }
 .favor-mobility-glow{
     fill:none;
