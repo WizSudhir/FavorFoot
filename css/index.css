@@ -506,54 +506,46 @@
 .favor-toe{
     filter:drop-shadow(0 7px 12px rgba(99,102,241,.08));
 }
-
 .favor-mobility-glow{
     fill:none;
     stroke:#6366f1;
-    stroke-width:12;
+    stroke-width:10;
     stroke-linecap:round;
-    opacity:.075;
+    opacity:.055;
     filter:blur(4px);
 }
 
 .favor-mobility-core{
     fill:none;
-    stroke:url(#favorLineGradient);
-    stroke-width:3;
+    stroke:url(#favorMobilityGradient);
+    stroke-width:2.6;
     stroke-linecap:round;
-    opacity:.82;
+    opacity:.62;
 }
 
 .favor-mobility-line{
     fill:none;
-    stroke:url(#favorLineGradient);
-    stroke-width:2;
+    stroke:url(#favorMobilityGradient);
+    stroke-width:1.8;
     stroke-linecap:round;
 
-    stroke-dasharray:3 11;
+    stroke-dasharray:3 12;
     stroke-dashoffset:0;
 
+    opacity:.8;
+
     animation:
-        favorMobilityFlow 2.6s
+        favorMobilityFlow 3s
         linear infinite;
 }
-
-@keyframes favorMobilityFlow{
-
-    to{
-        stroke-dashoffset:-56;
-    }
-
-}
-
 .favor-path-node{
     fill:#fff;
     stroke:#6366f1;
-    stroke-width:2.5;
+    stroke-width:2;
 
     filter:
         drop-shadow(
-            0 0 7px rgba(99,102,241,.28)
+            0 0 6px rgba(99,102,241,.22)
         );
 
     vector-effect:non-scaling-stroke;
@@ -745,30 +737,73 @@
 /* HOTSPOT POSITIONS */
 
 .favor-hotspot--leg{
-    left:9%;
-    top:17%;
+    left:6%;
+    top:18%;
 }
 
 .favor-hotspot--ankle{
-    right:7%;
-    top:50%;
+    right:5%;
+    top:48%;
 }
 
 .favor-hotspot--heel{
-    left:7%;
+    left:4%;
     top:67%;
 }
 
 .favor-hotspot--foot{
-    right:4%;
-    top:73%;
+    right:2%;
+    top:69%;
 }
 
 .favor-hotspot--toe{
-    right:8%;
-    bottom:5%;
+    right:6%;
+    bottom:4%;
+}
+.favor-hotspot--leg:after,
+.favor-hotspot--heel:after{
+    content:"";
+
+    position:absolute;
+
+    height:1px;
+    width:42px;
+
+    right:-42px;
+    top:50%;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(99,102,241,.30),
+            rgba(99,102,241,.04)
+        );
+
+    pointer-events:none;
 }
 
+.favor-hotspot--ankle:after,
+.favor-hotspot--foot:after,
+.favor-hotspot--toe:after{
+    content:"";
+
+    position:absolute;
+
+    height:1px;
+    width:42px;
+
+    left:-42px;
+    top:50%;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(99,102,241,.04),
+            rgba(99,102,241,.30)
+        );
+
+    pointer-events:none;
+}
 
 /* ============================================================
    CONDITION PANEL
