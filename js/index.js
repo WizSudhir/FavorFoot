@@ -116,7 +116,7 @@ const initFavorAnatomy3D = (map) => {
   renderer.toneMapping =
     THREE.ACESFilmicToneMapping;
 
-  renderer.toneMappingExposure = 1.05;
+  renderer.toneMappingExposure = 0.98;
 
 
   /* ==========================================================
@@ -244,53 +244,60 @@ const initFavorAnatomy3D = (map) => {
   /* ==========================================================
      MATERIAL NORMALIZATION
      ========================================================== */
-
-  const prepareModelMaterials = (root) => {
+const prepareModelMaterials = (root) => {
 
     root.traverse((object) => {
 
-      if (!object.isMesh) {
-        return;
-      }
-
-      object.castShadow = false;
-      object.receiveShadow = false;
-
-      const materials = Array.isArray(object.material)
-        ? object.material
-        : [object.material];
-
-      materials.forEach((material) => {
-
-        if (!material) {
-          return;
+        if (!object.isMesh) {
+            return;
         }
 
-        /*
-         * Preserve the anatomical model's texture/material
-         * wherever possible.
-         */
+        object.castShadow = false;
+        object.receiveShadow = false;
 
-        if (
-          material.isMeshStandardMaterial ||
-          material.isMeshPhysicalMaterial
-        ) {
+        const sourceMaterials = Array.isArray(object.material)
+            ? object.material
+            : [object.material];
 
-          material.roughness =
-            Math.min(
-              material.roughness || 0.72,
-              0.82
-            );
+        const materials = sourceMaterials.map((source) => {
 
-          material.metalness = 0;
+            if (!source) {
+                return source;
+            }
 
-        }
+            const material = source.clone();
 
-      });
+            if (
+                material.isMeshStandardMaterial ||
+                material.isMeshPhysicalMaterial
+            ) {
+
+                material.roughness =
+                    Math.min(
+                        material.roughness || 0.72,
+                        0.82
+                    );
+
+                material.metalness = 0;
+
+                if (material.color) {
+                    material.color.set(0xe2e5ee);
+                }
+
+            }
+
+            return material;
+
+        });
+
+        object.material =
+            Array.isArray(object.material)
+                ? materials
+                : materials[0];
 
     });
 
-  };
+};
 
 
   /* ==========================================================
