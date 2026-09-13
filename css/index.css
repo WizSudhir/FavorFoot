@@ -808,7 +808,6 @@
 
 
 /* HOTSPOT POSITIONS */
-
 .favor-hotspot--leg{
     left:6%;
     top:18%;
@@ -816,22 +815,22 @@
 
 .favor-hotspot--ankle{
     right:5%;
-    top:76%;
+    top:74%;
 }
 
 .favor-hotspot--heel{
-    left:4%;
-    top:84%;
+    left:3%;
+    top:82%;
 }
 
 .favor-hotspot--foot{
     right:2%;
-    top:89%;
+    top:85%;
 }
 
 .favor-hotspot--toe{
     right:6%;
-    bottom:.5%;
+    bottom:1%;
 }
 .favor-hotspot--leg:after,
 .favor-hotspot--heel:after{
@@ -885,7 +884,7 @@
 .favor-map__panel{
     position:relative;
     z-index:10;
-
+    pointer-events:auto;
     display:grid;
     grid-template-columns:auto 1fr auto;
 
@@ -1184,22 +1183,22 @@
 
 .favor-hotspot--ankle{
     right:0;
-    top:73%;
+    top:71%;
 }
 
 .favor-hotspot--heel{
     left:0;
-    top:81%;
+    top:79%;
 }
 
 .favor-hotspot--foot{
     right:0;
-    top:87%;
+    top:84%;
 }
 
 .favor-hotspot--toe{
     right:4%;
-    bottom:.5%;
+    bottom:1%;
 }
 
     .favor-map__panel{
