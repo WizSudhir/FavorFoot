@@ -204,213 +204,665 @@
 
                     <!-- ANATOMICAL VISUAL -->
                     <div class="favor-map__canvas">
+                        <div class="favor-map__scan" aria-hidden="true"></div>
+
+                        <div class="favor-map__scan-label favor-map__scan-label--top" aria-hidden="true">
+                            CLINICAL VISUALIZATION
+                        </div>
+
+                        <div class="favor-map__scan-label favor-map__scan-label--bottom" aria-hidden="true">
+                            LOWER EXTREMITY / 05 ZONES
+                        </div>
 
                         <svg class="favor-map__svg"
-                             viewBox="0 0 500 680"
-                             role="img"
-                             aria-labelledby="favor-map-title favor-map-desc">
+     viewBox="0 0 500 680"
+     role="img"
+     aria-labelledby="favor-map-title favor-map-desc">
 
-                            <title id="favor-map-title">
-                                Favor lower extremity clinical map
-                            </title>
+    <title id="favor-map-title">
+        Favor lower extremity clinical map
+    </title>
 
-                            <desc id="favor-map-desc">
-                                Stylized anatomical map showing the leg, ankle, heel,
-                                foot and toes with interactive clinical locations.
-                            </desc>
+    <desc id="favor-map-desc">
+        Stylized clinical visualization of the lower leg, ankle,
+        heel, foot and toes with structural pathways and interactive
+        clinical locations.
+    </desc>
 
-                            <defs>
+    <defs>
 
-                                <linearGradient id="favorBodyGradient"
-                                                x1="0"
-                                                y1="0"
-                                                x2="1"
-                                                y2="1">
+        <!-- =====================================================
+             BODY GRADIENT
+             ===================================================== -->
 
-                                    <stop offset="0%"
-                                          stop-color="#e9edff"/>
+        <linearGradient id="favorBodyGradient"
+                        x1="0"
+                        y1="0"
+                        x2="1"
+                        y2="1">
 
-                                    <stop offset="52%"
-                                          stop-color="#cdd5ff"/>
+            <stop offset="0%"
+                  stop-color="#f0f2ff"/>
 
-                                    <stop offset="100%"
-                                          stop-color="#aeb9f5"/>
+            <stop offset="45%"
+                  stop-color="#d6dcff"/>
 
-                                </linearGradient>
+            <stop offset="100%"
+                  stop-color="#aeb9f5"/>
 
-                                <linearGradient id="favorLineGradient"
-                                                x1="0"
-                                                y1="0"
-                                                x2="0"
-                                                y2="1">
-
-                                    <stop offset="0%"
-                                          stop-color="#6366f1"/>
-
-                                    <stop offset="100%"
-                                          stop-color="#3b82f6"/>
-
-                                </linearGradient>
-
-                                <filter id="favorSoftGlow"
-                                        x="-100%"
-                                        y="-100%"
-                                        width="300%"
-                                        height="300%">
-
-                                    <feGaussianBlur stdDeviation="5"
-                                                    result="blur"/>
-
-                                    <feMerge>
-                                        <feMergeNode in="blur"/>
-                                        <feMergeNode in="SourceGraphic"/>
-                                    </feMerge>
-
-                                </filter>
-
-                            </defs>
+        </linearGradient>
 
 
-                            <!-- SOFT ANATOMICAL FIELD -->
-                            <ellipse
-                                cx="250"
-                                cy="335"
-                                rx="188"
-                                ry="315"
-                                fill="#f7f8ff"/>
+        <linearGradient id="favorBodyGradientDeep"
+                        x1="0"
+                        y1="0"
+                        x2="1"
+                        y2="1">
+
+            <stop offset="0%"
+                  stop-color="#dce2ff"/>
+
+            <stop offset="100%"
+                  stop-color="#a5b1f1"/>
+
+        </linearGradient>
 
 
-                            <!-- LOWER LEG -->
-                            <path
-                                class="favor-anatomy-shape"
-                                d="M190 45
-                                   C177 84 174 126 177 169
-                                   C180 214 187 256 193 300
-                                   C197 329 194 353 184 375
-                                   C177 391 178 410 187 423
-                                   C198 439 214 444 229 435
-                                   C244 426 250 411 249 394
-                                   C248 374 243 354 246 332
-                                   C251 285 259 238 266 193
-                                   C272 148 274 103 267 61
-                                   C255 37 209 31 190 45 Z"
-                                fill="url(#favorBodyGradient)"/>
+        <!-- =====================================================
+             MOBILITY GRADIENT
+             ===================================================== -->
+
+        <linearGradient id="favorLineGradient"
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="1">
+
+            <stop offset="0%"
+                  stop-color="#6366f1"/>
+
+            <stop offset="50%"
+                  stop-color="#4f68e8"/>
+
+            <stop offset="100%"
+                  stop-color="#3b82f6"/>
+
+        </linearGradient>
 
 
-                            <!-- ANKLE -->
-                            <path
-                                class="favor-anatomy-shape favor-anatomy-shape--secondary"
-                                d="M184 373
-                                   C170 388 165 407 172 426
-                                   C179 445 197 456 216 457
-                                   C238 458 257 449 266 431
-                                   C274 414 270 393 255 378
-                                   C235 360 204 359 184 373 Z"
-                                fill="#d9defd"/>
+        <!-- =====================================================
+             CLINICAL ZONE GRADIENT
+             ===================================================== -->
+
+        <radialGradient id="favorZoneGradient">
+
+            <stop offset="0%"
+                  stop-color="#6366f1"
+                  stop-opacity=".18"/>
+
+            <stop offset="65%"
+                  stop-color="#6366f1"
+                  stop-opacity=".06"/>
+
+            <stop offset="100%"
+                  stop-color="#6366f1"
+                  stop-opacity="0"/>
+
+        </radialGradient>
 
 
-                            <!-- FOOT -->
-                            <path
-                                class="favor-anatomy-shape"
-                                d="M176 425
-                                   C151 443 131 464 118 489
-                                   C103 517 95 548 100 571
-                                   C104 590 119 602 142 607
-                                   C173 614 212 612 249 605
-                                   C283 598 320 588 348 574
-                                   C367 565 375 550 369 536
-                                   C363 521 345 514 325 512
-                                   C292 509 270 496 253 474
-                                   C238 455 224 435 205 424
-                                   C195 418 185 419 176 425 Z"
-                                fill="url(#favorBodyGradient)"/>
+        <!-- =====================================================
+             SOFT GLOW
+             ===================================================== -->
+
+        <filter id="favorSoftGlow"
+                x="-100%"
+                y="-100%"
+                width="300%"
+                height="300%">
+
+            <feGaussianBlur stdDeviation="5"
+                            result="blur"/>
+
+            <feMerge>
+
+                <feMergeNode in="blur"/>
+
+                <feMergeNode in="SourceGraphic"/>
+
+            </feMerge>
+
+        </filter>
 
 
-                            <!-- BIG TOE -->
-                            <ellipse
-                                class="favor-toe"
-                                cx="352"
-                                cy="538"
-                                rx="29"
-                                ry="18"
-                                transform="rotate(-20 352 538)"
-                                fill="#c5cdf9"/>
+        <filter id="favorSmallGlow"
+                x="-100%"
+                y="-100%"
+                width="300%"
+                height="300%">
 
-                            <!-- SECOND TOE -->
-                            <ellipse
-                                class="favor-toe"
-                                cx="367"
-                                cy="557"
-                                rx="24"
-                                ry="13"
-                                transform="rotate(-12 367 557)"
-                                fill="#c5cdf9"/>
+            <feGaussianBlur stdDeviation="2.5"/>
 
-                            <!-- THIRD TOE -->
-                            <ellipse
-                                class="favor-toe"
-                                cx="361"
-                                cy="575"
-                                rx="21"
-                                ry="11"
-                                transform="rotate(-8 361 575)"
-                                fill="#c5cdf9"/>
+        </filter>
 
 
-                            <!-- ARCH DETAIL -->
-                            <path
-                                d="M175 514
-                                   C202 489 232 493 252 518
-                                   C268 538 285 548 310 551"
-                                fill="none"
-                                stroke="#a7b2f2"
-                                stroke-width="7"
-                                stroke-linecap="round"
-                                opacity=".8"/>
+        <!-- =====================================================
+             FOOT PRESSURE GRADIENT
+             ===================================================== -->
+
+        <radialGradient id="favorPressureGradient">
+
+            <stop offset="0%"
+                  stop-color="#6366f1"
+                  stop-opacity=".17"/>
+
+            <stop offset="60%"
+                  stop-color="#6366f1"
+                  stop-opacity=".06"/>
+
+            <stop offset="100%"
+                  stop-color="#6366f1"
+                  stop-opacity="0"/>
+
+        </radialGradient>
+
+    </defs>
 
 
-                            <!-- MOBILITY PATH -->
-                            <path
-                                class="favor-mobility-line"
-                                d="M218 75
-                                   C218 160 217 247 217 330
-                                   C217 384 219 415 211 447
-                                   C204 474 191 499 183 523
-                                   C177 542 179 558 193 570"
-                                fill="none"
-                                stroke="url(#favorLineGradient)"
-                                stroke-width="4"
-                                stroke-linecap="round"
-                                filter="url(#favorSoftGlow)"/>
+    <!-- =========================================================
+         SOFT ANATOMICAL FIELD
+         ========================================================= -->
+
+    <ellipse cx="250"
+             cy="335"
+             rx="188"
+             ry="315"
+             fill="#f7f8ff"/>
 
 
-                            <!-- PATH NODES -->
-                            <circle class="favor-path-node"
-                                    cx="218"
-                                    cy="112"
-                                    r="7"/>
+    <!-- =========================================================
+         CLINICAL ZONE HALOS
+         ========================================================= -->
 
-                            <circle class="favor-path-node"
-                                    cx="218"
-                                    cy="375"
-                                    r="7"/>
+    <ellipse class="favor-clinical-zone"
+             cx="220"
+             cy="185"
+             rx="92"
+             ry="125"
+             fill="url(#favorZoneGradient)"/>
 
-                            <circle class="favor-path-node"
-                                    cx="211"
-                                    cy="447"
-                                    r="7"/>
+    <ellipse class="favor-clinical-zone"
+             cx="220"
+             cy="385"
+             rx="70"
+             ry="65"
+             fill="url(#favorZoneGradient)"/>
 
-                            <circle class="favor-path-node"
-                                    cx="183"
-                                    cy="523"
-                                    r="7"/>
+    <ellipse class="favor-clinical-zone"
+             cx="185"
+             cy="525"
+             rx="72"
+             ry="62"
+             fill="url(#favorPressureGradient)"/>
 
-                            <circle class="favor-path-node"
-                                    cx="193"
-                                    cy="570"
-                                    r="7"/>
 
-                        </svg>
+    <!-- =========================================================
+         LOWER LEG — PRIMARY FORM
+         ========================================================= -->
+
+    <path class="favor-anatomy-shape"
+          d="M190 45
+             C177 84 174 126 177 169
+             C180 214 187 256 193 300
+             C197 329 194 353 184 375
+             C177 391 178 410 187 423
+             C198 439 214 444 229 435
+             C244 426 250 411 249 394
+             C248 374 243 354 246 332
+             C251 285 259 238 266 193
+             C272 148 274 103 267 61
+             C255 37 209 31 190 45 Z"
+          fill="url(#favorBodyGradient)"/>
+
+
+    <!-- =========================================================
+         LEG TISSUE PLANES
+         ========================================================= -->
+
+    <path class="favor-anatomy-detail"
+          d="M204 61
+             C193 115 195 177 201 236
+             C204 270 209 305 207 340
+             C206 357 201 374 194 388"/>
+
+    <path class="favor-anatomy-detail"
+          d="M236 58
+             C248 111 247 166 241 222
+             C237 263 230 300 230 337
+             C230 357 235 374 239 392"/>
+
+    <path class="favor-anatomy-detail--fine"
+          d="M214 61
+             C209 120 212 184 216 243
+             C218 281 218 317 216 350"/>
+
+    <path class="favor-anatomy-detail--fine"
+          d="M226 58
+             C233 121 229 185 224 244
+             C222 282 221 319 223 350"/>
+
+
+    <!-- =========================================================
+         TIBIA / FIBULA STYLE STRUCTURAL LINES
+         ========================================================= -->
+
+    <path class="favor-anatomy-detail--strong"
+          d="M214 78
+             C211 145 213 210 216 274
+             C218 319 218 347 214 370"/>
+
+    <path class="favor-anatomy-detail"
+          d="M231 78
+             C236 142 233 206 228 268
+             C225 311 225 347 229 369"/>
+
+    <path class="favor-anatomy-detail--fine"
+          d="M202 105
+             C198 151 201 202 205 251"/>
+
+    <path class="favor-anatomy-detail--fine"
+          d="M242 104
+             C246 150 243 201 239 249"/>
+
+
+    <!-- =========================================================
+         SMALL LEG STRUCTURAL MARKERS
+         ========================================================= -->
+
+    <g opacity=".42">
+
+        <circle cx="214"
+                cy="145"
+                r="3"
+                fill="#6875d3"/>
+
+        <circle cx="216"
+                cy="220"
+                r="3"
+                fill="#6875d3"/>
+
+        <circle cx="219"
+                cy="292"
+                r="3"
+                fill="#6875d3"/>
+
+        <circle cx="225"
+                cy="338"
+                r="3"
+                fill="#6875d3"/>
+
+    </g>
+
+
+    <!-- =========================================================
+         ANKLE FORM
+         ========================================================= -->
+
+    <path class="favor-anatomy-shape favor-anatomy-shape--secondary"
+          d="M184 373
+             C170 388 165 407 172 426
+             C179 445 197 456 216 457
+             C238 458 257 449 266 431
+             C274 414 270 393 255 378
+             C235 360 204 359 184 373 Z"
+          fill="url(#favorBodyGradientDeep)"/>
+
+
+    <!-- =========================================================
+         ANKLE JOINT
+         ========================================================= -->
+
+    <ellipse class="favor-joint"
+             cx="220"
+             cy="395"
+             rx="34"
+             ry="27"/>
+
+    <ellipse class="favor-joint"
+             cx="220"
+             cy="395"
+             rx="20"
+             ry="16"
+             opacity=".7"/>
+
+
+    <!-- =========================================================
+         MALLEOLUS / ANKLE STRUCTURE
+         ========================================================= -->
+
+    <path class="favor-anatomy-detail--strong"
+          d="M186 389
+             C177 402 178 420 188 431"/>
+
+    <path class="favor-anatomy-detail--strong"
+          d="M253 387
+             C263 401 262 418 252 430"/>
+
+    <path class="favor-anatomy-detail"
+          d="M195 375
+             C207 367 232 368 246 377"/>
+
+
+    <!-- =========================================================
+         ACHILLES PATHWAY
+         ========================================================= -->
+
+    <path class="favor-anatomy-detail--strong"
+          d="M214 343
+             C211 363 211 378 216 393
+             C219 403 219 416 213 431"/>
+
+    <path class="favor-anatomy-detail"
+          d="M228 343
+             C231 365 230 379 225 394
+             C222 405 222 416 228 430"/>
+
+
+    <!-- =========================================================
+         FOOT PRIMARY FORM
+         ========================================================= -->
+
+    <path class="favor-anatomy-shape"
+          d="M176 425
+             C151 443 131 464 118 489
+             C103 517 95 548 100 571
+             C104 590 119 602 142 607
+             C173 614 212 612 249 605
+             C283 598 320 588 348 574
+             C367 565 375 550 369 536
+             C363 521 345 514 325 512
+             C292 509 270 496 253 474
+             C238 455 224 435 205 424
+             C195 418 185 419 176 425 Z"
+          fill="url(#favorBodyGradient)"/>
+
+
+    <!-- =========================================================
+         FOOT TISSUE PLANES
+         ========================================================= -->
+
+    <path class="favor-anatomy-detail"
+          d="M132 500
+             C151 478 175 463 198 458
+             C218 454 234 462 248 477"/>
+
+    <path class="favor-anatomy-detail--fine"
+          d="M113 540
+             C139 519 164 506 190 505
+             C215 505 234 516 251 535"/>
+
+    <path class="favor-anatomy-detail--fine"
+          d="M112 562
+             C141 548 168 540 195 542
+             C218 544 236 552 254 563"/>
+
+
+    <!-- =========================================================
+         HEEL PAD
+         ========================================================= -->
+
+    <path class="favor-anatomy-detail--strong"
+          d="M118 521
+             C105 540 105 565 119 582
+             C132 598 153 602 170 597
+             C180 594 185 586 184 576
+             C182 559 169 543 153 531
+             C140 521 128 518 118 521 Z"/>
+
+
+    <!-- =========================================================
+         PLANTAR FASCIA
+         ========================================================= -->
+
+    <path class="favor-anatomy-detail--strong"
+          d="M145 570
+             C175 550 201 530 225 521
+             C247 513 272 515 296 527
+             C307 533 319 539 332 541"/>
+
+
+    <path class="favor-anatomy-detail--fine"
+          d="M151 582
+             C180 560 204 543 228 535
+             C249 528 271 530 292 540"/>
+
+
+    <!-- =========================================================
+         METATARSAL STRUCTURE
+         ========================================================= -->
+
+    <path class="favor-anatomy-detail"
+          d="M230 488
+             C249 503 269 516 291 526"/>
+
+    <path class="favor-anatomy-detail"
+          d="M244 479
+             C263 496 284 510 306 519"/>
+
+    <path class="favor-anatomy-detail"
+          d="M258 472
+             C278 489 300 501 323 510"/>
+
+    <path class="favor-anatomy-detail--fine"
+          d="M270 470
+             C291 485 314 495 337 502"/>
+
+
+    <!-- =========================================================
+         FOOT PRESSURE ZONES
+         ========================================================= -->
+
+    <ellipse cx="150"
+             cy="560"
+             rx="35"
+             ry="28"
+             fill="url(#favorPressureGradient)"/>
+
+    <ellipse cx="278"
+             cy="527"
+             rx="42"
+             ry="25"
+             fill="url(#favorPressureGradient)"/>
+
+
+    <!-- =========================================================
+         FIVE TOES
+         ========================================================= -->
+
+    <path class="favor-toe"
+          d="M323 514
+             C335 509 351 511 360 518
+             C368 524 368 534 361 540
+             C352 547 337 545 326 538
+             C319 533 318 519 323 514 Z"
+          fill="#c5cdf9"/>
+
+
+    <path class="favor-toe"
+          d="M348 538
+             C359 534 372 537 378 544
+             C384 551 381 559 373 563
+             C364 568 351 563 344 557
+             C339 552 341 542 348 538 Z"
+          fill="#c5cdf9"/>
+
+
+    <path class="favor-toe"
+          d="M351 555
+             C361 552 372 555 377 561
+             C382 567 379 574 372 578
+             C364 582 354 578 348 573
+             C344 568 345 559 351 555 Z"
+          fill="#c5cdf9"/>
+
+
+    <path class="favor-toe"
+          d="M345 571
+             C354 569 364 572 368 577
+             C372 583 369 589 362 592
+             C355 595 346 591 342 586
+             C339 581 340 574 345 571 Z"
+          fill="#c5cdf9"/>
+
+
+    <path class="favor-toe"
+          d="M337 584
+             C345 582 354 585 357 590
+             C360 595 357 601 351 603
+             C344 605 337 602 333 597
+             C330 592 332 586 337 584 Z"
+          fill="#c5cdf9"/>
+
+
+    <!-- =========================================================
+         TOE JOINT LINES
+         ========================================================= -->
+
+    <path class="favor-anatomy-detail--fine"
+          d="M341 525 C348 529 354 531 360 530"/>
+
+    <path class="favor-anatomy-detail--fine"
+          d="M350 548 C358 552 366 554 374 552"/>
+
+    <path class="favor-anatomy-detail--fine"
+          d="M351 564 C358 568 366 570 373 569"/>
+
+
+    <!-- =========================================================
+         ARCH DETAIL
+         ========================================================= -->
+
+    <path class="favor-anatomy-detail--strong"
+          d="M175 514
+             C202 489 232 493 252 518
+             C268 538 285 548 310 551"/>
+
+
+    <path class="favor-anatomy-detail--fine"
+          d="M166 526
+             C192 507 220 510 240 529
+             C255 544 273 555 296 558"/>
+
+
+    <!-- =========================================================
+         MOBILITY PATH — GLOW
+         ========================================================= -->
+
+    <path class="favor-mobility-glow"
+          d="M218 75
+             C218 160 217 247 217 330
+             C217 384 219 415 211 447
+             C204 474 191 499 183 523
+             C177 542 179 558 193 570"/>
+
+
+    <!-- =========================================================
+         MOBILITY PATH — CORE
+         ========================================================= -->
+
+    <path class="favor-mobility-core"
+          d="M218 75
+             C218 160 217 247 217 330
+             C217 384 219 415 211 447
+             C204 474 191 499 183 523
+             C177 542 179 558 193 570"/>
+
+
+    <!-- =========================================================
+         ANIMATED MOBILITY PATH
+         ========================================================= -->
+
+    <path class="favor-mobility-line"
+          d="M218 75
+             C218 160 217 247 217 330
+             C217 384 219 415 211 447
+             C204 474 191 499 183 523
+             C177 542 179 558 193 570"
+          fill="none"
+          stroke="url(#favorLineGradient)"
+          stroke-width="2.5"
+          stroke-linecap="round"/>
+
+
+    <!-- =========================================================
+         PATH NODES
+         ========================================================= -->
+
+    <g>
+
+        <circle class="favor-path-node"
+                cx="218"
+                cy="112"
+                r="7"/>
+
+        <circle class="favor-path-node"
+                cx="218"
+                cy="375"
+                r="7"/>
+
+        <circle class="favor-path-node"
+                cx="211"
+                cy="447"
+                r="7"/>
+
+        <circle class="favor-path-node"
+                cx="183"
+                cy="523"
+                r="7"/>
+
+        <circle class="favor-path-node"
+                cx="193"
+                cy="570"
+                r="7"/>
+
+    </g>
+
+
+    <!-- =========================================================
+         SMALL CLINICAL CROSSHAIR MARKERS
+         ========================================================= -->
+
+    <g class="favor-anatomy-detail--fine"
+       opacity=".6">
+
+        <path d="M205 112h18"/>
+        <path d="M214 103v18"/>
+
+        <path d="M205 375h18"/>
+        <path d="M214 366v18"/>
+
+        <path d="M202 447h18"/>
+        <path d="M211 438v18"/>
+
+    </g>
+
+
+    <!-- =========================================================
+         MEASUREMENT TICKS
+         ========================================================= -->
+
+    <g class="favor-anatomy-detail--fine"
+       opacity=".34">
+
+        <path d="M278 105h18"/>
+        <path d="M278 160h12"/>
+        <path d="M278 215h18"/>
+        <path d="M278 270h12"/>
+        <path d="M278 325h18"/>
+
+    </g>
+
+</svg>
 
 
                         <!-- =========================
