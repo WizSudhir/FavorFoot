@@ -270,13 +270,13 @@
     left:50%;
     top:-8px;
 
-    width:360px;
-    height:490px;
+    width:min(360px,78%);
+    height:auto;
+    aspect-ratio:500 / 680;
 
     transform:translateX(-50%);
 
     overflow:visible;
-
     z-index:2;
 }
 .favor-map__scan{
@@ -976,11 +976,6 @@
         height:425px;
     }
 
-    .favor-map__svg{
-        width:395px;
-        height:425px;
-    }
-
     .favor-hotspot__label{
         min-width:105px;
     }
@@ -1089,11 +1084,6 @@
     .favor-map__canvas{
         height:405px;
         margin-top:.2rem;
-    }
-
-    .favor-map__svg{
-        width:330px;
-        height:405px;
     }
 
     .favor-hotspot__label{
