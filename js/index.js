@@ -132,16 +132,16 @@ const initFavorAnatomy3D = (map) => {
 
   const camera =
     new THREE.PerspectiveCamera(
-      24,
+      28,
       1,
-      0.01,
+      0.1,
       100
     );
 
   camera.position.set(
     0,
-    0.15,
-    6
+    0,
+    9.4
   );
 
 
@@ -345,14 +345,9 @@ const initFavorAnatomy3D = (map) => {
       );
 
     /*
-     * Center the anatomy.
-     */
-
-    anatomyModel.position.sub(center);
-
-
-    /*
-     * Scale the model to fit the clinical viewport.
+     * Scale first, then recenter the scaled object.
+     * This avoids the offset caused by scaling after
+     * applying an unscaled center translation.
      */
 
     const maxDimension =
@@ -367,15 +362,26 @@ const initFavorAnatomy3D = (map) => {
     const scale =
       targetHeight / maxDimension;
 
+    anatomyModel.position.set(0, 0, 0);
     anatomyModel.scale.setScalar(scale);
 
+    const scaledBox =
+      new THREE.Box3()
+        .setFromObject(anatomyModel);
+
+    const scaledCenter =
+      scaledBox.getCenter(
+        new THREE.Vector3()
+      );
+
+    anatomyModel.position.sub(scaledCenter);
 
     /*
      * Slight vertical lift so the foot has
      * visual breathing room.
      */
 
-    anatomyModel.position.y = -0.05;
+    anatomyModel.position.y -= 0.05;
 
 
     /*
@@ -384,8 +390,8 @@ const initFavorAnatomy3D = (map) => {
 
     camera.position.set(
       0,
-      0.05,
-      6.1
+      0,
+      9.4
     );
 
     camera.lookAt(
@@ -469,6 +475,13 @@ const initFavorAnatomy3D = (map) => {
       frameModel();
 
       resize();
+
+      /*
+       * Apply the default/selected clinical zone after
+       * the GLB has finished loading.
+       */
+
+      applyZone(activeZone);
 
       if (loading) {
         loading.hidden = true;
@@ -578,115 +591,98 @@ const initFavorAnatomy3D = (map) => {
    * can communicate with the 3D anatomy.
    */
 
-  return {
+  let activeZone = "leg";
 
-    setZone(location) {
+  const applyZone = (location) => {
 
-      if (!anatomyParts.length) {
-        return;
-      }
+    if (!anatomyParts.length) {
+      return;
+    }
 
-      const keywords = {
+    anatomyParts.forEach(
+      ({ object, name }) => {
 
-        leg: [
-          "tibia",
-          "fibula",
-          "gastro",
-          "soleus",
-          "calf"
-        ],
+        /*
+         * The production GLB contains five named meshes:
+         * LEG, ANKLE, HEEL, FOOT and TOES.
+         * The name match is therefore deterministic and
+         * does not depend on source-file bone names.
+         */
 
-        ankle: [
-          "ankle",
-          "talus",
-          "malleolus"
-        ],
+        const matches =
+          name === location ||
+          (location === "toe" && name === "toes");
 
-        heel: [
-          "calcaneus",
-          "heel",
-          "achilles"
-        ],
+        const materials =
+          Array.isArray(object.material)
+            ? object.material
+            : [object.material];
 
-        foot: [
-          "tarsal",
-          "metatarsal",
-          "midfoot"
-        ],
+        materials.forEach(
+          (material) => {
 
-        toe: [
-          "phalanx",
-          "phalange",
-          "toe"
-        ]
+            if (!material) {
+              return;
+            }
 
-      };
+            if ("emissive" in material) {
 
-      const activeKeywords =
-        keywords[location] || [];
+              if (matches) {
 
+                material.emissive.set(
+                  0x6366f1
+                );
 
-      anatomyParts.forEach(
-        ({ object, name }) => {
+                material.emissiveIntensity =
+                  0.16;
 
-          const matches =
-            activeKeywords.some(
-              (keyword) =>
-                name.includes(keyword)
-            );
+              } else {
 
-          const materials =
-            Array.isArray(object.material)
-              ? object.material
-              : [object.material];
+                material.emissive.set(
+                  0x000000
+                );
 
-          materials.forEach(
-            (material) => {
-
-              if (!material) {
-                return;
-              }
-
-              if (
-                "emissive" in material
-              ) {
-
-                if (matches) {
-
-                  material.emissive.set(
-                    0x6366f1
-                  );
-
-                  material.emissiveIntensity =
-                    0.20;
-
-                } else {
-
-                  material.emissive.set(
-                    0x000000
-                  );
-
-                  material.emissiveIntensity =
-                    0;
-
-                }
+                material.emissiveIntensity =
+                  0;
 
               }
 
             }
 
-          );
+          }
 
-        }
-      );
+        );
+
+      }
+    );
+
+  };
+
+
+  return {
+
+    setZone(location) {
+
+      const validZones = [
+        "leg",
+        "ankle",
+        "heel",
+        "foot",
+        "toe"
+      ];
+
+      if (!validZones.includes(location)) {
+        return;
+      }
+
+      activeZone = location;
+      applyZone(location);
 
     },
 
     resize
 
-  };
-
-};
+  };};
 /* ============================================================
    03. FAVOR CLINICAL MAP
    ============================================================ */
