@@ -260,7 +260,7 @@
 
 .favor-map__canvas{
     position:relative;
-    height:470px;
+    height:500px;
     margin-top:.5rem;
     isolation:isolate;
     overflow:visible;
@@ -268,14 +268,11 @@
 .favor-map__svg{
     position:absolute;
     left:50%;
-    top:-8px;
-
-    width:min(360px,78%);
+    top:-10px;
+    width:min(390px,78%);
     height:auto;
     aspect-ratio:500 / 680;
-
     transform:translateX(-50%);
-
     overflow:visible;
     z-index:2;
 }
