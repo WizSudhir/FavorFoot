@@ -22,6 +22,7 @@
    ============================================================ */
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 (() => {
   "use strict";
 
@@ -143,7 +144,23 @@ const initFavorAnatomy3D = (map) => {
     0,
     9.4
   );
+const controls = new OrbitControls(camera, canvas);
 
+controls.enableDamping = !prefersReducedMotion;
+controls.dampingFactor = 0.07;
+
+controls.enablePan = false;
+controls.enableZoom = true;
+controls.enableRotate = true;
+
+controls.minDistance = 7.2;
+controls.maxDistance = 12;
+
+controls.minPolarAngle = 1.05;
+controls.maxPolarAngle = 2.05;
+
+controls.target.set(0, 0, 0);
+controls.update();
 
   /* ==========================================================
      LIGHTING
@@ -395,17 +412,19 @@ const prepareModelMaterials = (root) => {
      * Camera distance.
      */
 
-    camera.position.set(
-      0,
-      0,
-      9.4
-    );
+camera.position.set(
+  0,
+  0,
+  9.4
+);
 
-    camera.lookAt(
-      0,
-      0,
-      0
-    );
+controls.target.set(
+  0,
+  0,
+  0
+);
+
+controls.update();
 
   };
 
@@ -531,19 +550,21 @@ const prepareModelMaterials = (root) => {
 
   let animationFrame = null;
 
-  const render = () => {
+const render = () => {
 
-    animationFrame =
-      window.requestAnimationFrame(
-        render
-      );
-
-    renderer.render(
-      scene,
-      camera
+  animationFrame =
+    window.requestAnimationFrame(
+      render
     );
 
-  };
+  controls.update();
+
+  renderer.render(
+    scene,
+    camera
+  );
+
+};
 
   render();
 
