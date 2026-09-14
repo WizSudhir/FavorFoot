@@ -1323,6 +1323,8 @@ const initFavorClinicalMap = () => {
   const hotspots = $$("[data-location]", map);
   const anatomy3D =
   initFavorAnatomy3D(map);
+  window.favorClinicalMap =
+    favorClinicalMap;
 
   const panelKicker = $("[data-favor-panel-kicker]", map);
   const panelTitle = $("[data-favor-panel-title]", map);
@@ -2256,6 +2258,7 @@ if (anatomy3D) {
 
   const init = () => {
     initFavorClinicalMap();
+    initHeroClinicalRotator();
     initConditionFinder();
     initConditionResults();
     initFaq();
