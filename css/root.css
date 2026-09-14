@@ -1734,7 +1734,7 @@ a:focus-visible {
 
   color: var(--text-primary);
 
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
 
   transition:
