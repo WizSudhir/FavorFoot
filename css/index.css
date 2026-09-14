@@ -106,15 +106,21 @@
     line-height:1.02;
     letter-spacing:-.055em;
 
-    /* Reserve exactly three headline lines */
     height:3.06em;
     min-height:3.06em;
     overflow:hidden;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
 }
 
 .home-hero h1 .hero-rotating-line{
     display:block;
+    flex:0 0 1.02em;
+    height:1.02em;
     color:var(--brand-navy-900);
+    white-space:nowrap;
 }
 
 .home-hero h1 .hero-rotating-line--accent{
