@@ -105,7 +105,11 @@
     font-size:clamp(3rem,4.55vw,4.75rem);
     line-height:1.02;
     letter-spacing:-.055em;
-    min-height:9.7rem;
+
+    /* Reserve exactly three headline lines */
+    height:3.06em;
+    min-height:3.06em;
+    overflow:hidden;
 }
 
 .home-hero h1 .hero-rotating-line{
