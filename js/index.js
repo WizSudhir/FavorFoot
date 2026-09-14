@@ -521,9 +521,11 @@ canvas.addEventListener(
   /* ==========================================================
      MODEL CONFIGURATION
      ========================================================== */
-
-  const MODEL_URL =
-    "models/favor-lower-extremity.glb";
+const MODEL_URL =
+  new URL(
+    "../models/favor-lower-extremity.glb",
+    import.meta.url
+  ).href;
 
 
   /*
@@ -757,12 +759,20 @@ controls.update();
 
     MODEL_URL,
 
-    (gltf) => {
+(gltf) => {
 
-      anatomyModel =
+    if (!gltf || !gltf.scene) {
+
+        throw new Error(
+            "GLB loaded but did not contain a scene."
+        );
+
+    }
+
+    anatomyModel =
         gltf.scene;
 
-      anatomyModel.rotation.set(
+    anatomyModel.rotation.set(
         MODEL_ROTATION.x,
         MODEL_ROTATION.y,
         MODEL_ROTATION.z
@@ -829,24 +839,54 @@ updateAllHotspotPositions();
 
     },
 
-    undefined,
+    (xhr) => {
 
-    (loadError) => {
+        if (!loading) {
+            return;
+        }
 
-      console.error(
+        if (xhr.lengthComputable && xhr.total > 0) {
+
+            const percent =
+                Math.round(
+                    (xhr.loaded / xhr.total) * 100
+                );
+
+            const loadingText =
+                loading.querySelector("span:last-child");
+
+            if (loadingText) {
+                loadingText.textContent =
+                    `Loading clinical visualization ${percent}%`;
+            }
+
+        }
+
+    },
+
+(loadError) => {
+
+    console.error(
         "Favor 3D anatomy failed to load.",
-        loadError
-      );
+        {
+            url: MODEL_URL,
+            error: loadError
+        }
+    );
 
-      if (loading) {
+    if (loading) {
         loading.hidden = true;
-      }
-
-      if (errorMessage) {
-        errorMessage.hidden = false;
-      }
-
     }
+
+    if (errorMessage) {
+
+        errorMessage.textContent =
+            "Clinical visualization unavailable. Please refresh the page.";
+
+        errorMessage.hidden = false;
+    }
+
+}
 
   );
 
