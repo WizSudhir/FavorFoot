@@ -73,7 +73,7 @@ const initHeroClinicalRotator = () => {
         {
             line1: "When Foot",
             line2: "Problems",
-            line3: "Change How You Move."
+            line3: "Change Your Stride."
         },
         {
             line1: "When Leg",
