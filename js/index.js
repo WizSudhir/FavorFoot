@@ -60,7 +60,11 @@ const initFavorAnatomy3D = (map) => {
   const canvas = $("#favor-anatomy-3d", map);
   const loading = $("#favor-anatomy-loading", map);
   const errorMessage = $("#favor-anatomy-error", map);
-   
+console.info("[Favor 3D] initFavorAnatomy3D started", {
+    canvas,
+    loading,
+    errorMessage
+});   
 if (loading) {
     loading.hidden = false;
 }
@@ -86,7 +90,7 @@ if (!canvas) {
       antialias: true,
       powerPreference: "high-performance"
     });
-
+console.info("[Favor 3D] WebGL renderer created");
   } catch (error) {
 
     console.warn(
@@ -762,13 +766,16 @@ controls.update();
 
   const loader =
     new GLTFLoader();
-
+console.info("[Favor 3D] Starting GLB load:", MODEL_URL);
   loader.load(
 
     MODEL_URL,
 
 (gltf) => {
-
+    console.info(
+        "[Favor 3D] GLB load callback fired",
+        gltf
+    );
 if (!gltf || !gltf.scene) {
 
     console.error(
@@ -809,7 +816,17 @@ if (!gltf || !gltf.scene) {
 modelGroup.add(
     anatomyModel
 );
-
+console.info(
+    "[Favor 3D] Model added to scene",
+    {
+        children: modelGroup.children.length,
+        anatomyParts: anatomyParts.length
+    }
+);
+if (loading) {
+    loading.hidden = true;
+}
+   
 frameModel();
 
 resize();
@@ -929,6 +946,20 @@ const render = () => {
 
     updateAllHotspotPositions();
 
+if (!window.__favor3DRendered) {
+    window.__favor3DRendered = true;
+
+    console.info(
+        "[Favor 3D] First render",
+        {
+            sceneChildren: scene.children.length,
+            modelChildren: modelGroup.children.length,
+            cameraPosition: camera.position.toArray()
+        }
+    );
+}
+
+   
     renderer.render(
         scene,
         camera
