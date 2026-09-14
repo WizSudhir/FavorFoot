@@ -1664,7 +1664,8 @@ a:focus-visible {
    ============================================================ */
 
 .site-header {
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: var(--z-navbar);
   width: 100%;
 }
@@ -1683,11 +1684,6 @@ a:focus-visible {
   transition:
     background-color var(--transition-base),
     box-shadow var(--transition-base);
-}
-
-.navbar.is-sticky {
-  position: sticky;
-  top: 0;
 }
 
 .navbar.scrolled {
