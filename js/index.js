@@ -1061,11 +1061,13 @@ if (!window.__favor3DRendered) {
             }
 
 if (material.color) {
+
     material.color.set(
         matches
             ? 0x8b7cf6
             : 0xd6dae5
     );
+
 }
 
 if ("emissive" in material) {
@@ -1077,7 +1079,7 @@ if ("emissive" in material) {
         );
 
         material.emissiveIntensity =
-            0.65;
+            0.72;
 
     } else {
 
@@ -1089,6 +1091,7 @@ if ("emissive" in material) {
             0;
 
     }
+
 }
 
           }
@@ -1154,6 +1157,7 @@ const initFavorClinicalMap = () => {
   const panelTitle = $("[data-favor-panel-title]", map);
   const panelText = $("[data-favor-panel-text]", map);
   const panelLink = $("[data-favor-panel-link]", map);
+  const focusStatus = $("[data-favor-focus]", map);
 
   const locations = {
 
@@ -1202,11 +1206,34 @@ const activateLocation = (location) => {
     if (!data) {
         return;
     }
+    const panel =
+    $("[data-favor-panel]", map);
 
+    if (panel) {
+
+    panel.classList.add(
+        "is-updating"
+    );
+
+    window.setTimeout(() => {
+
+        panel.classList.remove(
+            "is-updating"
+        );
+
+    }, 180);
+
+    }
+   
     if (anatomy3D) {
         anatomy3D.setZone(location);
     }
+    if (focusStatus) {
 
+    focusStatus.textContent =
+        `FOCUS: ${location.toUpperCase()}`;
+
+    }
     hotspots.forEach((hotspot) => {
 
         const isActive =
