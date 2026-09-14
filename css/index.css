@@ -872,7 +872,18 @@ box-shadow:
 
     backdrop-filter:blur(16px);
 }
+.favor-map__panel-copy{
+    min-width:0;
+    transition:
+        opacity .18s ease,
+        transform .18s ease;
+}
 
+.favor-map__panel.is-updating
+.favor-map__panel-copy{
+    opacity:.35;
+    transform:translateY(3px);
+}
 .favor-map__panel-marker{
     display:flex;
     flex-direction:column;
@@ -934,10 +945,6 @@ box-shadow:
     letter-spacing:.1em;
     color:var(--brand-accent-600);
     white-space:nowrap;
-}
-
-.favor-map__panel-copy{
-    min-width:0;
 }
 
 .favor-map__panel-copy>span{
