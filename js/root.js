@@ -176,11 +176,13 @@
       const linkFile = href.split("/").pop().split("?")[0].split("#")[0] || "index.html";
       const isCurrent = linkFile === currentFile;
 
-      link.classList.toggle("is-active", isCurrent);
+link.classList.toggle("is-active", isCurrent);
 
-      if (isCurrent) {
-        link.setAttribute("aria-current", "page");
-      }
+if (isCurrent) {
+  link.setAttribute("aria-current", "page");
+} else {
+  link.removeAttribute("aria-current");
+}
     });
   };
 
