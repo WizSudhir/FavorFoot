@@ -346,7 +346,14 @@
     letter-spacing:.08em;
     white-space:nowrap;
 }
-
+.favor-map__status strong{
+    font-size:inherit;
+    font-weight:800;
+    letter-spacing:inherit;
+    color:inherit;
+    transition:
+        opacity .18s ease;
+}
 .favor-map__status span{
     width:6px;
     height:6px;
@@ -718,15 +725,20 @@
     width:12px;
     height:12px;
     flex:0 0 12px;
+
     border:3px solid #fff;
     border-radius:50%;
+
     background:#4f46e5;
-box-shadow:
-    0 0 0 4px rgba(79,70,229,.22),
-    0 5px 15px rgba(79,70,229,.30);
+
+    box-shadow:
+        0 0 0 4px rgba(79,70,229,.18),
+        0 5px 15px rgba(79,70,229,.26);
+
     transition:
-        transform .25s ease,
-        box-shadow .25s ease;
+        transform .22s ease,
+        box-shadow .22s ease,
+        background .22s ease;
 }
 
 .favor-hotspot__label{
@@ -811,11 +823,11 @@ box-shadow:
 }
 
 .favor-hotspot.is-active .favor-hotspot__pulse{
-    transform:scale(1.3);
-    background:#4f46e5;
+    transform:scale(1.18);
+    background:#6366f1;
     box-shadow:
-        0 0 0 6px rgba(79,70,229,.24),
-        0 8px 22px rgba(79,70,229,.34);
+        0 0 0 5px rgba(99,102,241,.18),
+        0 7px 20px rgba(99,102,241,.30);
 }
 .favor-hotspot:hover .favor-hotspot__label,
 .favor-hotspot:focus-visible .favor-hotspot__label,
