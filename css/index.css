@@ -1826,8 +1826,107 @@
 /* ============================================================
    05. SERVICES
    ============================================================ */
-.home-services{background:#fff}.home-services__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.home-service-card{position:relative;display:flex;flex-direction:column;min-height:270px;padding:1.6rem;border:1px solid var(--border-color);border-radius:22px;background:#fff;box-shadow:0 8px 30px rgba(15,23,42,.04);transition:transform var(--transition-base),box-shadow var(--transition-base)}.home-service-card:hover{transform:translateY(-5px);box-shadow:0 22px 48px rgba(15,23,42,.1)}.home-service-card--featured{background:var(--gradient-primary);border-color:transparent;color:#fff}.home-service-card--featured h3,.home-service-card--featured p,.home-service-card--featured span{color:#fff}.home-service-card__number{position:absolute;top:1.2rem;right:1.25rem;font-size:.72rem;font-weight:800;opacity:.55}.home-service-card>i{width:27px;height:27px;margin-top:.2rem;color:var(--brand-accent-500)}.home-service-card--featured>i{color:#fff}.home-service-card h3{margin-top:1.25rem;font-size:1.15rem}.home-service-card p{margin-top:.55rem;font-size:.88rem;line-height:1.65}.home-service-card>span:last-child{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:1rem;font-size:.82rem;font-weight:800;color:var(--brand-navy-600)}.home-service-card>span:last-child b{font-size:1rem}.home-services__cta{text-align:center;margin-top:2rem}
 
+.home-services{
+    background:#fff;
+}
+
+.home-services__grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:1rem;
+}
+
+.home-service-card{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    min-height:245px;
+    padding:1.55rem;
+    border:1px solid var(--border-color);
+    border-radius:22px;
+    background:#fff;
+    box-shadow:0 8px 30px rgba(15,23,42,.04);
+    text-decoration:none;
+    transition:
+        transform var(--transition-base),
+        box-shadow var(--transition-base),
+        border-color var(--transition-base);
+}
+
+.home-service-card:hover{
+    transform:translateY(-4px);
+    border-color:rgba(99,102,241,.22);
+    box-shadow:0 20px 45px rgba(15,23,42,.09);
+}
+
+.home-service-card__number{
+    position:absolute;
+    top:1.35rem;
+    right:1.35rem;
+    font-size:.64rem;
+    font-weight:900;
+    letter-spacing:.08em;
+    color:var(--brand-navy-500);
+    opacity:.55;
+}
+
+.home-service-card > i{
+    display:grid;
+    place-items:center;
+    width:42px;
+    height:42px;
+    margin-top:0;
+    padding:.55rem;
+    border:1px solid rgba(99,102,241,.12);
+    border-radius:12px;
+    color:var(--brand-accent-600);
+    background:rgba(99,102,241,.06);
+}
+
+.home-service-card h3{
+    margin-top:1.05rem;
+    font-size:1.12rem;
+    line-height:1.25;
+    letter-spacing:-.025em;
+    color:var(--brand-navy-900);
+}
+
+.home-service-card p{
+    max-width:34rem;
+    margin-top:.55rem;
+    font-size:.86rem;
+    line-height:1.6;
+    color:var(--text-secondary);
+}
+
+.home-service-card > span:last-child{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-top:auto;
+    padding-top:1rem;
+    border-top:1px solid rgba(34,36,135,.08);
+    font-size:.78rem;
+    font-weight:800;
+    letter-spacing:.01em;
+    color:var(--brand-navy-600);
+}
+
+.home-service-card > span:last-child b{
+    font-size:1rem;
+    font-weight:500;
+    transition:transform .25s ease;
+}
+
+.home-service-card:hover > span:last-child b{
+    transform:translateX(4px);
+}
+
+.home-services__cta{
+    text-align:center;
+    margin-top:2rem;
+}
 /* ============================================================
    06. PHYSICIAN
    ============================================================ */
