@@ -61,9 +61,23 @@ const initFavorAnatomy3D = (map) => {
   const loading = $("#favor-anatomy-loading", map);
   const errorMessage = $("#favor-anatomy-error", map);
 
-  if (!canvas) {
+const loading =
+    $("#favor-anatomy-loading", map);
+
+const errorMessage =
+    $("#favor-anatomy-error", map);
+
+if (loading) {
+    loading.hidden = false;
+}
+
+if (errorMessage) {
+    errorMessage.hidden = true;
+}
+
+if (!canvas) {
     return null;
-  }
+}
 
   /*
    * Respect browser support.
@@ -786,13 +800,18 @@ controls.update();
         anatomyModel
       );
 
-      modelGroup.add(
-        anatomyModel
-      );
+modelGroup.add(
+    anatomyModel
+);
 
-      frameModel();
+frameModel();
 
-      resize();
+resize();
+
+if (loading) {
+    loading.hidden = true;
+}
+
 anatomyAnchors.clear();
 
 anatomyParts.forEach(
@@ -825,10 +844,6 @@ updateAllHotspotPositions();
        */
 
       applyZone(activeZone);
-
-      if (loading) {
-        loading.hidden = true;
-      }
 
       console.info(
         "Favor 3D anatomy loaded.",
