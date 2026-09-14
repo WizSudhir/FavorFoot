@@ -70,34 +70,28 @@ const initHeroClinicalRotator = () => {
         return;
     }
 
-    const slides = [
-        {
-            category: "Foot Problems",
-            description: "Change How You Move.",
-            focus: "FOCUS: FOOT",
-            zone: "foot"
-        },
-        {
-            category: "Leg Problems",
-            description: "Limit Your Mobility.",
-            focus: "FOCUS: LEG",
-            zone: "leg"
-        },
-        {
-            category: "Ankle Problems",
-            description: "Affect Your Stability.",
-            focus: "FOCUS: ANKLE",
-            zone: "ankle"
-        },
-        {
-            category: "Wounds",
-            description: "Need More Than Routine Care.",
-            focus: "FOCUS: WOUND CARE",
-            zone: null
-        }
-    ];
+const slides = [
+    {
+        category: "Foot Problems",
+        description: "Change How You Move."
+    },
+    {
+        category: "Leg Problems",
+        description: "Limit Your Mobility."
+    },
+    {
+        category: "Ankle Problems",
+        description: "Affect Your Stability."
+    },
+    {
+        category: "Wounds",
+        description: "Need More Than Routine Care."
+    }
+];
 
     let currentIndex = 0;
+    let rotationTimer = null;
+    let rotationPaused = false;
 
     const changeSlide = () => {
 
@@ -118,19 +112,6 @@ const initHeroClinicalRotator = () => {
             description.textContent =
                 slide.description;
 
-            if (focus) {
-                focus.textContent =
-                    slide.focus;
-            }
-
-            if (
-                slide.zone &&
-                window.favorClinicalMap
-            ) {
-                window.favorClinicalMap
-                    .setZone(slide.zone);
-            }
-
             category.classList.remove("is-changing");
             description.classList.remove("is-changing");
 
@@ -142,12 +123,26 @@ const initHeroClinicalRotator = () => {
             "(prefers-reduced-motion: reduce)"
         ).matches
     ) {
-        window.setInterval(
-            changeSlide,
-            4200
-        );
+rotationTimer = window.setInterval(
+    () => {
+        if (!rotationPaused) {
+            changeSlide();
+        }
+    },
+    4200
+);
+    }
+
+window.favorHeroRotator = {
+    pause() {
+        rotationPaused = true;
+    },
+
+    resume() {
+        rotationPaused = false;
     }
 };
+
 /* ============================================================
    FAVOR 3D ANATOMICAL ENGINE
    ============================================================ */
@@ -1323,9 +1318,7 @@ const initFavorClinicalMap = () => {
   const hotspots = $$("[data-location]", map);
   const anatomy3D =
   initFavorAnatomy3D(map);
-  window.favorClinicalMap =
-    anatomy3D;
-
+   
   const panelKicker = $("[data-favor-panel-kicker]", map);
   const panelTitle = $("[data-favor-panel-title]", map);
   const panelText = $("[data-favor-panel-text]", map);
@@ -1507,6 +1500,8 @@ if (anatomy3D) {
    * Mobile:
    * Keep the hero neutral until the patient selects an area.
    */
+/* Initial clinical-map state */
+activateLocation("foot");
 };
   /* ============================================================
      04. CONDITION FINDER
