@@ -267,6 +267,8 @@ const updateAllHotspotPositions = () => {
 
 };
 
+let hoverCallback = null;
+
 const setHoveredZone = (
     location
 ) => {
@@ -287,6 +289,10 @@ const setHoveredZone = (
 
         }
     );
+
+    if (hoverCallback) {
+        hoverCallback(location);
+    }
 
 };
 
@@ -1063,7 +1069,7 @@ if (!window.__favor3DRendered) {
                 );
 
                 material.emissiveIntensity =
-                  0.24;
+                  0.48;
 
               } else {
 
@@ -1088,30 +1094,37 @@ if (!window.__favor3DRendered) {
   };
 
 
-  return {
+return {
 
     setZone(location) {
 
-      const validZones = [
-        "leg",
-        "ankle",
-        "heel",
-        "foot",
-        "toe"
-      ];
+        const validZones = [
+            "leg",
+            "ankle",
+            "heel",
+            "foot",
+            "toe"
+        ];
 
-      if (!validZones.includes(location)) {
-        return;
-      }
+        if (!validZones.includes(location)) {
+            return;
+        }
 
-      activeZone = location;
-      applyZone(location);
+        activeZone = location;
+        applyZone(location);
 
+    },
+
+    onHover(callback) {
+        hoverCallback =
+            typeof callback === "function"
+                ? callback
+                : null;
     },
 
     resize
 
-  };};
+};
 /* ============================================================
    03. FAVOR CLINICAL MAP
    ============================================================ */
@@ -1173,51 +1186,68 @@ const initFavorClinicalMap = () => {
   };
 
 
-  const activateLocation = (location) => {
+const activateLocation = (location) => {
 
     const data = locations[location];
 
     if (!data) {
-      return;
+        return;
     }
-     if (anatomy3D) {
-  anatomy3D.setZone(location);
-}
+
+    if (anatomy3D) {
+        anatomy3D.setZone(location);
+    }
+
     hotspots.forEach((hotspot) => {
 
-      const isActive =
-        hotspot.dataset.location === location;
+        const isActive =
+            hotspot.dataset.location === location;
 
-      hotspot.classList.toggle(
-        "is-active",
-        isActive
-      );
+        hotspot.classList.toggle(
+            "is-active",
+            isActive
+        );
 
-      hotspot.setAttribute(
-        "aria-pressed",
-        isActive ? "true" : "false"
-      );
+        hotspot.setAttribute(
+            "aria-pressed",
+            isActive ? "true" : "false"
+        );
 
     });
 
-
     if (panelKicker) {
-      panelKicker.textContent = data.kicker;
+        panelKicker.textContent = data.kicker;
     }
 
     if (panelTitle) {
-      panelTitle.textContent = data.title;
+        panelTitle.textContent = data.title;
     }
 
     if (panelText) {
-      panelText.textContent = data.text;
+        panelText.textContent = data.text;
     }
 
     if (panelLink) {
-      panelLink.href = data.url;
+        panelLink.href = data.url;
     }
 
-  };
+};
+
+
+/* 3D anatomy hover → clinical map */
+if (anatomy3D) {
+    anatomy3D.onHover(
+        (location) => {
+
+            if (!location) {
+                return;
+            }
+
+            activateLocation(location);
+
+        }
+    );
+}
 
 
   hotspots.forEach((hotspot) => {
