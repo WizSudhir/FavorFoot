@@ -100,16 +100,43 @@
 }
 
 .home-hero h1{
-    max-width:760px;
-    margin:1.1rem 0 1.25rem;
-    font-size:clamp(3rem,5.3vw,5.5rem);
-    line-height:.98;
-    letter-spacing:-.06em;
+    max-width:650px;
+    margin:1rem 0 1.35rem;
+    font-size:clamp(3rem,4.55vw,4.75rem);
+    line-height:1.02;
+    letter-spacing:-.055em;
+    min-height:9.7rem;
 }
 
-.home-hero h1 span{
+.home-hero h1 .hero-rotating-line{
     display:block;
-    color:var(--brand-navy-600);
+    color:var(--brand-navy-900);
+}
+
+.home-hero h1 .hero-rotating-line--accent{
+    color:var(--brand-accent-600);
+}
+
+.home-hero h1 [data-hero-category]{
+    color:inherit;
+}
+.hero-rotating-line{
+    opacity:1;
+    transform:translateY(0);
+    transition:
+        opacity .45s ease,
+        transform .45s ease;
+}
+
+.hero-rotating-line.is-changing{
+    opacity:0;
+    transform:translateY(10px);
+}
+
+@media (prefers-reduced-motion:reduce){
+    .hero-rotating-line{
+        transition:none;
+    }
 }
 
 .home-hero__lead{
@@ -129,15 +156,15 @@
     display:grid;
     grid-template-columns:repeat(3,minmax(0,1fr));
     max-width:700px;
-    margin-top:2.5rem;
-    padding:1.35rem 0 0;
+    margin-top:2.25rem;
+    padding:1.45rem 0 0;
     border-top:1px solid rgba(34,36,135,.12);
 }
 
 .home-proof-item{
     position:relative;
     min-width:0;
-    padding:0 1.25rem;
+    padding:0 1.35rem;
 }
 
 .home-proof-item:first-child{
@@ -154,24 +181,25 @@
 
 .home-proof-item strong{
     display:block;
-    color:var(--brand-navy-800);
-    font-size:clamp(1.15rem,1.7vw,1.55rem);
-    line-height:1.05;
+    color:var(--brand-navy-900);
+    font-size:1.05rem;
+    line-height:1.15;
     font-weight:850;
-    letter-spacing:-.035em;
+    letter-spacing:-.025em;
 }
 
 .home-proof-item:first-child strong{
     color:var(--brand-accent-600);
-    font-size:clamp(1.7rem,2.5vw,2.25rem);
+    font-size:2rem;
+    letter-spacing:-.05em;
 }
 
 .home-proof-item span{
     display:block;
-    max-width:170px;
-    margin-top:.4rem;
+    max-width:175px;
+    margin-top:.45rem;
     color:var(--text-secondary);
-    font-size:.72rem;
+    font-size:.7rem;
     line-height:1.45;
     font-weight:600;
 }
