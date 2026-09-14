@@ -262,7 +262,10 @@
 
 .home-hero__visual{
     position:relative;
-    min-height:650px;
+    width:100%;
+    height:660px;
+    min-height:660px;
+    max-height:660px;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -271,7 +274,10 @@
 .favor-map{
     position:relative;
     width:min(570px,100%);
-    min-height:630px;
+    height:660px;
+    min-height:660px;
+    max-height:660px;
+    box-sizing:border-box;
     padding:1.25rem;
     border:1px solid rgba(99,102,241,.14);
     border-radius:32px;
@@ -858,7 +864,10 @@
 
     gap:1rem;
 
+    height:92px;
     min-height:92px;
+    max-height:92px;
+    box-sizing:border-box;
 
     padding:1rem 1.05rem;
 
@@ -1007,17 +1016,22 @@
         gap:2rem;
     }
 
-    .home-hero__visual{
-        min-height:600px;
-    }
+.home-hero__visual{
+    width:100%;
+    height:600px;
+    min-height:600px;
+    max-height:600px;
+}
 
-    .favor-map{
-        min-height:590px;
-    }
+.favor-map{
+    height:600px;
+    min-height:600px;
+    max-height:600px;
+}
 
-    .favor-map__canvas{
-        height:425px;
-    }
+.favor-map__canvas{
+    height:425px;
+}
 
     .favor-hotspot__label{
         min-width:105px;
@@ -1055,15 +1069,16 @@
         text-align:left;
     }
 
-    .home-hero__visual{
-        min-height:auto;
-        padding-top:.5rem;
-    }
-
-    .favor-map{
-        width:min(590px,100%);
-        margin-inline:auto;
-    }
+.home-hero__visual{
+    height:600px;
+    min-height:600px;
+    max-height:600px;
+    padding-top:.5rem;
+}
+.favor-map{
+    width:min(590px,100%);
+    margin-inline:auto;
+}
 }
 
 
@@ -1102,12 +1117,17 @@
         border:0;
     }
 
-    .home-hero__visual{
-        padding:0;
-    }
+.home-hero__visual{
+    height:570px;
+    min-height:570px;
+    max-height:570px;
+    padding:0;
+}
 
-    .favor-map{
-        min-height:570px;
+.favor-map{
+    height:570px;
+    min-height:570px;
+    max-height:570px;
         padding:.9rem;
         border-radius:25px;
     }
@@ -1143,12 +1163,16 @@
         font-size:.58rem;
     }
 
-    .favor-map__panel{
-        grid-template-columns:auto 1fr;
-        gap:.65rem;
-        min-height:88px;
-        padding:.75rem;
-    }
+.favor-map__panel{
+    grid-template-columns:auto 1fr;
+    gap:.65rem;
+    height:88px;
+    min-height:88px;
+    max-height:88px;
+    padding:.75rem;
+    box-sizing:border-box;
+    overflow:hidden;
+}
 
     .favor-map__panel-link{
         grid-column:2;
