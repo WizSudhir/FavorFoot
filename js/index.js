@@ -195,6 +195,11 @@ let pointerDownY = 0;
 
 let pointerDragged = false;
 
+let idleRotationEnabled =
+    !prefersReducedMotion;
+
+const idleRotationSpeed = 0.00018;
+
 const normalizeZoneName = (name) => {
 
     const normalized =
@@ -253,15 +258,53 @@ const updateHotspotPosition = (
 
 const updateAllHotspotPositions = () => {
 
+    if (
+        !anatomyModel ||
+        !anatomyParts.length
+    ) {
+        return;
+    }
+
+    if (idleRotationEnabled) {
+
+        anatomyAnchors.clear();
+
+        anatomyParts.forEach(
+            ({ object, name }) => {
+
+                const location =
+                    normalizeZoneName(name);
+
+                const box =
+                    new THREE.Box3()
+                        .setFromObject(object);
+
+                const center =
+                    box.getCenter(
+                        new THREE.Vector3()
+                    );
+
+                anatomyAnchors.set(
+                    location,
+                    center
+                );
+
+            }
+        );
+
+    }
+
     if (!anatomyAnchors.size) {
         return;
     }
 
     anatomyAnchors.forEach(
         (_, location) => {
+
             updateHotspotPosition(
                 location
             );
+
         }
     );
 
@@ -362,7 +405,10 @@ const updatePointerInteraction = (
 canvas.addEventListener(
     "pointerenter",
     () => {
+
         pointerInside = true;
+        idleRotationEnabled = false;
+
     },
     { passive:true }
 );
@@ -382,7 +428,6 @@ canvas.addEventListener(
     { passive:true }
 );
 
-
 canvas.addEventListener(
     "pointerleave",
     () => {
@@ -397,6 +442,10 @@ canvas.addEventListener(
             setHoveredZone(null);
         }
 
+        if (!prefersReducedMotion) {
+            idleRotationEnabled = true;
+        }
+
     },
     { passive:true }
 );
@@ -405,6 +454,8 @@ canvas.addEventListener(
 canvas.addEventListener(
     "pointerdown",
     (event) => {
+
+        idleRotationEnabled = false;
 
         pointerDownX =
             event.clientX;
@@ -435,6 +486,19 @@ canvas.addEventListener(
     },
     { passive:true }
 );
+
+canvas.addEventListener(
+    "pointerup",
+    () => {
+
+        if (!pointerInside && !prefersReducedMotion) {
+            idleRotationEnabled = true;
+        }
+
+    },
+    { passive:true }
+);
+   
 canvas.addEventListener(
     "click",
     () => {
@@ -947,6 +1011,16 @@ const render = () => {
         window.requestAnimationFrame(
             render
         );
+
+    if (
+        anatomyModel &&
+        idleRotationEnabled
+    ) {
+
+        anatomyModel.rotation.y +=
+            idleRotationSpeed;
+
+    }
 
     controls.update();
 
