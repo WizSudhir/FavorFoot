@@ -1324,7 +1324,7 @@ const initFavorClinicalMap = () => {
   const anatomy3D =
   initFavorAnatomy3D(map);
   window.favorClinicalMap =
-    favorClinicalMap;
+    anatomy3D;
 
   const panelKicker = $("[data-favor-panel-kicker]", map);
   const panelTitle = $("[data-favor-panel-title]", map);
