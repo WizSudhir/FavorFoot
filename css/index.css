@@ -1262,10 +1262,105 @@
 
 }
 /* ============================================================
-   03. IMMEDIATE CARE PATH
+   03. PATIENT CONCERN PATH
+   Patient-first navigation — intentionally distinct from Services
    ============================================================ */
-.home-path{padding:4.5rem 0;background:#fff}.home-path__intro{max-width:760px;text-align:center;margin:0 auto 2.5rem}.home-path__intro h2{font-size:var(--text-h2);margin-top:.7rem}.home-path__intro p{margin-top:1rem}.home-path__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}.home-path-card{position:relative;display:flex;flex-direction:column;min-height:240px;padding:1.45rem;border:1px solid var(--border-color);border-radius:22px;background:linear-gradient(180deg,#fff,#f8fafc);transition:transform var(--transition-base),box-shadow var(--transition-base),border-color var(--transition-base)}.home-path-card:hover{transform:translateY(-6px);border-color:var(--border-accent);box-shadow:0 20px 45px rgba(15,23,42,.09)}.home-path-card__icon{display:grid;place-items:center;width:48px;height:48px;border-radius:15px;background:var(--brand-navy-50);color:var(--brand-navy-600)}.home-path-card h3{margin-top:1.15rem;font-size:1.12rem}.home-path-card p{margin-top:.5rem;font-size:.9rem;line-height:1.6}.home-path-card__arrow{position:absolute;right:1.2rem;top:1.25rem;width:18px;color:var(--brand-accent-500)}
 
+.home-path{
+    position:relative;
+    padding:5.25rem 0;
+    background:var(--bg-surface-soft);
+}
+
+.home-path__intro{
+    max-width:780px;
+    text-align:center;
+    margin:0 auto 3rem;
+}
+
+.home-path__intro h2{
+    max-width:720px;
+    margin:.75rem auto 0;
+    font-size:var(--text-h2);
+}
+
+.home-path__intro p{
+    max-width:650px;
+    margin:1rem auto 0;
+    font-size:var(--text-body);
+    color:var(--text-secondary);
+}
+
+.home-path__grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1rem;
+}
+
+.home-path-card{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    min-height:225px;
+    padding:1.5rem;
+    border:1px solid rgba(99,102,241,.12);
+    border-radius:24px;
+    background:#fff;
+    text-decoration:none;
+    box-shadow:0 8px 28px rgba(15,23,42,.035);
+    transition:
+        transform var(--transition-base),
+        box-shadow var(--transition-base),
+        border-color var(--transition-base);
+}
+
+.home-path-card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(99,102,241,.25);
+    box-shadow:0 18px 42px rgba(15,23,42,.08);
+}
+
+.home-path-card__icon{
+    display:grid;
+    place-items:center;
+    width:46px;
+    height:46px;
+    border-radius:14px;
+    background:var(--brand-accent-50);
+    color:var(--brand-accent-600);
+}
+
+.home-path-card h3{
+    max-width:245px;
+    margin-top:1.15rem;
+    font-size:1.08rem;
+    line-height:1.3;
+    color:var(--brand-navy-900);
+}
+
+.home-path-card p{
+    max-width:260px;
+    margin-top:.55rem;
+    font-size:.87rem;
+    line-height:1.6;
+    color:var(--text-secondary);
+}
+
+.home-path-card__arrow{
+    position:absolute;
+    right:1.2rem;
+    top:1.2rem;
+    width:17px;
+    color:var(--brand-accent-500);
+    transition:
+        transform var(--transition-base),
+        color var(--transition-base);
+}
+
+.home-path-card:hover .home-path-card__arrow{
+    transform:translate(2px,-2px);
+    color:var(--brand-accent-600);
+}
 /* ============================================================
    04. CLINICAL APPROACH
    ============================================================ */
