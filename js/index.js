@@ -60,13 +60,7 @@ const initFavorAnatomy3D = (map) => {
   const canvas = $("#favor-anatomy-3d", map);
   const loading = $("#favor-anatomy-loading", map);
   const errorMessage = $("#favor-anatomy-error", map);
-
-const loading =
-    $("#favor-anatomy-loading", map);
-
-const errorMessage =
-    $("#favor-anatomy-error", map);
-
+   
 if (loading) {
     loading.hidden = false;
 }
@@ -775,13 +769,25 @@ controls.update();
 
 (gltf) => {
 
-    if (!gltf || !gltf.scene) {
+if (!gltf || !gltf.scene) {
 
-        throw new Error(
-            "GLB loaded but did not contain a scene."
-        );
+    console.error(
+        "Favor GLB loaded but no scene was found.",
+        gltf
+    );
 
+    if (loading) {
+        loading.hidden = true;
     }
+
+    if (errorMessage) {
+        errorMessage.textContent =
+            "Clinical visualization unavailable. Please refresh the page.";
+        errorMessage.hidden = false;
+    }
+
+    return;
+}
 
     anatomyModel =
         gltf.scene;
@@ -837,13 +843,13 @@ anatomyParts.forEach(
     }
 );
 
-updateAllHotspotPositions();
+// updateAllHotspotPositions();
       /*
        * Apply the default/selected clinical zone after
        * the GLB has finished loading.
        */
 
-      applyZone(activeZone);
+ //     applyZone(activeZone);
 
       console.info(
         "Favor 3D anatomy loaded.",
