@@ -1060,29 +1060,36 @@ if (!window.__favor3DRendered) {
               return;
             }
 
-            if ("emissive" in material) {
+if (material.color) {
+    material.color.set(
+        matches
+            ? 0x8b7cf6
+            : 0xd6dae5
+    );
+}
 
-              if (matches) {
+if ("emissive" in material) {
 
-                material.emissive.set(
-                  0x6366f1
-                );
+    if (matches) {
 
-                material.emissiveIntensity =
-                  1;
+        material.emissive.set(
+            0x4f46e5
+        );
 
-              } else {
+        material.emissiveIntensity =
+            0.65;
 
-                material.emissive.set(
-                  0x000000
-                );
+    } else {
 
-                material.emissiveIntensity =
-                  0;
+        material.emissive.set(
+            0x000000
+        );
 
-              }
+        material.emissiveIntensity =
+            0;
 
-            }
+    }
+}
 
           }
 
