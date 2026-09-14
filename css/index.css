@@ -125,45 +125,56 @@
     gap:.8rem;
     margin-top:2rem;
 }
-
 .home-hero__proof{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    max-width:680px;
-    margin-top:2.65rem;
-    border-top:1px solid var(--border-color);
-    padding-top:1.25rem;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    max-width:700px;
+    margin-top:2.5rem;
+    padding:1.35rem 0 0;
+    border-top:1px solid rgba(34,36,135,.12);
 }
 
-.home-hero__proof div{
-    padding-right:1rem;
-    border-right:1px solid var(--border-color);
+.home-proof-item{
+    position:relative;
+    min-width:0;
+    padding:0 1.25rem;
 }
 
-.home-hero__proof div+div{
-    padding-left:1rem;
+.home-proof-item:first-child{
+    padding-left:0;
 }
 
-.home-hero__proof div:last-child{
-    border:0;
+.home-proof-item:last-child{
+    padding-right:0;
 }
 
-.home-hero__proof strong,
-.home-hero__proof span{
+.home-proof-item + .home-proof-item{
+    border-left:1px solid rgba(34,36,135,.10);
+}
+
+.home-proof-item strong{
     display:block;
+    color:var(--brand-navy-800);
+    font-size:clamp(1.15rem,1.7vw,1.55rem);
+    line-height:1.05;
+    font-weight:850;
+    letter-spacing:-.035em;
 }
 
-.home-hero__proof strong{
-    font-size:.94rem;
-    color:var(--text-primary);
+.home-proof-item:first-child strong{
+    color:var(--brand-accent-600);
+    font-size:clamp(1.7rem,2.5vw,2.25rem);
 }
 
-.home-hero__proof span{
-    margin-top:.2rem;
-    font-size:.76rem;
-    color:var(--text-muted);
+.home-proof-item span{
+    display:block;
+    max-width:170px;
+    margin-top:.4rem;
+    color:var(--text-secondary);
+    font-size:.72rem;
+    line-height:1.45;
+    font-weight:600;
 }
-
 /* ============================================================
    THREE.JS ANATOMICAL ENGINE
    ============================================================ */
