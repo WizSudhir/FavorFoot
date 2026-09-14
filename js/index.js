@@ -52,6 +52,103 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
     videoPlaying: false
   };
 /* ============================================================
+   HERO CLINICAL ROTATOR
+   ============================================================ */
+
+const initHeroClinicalRotator = () => {
+
+    const category =
+        document.querySelector("[data-hero-category]");
+
+    const description =
+        document.querySelector("[data-hero-description]");
+
+    const focus =
+        document.querySelector("[data-favor-focus]");
+
+    if (!category || !description) {
+        return;
+    }
+
+    const slides = [
+        {
+            category: "Foot Problems",
+            description: "Change How You Move.",
+            focus: "FOCUS: FOOT",
+            zone: "foot"
+        },
+        {
+            category: "Leg Problems",
+            description: "Limit Your Mobility.",
+            focus: "FOCUS: LEG",
+            zone: "leg"
+        },
+        {
+            category: "Ankle Problems",
+            description: "Affect Your Stability.",
+            focus: "FOCUS: ANKLE",
+            zone: "ankle"
+        },
+        {
+            category: "Wounds",
+            description: "Need More Than Routine Care.",
+            focus: "FOCUS: WOUND CARE",
+            zone: null
+        }
+    ];
+
+    let currentIndex = 0;
+
+    const changeSlide = () => {
+
+        category.classList.add("is-changing");
+        description.classList.add("is-changing");
+
+        window.setTimeout(() => {
+
+            currentIndex =
+                (currentIndex + 1) % slides.length;
+
+            const slide =
+                slides[currentIndex];
+
+            category.textContent =
+                slide.category;
+
+            description.textContent =
+                slide.description;
+
+            if (focus) {
+                focus.textContent =
+                    slide.focus;
+            }
+
+            if (
+                slide.zone &&
+                window.favorClinicalMap
+            ) {
+                window.favorClinicalMap
+                    .setZone(slide.zone);
+            }
+
+            category.classList.remove("is-changing");
+            description.classList.remove("is-changing");
+
+        }, 450);
+    };
+
+    if (
+        !window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches
+    ) {
+        window.setInterval(
+            changeSlide,
+            4200
+        );
+    }
+};
+/* ============================================================
    FAVOR 3D ANATOMICAL ENGINE
    ============================================================ */
 
