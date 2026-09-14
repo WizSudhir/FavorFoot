@@ -729,26 +729,6 @@ box-shadow:
         box-shadow .25s ease;
 }
 
-.favor-hotspot__pulse:after{
-    content:"";
-    position:absolute;
-    inset:-5px;
-    border:1px solid rgba(99,102,241,.14);
-    border-radius:50%;
-    animation:favorHotspotPulse 2.2s ease-out infinite;
-}
-
-@keyframes favorHotspotPulse{
-    0%{
-        opacity:.75;
-        transform:scale(.65);
-    }
-    80%,100%{
-        opacity:0;
-        transform:scale(1.45);
-    }
-}
-
 .favor-hotspot__label{
     position:absolute;
 
