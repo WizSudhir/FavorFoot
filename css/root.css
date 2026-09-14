@@ -1761,7 +1761,8 @@ a:focus-visible {
 }
 
 .navbar-link:hover::after,
-.navbar-link.active::after {
+.navbar-link.active::after,
+.navbar-link.is-active::after {
   width: 100%;
 }
 
