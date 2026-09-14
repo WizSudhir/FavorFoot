@@ -1069,7 +1069,7 @@ if (!window.__favor3DRendered) {
                 );
 
                 material.emissiveIntensity =
-                  0.48;
+                  1;
 
               } else {
 
