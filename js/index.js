@@ -930,13 +930,13 @@ anatomyParts.forEach(
     }
 );
 
-// updateAllHotspotPositions();
+updateAllHotspotPositions();
       /*
        * Apply the default/selected clinical zone after
        * the GLB has finished loading.
        */
 
- //     applyZone(activeZone);
+applyZone(activeZone);
 
       console.info(
         "Favor 3D anatomy loaded.",
