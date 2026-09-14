@@ -654,9 +654,8 @@
     left:0;
     top:0;
 
-    display:flex;
-    align-items:center;
-    gap:.45rem;
+    width:12px;
+    height:12px;
 
     padding:0;
     border:0;
@@ -672,77 +671,41 @@
 
     transform:translate(-50%,-50%);
 
-    transition:
-        opacity .18s ease;
+    transition:opacity .18s ease;
 }
 
 .favor-hotspot.is-3d-visible{
     opacity:1;
 }
-
-.favor-hotspot.is-left{
-    flex-direction:row-reverse;
-}
 .favor-hotspot:before{
     content:"";
 
     position:absolute;
-
     top:50%;
 
-    width:34px;
+    width:42px;
     height:1px;
 
     background:
         linear-gradient(
             90deg,
-            rgba(99,102,241,.28),
-            rgba(99,102,241,0)
+            rgba(99,102,241,.34),
+            rgba(99,102,241,.08)
         );
 
     pointer-events:none;
 }
 
 .favor-hotspot:not(.is-left):before{
-    left:13px;
-    transform:translateX(100%);
-}
-
-.favor-hotspot.is-left:before{
-    right:13px;
-    transform:translateX(-100%);
-}
-.favor-hotspot:after{
-    content:"";
-
-    position:absolute;
-
-    top:50%;
-
-    width:42px;
-    height:1px;
-
-    pointer-events:none;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(99,102,241,.30),
-            rgba(99,102,241,.04)
-        );
-}
-
-.favor-hotspot:not(.is-left):after{
-    right:-42px;
+    left:10px;
     transform:translateY(-50%);
 }
 
-.favor-hotspot.is-left:after{
-    left:-42px;
-
+.favor-hotspot.is-left:before{
+    right:10px;
     transform:
         translateY(-50%)
-        scaleX(-1);
+        rotate(180deg);
 }
 .favor-hotspot__pulse{
     position:relative;
@@ -781,27 +744,46 @@
 }
 
 .favor-hotspot__label{
+    position:absolute;
+
+    top:50%;
+    left:28px;
+
     display:flex;
     flex-direction:column;
+
     min-width:138px;
+
     padding:.65rem .78rem .58rem;
+
     border:1px solid rgba(99,102,241,.14);
     border-radius:14px;
+
     background:
         linear-gradient(
             145deg,
             rgba(255,255,255,.97),
             rgba(248,249,255,.90)
         );
+
     box-shadow:
         0 10px 25px rgba(15,23,42,.07),
         inset 0 1px 0 rgba(255,255,255,.95);
+
     backdrop-filter:blur(14px);
+
+    transform:translateY(-50%);
+
     transition:
         transform .25s ease,
         border-color .25s ease,
         box-shadow .25s ease;
-   white-space:nowrap;
+
+    white-space:nowrap;
+}
+.favor-hotspot.is-left .favor-hotspot__label{
+    left:auto;
+    right:28px;
 }
 
 .favor-hotspot__label strong{
