@@ -1267,8 +1267,7 @@ const initFavorClinicalMap = () => {
    *
    * Mobile:
    * Keep the hero neutral until the patient selects an area.
-   *
-
+   */
 };
   /* ============================================================
      04. CONDITION FINDER
