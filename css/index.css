@@ -647,23 +647,48 @@
 /* ============================================================
    HOTSPOTS
    ============================================================ */
-
 .favor-hotspot{
     position:absolute;
     z-index:8;
+
+    left:0;
+    top:0;
+
     display:flex;
     align-items:center;
     gap:.45rem;
+
     padding:0;
     border:0;
     background:none;
+
     color:var(--text-primary);
     text-align:left;
+
     cursor:pointer;
+
+    opacity:0;
+    pointer-events:none;
+
+    transform:translate(-50%,-50%);
+
+    transition:
+        opacity .18s ease;
+}
+
+.favor-hotspot.is-3d-visible{
+    opacity:1;
+}
+
+.favor-hotspot.is-left{
+    flex-direction:row-reverse;
 }
 .favor-hotspot:before{
     content:"";
+
     position:absolute;
+
+    top:50%;
 
     width:34px;
     height:1px;
@@ -677,17 +702,47 @@
 
     pointer-events:none;
 }
-.favor-hotspot--leg:before,
-.favor-hotspot--heel:before{
+
+.favor-hotspot:not(.is-left):before{
     left:13px;
     transform:translateX(100%);
 }
 
-.favor-hotspot--ankle:before,
-.favor-hotspot--foot:before,
-.favor-hotspot--toe:before{
+.favor-hotspot.is-left:before{
     right:13px;
     transform:translateX(-100%);
+}
+.favor-hotspot:after{
+    content:"";
+
+    position:absolute;
+
+    top:50%;
+
+    width:42px;
+    height:1px;
+
+    pointer-events:none;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(99,102,241,.30),
+            rgba(99,102,241,.04)
+        );
+}
+
+.favor-hotspot:not(.is-left):after{
+    right:-42px;
+    transform:translateY(-50%);
+}
+
+.favor-hotspot.is-left:after{
+    left:-42px;
+
+    transform:
+        translateY(-50%)
+        scaleX(-1);
 }
 .favor-hotspot__pulse{
     position:relative;
@@ -746,6 +801,7 @@
         transform .25s ease,
         border-color .25s ease,
         box-shadow .25s ease;
+   white-space:nowrap;
 }
 
 .favor-hotspot__label strong{
@@ -805,78 +861,6 @@
         0 0 0 5px rgba(99,102,241,.18),
         0 7px 20px rgba(99,102,241,.28);
 }
-
-
-/* HOTSPOT POSITIONS */
-.favor-hotspot--leg{
-    left:6%;
-    top:18%;
-}
-
-.favor-hotspot--ankle{
-    right:5%;
-    top:74%;
-}
-
-.favor-hotspot--heel{
-    left:3%;
-    top:82%;
-}
-
-.favor-hotspot--foot{
-    right:2%;
-    top:85%;
-}
-
-.favor-hotspot--toe{
-    right:6%;
-    bottom:1%;
-}
-.favor-hotspot--leg:after,
-.favor-hotspot--heel:after{
-    content:"";
-
-    position:absolute;
-
-    height:1px;
-    width:42px;
-
-    right:-42px;
-    top:50%;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(99,102,241,.30),
-            rgba(99,102,241,.04)
-        );
-
-    pointer-events:none;
-}
-
-.favor-hotspot--ankle:after,
-.favor-hotspot--foot:after,
-.favor-hotspot--toe:after{
-    content:"";
-
-    position:absolute;
-
-    height:1px;
-    width:42px;
-
-    left:-42px;
-    top:50%;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(99,102,241,.04),
-            rgba(99,102,241,.30)
-        );
-
-    pointer-events:none;
-}
-
 /* ============================================================
    CONDITION PANEL
    ============================================================ */
@@ -1165,7 +1149,8 @@
 
     .favor-hotspot__label{
         min-width:auto;
-        padding:.42rem .52rem;
+        max-width:130px;
+        padding:.48rem .58rem;
     }
 
     .favor-hotspot__label small{
@@ -1175,31 +1160,6 @@
     .favor-hotspot__label strong{
         font-size:.58rem;
     }
-
-.favor-hotspot--leg{
-    left:2%;
-    top:16%;
-}
-
-.favor-hotspot--ankle{
-    right:0;
-    top:71%;
-}
-
-.favor-hotspot--heel{
-    left:0;
-    top:79%;
-}
-
-.favor-hotspot--foot{
-    right:0;
-    top:84%;
-}
-
-.favor-hotspot--toe{
-    right:4%;
-    bottom:1%;
-}
 
     .favor-map__panel{
         grid-template-columns:auto 1fr;
