@@ -63,8 +63,6 @@ const initHeroClinicalRotator = () => {
     const description =
         document.querySelector("[data-hero-description]");
 
-    const focus =
-        document.querySelector("[data-favor-focus]");
 
     if (!category || !description) {
         return;
@@ -142,7 +140,7 @@ window.favorHeroRotator = {
         rotationPaused = false;
     }
 };
-
+};
 /* ============================================================
    FAVOR 3D ANATOMICAL ENGINE
    ============================================================ */
@@ -494,6 +492,7 @@ const updatePointerInteraction = (
 
     setHoveredZone(location);
 };
+
 canvas.addEventListener(
     "pointerenter",
     () => {
@@ -501,10 +500,13 @@ canvas.addEventListener(
         pointerInside = true;
         idleRotationEnabled = false;
 
+        if (window.favorHeroRotator) {
+            window.favorHeroRotator.pause();
+        }
+
     },
     { passive:true }
 );
-
 
 canvas.addEventListener(
     "pointermove",
@@ -536,6 +538,10 @@ canvas.addEventListener(
 
         if (!prefersReducedMotion) {
             idleRotationEnabled = true;
+        }
+
+        if (window.favorHeroRotator) {
+            window.favorHeroRotator.resume();
         }
 
     },
