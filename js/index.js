@@ -161,6 +161,288 @@ controls.maxPolarAngle = 2.05;
 
 controls.target.set(0, 0, 0);
 controls.update();
+   
+const raycaster = new THREE.Raycaster();
+
+const pointer = new THREE.Vector2();
+
+const projectedPoint =
+  new THREE.Vector3();
+
+const anatomyAnchors = new Map();
+
+const hotspotElements =
+  $$("[data-location]", map);
+
+let hoveredZone = null;
+
+let pointerInside = false;
+
+let pointerDownX = 0;
+let pointerDownY = 0;
+
+let pointerDragged = false;
+
+const normalizeZoneName = (name) => {
+
+    const normalized =
+        String(name || "").toLowerCase();
+
+    return normalized === "toes"
+        ? "toe"
+        : normalized;
+};
+
+
+const updateHotspotPosition = (
+    location
+) => {
+
+    const hotspot =
+        hotspotElements.find(
+            (element) =>
+                element.dataset.location === location
+        );
+
+    const anchor =
+        anatomyAnchors.get(location);
+
+    if (!hotspot || !anchor) {
+        return;
+    }
+
+    projectedPoint
+        .copy(anchor)
+        .project(camera);
+
+    const rect =
+        canvas.getBoundingClientRect();
+
+    const x =
+        (projectedPoint.x * 0.5 + 0.5)
+        * rect.width;
+
+    const y =
+        (-projectedPoint.y * 0.5 + 0.5)
+        * rect.height;
+
+    hotspot.style.left =
+        `${x}px`;
+
+    hotspot.style.top =
+        `${y}px`;
+
+    hotspot.classList.toggle(
+        "is-left",
+        x > rect.width * 0.58
+    );
+};
+
+
+const updateAllHotspotPositions = () => {
+
+    if (!anatomyAnchors.size) {
+        return;
+    }
+
+    anatomyAnchors.forEach(
+        (_, location) => {
+            updateHotspotPosition(
+                location
+            );
+        }
+    );
+
+};
+
+const setHoveredZone = (
+    location
+) => {
+
+    if (hoveredZone === location) {
+        return;
+    }
+
+    hoveredZone = location;
+
+    hotspotElements.forEach(
+        (hotspot) => {
+
+            hotspot.classList.toggle(
+                "is-3d-visible",
+                hotspot.dataset.location === location
+            );
+
+        }
+    );
+
+};
+
+const updatePointerInteraction = (
+    event
+) => {
+
+    if (!anatomyParts.length) {
+        return;
+    }
+
+    const rect =
+        canvas.getBoundingClientRect();
+
+    pointer.x =
+        ((event.clientX - rect.left) /
+            rect.width) * 2 - 1;
+
+    pointer.y =
+        -((event.clientY - rect.top) /
+            rect.height) * 2 + 1;
+
+    raycaster.setFromCamera(
+        pointer,
+        camera
+    );
+
+    const intersections =
+        raycaster.intersectObjects(
+            anatomyParts.map(
+                ({ object }) => object
+            ),
+            false
+        );
+
+    if (!intersections.length) {
+
+        setHoveredZone(null);
+
+        return;
+    }
+
+    const hit =
+        intersections[0].object;
+
+    const location =
+        normalizeZoneName(hit.name);
+
+    const validZones = [
+        "leg",
+        "ankle",
+        "heel",
+        "foot",
+        "toe"
+    ];
+
+    if (
+        !validZones.includes(location)
+    ) {
+        setHoveredZone(null);
+
+        return;
+    }
+
+    setHoveredZone(location);
+};
+canvas.addEventListener(
+    "pointerenter",
+    () => {
+        pointerInside = true;
+    },
+    { passive:true }
+);
+
+
+canvas.addEventListener(
+    "pointermove",
+    (event) => {
+
+        pointerInside = true;
+
+        updatePointerInteraction(
+            event
+        );
+
+    },
+    { passive:true }
+);
+
+
+canvas.addEventListener(
+    "pointerleave",
+    () => {
+
+        pointerInside = false;
+
+        if (
+            window.matchMedia(
+                "(hover:hover)"
+            ).matches
+        ) {
+            setHoveredZone(null);
+        }
+
+    },
+    { passive:true }
+);
+
+
+canvas.addEventListener(
+    "pointerdown",
+    (event) => {
+
+        pointerDownX =
+            event.clientX;
+
+        pointerDownY =
+            event.clientY;
+
+        pointerDragged = false;
+
+    },
+    { passive:true }
+);
+
+
+canvas.addEventListener(
+    "pointermove",
+    (event) => {
+
+        if (
+            Math.hypot(
+                event.clientX - pointerDownX,
+                event.clientY - pointerDownY
+            ) > 6
+        ) {
+            pointerDragged = true;
+        }
+
+    },
+    { passive:true }
+);
+canvas.addEventListener(
+    "click",
+    () => {
+
+        if (pointerDragged) {
+            return;
+        }
+
+        if (!hoveredZone) {
+            return;
+        }
+
+        const hotspot =
+            hotspotElements.find(
+                (element) =>
+                    element.dataset.location ===
+                    hoveredZone
+            );
+
+        if (hotspot) {
+            hotspot.click();
+        }
+
+    }
+);
+
 
   /* ==========================================================
      LIGHTING
@@ -501,7 +783,32 @@ controls.update();
       frameModel();
 
       resize();
+anatomyAnchors.clear();
 
+anatomyParts.forEach(
+    ({ object, name }) => {
+
+        const location =
+            normalizeZoneName(name);
+
+        const box =
+            new THREE.Box3()
+                .setFromObject(object);
+
+        const center =
+            box.getCenter(
+                new THREE.Vector3()
+            );
+
+        anatomyAnchors.set(
+            location,
+            center
+        );
+
+    }
+);
+
+updateAllHotspotPositions();
       /*
        * Apply the default/selected clinical zone after
        * the GLB has finished loading.
@@ -552,17 +859,19 @@ controls.update();
 
 const render = () => {
 
-  animationFrame =
-    window.requestAnimationFrame(
-      render
+    animationFrame =
+        window.requestAnimationFrame(
+            render
+        );
+
+    controls.update();
+
+    updateAllHotspotPositions();
+
+    renderer.render(
+        scene,
+        camera
     );
-
-  controls.update();
-
-  renderer.render(
-    scene,
-    camera
-  );
 
 };
 
@@ -866,11 +1175,7 @@ const initFavorClinicalMap = () => {
    *
    * Mobile:
    * Keep the hero neutral until the patient selects an area.
-   */
-
-  if (window.innerWidth > 768) {
-    activateLocation("leg");
-  }
+   *
 
 };
   /* ============================================================
