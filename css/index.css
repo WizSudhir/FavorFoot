@@ -1364,8 +1364,466 @@
 /* ============================================================
    04. CLINICAL APPROACH
    ============================================================ */
-.home-approach{background:var(--bg-surface-soft)}.home-approach__grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:5rem;align-items:center}.home-approach__visual{position:relative}.home-approach__image{overflow:hidden;border-radius:30px;box-shadow:0 25px 70px rgba(15,23,42,.12)}.home-approach__image img{width:100%;aspect-ratio:1/1;object-fit:cover}.home-approach__stamp{position:absolute;right:-22px;bottom:28px;padding:1rem 1.2rem;border-radius:18px;background:#fff;box-shadow:0 15px 40px rgba(15,23,42,.13)}.home-approach__stamp span{display:block;font-size:.65rem;font-weight:800;letter-spacing:.15em;color:var(--brand-accent-500)}.home-approach__stamp strong{display:block;margin-top:.2rem;font-size:.86rem}.home-approach__list{margin-top:1.7rem}.home-approach__list>div{display:grid;grid-template-columns:42px 1fr;gap:.9rem;padding:1rem 0;border-top:1px solid var(--border-color)}.home-approach__list>div:last-child{border-bottom:1px solid var(--border-color)}.home-approach__list>div>span{font-size:.8rem;font-weight:800;color:var(--brand-accent-500)}.home-approach__list strong{font-size:.98rem}.home-approach__list p{margin-top:.2rem;font-size:.87rem}.text-link{display:inline-flex;align-items:center;gap:.45rem;margin-top:1.5rem;color:var(--brand-navy-600);font-weight:800;text-decoration:none}.text-link:hover{color:var(--brand-accent-600)}
 
+.home-approach{
+    background:var(--bg-surface-soft);
+}
+
+.home-approach__grid{
+    display:grid;
+    grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+    gap:5rem;
+    align-items:center;
+}
+
+.home-approach__visual{
+    position:relative;
+    width:100%;
+}
+
+/* ============================================================
+   BEYOND THE SYMPTOM — PREMIUM CLINICAL VISUAL
+   ============================================================ */
+
+.approach-visual{
+    position:relative;
+    min-height:520px;
+    overflow:hidden;
+    border:1px solid rgba(99,102,241,.14);
+    border-radius:30px;
+    background:
+        radial-gradient(
+            circle at 50% 42%,
+            rgba(99,102,241,.10),
+            transparent 34%
+        ),
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #f8f9ff 55%,
+            #f1f3ff 100%
+        );
+    box-shadow:
+        0 25px 70px rgba(15,23,42,.10),
+        inset 0 1px 0 rgba(255,255,255,.95);
+}
+
+/* subtle clinical grid */
+
+.approach-visual__grid{
+    position:absolute;
+    inset:0;
+    opacity:.32;
+    pointer-events:none;
+
+    background-image:
+        linear-gradient(
+            rgba(99,102,241,.045) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(99,102,241,.045) 1px,
+            transparent 1px
+        );
+
+    background-size:30px 30px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            transparent 0%,
+            #000 18%,
+            #000 82%,
+            transparent 100%
+        );
+}
+
+/* decorative clinical rings */
+
+.approach-visual__ring{
+    position:absolute;
+    left:50%;
+    top:43%;
+    transform:translate(-50%,-50%);
+    border:1px solid rgba(99,102,241,.08);
+    border-radius:50%;
+    pointer-events:none;
+}
+
+.approach-visual__ring--one{
+    width:330px;
+    height:330px;
+}
+
+.approach-visual__ring--two{
+    width:450px;
+    height:450px;
+    border-color:rgba(99,102,241,.045);
+}
+
+/* top header */
+
+.approach-visual__header{
+    position:relative;
+    z-index:3;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:1rem;
+
+    padding:1.25rem 1.35rem 0;
+}
+
+.approach-visual__eyebrow{
+    font-size:.62rem;
+    font-weight:900;
+    letter-spacing:.16em;
+    color:var(--brand-accent-600);
+}
+
+.approach-visual__status{
+    display:flex;
+    align-items:center;
+    gap:.4rem;
+
+    padding:.4rem .58rem;
+
+    border:1px solid rgba(99,102,241,.12);
+    border-radius:999px;
+
+    background:rgba(255,255,255,.72);
+
+    color:var(--text-muted);
+    font-size:.52rem;
+    font-weight:800;
+    letter-spacing:.08em;
+}
+
+.approach-visual__status span{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#22c55e;
+
+    box-shadow:
+        0 0 0 4px rgba(34,197,94,.10);
+}
+
+/* center composition */
+
+.approach-visual__center{
+    position:absolute;
+    left:50%;
+    top:45%;
+
+    width:100%;
+    transform:translate(-50%,-50%);
+
+    text-align:center;
+}
+
+.approach-visual__label{
+    position:relative;
+    z-index:3;
+
+    display:inline-flex;
+    align-items:center;
+
+    padding:.42rem .72rem;
+
+    border:1px solid rgba(99,102,241,.13);
+    border-radius:999px;
+
+    background:rgba(255,255,255,.78);
+
+    color:var(--text-muted);
+    font-size:.5rem;
+    font-weight:900;
+    letter-spacing:.16em;
+
+    backdrop-filter:blur(10px);
+}
+
+/* central focus point */
+
+.approach-visual__focus{
+    position:absolute;
+    left:50%;
+    top:50%;
+
+    width:150px;
+    height:150px;
+
+    transform:translate(-50%,-50%);
+    pointer-events:none;
+}
+
+.approach-visual__focus-glow{
+    position:absolute;
+    inset:0;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(99,102,241,.18),
+            rgba(99,102,241,.045) 45%,
+            transparent 72%
+        );
+
+    filter:blur(4px);
+
+    animation:approachFocusPulse 3.2s ease-in-out infinite;
+}
+
+.approach-visual__focus-dot{
+    position:absolute;
+    left:50%;
+    top:50%;
+
+    width:15px;
+    height:15px;
+
+    transform:translate(-50%,-50%);
+
+    border:4px solid #fff;
+    border-radius:50%;
+
+    background:var(--brand-accent-500);
+
+    box-shadow:
+        0 0 0 7px rgba(99,102,241,.14),
+        0 0 30px rgba(99,102,241,.24);
+}
+
+/* connecting lines */
+
+.approach-visual__connections{
+    position:absolute;
+    left:50%;
+    top:50%;
+
+    width:310px;
+    height:150px;
+
+    transform:translate(-50%,-50%);
+
+    pointer-events:none;
+}
+
+.approach-line{
+    position:absolute;
+
+    height:1px;
+
+    transform-origin:left center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(99,102,241,.32),
+            rgba(99,102,241,.04)
+        );
+}
+
+.approach-line--one{
+    left:50%;
+    top:50%;
+    width:145px;
+    transform:rotate(-28deg);
+}
+
+.approach-line--two{
+    left:50%;
+    top:50%;
+    width:125px;
+    transform:rotate(180deg);
+}
+
+.approach-line--three{
+    left:50%;
+    top:50%;
+    width:145px;
+    transform:rotate(28deg);
+}
+
+/* main typography */
+
+.approach-visual__title{
+    position:relative;
+    z-index:2;
+
+    margin-top:2rem;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    line-height:.94;
+    letter-spacing:-.055em;
+}
+
+.approach-visual__title span{
+    font-size:clamp(2.3rem,4vw,3.45rem);
+    font-weight:500;
+    color:var(--brand-navy-800);
+}
+
+.approach-visual__title strong{
+    margin-top:.18rem;
+
+    font-size:clamp(2.3rem,4vw,3.45rem);
+    font-weight:850;
+
+    color:var(--brand-accent-600);
+}
+
+.approach-visual__statement{
+    position:relative;
+    z-index:2;
+
+    margin-top:1rem;
+
+    color:var(--text-secondary);
+    font-size:.82rem;
+    font-weight:600;
+    letter-spacing:.02em;
+}
+
+/* lower conceptual path */
+
+.approach-visual__path{
+    position:absolute;
+    left:50%;
+    bottom:4.5rem;
+
+    display:flex;
+    align-items:center;
+    gap:.75rem;
+
+    transform:translateX(-50%);
+
+    white-space:nowrap;
+}
+
+.approach-visual__path span{
+    font-size:.54rem;
+    font-weight:900;
+    letter-spacing:.13em;
+    color:var(--brand-navy-600);
+}
+
+.approach-visual__path i{
+    width:28px;
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(99,102,241,.08),
+            rgba(99,102,241,.34)
+        );
+}
+
+/* footer */
+
+.approach-visual__footer{
+    position:absolute;
+    left:1.35rem;
+    right:1.35rem;
+    bottom:1.2rem;
+
+    display:flex;
+    align-items:center;
+    gap:.7rem;
+}
+
+.approach-visual__footer span{
+    font-size:.47rem;
+    font-weight:900;
+    letter-spacing:.14em;
+    color:rgba(34,36,135,.42);
+}
+
+.approach-visual__footer-line{
+    flex:1;
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(99,102,241,.10),
+            rgba(99,102,241,.24),
+            rgba(99,102,241,.10)
+        );
+}
+
+@keyframes approachFocusPulse{
+
+    0%,100%{
+        transform:scale(.88);
+        opacity:.72;
+    }
+
+    50%{
+        transform:scale(1.08);
+        opacity:1;
+    }
+
+}
+
+/* ============================================================
+   APPROACH CONTENT
+   ============================================================ */
+
+.home-approach__list{
+    margin-top:1.7rem;
+}
+
+.home-approach__list>div{
+    display:grid;
+    grid-template-columns:42px 1fr;
+    gap:.9rem;
+    padding:1rem 0;
+    border-top:1px solid var(--border-color);
+}
+
+.home-approach__list>div:last-child{
+    border-bottom:1px solid var(--border-color);
+}
+
+.home-approach__list>div>span{
+    font-size:.8rem;
+    font-weight:800;
+    color:var(--brand-accent-500);
+}
+
+.home-approach__list strong{
+    font-size:.98rem;
+}
+
+.home-approach__list p{
+    margin-top:.2rem;
+    font-size:.87rem;
+}
+
+.text-link{
+    display:inline-flex;
+    align-items:center;
+    gap:.45rem;
+    margin-top:1.5rem;
+
+    color:var(--brand-navy-600);
+    font-weight:800;
+    text-decoration:none;
+}
+
+.text-link:hover{
+    color:var(--brand-accent-600);
+}
 /* ============================================================
    05. SERVICES
    ============================================================ */
