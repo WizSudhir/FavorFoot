@@ -54,47 +54,59 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 /* ============================================================
    HERO CLINICAL ROTATOR
    ============================================================ */
-
 const initHeroClinicalRotator = () => {
 
-    const category =
-        document.querySelector("[data-hero-category]");
+    const line1 =
+        document.querySelector("[data-hero-line-1]");
 
-    const description =
-        document.querySelector("[data-hero-description]");
+    const line2 =
+        document.querySelector("[data-hero-line-2]");
 
+    const line3 =
+        document.querySelector("[data-hero-line-3]");
 
-    if (!category || !description) {
+    if (!line1 || !line2 || !line3) {
         return;
     }
 
-const slides = [
-    {
-        category: "Foot Problems",
-        description: "Change How You Move."
-    },
-    {
-        category: "Leg Problems",
-        description: "Limit Your Mobility."
-    },
-    {
-        category: "Ankle Problems",
-        description: "Affect Your Stability."
-    },
-    {
-        category: "Wounds",
-        description: "Need More Than Routine Care."
-    }
-];
+    const slides = [
+        {
+            line1: "When Foot",
+            line2: "Problems",
+            line3: "Change How You Move."
+        },
+        {
+            line1: "When Leg",
+            line2: "Problems",
+            line3: "Limit Your Mobility."
+        },
+        {
+            line1: "When Ankle",
+            line2: "Problems",
+            line3: "Affect Your Stability."
+        },
+        {
+            line1: "When Wounds",
+            line2: "Need More Than",
+            line3: "Routine Care."
+        }
+    ];
 
     let currentIndex = 0;
     let rotationTimer = null;
     let rotationPaused = false;
 
+    const rotatingLines = [
+        line1,
+        line2,
+        line3
+    ];
+
     const changeSlide = () => {
 
-        category.classList.add("is-changing");
-        description.classList.add("is-changing");
+        rotatingLines.forEach((line) => {
+            line.classList.add("is-changing");
+        });
 
         window.setTimeout(() => {
 
@@ -104,14 +116,18 @@ const slides = [
             const slide =
                 slides[currentIndex];
 
-            category.textContent =
-                slide.category;
+            line1.textContent =
+                slide.line1;
 
-            description.textContent =
-                slide.description;
+            line2.textContent =
+                slide.line2;
 
-            category.classList.remove("is-changing");
-            description.classList.remove("is-changing");
+            line3.textContent =
+                slide.line3;
+
+            rotatingLines.forEach((line) => {
+                line.classList.remove("is-changing");
+            });
 
         }, 450);
     };
@@ -121,25 +137,31 @@ const slides = [
             "(prefers-reduced-motion: reduce)"
         ).matches
     ) {
-rotationTimer = window.setInterval(
-    () => {
-        if (!rotationPaused) {
-            changeSlide();
+
+        rotationTimer = window.setInterval(
+            () => {
+
+                if (!rotationPaused) {
+                    changeSlide();
+                }
+
+            },
+            4200
+        );
+    }
+
+    window.favorHeroRotator = {
+
+        pause() {
+            rotationPaused = true;
+        },
+
+        resume() {
+            rotationPaused = false;
         }
-    },
-    4200
-);
-    }
 
-window.favorHeroRotator = {
-    pause() {
-        rotationPaused = true;
-    },
+    };
 
-    resume() {
-        rotationPaused = false;
-    }
-};
 };
 /* ============================================================
    FAVOR 3D ANATOMICAL ENGINE
