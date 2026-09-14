@@ -125,11 +125,10 @@
 
 .home-hero h1 .hero-rotating-line--accent{
     color:var(--brand-accent-600);
+    font-size:.92em;
+    letter-spacing:-.06em;
 }
 
-.home-hero h1 [data-hero-category]{
-    color:inherit;
-}
 .hero-rotating-line{
     opacity:1;
     transform:translateY(0);
