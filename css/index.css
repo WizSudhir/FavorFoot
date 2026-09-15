@@ -2563,16 +2563,16 @@
 .home-story__play{
     position:absolute;
 
-    left:50%;
-    top:50%;
+    right:24px;
+    bottom:24px;
 
     display:grid;
     place-items:center;
 
-    width:72px;
-    height:72px;
+    width:68px;
+    height:68px;
 
-    transform:translate(-50%,-50%);
+    transform:none;
 
     border:1px solid rgba(255,255,255,.55);
     border-radius:50%;
@@ -2590,7 +2590,7 @@
         box-shadow .3s ease;
 }
 .home-story__video:hover .home-story__play{
-    transform:translate(-50%,-50%) scale(1.06);
+    transform:scale(1.06);
 
     box-shadow:
         0 18px 45px rgba(0,0,0,.34),
@@ -3059,5 +3059,11 @@ body.modal-open{
    ============================================================ */
 @media (max-width:1100px){.home-hero__grid{grid-template-columns:1fr .82fr;gap:2.5rem}.home-hero__visual{min-height:520px}.home-path__grid,.home-experience__grid{grid-template-columns:repeat(2,1fr)}.home-services__grid{grid-template-columns:repeat(2,1fr)}.home-approach__grid,.home-physician__grid,.home-location__grid{gap:3rem}.home-final-cta__inner{align-items:flex-start}}
 @media (max-width:900px){.home-hero{padding:4rem 0}.home-hero__grid{grid-template-columns:1fr}.home-hero__content{text-align:center}.home-eyebrow,.home-hero__actions{justify-content:center}.home-hero__lead{margin-inline:auto}.home-hero__proof{text-align:left;margin-inline:auto}.home-hero__visual{min-height:auto;padding-top:1rem}.home-hero__portrait{width:min(500px,88vw)}.home-hero__care-card{left:calc(50% - 250px);bottom:18px}.home-hero__anatomy{right:2%;top:20px}.home-approach__grid,.home-physician__grid,.home-location__grid,.home-story__grid{grid-template-columns:1fr}.home-approach__visual{max-width:650px;margin:auto}.home-physician__portrait{margin:auto}.home-story__copy{text-align:center}.home-story__copy .section-eyebrow{justify-content:center}.home-story__copy .text-link{justify-content:center}.home-final-cta__inner{flex-direction:column}.home-final-cta__actions{flex-direction:row;flex-wrap:wrap}}
-@media (max-width:640px){.home-hero{min-height:auto;padding:3.25rem 0}.home-hero h1{font-size:clamp(2.7rem,13vw,4rem)}.home-hero__lead{font-size:1rem}.home-hero__actions{flex-direction:column}.home-hero__actions .btn{width:100%;justify-content:center}.home-hero__proof{grid-template-columns:1fr;gap:.7rem;text-align:center}.home-hero__proof div,.home-hero__proof div+div{padding:0;border:0}.home-hero__visual{padding-top:0}.home-hero__portrait{width:88vw;border-radius:44% 44% 16% 16%}.home-hero__care-card{position:relative;left:auto;bottom:auto;width:calc(100% - 2rem);max-width:none;margin:-35px auto 0;z-index:2}.home-hero__anatomy{display:none}.home-path{padding:3.5rem 0}.home-path__grid,.home-services__grid,.home-experience__grid{grid-template-columns:1fr}.home-path-card,.home-service-card,.home-experience-card{min-height:auto}.home-approach__stamp{right:10px}.home-physician__facts{grid-template-columns:1fr}.home-physician__facts div,.home-physician__facts div+div{padding:.9rem 0;border-right:0;border-bottom:1px solid var(--border-color)}.home-physician__facts div:last-child{border-bottom:0}.home-location__actions,.home-final-cta__actions{flex-direction:column}.home-location__actions .btn,.home-final-cta__actions .btn{width:100%;justify-content:center}.home-final-cta{padding:3.5rem 0}.home-final-cta h2{font-size:2rem}.home-story__play{width:58px;height:58px}}
+@media (max-width:640px){.home-hero{min-height:auto;padding:3.25rem 0}.home-hero h1{font-size:clamp(2.7rem,13vw,4rem)}.home-hero__lead{font-size:1rem}.home-hero__actions{flex-direction:column}.home-hero__actions .btn{width:100%;justify-content:center}.home-hero__proof{grid-template-columns:1fr;gap:.7rem;text-align:center}.home-hero__proof div,.home-hero__proof div+div{padding:0;border:0}.home-hero__visual{padding-top:0}.home-hero__portrait{width:88vw;border-radius:44% 44% 16% 16%}.home-hero__care-card{position:relative;left:auto;bottom:auto;width:calc(100% - 2rem);max-width:none;margin:-35px auto 0;z-index:2}.home-hero__anatomy{display:none}.home-path{padding:3.5rem 0}.home-path__grid,.home-services__grid,.home-experience__grid{grid-template-columns:1fr}.home-path-card,.home-service-card,.home-experience-card{min-height:auto}.home-approach__stamp{right:10px}.home-physician__facts{grid-template-columns:1fr}.home-physician__facts div,.home-physician__facts div+div{padding:.9rem 0;border-right:0;border-bottom:1px solid var(--border-color)}.home-physician__facts div:last-child{border-bottom:0}.home-location__actions,.home-final-cta__actions{flex-direction:column}.home-location__actions .btn,.home-final-cta__actions .btn{width:100%;justify-content:center}.home-final-cta{padding:3.5rem 0}.home-final-cta h2{font-size:2rem}.home-story__play{
+    right:18px;
+    bottom:18px;
+    width:58px;
+    height:58px;
+}
+                        }
 @media (prefers-reduced-motion:reduce){.reveal-on-scroll{opacity:1;transform:none;transition:none}.home-path-card,.home-service-card,.home-experience-card,.home-story__video img{transition:none}}
