@@ -2698,7 +2698,9 @@
 .home-story__actions .text-link:hover{
     color:var(--brand-accent-300);
 }
-
+body.modal-open{
+    overflow:hidden;
+}
 /* ============================================================
    09. LOCATION
    ============================================================ */
