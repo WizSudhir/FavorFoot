@@ -1845,7 +1845,7 @@
 .home-service-card{
     position:relative;
     display:block;
-    min-height:390px;
+    min-height:400px;
     overflow:hidden;
     border:1px solid rgba(34,36,135,.10);
     border-radius:24px;
@@ -1881,6 +1881,11 @@
 
     transform:scale(1.01);
 
+    filter:
+        brightness(1.08)
+        contrast(1.04)
+        saturate(.88);
+
     transition:
         transform .7s cubic-bezier(.2,.7,.2,1),
         filter .5s ease;
@@ -1899,10 +1904,10 @@
     background:
         linear-gradient(
             180deg,
-            rgba(8,15,35,.05) 0%,
-            rgba(8,15,35,.08) 25%,
-            rgba(8,15,35,.38) 52%,
-            rgba(8,15,35,.92) 100%
+            rgba(8,15,35,.02) 0%,
+            rgba(8,15,35,.02) 32%,
+            rgba(8,15,35,.22) 58%,
+            rgba(8,15,35,.78) 100%
         );
 
     transition:
@@ -1927,10 +1932,10 @@
     width:42px;
     height:42px;
 
-    border:1px solid rgba(255,255,255,.28);
+    border:1px solid rgba(255,255,255,.34);
     border-radius:12px;
 
-    background:rgba(255,255,255,.10);
+    background:rgba(255,255,255,.16);
     backdrop-filter:blur(12px);
 
     color:#fff;
@@ -1955,30 +1960,52 @@
     bottom:0;
     z-index:3;
 
-    padding:1.65rem;
+    height:155px;
+    box-sizing:border-box;
+
+    padding:1.45rem 1.65rem 1.55rem;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
 }
 
 .home-service-card__content h3{
-    max-width:340px;
+    max-width:360px;
 
+    min-height:3rem;
     margin:0;
+
+    display:flex;
+    align-items:flex-end;
 
     color:#fff;
 
     font-size:1.25rem;
     line-height:1.2;
+    font-weight:800;
     letter-spacing:-.025em;
+
+    text-wrap:balance;
 }
 
 .home-service-card__content p{
-    max-width:370px;
+    max-width:380px;
 
-    margin-top:.7rem;
+    height:4.25rem;
+    margin-top:.55rem;
 
-    color:rgba(255,255,255,.82);
+    overflow:hidden;
+
+    color:rgba(255,255,255,.92);
 
     font-size:.86rem;
-    line-height:1.65;
+    line-height:1.62;
+    font-weight:500;
+
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:3;
 }
 
 
@@ -1996,17 +2023,22 @@
 }
 
 .home-service-card:hover .home-service-card__image img{
-    transform:scale(1.06);
+    transform:scale(1.045);
+
+    filter:
+        brightness(1.10)
+        contrast(1.05)
+        saturate(.92);
 }
 
 .home-service-card:hover .home-service-card__overlay{
     background:
         linear-gradient(
             180deg,
-            rgba(8,15,35,.04) 0%,
-            rgba(8,15,35,.10) 22%,
-            rgba(8,15,35,.42) 52%,
-            rgba(8,15,35,.95) 100%
+            rgba(8,15,35,.03) 0%,
+            rgba(8,15,35,.04) 30%,
+            rgba(8,15,35,.24) 58%,
+            rgba(8,15,35,.80) 100%
         );
 }
 
