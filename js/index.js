@@ -1740,62 +1740,69 @@ activateLocation("foot");
   /* ============================================================
      07. TESTIMONIAL / VIDEO OVERLAY
      ============================================================ */
+const initVideo = () => {
 
-  const initVideo = () => {
-    const video = $("#home-video");
-    const playButton = $("[data-video-play]");
-    const overlay = $("[data-video-overlay]");
+    const modal = $("#home-story-modal");
+const triggers = $$(
+    "[data-home-story-trigger], [data-home-story-play]"
+);
+    const iframe = $("[data-home-story-iframe]");
+    const closeButtons = $$("[data-home-story-close]");
 
-    if (!video) {
-      return;
+   if (!modal || !triggers.length || !iframe) {
+        return;
     }
 
-    const updateVideoState = () => {
-      const playing = !video.paused && !video.ended;
+    const videoId = "yIsibft86I8";
 
-      state.videoPlaying = playing;
+    const openModal = () => {
 
-      if (overlay) {
-        overlay.classList.toggle("is-hidden", playing);
-      }
+        iframe.src =
+            `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
 
-      if (playButton) {
-        playButton.setAttribute(
-          "aria-label",
-          playing
-            ? "Pause practice video"
-            : "Play practice video"
-        );
-      }
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+
+        document.body.classList.add("modal-open");
+
+        window.setTimeout(() => {
+            const closeButton =
+                $(".home-story-modal__close");
+
+            closeButton?.focus();
+        }, 50);
     };
 
-    if (playButton) {
-      playButton.addEventListener("click", async () => {
-        try {
-          if (video.paused) {
-            await video.play();
-          } else {
-            video.pause();
-          }
-        } catch (error) {
-          console.warn(
-            "Video playback could not be started.",
-            error
-          );
+    const closeModal = () => {
+
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+
+        document.body.classList.remove("modal-open");
+
+        iframe.src = "";
+    };
+
+triggers.forEach((trigger) => {
+    trigger.addEventListener("click", openModal);
+});
+
+    closeButtons.forEach((button) => {
+        button.addEventListener("click", closeModal);
+    });
+
+    document.addEventListener("keydown", (event) => {
+
+        if (
+            event.key === "Escape" &&
+            modal.classList.contains("is-open")
+        ) {
+            closeModal();
         }
 
-        updateVideoState();
-      });
-    }
+    });
 
-    video.addEventListener("play", updateVideoState);
-    video.addEventListener("pause", updateVideoState);
-    video.addEventListener("ended", updateVideoState);
-
-    updateVideoState();
-  };
-
-
+};
   /* ============================================================
      08. SCROLL REVEAL
      ============================================================
