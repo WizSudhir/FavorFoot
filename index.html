@@ -1086,6 +1086,60 @@
                     </div>
                 </div>
             </section>
+
+<div
+    class="home-story-modal"
+    id="home-story-modal"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="home-story-modal-title"
+>
+
+    <div
+        class="home-story-modal__backdrop"
+        data-home-story-close
+    ></div>
+
+    <div class="home-story-modal__dialog">
+
+        <div class="home-story-modal__header">
+
+            <div>
+                <span class="home-story-modal__eyebrow">
+                    Patient Story
+                </span>
+
+                <h2 id="home-story-modal-title">
+                    A patient's wound-care experience at Favor
+                </h2>
+            </div>
+
+            <button
+                type="button"
+                class="home-story-modal__close"
+                data-home-story-close
+                aria-label="Close patient story"
+            >
+                <i data-lucide="x"></i>
+            </button>
+
+        </div>
+
+        <div class="home-story-modal__video">
+
+            <iframe
+                data-home-story-iframe
+                title="Patient wound care story at Favor"
+                loading="lazy"
+                allow="autoplay; encrypted-media; picture-in-picture"
+                allowfullscreen
+            ></iframe>
+
+        </div>
+
+    </div>
+</div>
             <!-- ========================================================= 09. LOCATION / LOCAL SEO ========================================================= -->
             <section class="home-location section" aria-labelledby="home-location-title">
                 <div class="container">
