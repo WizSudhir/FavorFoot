@@ -40,7 +40,6 @@
             }
         }
         </script>
-
         <script type="module" src="js/index.js"></script>
         <script type="application/ld+json">
             {"@context":"https://schema.org","@type":"MedicalClinic","name":"Favor Foot Ankle Leg & Wound Center","url":"https://wizsudhir.github.io/FavorFoot/","telephone":"+1-929-207-4669","email":"frontdesk@favorfootandwound.com","address":{"@type":"PostalAddress","streetAddress":"2045 State Route 35 STE 200","addressLocality":"South Amboy","addressRegion":"NJ","postalCode":"08879-2069","addressCountry":"US"},"medicalSpecialty":["Podiatric","Wound Care"],"physician":{"@type":"Physician","name":"Dr. Steven Wells","honorificSuffix":"DPM, PhD"}}
@@ -108,281 +107,206 @@
      02. HERO — FAVOR CLINICAL MAP
      ========================================================= -->
 <section class="home-hero" aria-labelledby="home-hero-title">
-
     <div class="home-hero__glow home-hero__glow--one" aria-hidden="true"></div>
     <div class="home-hero__glow home-hero__glow--two" aria-hidden="true"></div>
-
     <div class="container">
-
         <div class="home-hero__grid">
-
             <!-- =========================
                  HERO CONTENT
                  ========================= -->
             <div class="home-hero__content reveal-on-scroll">
-
                 <span class="home-eyebrow">
                     <span class="home-eyebrow__dot" aria-hidden="true"></span>
                     SPECIALIZED LOWER-EXTREMITY CARE
                 </span>
-
 <h1 id="home-hero-title" aria-live="polite">
-
     <span class="hero-rotating-line"
           data-hero-line-1>
         When Foot
     </span>
-
     <span class="hero-rotating-line"
           data-hero-line-2>
         Problems
     </span>
-
     <span class="hero-rotating-line hero-rotating-line--accent"
           data-hero-line-3>
         Change Your Stride.
     </span>
-
 </h1>
-
                 <p class="home-hero__lead">
-                    Focused care for foot, ankle, leg and wound conditions — 
-                    with thoughtful evaluation, targeted treatment and a clear 
+                    Focused care for foot, ankle, leg and wound conditions —
+                    with thoughtful evaluation, targeted treatment and a clear
                     path toward healing, mobility and limb preservation.
                 </p>
-
                 <div class="home-hero__actions">
-
                     <a href="contact.html"
                        class="btn btn-accent btn-lg"
                        data-primary-cta>
                         <i data-lucide="calendar-check" aria-hidden="true"></i>
                         Schedule an Appointment
                     </a>
-
                     <a href="services.html#conditions"
                        class="btn btn-outline btn-lg">
                         <i data-lucide="scan-line" aria-hidden="true"></i>
                         Find Your Care Path
                     </a>
-
                 </div>
-
                 <!-- =========================
                      PRACTICE PROOF
                      ========================= -->
                 <div class="home-hero__proof">
-
                     <div>
                         <strong>29+</strong>
                         <span>Years of clinical experience</span>
                     </div>
-
                     <div>
                         <strong>DPM • PhD</strong>
                         <span>Physician-led specialized care</span>
                     </div>
-
                     <div>
                         <strong>Lower Extremity</strong>
                         <span>Foot • ankle • leg • wound</span>
                     </div>
-
                 </div>
-
             </div>
-
-
             <!-- =========================
                  FAVOR CLINICAL MAP
                  ========================= -->
             <div class="home-hero__visual reveal-on-scroll">
-
                 <div class="favor-map"
                      data-favor-map
                      aria-label="Interactive Favor lower extremity clinical map">
-
                     <!-- MAP HEADER -->
                     <div class="favor-map__header">
-
                         <div>
                             <span class="favor-map__eyebrow">
                                 FAVOR CLINICAL MAP
                             </span>
-
                             <strong>
                                 Explore the Lower Extremity
                             </strong>
                         </div>
-
                         <span class="favor-map__status">
                             <span></span>
                             <strong data-favor-focus>FOCUS: FOOT</strong>
                         </span>
-
                     </div>
-
-
                     <!-- ANATOMICAL VISUAL -->
                     <div class="favor-map__canvas">
                         <div class="favor-map__scan" aria-hidden="true"></div>
-
                         <div class="favor-map__scan-label favor-map__scan-label--top" aria-hidden="true">
                             CLINICAL VISUALIZATION
                         </div>
-
                         <div class="favor-map__scan-label favor-map__scan-label--bottom" aria-hidden="true">
                             LOWER EXTREMITY
                         </div>
-
 <!-- ========================================================
      THREE.JS ANATOMICAL ENGINE
      ======================================================== -->
-
 <div class="favor-map__3d-stage"
      aria-label="Interactive 3D lower extremity anatomy">
-
     <canvas
         id="favor-anatomy-3d"
         class="favor-map__3d"
         aria-label="Three dimensional lower extremity anatomical visualization">
     </canvas>
-
     <div class="favor-map__3d-loading"
          id="favor-anatomy-loading"
          aria-live="polite">
         <span class="favor-map__3d-loading-dot"></span>
         <span>Loading clinical visualization</span>
     </div>
-
     <div class="favor-map__3d-error"
          id="favor-anatomy-error"
          role="status"
          hidden>
         Clinical visualization unavailable.
     </div>
-
 </div>
-
                         <!-- =========================
                              INTERACTIVE HOTSPOTS
                              ========================= -->
-
                         <button class="favor-hotspot favor-hotspot--leg"
                                 type="button"
                                 data-location="leg"
                                 aria-label="Explore leg conditions">
-
                             <span class="favor-hotspot__pulse"></span>
                             <span class="favor-hotspot__label">
                                 <strong>LEG</strong>
                                 <small>Support & movement</small>
                             </span>
-
                         </button>
-
-
                         <button class="favor-hotspot favor-hotspot--ankle"
                                 type="button"
                                 data-location="ankle"
                                 aria-label="Explore ankle conditions">
-
                             <span class="favor-hotspot__pulse"></span>
                             <span class="favor-hotspot__label">
                                 <strong>ANKLE</strong>
                                 <small>Stability & injury</small>
                             </span>
-
                         </button>
-
-
                         <button class="favor-hotspot favor-hotspot--heel"
                                 type="button"
                                 data-location="heel"
                                 aria-label="Explore heel conditions">
-
                             <span class="favor-hotspot__pulse"></span>
                             <span class="favor-hotspot__label">
                                 <strong>HEEL</strong>
                                 <small>Pain & pressure</small>
                             </span>
-
                         </button>
-
-
                         <button class="favor-hotspot favor-hotspot--foot"
                                 type="button"
                                 data-location="foot"
                                 aria-label="Explore foot conditions">
-
                             <span class="favor-hotspot__pulse"></span>
                             <span class="favor-hotspot__label">
                                 <strong>FOOT</strong>
                                 <small>Structure & function</small>
                             </span>
-
                         </button>
-
-
                         <button class="favor-hotspot favor-hotspot--toe"
                                 type="button"
                                 data-location="toe"
                                 aria-label="Explore toe conditions">
-
                             <span class="favor-hotspot__pulse"></span>
                             <span class="favor-hotspot__label">
                                 <strong>TOES</strong>
                                 <small>Gout & deformity</small>
                             </span>
-
                         </button>
-
                     </div>
-
-
                     <!-- CONDITION PANEL -->
                     <div class="favor-map__panel"
                          data-favor-panel
                          aria-live="polite">
-
                         <div class="favor-map__panel-marker">
                             <span></span>
                             <small>CLINICAL ZONE</small>
                         </div>
-
                         <div class="favor-map__panel-copy">
-
                             <span data-favor-panel-kicker>
                                 WHERE DOES IT HURT?
                             </span>
-
                             <strong data-favor-panel-title>
                                 Explore by location
                             </strong>
-
                             <p data-favor-panel-text>
                                 Select an area to see common concerns and find the right path to care.
                             </p>
-
                         </div>
-
                         <a href="services.html#conditions"
                            class="favor-map__panel-link"
                            data-favor-panel-link>
                             Explore Conditions
                             <span aria-hidden="true">→</span>
                         </a>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
 </section>
             <!-- ========================================================= 03. IMMEDIATE CARE PATH ========================================================= -->
             <section class="home-path" aria-labelledby="home-path-title">
@@ -474,60 +398,47 @@
                 <div class="container">
                     <div class="home-approach__grid">
 <div class="home-approach__visual reveal-on-scroll">
-
     <div class="approach-visual">
-
         <!-- Subtle clinical grid -->
         <div class="approach-visual__grid" aria-hidden="true"></div>
-
         <!-- Decorative rings -->
         <div class="approach-visual__ring approach-visual__ring--one" aria-hidden="true"></div>
         <div class="approach-visual__ring approach-visual__ring--two" aria-hidden="true"></div>
-
         <!-- Header -->
         <div class="approach-visual__header">
             <span class="approach-visual__eyebrow">
                 FAVOR CLINICAL APPROACH
             </span>
-
             <span class="approach-visual__status">
                 <span></span>
                 PATIENT-CENTERED
             </span>
         </div>
-
         <!-- Main visual -->
         <div class="approach-visual__center">
-
             <div class="approach-visual__label">
                 LOOK DEEPER
             </div>
-
             <!-- Clinical connection lines -->
             <div class="approach-visual__connections" aria-hidden="true">
                 <span class="approach-line approach-line--one"></span>
                 <span class="approach-line approach-line--two"></span>
                 <span class="approach-line approach-line--three"></span>
             </div>
-
             <!-- Central clinical point -->
             <div class="approach-visual__focus">
                 <span class="approach-visual__focus-glow"></span>
                 <span class="approach-visual__focus-dot"></span>
             </div>
-
             <!-- Concept -->
             <div class="approach-visual__title">
                 <span>BEYOND</span>
                 <strong>THE SYMPTOM</strong>
             </div>
-
             <p class="approach-visual__statement">
                 Understand deeply. Treat thoughtfully.
             </p>
-
         </div>
-
         <!-- Lower conceptual path -->
         <div class="approach-visual__path" aria-hidden="true">
             <span>SYMPTOM</span>
@@ -536,16 +447,13 @@
             <i></i>
             <span>CARE</span>
         </div>
-
         <!-- Footer -->
         <div class="approach-visual__footer">
             <span>HEALING</span>
             <span class="approach-visual__footer-line"></span>
             <span>MOBILITY</span>
         </div>
-
     </div>
-
 </div>
                         <div class="home-approach__content reveal-on-scroll">
                             <span class="section-eyebrow">
@@ -615,32 +523,25 @@
             <section class="home-services section" id="services" aria-labelledby="home-services-title">
                 <div class="container">
  <div class="section-heading home-services__heading reveal-on-scroll">
-
     <span class="section-eyebrow">
         Specialized Services
     </span>
-
     <h2 id="home-services-title">
         Specialized care for
         <span class="text-brand">
             every part of your journey.
         </span>
     </h2>
-
     <p>
         From wound and limb-preservation care to advanced diagnostics,
         surgery and biomechanical support, discover the specialized services
         available at Favor.
     </p>
-
 </div>
-
 <div class="home-services__grid">
-
     <!-- SERVICE 01 -->
     <a href="services.html"
        class="home-service-card home-service-card--01 reveal-on-scroll">
-
         <div class="home-service-card__image">
             <img
                 src="assets/images/service-01-diabetic-wound-care.webp"
@@ -649,33 +550,23 @@
                 width="1200"
                 height="800">
         </div>
-
         <div class="home-service-card__overlay"></div>
-
         <span class="home-service-card__number">
             01
         </span>
-
         <div class="home-service-card__content">
-
             <h3>
                 Diabetic Limb Salvage & Wound Care
             </h3>
-
             <p>
                 Specialized care for diabetic and complex lower-extremity
                 wounds with a focus on healing, tissue protection and mobility.
             </p>
-
         </div>
-
     </a>
-
-
     <!-- SERVICE 02 -->
     <a href="services.html"
        class="home-service-card home-service-card--02 reveal-on-scroll">
-
         <div class="home-service-card__image">
             <img
                 src="assets/images/service-02-regenerative-medicine.webp"
@@ -684,33 +575,23 @@
                 width="1200"
                 height="800">
         </div>
-
         <div class="home-service-card__overlay"></div>
-
         <span class="home-service-card__number">
             02
         </span>
-
         <div class="home-service-card__content">
-
             <h3>
                 Regenerative Medicine
             </h3>
-
             <p>
                 Advanced treatment approaches designed to support tissue
                 recovery and address selected musculoskeletal conditions.
             </p>
-
         </div>
-
     </a>
-
-
     <!-- SERVICE 03 -->
     <a href="services.html"
        class="home-service-card home-service-card--03 reveal-on-scroll">
-
         <div class="home-service-card__image">
             <img
                 src="assets/images/service-03-high-tech-diagnostics.webp"
@@ -719,33 +600,23 @@
                 width="1200"
                 height="800">
         </div>
-
         <div class="home-service-card__overlay"></div>
-
         <span class="home-service-card__number">
             03
         </span>
-
         <div class="home-service-card__content">
-
             <h3>
                 High-Tech Diagnostics
             </h3>
-
             <p>
                 Modern diagnostic tools help our clinical team better
                 understand structure, function and underlying causes.
             </p>
-
         </div>
-
     </a>
-
-
     <!-- SERVICE 04 -->
     <a href="services.html"
        class="home-service-card home-service-card--04 reveal-on-scroll">
-
         <div class="home-service-card__image">
             <img
                 src="assets/images/service-04-laser-therapies.webp"
@@ -754,33 +625,23 @@
                 width="1200"
                 height="800">
         </div>
-
         <div class="home-service-card__overlay"></div>
-
         <span class="home-service-card__number">
             04
         </span>
-
         <div class="home-service-card__content">
-
             <h3>
                 Laser & Specialized Therapies
             </h3>
-
             <p>
                 Non-invasive and specialized treatment technologies may be
                 incorporated into an individualized care plan when appropriate.
             </p>
-
         </div>
-
     </a>
-
-
     <!-- SERVICE 05 -->
     <a href="services.html"
        class="home-service-card home-service-card--05 reveal-on-scroll">
-
         <div class="home-service-card__image">
             <img
                 src="assets/images/service-05-reconstructive-surgery.webp"
@@ -789,33 +650,23 @@
                 width="1200"
                 height="800">
         </div>
-
         <div class="home-service-card__overlay"></div>
-
         <span class="home-service-card__number">
             05
         </span>
-
         <div class="home-service-card__content">
-
             <h3>
                 Reconstructive Foot Surgery
             </h3>
-
             <p>
                 Surgical solutions for selected deformities, structural
                 problems, injuries and conditions requiring reconstruction.
             </p>
-
         </div>
-
     </a>
-
-
     <!-- SERVICE 06 -->
     <a href="services.html"
        class="home-service-card home-service-card--06 reveal-on-scroll">
-
         <div class="home-service-card__image">
             <img
                 src="assets/images/service-06-custom-orthotics.webp"
@@ -824,30 +675,21 @@
                 width="1200"
                 height="800">
         </div>
-
         <div class="home-service-card__overlay"></div>
-
         <span class="home-service-card__number">
             06
         </span>
-
         <div class="home-service-card__content">
-
             <h3>
                 Custom Orthotics & Bracing
             </h3>
-
             <p>
                 Personalized devices designed to support alignment,
                 redistribute pressure and improve comfort and function.
             </p>
-
         </div>
-
     </a>
-
 </div>
-
                     <div class="home-services__cta reveal-on-scroll">
                         <a href="services.html" class="btn btn-primary">
                             Explore All Services
@@ -1028,7 +870,6 @@
                                 <span>real experiences from Favor patients</span>
                             </div>
 <div class="home-story__actions">
-
     <button
         type="button"
         class="text-link"
@@ -1039,12 +880,10 @@
         Watch this story
         <span aria-hidden="true">→</span>
     </button>
-
     <a href="contact.html#patient-stories" class="text-link home-story__stories-link">
         Explore more stories
         <span aria-hidden="true">→</span>
     </a>
-
 </div>
                         </div>
 <button
@@ -1055,7 +894,6 @@
     aria-haspopup="dialog"
     aria-label="Watch patient wound care story"
 >
-
     <img
         src="https://img.youtube.com/vi/yIsibft86I8/maxresdefault.jpg"
         alt="Patient wound care story"
@@ -1063,26 +901,20 @@
         width="1280"
         height="720"
     >
-
     <span class="home-story__video-overlay" aria-hidden="true"></span>
-
     <span class="home-story__play" aria-hidden="true">
         <i data-lucide="play"></i>
     </span>
-
     <span class="home-story__video-label">
         Featured Patient Story
     </span>
-
     <span class="home-story__video-caption">
         A patient's wound-care experience at Favor
     </span>
-
 </button>
                     </div>
                 </div>
             </section>
-
 <div
     class="home-story-modal"
     id="home-story-modal"
@@ -1091,26 +923,20 @@
     aria-modal="true"
     aria-labelledby="home-story-modal-title"
 >
-
     <div
         class="home-story-modal__backdrop"
         data-home-story-close
     ></div>
-
     <div class="home-story-modal__dialog">
-
         <div class="home-story-modal__header">
-
             <div>
                 <span class="home-story-modal__eyebrow">
                     Patient Story
                 </span>
-
                 <h2 id="home-story-modal-title">
                     A patient's wound-care experience at Favor
                 </h2>
             </div>
-
             <button
                 type="button"
                 class="home-story-modal__close"
@@ -1119,11 +945,8 @@
             >
                 <i data-lucide="x"></i>
             </button>
-
         </div>
-
         <div class="home-story-modal__video">
-
             <iframe
                 data-home-story-iframe
                 title="Patient wound care story at Favor"
@@ -1131,9 +954,7 @@
                 allow="autoplay; encrypted-media; picture-in-picture"
                 allowfullscreen
             ></iframe>
-
         </div>
-
     </div>
 </div>
             <!-- ========================================================= 09. LOCATION / LOCAL SEO ========================================================= -->
@@ -1154,12 +975,10 @@
                                  Visit Favor Foot Ankle Leg & Wound Center in South Amboy for focused foot, ankle, leg and wound care. Our office is located at 2045 State Route 35, Suite 200, with our team available to help you plan your visit.
                             </p>
 <div class="home-location__details">
-
     <div class="home-location__detail">
         <span class="home-location__detail-icon">
             <i data-lucide="map-pin" aria-hidden="true"></i>
         </span>
-
         <div>
             <small>VISIT US</small>
             <strong>
@@ -1170,12 +989,10 @@
             </span>
         </div>
     </div>
-
     <div class="home-location__detail">
         <span class="home-location__detail-icon">
             <i data-lucide="phone" aria-hidden="true"></i>
         </span>
-
         <div>
             <small>CALL OUR OFFICE</small>
             <a href="tel:+19292074669">
@@ -1183,12 +1000,10 @@
             </a>
         </div>
     </div>
-
     <div class="home-location__detail">
         <span class="home-location__detail-icon">
             <i data-lucide="mail" aria-hidden="true"></i>
         </span>
-
         <div>
             <small>EMAIL OUR TEAM</small>
             <a href="mailto:frontdesk@favorfootandwound.com">
@@ -1196,7 +1011,6 @@
             </a>
         </div>
     </div>
-
 </div>
                             <div class="home-location__actions">
                                 <a href="contact.html" class="btn btn-accent">
@@ -1217,9 +1031,7 @@
                         </div>
                         <div class="home-location__visual reveal-on-scroll">
 <div class="home-location__visual reveal-on-scroll">
-
     <div class="home-location__photo">
-
         <img
             src="images/favor-office.webp"
             alt="Favor Foot Ankle Leg & Wound Center in South Amboy, New Jersey"
@@ -1227,20 +1039,16 @@
             width="900"
             height="700"
         >
-
         <div class="home-location__photo-card">
             <span class="home-location__photo-icon">
                 <i data-lucide="map-pin" aria-hidden="true"></i>
             </span>
-
             <div>
                 <strong>Favor Foot Ankle Leg & Wound Center</strong>
                 <span>South Amboy, New Jersey</span>
             </div>
         </div>
-
     </div>
-
 </div>
                         </div>
                     </div>
@@ -1266,17 +1074,14 @@
                             </p>
                         </div>
 <div class="home-final-cta__actions">
-
     <a href="contact.html" class="btn btn-light btn-lg">
         Request an Appointment
         <i data-lucide="arrow-right" aria-hidden="true"></i>
     </a>
-
     <a href="tel:+19292074669" class="btn btn-outline-light btn-lg">
         <i data-lucide="phone" aria-hidden="true"></i>
         Call (929) 207-4669
     </a>
-
 </div>
                     </div>
                 </div>
@@ -1286,38 +1091,26 @@
 <!-- =========================================================
      11. FOOTER — BRAND SIGNATURE
      ========================================================= -->
-
 <footer class="site-footer">
-
     <!-- SUBTLE DECORATIVE BACKGROUND -->
     <div class="site-footer__grid" aria-hidden="true"></div>
     <div class="site-footer__glow site-footer__glow--one" aria-hidden="true"></div>
     <div class="site-footer__glow site-footer__glow--two" aria-hidden="true"></div>
-
-
     <div class="footer-main">
-
         <div class="container">
-
             <!-- =================================================
                  PRIMARY FOOTER CONTENT
                  ================================================= -->
-
             <div class="footer-grid">
-
-
                 <!-- =============================================
                      BRAND
                      ============================================= -->
-
                 <div class="footer-brand">
-
                     <a
                         href="index.html"
                         class="footer-brand__identity"
                         aria-label="Favor Foot Ankle Leg & Wound Center Home"
                     >
-
                         <span class="footer-logo">
                             <img
                                 src="images/logo.webp"
@@ -1327,51 +1120,37 @@
                                 loading="lazy"
                             >
                         </span>
-
                         <span class="footer-brand__name">
                             <strong>
                                 FAVOR
                             </strong>
-
                             <span>
                                 FOOT ANKLE LEG<br>
                                 & WOUND CENTER
                             </span>
                         </span>
-
                     </a>
-
-
                     <p class="footer-description">
                         Specialized foot, ankle, leg and wound care
                         in South Amboy, New Jersey — focused on
                         thoughtful evaluation, appropriate treatment
                         and helping patients move forward.
                     </p>
-
                 </div>
-
-
-
                 <!-- =============================================
                      EXPLORE
                      ============================================= -->
-
                 <div class="footer-column">
-
                     <span class="footer-column__eyebrow">
                         Navigate
                     </span>
-
                     <h3 class="footer-title">
                         Explore
                     </h3>
-
                     <nav
                         class="footer-links"
                         aria-label="Footer navigation"
                     >
-
                         <a href="index.html">
                             <span>Home</span>
                             <i
@@ -1379,7 +1158,6 @@
                                 aria-hidden="true"
                             ></i>
                         </a>
-
                         <a href="physicians.html">
                             <span>Physicians</span>
                             <i
@@ -1387,7 +1165,6 @@
                                 aria-hidden="true"
                             ></i>
                         </a>
-
                         <a href="services.html">
                             <span>Services</span>
                             <i
@@ -1395,7 +1172,6 @@
                                 aria-hidden="true"
                             ></i>
                         </a>
-
                         <a href="patients.html">
                             <span>Patients</span>
                             <i
@@ -1403,7 +1179,6 @@
                                 aria-hidden="true"
                             ></i>
                         </a>
-
                         <a href="contact.html#patient-stories">
                             <span>Patient Stories</span>
                             <i
@@ -1411,7 +1186,6 @@
                                 aria-hidden="true"
                             ></i>
                         </a>
-
                         <a href="blog.html">
                             <span>Blog</span>
                             <i
@@ -1419,238 +1193,158 @@
                                 aria-hidden="true"
                             ></i>
                         </a>
-
                     </nav>
-
                 </div>
-
-
-
                 <!-- =============================================
                      CONTACT
                      ============================================= -->
-
                 <div class="footer-column footer-column--contact">
-
                     <span class="footer-column__eyebrow">
                         Connect
                     </span>
-
                     <h3 class="footer-title">
                         Contact
                     </h3>
-
-
                     <div class="footer-contact">
-
-
                         <!-- PHONE -->
-
                         <a
                             href="tel:+19292074669"
                             class="footer-contact__item"
                         >
-
                             <span class="footer-contact__icon">
                                 <i
                                     data-lucide="phone"
                                     aria-hidden="true"
                                 ></i>
                             </span>
-
                             <span class="footer-contact__content">
-
                                 <small>
                                     Call our office
                                 </small>
-
                                 <strong>
                                     (929) 207-4669
                                 </strong>
-
                             </span>
-
                             <i
                                 data-lucide="arrow-up-right"
                                 class="footer-contact__arrow"
                                 aria-hidden="true"
                             ></i>
-
                         </a>
-
-
-
                         <!-- EMAIL -->
-
                         <a
                             href="mailto:frontdesk@favorfootandwound.com"
                             class="footer-contact__item"
                         >
-
                             <span class="footer-contact__icon">
                                 <i
                                     data-lucide="mail"
                                     aria-hidden="true"
                                 ></i>
                             </span>
-
                             <span class="footer-contact__content">
-
                                 <small>
                                     Email our team
                                 </small>
-
                                 <strong>
                                     frontdesk@favorfootandwound.com
                                 </strong>
-
                             </span>
-
                             <i
                                 data-lucide="arrow-up-right"
                                 class="footer-contact__arrow"
                                 aria-hidden="true"
                             ></i>
-
                         </a>
-
-
-
                         <!-- ADDRESS -->
-
                         <a
                             href="https://www.google.com/maps/search/?api=1&query=2045+State+Route+35+STE+200+South+Amboy+NJ+08879"
                             class="footer-contact__item"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-
                             <span class="footer-contact__icon">
                                 <i
                                     data-lucide="map-pin"
                                     aria-hidden="true"
                                 ></i>
                             </span>
-
                             <span class="footer-contact__content">
-
                                 <small>
                                     Visit our office
                                 </small>
-
                                 <strong>
                                     2045 State Route 35,
                                     Suite 200
                                 </strong>
-
                                 <em>
                                     South Amboy, NJ 08879-2069
                                 </em>
-
                             </span>
-
                             <i
                                 data-lucide="arrow-up-right"
                                 class="footer-contact__arrow"
                                 aria-hidden="true"
                             ></i>
-
                         </a>
-
-
                     </div>
-
                 </div>
-
             </div>
-
-
-
             <!-- =================================================
                  LOCATION / BRAND SIGNATURE BAR
                  ================================================= -->
-
             <div class="footer-location-bar">
-
                 <div class="footer-location-bar__left">
-
                     <span
                         class="footer-location-bar__dot"
                         aria-hidden="true"
                     ></span>
-
                     <span>
                         Serving South Amboy, New Jersey and nearby communities.
                     </span>
-
                 </div>
-
-
                 <a
                     href="https://www.google.com/maps/search/?api=1&query=2045+State+Route+35+STE+200+South+Amboy+NJ+08879"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-
                     <span>
                         Get Directions
                     </span>
-
                     <i
                         data-lucide="arrow-up-right"
                         aria-hidden="true"
                     ></i>
-
                 </a>
-
             </div>
-
         </div>
-
     </div>
-
-
-
     <!-- =========================================================
          LEGAL / COPYRIGHT
          ========================================================= -->
-
     <div class="footer-bottom">
-
         <div class="container">
-
             <div class="footer-bottom-inner">
-
                 <span class="footer-copyright">
                     ©
                     <span id="current-year"></span>
                     Favor Foot Ankle Leg & Wound Center.
                     All rights reserved.
                 </span>
-
-
                 <div class="footer-bottom-links">
-
                     <a href="contact.html">
                         Contact Us
                     </a>
-
                     <span aria-hidden="true">
                         •
                     </span>
-
                     <a href="index.html">
                         Back to Home
                     </a>
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
 </footer>
         <button id="back-to-top" class="back-to-top" type="button" aria-label="Back to top">
             <i data-lucide="arrow-up" aria-hidden="true">
