@@ -2867,6 +2867,30 @@ html {
   background: var(--brand-navy-600);
 }
 
+.back-to-top{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    z-index:var(--z-overlay);
+    display:grid;
+    place-items:center;
+    width:46px;
+    height:46px;
+    border-radius:50%;
+    background:var(--brand-navy-700);
+    color:#fff;
+    box-shadow:0 12px 30px rgba(15,23,42,.2);
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(10px);
+    transition:opacity var(--transition-base),transform var(--transition-base),visibility var(--transition-base)
+}
+
+.back-to-top.is-visible{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0)
+}
 
 /* ============================================================
    26. ACCESSIBILITY
